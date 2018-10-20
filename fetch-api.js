@@ -45,6 +45,9 @@ let APIInfo = {
       maxResults: '20',
       },
   },
+  spotify: {
+
+  },
 }
 
 // Stores API response data in separate keys:
