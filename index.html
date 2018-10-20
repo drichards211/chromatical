@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <title>Chromatical Music Search Engine</title>
+      <meta name="description" content="Chromatical aggregates popular music content from all over the Internet">
+      <!-- Responsive viewport tag -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Google Font -->
+      <!-- add font link(s) here -->
+      <!-- Normalize.css, cross-browser reset -->
+      <link rel="stylesheet" type="text/css" href="./normalize.css">
+      <!-- Stylesheet -->
+      <link rel="stylesheet" type="text/css" href="./style.css">
+      <!-- Piano-tray Stylesheet -->
+      <link rel="stylesheet" type="text/css" href="./piano.css">
+    
+
+  </head>
+  <header role="banner">
+    <h1>Chromatical</h1>
+    <fieldset> 
+      <legend>Input artist, album, or song title</legend>
+      <form action="#" class="search-form">
+          <label for="query"></label>
+          <label><input type="text" id="search-term" class="js-query"></label>
+          <button type="submit">Find</button>
+        </form>
+    </fieldset>
+  </header>
+
+  <!-- PIANO TRAY =========================================== -->
+
+  <div id="footer" class="piano-tray">
+      <div id="p-wrapper">
+          <ul id="piano">
+            <!-- <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div><span></span></li> -->
+            <!-- <button type="button" class="button-start lcars-element button rounded">START</button> -->
+            <li><div class="anchor"><button type="button" class="piano-button-large" id="C">ABOUT</button></div></li>
+            <li><div class="anchor"><button type="button" class="piano-button-large" id="D">VIDEOS</button></div><span id="Db"></span></li>
+            <li><div class="anchor"><button type="button" class="piano-button-large" id="E">PURCHASE</button></div><span id="Eb"></span></li>
+            <li><div class="anchor"><button type="button" class="piano-button-large" id="F">IMAGES</button></div></li>
+            <li><div class="anchor"><button type="button" class="piano-button-large" id="G">PLAY</button></div><span id="Gb"></span></li>
+            <li><div class="anchor"><button type="button" class="piano-button-large" id="A">SIMILAR</button></div><span id="Ab"></span></li>
+            <li><div class="anchor"><button type="button" class="piano-button-large" id="B">CONCERTS</button></div><span id="Bb"></span></li>
+            
+            <!-- <li><a href="#">PLAY</a><span></span><b>Home</b></li>
+            <li><a href="#">RECOMMEND</a><span></span><b>About</b></li>
+            <li><a href="#">CONCERTS</a><span></span><b>Archives</b> -->
+            <!-- <li><a href="#"></a><span></span><b>Home</b></li>
+            <li><a href="#"></a><span></span><b>About</b></li>
+            <li><a href="#"></a><span></span><b>Archives</b> -->
+            <!--   <ul>
+                <li><a href="#">2007</a></li>
+                <li><a href="#">2006</a></li>
+                <li><a href="#">2005</a></li>
+                <li><a href="#">2004</a></li>
+              </ul> -->
+            </li>
+            
+            <!-- <li><a href="#"></a><b>Search</b>
+              <div id="search">
+                <form>
+                  <input type="text" placeholder="Search..." />
+                </form>
+              </div>
+            </li>
+            
+            <li><a href="#"></a><span></span><b>Contact Me</b>
+              <div id="contact">
+                <form>
+                  <input type="text" class="required" placeholder="Name" />
+                  <input type="text" class="required" placeholder="Email" />
+                  <textarea class="required" placeholder="Your messages..."></textarea>
+                  <input type="submit" value="Send" />
+                  <div class="clear"></div>
+                </form>
+              </div>
+            </li>
+           -->
+            <!-- <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div><span></span></li> -->
+            <!-- <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div></li> -->
+          </ul>
+        </div>
+        
+  </div>
+
+  <main role="main">
+    <section role="region" class="results-column" aria-live="assertive">
+      <p>Results go here</p>
+    </section>
+    <!-- Import jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- JavaScript page script-->
+    <script type="text/javascript" src="script.js"></script>
+    <!-- JavaScript for fetch() commands -->
+    <script type="text/javascript" src="fetch-api.js"></script>
+
+  </main>
+
+</html>

@@ -1,0 +1,17 @@
+/* DO NOT USE THIS... use only where needed */
+/* * {
+  box-sizing: border-box;
+} */
+
+/* html, body {
+  font-size: 16px;
+} */
+
+.piano-button-large {
+  cursor: pointer;
+  display: inline-block;
+  transform: rotate(-90deg);
+  /* position: relative; */
+  /* writing-mode: vertical-rl !important;
+  text-orientation: mixed !important;  */
+}
