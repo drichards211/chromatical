@@ -8,7 +8,7 @@ function handleFormInput() {
     userFormInput = $('#search-term').val()
     updateSearchParams(userFormInput)  
     console.log(userFormInput)
-    const APIList = ["wikipedia", /* "youtube", */ "itunes", "google",] // "spotify", "tastedive", "ticketmaster",]
+    const APIList = ["wikipedia", /* "youtube", */ "itunes", "google", "spotify",] // "tastedive", "ticketmaster",]
     for (let i = 0; i < APIList.length; i++) {
       fetchAPIData(APIList[i], userFormInput)
     }
@@ -19,6 +19,7 @@ function updateSearchParams(searchInput) {
   APIInfo.wikipedia.searchParams.titles = searchInput  
   APIInfo.itunes.searchParams.term = searchInput
   APIInfo.google.searchParams.q = searchInput
+  APIInfo.spotify.searchParams.q = searchInput
 }
 
   /*   

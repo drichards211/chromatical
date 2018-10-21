@@ -46,7 +46,13 @@ let APIInfo = {
       },
   },
   spotify: {
-
+    URL: "https://api.spotify.com/v1/search",
+    searchParams: {
+      H: "Authorization: Bearer 06667ace485843e2a90ef45a0c5851eb",
+      q: "This value is replaced by handleFormInput()",
+      type: "album, artist, playlist, track",
+      limit: "20",
+    },
   },
 }
 
