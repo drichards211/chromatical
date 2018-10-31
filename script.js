@@ -141,7 +141,22 @@ function updatePianoKeys() {
   } */
 }
 
+// AN EXPERIMENT
+/* function resizeKeyboard() {
+  $(".p-wrapper").css({
+      height:$(window).height(),
+      width:$(window).width()
+  });
+}
+$(function() { resizeKeyboard(); });
+$(window).resize(function() { resizeKeyboard(); });
+ */
 
+
+var windowHeight = $(window).height();
+var windowWidth = $(window).width();
+  $('#footer').scrollTop(($('#p-wrapper').height()/2)-(windowHeight/2));
+  $('#footer').scrollLeft(($('#p-wrapper').width()/2)-(windowWidth/2));
 
 $(function() {
   handleFormInput()
