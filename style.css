@@ -3,7 +3,41 @@
   box-sizing: border-box;
 } */
 
-/* html, body {
-  font-size: 16px;
+html, body {
+  /* font-family: "LCARS"; */
+  font-size: 11.5px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+#centered {
+  /* outline: 2px solid lightblue; */ /* delete me eventually */
+  position: relative;
+  display: block;
+  width: 211.8rem;/* 3400px; */  /* make this width equal to the number of piano keys needed */
+  text-align: center;
+  margin: 0 auto;
+  
+}
+
+
+
+/* .anchor {
+  display: inline;
+  /* outline: 2px solid pink; */
+/*} */
+
+/* .border {
+  display: inline;
+  
 } */
+
+p {
+  text-align: center;
+}
+
+
 

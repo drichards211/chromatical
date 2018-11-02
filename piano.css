@@ -23,6 +23,7 @@
   list-style:none;
 }
 
+
 :focus {
   outline:none !important;
 }
@@ -41,9 +42,58 @@ body {
   height:100% /* 500px; */
 }
 
+.strokeme {
+  color: white;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+/* Piano Wrapper */
+
+/* #p-wrapper {  DRDRDR
+  outline: 5px solid black;
+  position: fixed;
+  bottom: 0%;
+  width: 1000%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+} */
+
 
 .piano-button-large { /*DR*/
-/*   cursor: pointer;
+  border: none !important;
+  font-size: 1.8rem;
+  /* color: white !important; */
+  /* background-color: #edde9c; */
+  color: #ffffff;
+  
+  /* different color combos */
+  /* 0 1px 0px #526e77,
+    1px 0 0px #709aaa, */
+  text-shadow:
+    0 1px 0px #5d737e,
+    1px 0 0px #5dabcd,
+    1px 2px 1px #5d737e,
+    2px 1px 1px #5dabcd,
+    2px 3px 2px #5d737e,
+    3px 2px 2px #5dabcd,
+    3px 4px 2px #5d737e,
+    4px 3px 3px #5dabcd;
+    /* 4px 5px 3px #378ab4,
+    5px 4px 2px #5dabcd,
+    5px 6px 2px #378ab4; */
+    /* 6px 5px 2px #5dabcd,
+    6px 7px 1px #378ab4,
+    7px 6px 1px #5dabcd,
+    7px 8px 0px #378ab4,
+    8px 7px 0px #5dabcd; */
+  /* text-shadow: .1rem .1rem 0px #000000; */
+
+  /*   cursor: pointer;
   display: inline-block;
   transform: rotate(-90deg);
   color: white !important;
@@ -56,7 +106,7 @@ body {
 /* Create colorful piano keys: DR */
 #C {
   background:rgb(125,0,255) !important;
-  color: white !important;
+  /* color: white !important; */
   /* display: flex; */
   /* padding-top: 5px; */
 }
@@ -65,25 +115,25 @@ body {
 }
 #D {
   background:rgb(255,0,125) !important;
-  color: white !important;
-  padding-bottom: 20%;
+  /* color: white !important; */
+  /* padding-bottom: 20%; */
 }
 #Eb {
   /* background:rgb(0,0,0) !important; */
 }
 #E {
   background:rgb(255,125,0) !important;
-  color: white !important;
+  /* color: white !important; */
   
 }
 #F {
   background:rgb(255,255,0) !important;
-  color: white !important;
+  /* color: white !important; */
   
 }
 #G {
   background:rgb(0,255,0) !important;
-  color: white !important;
+  /* color: white !important; */
   
 }
 #Gb{
@@ -91,7 +141,7 @@ body {
 }
 #A {
   background:rgb(0,255,255) !important;
-  color: white !important;
+  /* color: white !important; */
   
 }
 #Ab {
@@ -102,7 +152,8 @@ body {
 }
 #B {
   background:rgb(0,0,255) !important;
-  color: white !important;
+    
+  /* text-shadow: 1px 1px 2px rgb(0, 0, 0); */
   
 }
 
@@ -117,55 +168,40 @@ a:hover {
 }
 
 #footer {
-  overflow: hidden;
-  width: 100%;
+  /* overflow: hidden;
+  width: 100%; */
   /* min-width: 200px; */
-  position: fixed;
+  /* position: fixed; */
   /* margin: 0 auto;*/
-  bottom: 0px;
+  /* bottom: 0px; */
   /*overflow: visible; */
   /* margin: 0 auto; */
   /* left: 50%; */
 }
 
-#center-align {
-  /* position: relative; 
-  right:-50%; */
-/*   position: relative; */
-  /* height: 500px; */
-  /* width: 100%; */
-  /* margin: 0 auto; */
-}
+/* #centered {
+  position: relative;
+  display: block;
+  width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+} */
 
-#p-wrapper {
+ #p-wrapper {
   background:#000;
   background:-webkit-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
   background:-moz-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
   background:-ms-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
   background:-o-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
   background:linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  /* position: relative; */
-  margin: 0 -50%;
-  /* height: 500px; */
-  width: 100%;
-  /* margin: 0 auto; */
-    
-  /* width:100%;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  position: relative; */
-  /* float: right;
-  right: 50%; */
-  /*DR*/
   
-  /* left: -50%; */
-  /* overflow:hidden; */ /* -20px; */
-  /* margin-left: 600px; */
-  /* right: -650px; */
-  /* vertical-align: middle; */
-  /* margin-left: 0px; */
-  /*margin-right: -50%; */
-  /*transform: translateX(-50%);*/
+  /* DR */
+  width:1000%; /*playing with this value... was 1000%*/
+  position:fixed;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* DR */
 
   -webkit-box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
   -moz-box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
@@ -199,7 +235,7 @@ a:hover {
 /* Tuts */
 ul#piano {
   display:block;
-  width:1000%; /*100%*/
+  width:100%;
   height:240px;
   border-top:2px solid #222;
 }
@@ -207,26 +243,33 @@ ul#piano {
 ul#piano li {
   list-style:none;
   float:left;
-  display:inline;
+  display:inline-block;
   background:#aaa;
-  width: 4rem;/* 40px; */
+  width: 4rem; /*DR*/
+  /* width:40px; */
   position:relative;
 }
- /* White Keys */
+
+/*WHITE KEYS*/
 ul#piano li a,ul#piano li div.anchor {
-  font-size: 1.3rem; /* DR */
-  box-sizing: border-box; /* DR */
-  padding-bottom: 20%; /* DR */
-  padding-right: 18%; /* DR */
-  /* padding-left: 22%; */ /* DR */
-  cursor: pointer; /* DR */
-  writing-mode: vertical-rl; /* DR */
-  text-orientation: mixed; /* upright; */ /* DR */
-  text-align: right; /* DR */
+
+  /* DR SETTINGS */
+  /* font-size: 2rem; */
+  /* font-weight: 600; */
+  box-sizing: border-box;
+  padding-bottom: 13%;
+  padding-right: 22%;
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  text-orientation: mixed; /* upright; */
+  text-align: right;
   display:block;
   height: 20rem;  /* 220px; */
-  width: 100%; /* DR */
-  /* background:#fff; */
+  width: 100%;
+   /* END DR SETTINGS */
+  
+  /* display:block; */
+  background:#fff; /* This may not be necessary */
   background:-webkit-linear-gradient(-30deg,#f5f5f5,#fff);
   background:-moz-linear-gradient(-30deg,#f5f5f5,#fff);
   background:-ms-linear-gradient(-30deg,#f5f5f5,#fff);
@@ -241,6 +284,36 @@ ul#piano li a,ul#piano li div.anchor {
   border-radius:0 0 3px 3px;
 }
 
+/* White Keys */
+ /* ul#piano li a,ul#piano li div.anchor {
+ /* font-size: 1.3rem; /* DR */
+/* box-sizing: border-box; /* DR */
+/*  padding-bottom: 20%; /* DR */
+/*  padding-right: 18%; /* DR */
+/*  /* padding-left: 22%; */ /* DR */
+/*  cursor: pointer; /* DR */
+/*  writing-mode: vertical-rl; /* DR */
+/*  text-orientation: mixed; /* upright; */ /* DR */
+/*  text-align: right; /* DR */
+/*  display:block;
+/*  height: 20rem;  /* 220px; */
+/*  width: 100%; /* DR */
+/*  /* background:#fff; */
+/*  background:-webkit-linear-gradient(-30deg,#f5f5f5,#fff);
+/*  background:-moz-linear-gradient(-30deg,#f5f5f5,#fff);
+/*  background:-ms-linear-gradient(-30deg,#f5f5f5,#fff);
+/*  background:-o-linear-gradient(-30deg,#f5f5f5,#fff);
+/*  background:linear-gradient(-30deg,#f5f5f5,#fff);
+/*  border:1px solid #ccc;
+/*  -webkit-box-shadow:inset 0 1px 0px #fff,inset 0 -1px 0px #fff,inset 1px 0px 0px #fff,inset -1px 0px 0px #fff,0 4px 3px rgba(0,0,0,0.7);
+/*  -moz-box-shadow:inset 0 1px 0px #fff,inset 0 -1px 0px #fff,inset 1px 0px 0px #fff,inset -1px 0px 0px #fff,0 4px 3px rgba(0,0,0,0.7);
+/*  box-shadow:inset 0 1px 0px #fff,inset 0 -1px 0px #fff,inset 1px 0px 0px #fff,inset -1px 0px 0px #fff,0 4px 3px rgba(0,0,0,0.7);
+/*  -webkit-border-radius:0 0 3px 3px;
+/*  -moz-border-radius:0 0 3px 3px;
+/*  border-radius:0 0 3px 3px;
+/* } /*
+ 
+
 /* When keys clicked */
 ul#piano li a:active,ul#piano li div.anchor:active {
   -webkit-box-shadow:0 2px 2px rgba(0,0,0,0.4);
@@ -248,26 +321,30 @@ ul#piano li a:active,ul#piano li div.anchor:active {
   box-shadow:0 2px 2px rgba(0,0,0,0.4);
   position:relative;
   top:2px;
-  height: 20rem; /* height:216px; */
+  height: 19.7rem; /* DR */
+  /* height:216px; */
 }
 
+/* Left hand shadow when piano key clicked */
 ul#piano li a:active:before,ul#piano li div.anchor:active:before {
   content:"";
   width:0px;
   height:0px;
-  border-width:/* 216px */20rem 5px 0px;
+  /* border-width:216px 5px 0px; */
+  border-width:20rem 5px 0px; /* DR */
   border-style:solid;
   border-color:transparent transparent transparent rgba(0,0,0,0.1);
   position:absolute;
   left:0px;
   top:0px;
 }
-
+/* Right hand shadow when piano key clicked */
 ul#piano li a:active:after,ul#piano li div.anchor:active:after {
   content:"";
   width:0px;
   height:0px;
-  border-width:/* 216px */ 20rem 5px 0px;
+  border-width:20rem 5px 0px; /*DR*/
+  /* border-width:216px 5px 0px; */
   border-style:solid;
   border-color:transparent rgba(0,0,0,0.1) transparent transparent;
   position:absolute;
@@ -281,8 +358,10 @@ ul#piano li span {
   position:absolute;
   top:0px;
   left:-12px;
-  width:1.8rem;/* 20px; */
-  height:11rem; /* 120px; */
+  width:1.8rem; /*DR*/
+  /* width:20px; */
+  height:11rem; /*DR*/
+  /* height:120px; */
   background:#333;
   background:-webkit-linear-gradient(-20deg,#333,#000,#333);
   background:-moz-linear-gradient(-20deg,#333,#000,#333);
@@ -301,9 +380,11 @@ ul#piano li span {
   border-radius:0 0 2px 2px;
 }
 
+/* When black piano keys pressed */
 ul#piano li span:active {
   border-bottom-width:2px;
-  height:11rem;/* 123px; */
+  height:11rem; /*DR*/
+  /* height:123px; */
   -webkit-box-shadow:inset 0px -1px 1px rgba(255,255,255,0.4),0 1px 0px rgba(0,0,0,0.8),0 2px 2px rgba(0,0,0,0.4),0 -1px 0px #000;
   -moz-box-shadow:inset 0px -1px 1px rgba(255,255,255,0.4),0 1px 0px rgba(0,0,0,0.8),0 2px 2px rgba(0,0,0,0.4),0 -1px 0px #000;
   box-shadow:inset 0px -1px 1px rgba(255,255,255,0.4),0 1px 0px rgba(0,0,0,0.8),0 2px 2px rgba(0,0,0,0.4),0 -1px 0px #000;
