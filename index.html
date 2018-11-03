@@ -33,9 +33,12 @@
 
   <!-- <div id="footer" class="piano-tray"> -->
     <!-- PIANO TRAY -->
-    <div id="p-wrapper">
-	      
-      <div id="centered">
+    <div id="p-wrapper"> <!-- class="hidden" -->
+      <input type="image" id="hide-piano" src="cmyk-triangle-m-up.png"/>  
+      <!-- <div id="hide-piano" type="button" img src="prism-triangle-large.png">TEST</div> -->
+      <!-- <input type="image" id="hide-piano" src="prism-triangle-large.png"/>  -->
+        <!-- imgsrc="/prism-triangle-large.png">SHOW ME</div> -->  
+      <div id="centered">  <!-- class="do-not-display" --><!-- class="hidden" -->
         <ul id="piano">
           <li><div class="anchor"></div></li>
           <li><div class="anchor"></div><span></span></li>
@@ -60,13 +63,15 @@
           <li><div class="anchor"></div><span></span></li>
           <li><div class="anchor"></div><span></span></li>
           <li><div class="anchor"></div><span></span></li>
-          <li><div class="anchor piano-button-large" type="button" id="C">ABOUT</div></li>
-          <li><div class="anchor piano-button-large" type="button" id="D">VIDEOS</div><span id="Db"></span></li>
-          <li><div class="anchor piano-button-large" type="button" id="E">PURCHASE</div><span id="Eb"></span></li>
-          <li><div class="anchor piano-button-large" type="button" id="F">IMAGES</div></li>
-          <li><div class="anchor piano-button-large" type="button" id="G">LISTEN</div><span id="Gb"></span></li>
-          <li><div class="anchor piano-button-large" type="button" id="A">SIMILAR</div><span id="Ab"></span></li>
-          <li><div class="anchor piano-button-large" type="button" id="B">CONCERTS</div><span id="Bb"></span></li>  <!-- class="piano-button-large" -->
+          <form class="select-content"> 
+            <li><div class="anchor piano-button-large" type="button" id="C">ABOUT</div></li>
+            <li><div class="anchor piano-button-large" type="button" id="D">VIDEOS</div><span id="Db"></span></li>
+            <li><div class="anchor piano-button-large" type="button" id="E">PURCHASE</div><span id="Eb"></span></li>
+            <li><div class="anchor piano-button-large" type="button" id="F">IMAGES</div></li>
+            <li><div class="anchor piano-button-large" type="button" id="G">LISTEN</div><span id="Gb"></span></li>
+            <li><div class="anchor piano-button-large" type="button" id="A">SIMILAR</div><span id="Ab"></span></li>
+            <li><div class="anchor piano-button-large" type="button" id="B">CONCERTS</div><span id="Bb"></span></li>  <!-- class="piano-button-large" -->
+          </form>
           <li><div class="anchor"></div></li>
           <li><div class="anchor"></div><span></span></li>
           <li><div class="anchor"></div><span></span></li>
@@ -97,16 +102,28 @@
   </div>
 
   <main role="main">
-    <section role="region" class="results-column" aria-live="assertive">
-      <p class="strokeme">Results go here</p>
-    </section>
-    <!-- Import jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!-- JavaScript page script-->
-    <script type="text/javascript" src="script.js"></script>
-    <!-- JavaScript for fetch() commands -->
-    <script type="text/javascript" src="fetch-api.js"></script>
-
+    <div class="row">
+      <section role="region" class="col-12 results-container" aria-live="assertive">
+        <p>Results go here</p>
+        <!-- <input type="image" id="hide-piano" src="prism-triangle-large.png"/>   -->
+        <!-- <div id="hide-piano" type="button" img src="prism-triangle-large.png"></div> -->
+        <!-- <a href="prism-triangle-large.png" id="hide-piano">
+            <img src="prism-triangle-large.png" alt="Prism">
+          </a> -->
+      </section>
+    </div>
+      <!-- Import jQuery -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <!-- JavaScript page script-->
+      <script type="text/javascript" src="script.js"></script>
+      <!-- JavaScript for fetch() commands -->
+      <script type="text/javascript" src="fetch-api.js"></script>
+      <!-- JavaScript to hide menus while scrolling -->
+      <script src="ScrollMagic.min.js"></script>
+      <script src="debug.addIndicators.min.js"></script>
+      
+      <!-- <script type="text/javascript" src="Headroom.js"></script>
+      <script type="text/javascript" src="jQuery.headroom.js"></script> -->
   </main>
 
 </html>

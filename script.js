@@ -8,7 +8,7 @@ function handleFormInput() {
     userFormInput = $('#search-term').val()
     updateSearchParams(userFormInput)  
     console.log(userFormInput)
-    const APIList = ["wikipedia", /* "youtube", */ "itunes", "google", "spotify",] // "tastedive", "ticketmaster",]
+    const APIList = ["wikipedia", "youtube", "itunes", "google",]// "spotify",]   "tastedive", "ticketmaster",]
     for (let i = 0; i < APIList.length; i++) {
       fetchAPIData(APIList[i], userFormInput)
     }
@@ -104,7 +104,7 @@ function renderNewContent(apiName) {
   console.log(responseData[apiName])
   let response = responseData[apiName]
   console.log(response);
-  $('.results-column').empty();
+  $('.results-container').empty();
   // if (apiName === wikipedia) {
   // do this thing
   // }
@@ -115,7 +115,7 @@ function renderNewContent(apiName) {
   //array, add a list item to the results 
   //list with the video title, description,
   //and thumbnail
-      $('.results-column').append(
+      $('.results-container').append(
         `<li><h3>${response.items[i].snippet.title}</h3>
         <p>${response.items[i].snippet.description}</p>
         <img src='${response.items[i].snippet.thumbnails.default.url}'>
@@ -158,6 +158,47 @@ var windowWidth = $(window).width();
   $('#footer').scrollTop(($('#p-wrapper').height()/2)-(windowHeight/2));
   $('#footer').scrollLeft(($('#p-wrapper').width()/2)-(windowWidth/2));
 
+/* Hide Piano Tray when scrolling */
+$(document).ready(function(){
+  $(window).scroll(function(){
+    if ($(window).scrollTop() > 50){
+      $('#centered').addClass("hidden");
+    } else {
+      $('#centered').removeClass("hidden");
+    }
+});
+});  
+
+
+/* $(document).scroll(function() {
+    $('#p-wrapper').toggle($(this).scrollTop() > 1);
+}); */
+
+/* $(document).scroll(function() {
+  $('p').toggleClass($("hidden").scrollTop() > 1);
+});
+ */
+
+/* This Works */
+/* $(document).ready(function(){
+  $(document).scroll(function(){
+      $("p").toggleClass("hidden").scrollTop() > 10
+  });
+});
+ */
+/* $('#p-wrapper').css('display','none');
+$( "#p-wrapper" ).toggleClass( "hidden" ) */
+
+/* $("header").headroom({
+  "offset": 205,
+  "tolerance": 5,
+  "classes": {
+    "initial": "animated",
+    "pinned": "slideDown",
+    "unpinned": "slideUp"
+  }
+});
+ */
 $(function() {
   handleFormInput()
   listenPianoTouch()  
