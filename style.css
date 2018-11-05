@@ -49,21 +49,77 @@ main {
 
 }
 
+.piano-circle {
+  position: relative;
+  display: block;
+  /* margin-left: auto;
+    margin-right: auto;
+    width: 50%; */
 
+}
+#piano-bw {
+  height: 18.9rem; /* 18.8rem; */ /* 15rem; */
+  width: auto;
+  /* width: 20rem; */
+  display: block;
+  margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+  
+}
+
+/* SPIN THE CIRCLE PIANO ================ */
+.spin-me {
+  
+  -webkit-animation:spin 6s linear infinite;
+    -moz-animation:spin 6s linear infinite;
+    animation:spin 6s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+/* SPIN THE CIRCLE PIANO ================ */
+
+/* HIDE THE CIRCLE PIANO ================ */
+.fade-out {
+
+
+}
+
+/* SHOW COLORED PIANO CIRCLE ===============*/
+.fade-in {
+
+}
+
+.fade-text-in {
+  -webkit-transition: display 3s;
+  -moz-transition: display 3s;
+  -o-transition: display 3s;
+  -ms-transition: display 3s;
+  transition: display 3s;
+}
+
+
+.piano-menu {
+  
+
+}
+
+/* HIDE THE PIANO MENU ================= */
 #hide-piano {
   position: relative;
   display: block;
   text-align: center;
   cursor: pointer;
   /* height: 1.2rem; */
-  height: 63.5px;
+  height: 7.8rem; /* 63.5px; */
     width: auto !important;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0.4rem;
     width: 50%;
     background: transparent;
-    opacity: 0.4;
+    opacity: 0.6;
     /* z-index: 1; */
     /* background: url(prism-triangle-large.png);
     background-repeat: no-repeat; */

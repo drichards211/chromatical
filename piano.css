@@ -12,7 +12,7 @@
  * URL: http://cssdeck.com/labs/pure-css3-vertical-piano
  */
 
-/* TO DO: convert all elements to % as opposed to pixels
+/* TO DO: convert all elements to % or rem as opposed to pixels
           delete unnecessary CSS code
 */
 
@@ -75,19 +75,23 @@ body {
   /* color: white !important; */
   /* background-color: #edde9c; */
   color: #ffffff;
-  
+  -webkit-transition: background-color 1s;
+  -moz-transition: background-color 1s;
+  -o-transition: background-color 1s;
+  -ms-transition: background-color 1s;
+  transition: background-color 1s;
   /* different color combos */
   /* 0 1px 0px #526e77,
     1px 0 0px #709aaa, */
   text-shadow:
-    0 1px 0px #5d737e,
-    1px 0 0px #5dabcd,
-    1px 2px 1px #5d737e,
-    2px 1px 1px #5dabcd,
-    2px 3px 2px #5d737e,
-    3px 2px 2px #5dabcd,
-    3px 4px 2px #5d737e,
-    4px 3px 3px #5dabcd;
+    0 1px 0px #3b3b3b,
+    1px 0 0px #808080,
+    1px 2px 1px #3b3b3b,
+    2px 1px 1px #808080,
+    2px 3px 2px #3b3b3b,
+    3px 2px 2px #808080;
+    /* 3px 4px 2px #5d737e,
+    4px 3px 3px #5dabcd; */
     /* 4px 5px 3px #378ab4,
     5px 4px 2px #5dabcd,
     5px 6px 2px #378ab4; */
@@ -108,9 +112,68 @@ body {
   text-orientation: mixed !important;  */
 }
 
+
+.white-color {
+  background-color:rgb(255,255,255) !important;
+}
+.c-color {
+  background-color:rgba(125, 0, 255, 0.4) !important; 
+}
+.d-color {
+  background-color:rgb(255,0,125, 0.4) !important;
+}
+.e-color {
+  background-color:rgb(255,125,0, 0.4) !important;
+}
+.f-color {
+  background-color:rgb(255,255,0, 0.4) !important;
+}
+.g-color {
+  background-color:rgb(0,255,0, 0.4) !important;
+}
+.a-color {
+  background-color:rgb(0,255,255, 0.4) !important;
+}
+.b-color {
+  background-color:rgb(0,0,255, 0.4) !important;
+}
+
+.c-color:hover, .c-color-bright {
+  background-color:rgb(125,0,255) !important; 
+}
+.d-color:hover, .d-color-bright {
+  background-color:rgb(255,0,125) !important;
+}
+.e-color:hover, .e-color-bright {
+  background-color:rgb(255,125,0) !important;
+}
+.f-color:hover, .f-color-bright {
+  background-color:rgb(255,255,0) !important;
+}
+.g-color:hover, .g-color-bright {
+  background-color:rgb(0,255,0) !important;
+}
+.a-color:hover, .a-color-bright {
+  background-color:rgb(0,255,255) !important;
+}
+.b-color:hover, .b-color-bright {
+  background-color:rgb(0,0,255) !important;
+}
+
+/* .c-color-bright {
+  background-color:rgb(125,0,255) !important; 
+}
+.d-color-bright {
+  background-color:rgb(255,0,125) !important;
+}
+ */
+
+/* .c-color:active {
+  background-color:rgb(125,0,255) !important; 
+} */
 /* Create colorful piano keys: DR */
 #C {
-  background:rgb(125,0,255) !important;
+  
   /* color: white !important; */
   /* display: flex; */
   /* padding-top: 5px; */
@@ -119,7 +182,7 @@ body {
   /* background:rgb(0,0,0) !important; */
 }
 #D {
-  background:rgb(255,0,125) !important;
+  
   /* color: white !important; */
   /* padding-bottom: 20%; */
 }
@@ -127,17 +190,17 @@ body {
   /* background:rgb(0,0,0) !important; */
 }
 #E {
-  background:rgb(255,125,0) !important;
+  
   /* color: white !important; */
   
 }
 #F {
-  background:rgb(255,255,0) !important;
+  
   /* color: white !important; */
   
 }
 #G {
-  background:rgb(0,255,0) !important;
+  
   /* color: white !important; */
   
 }
@@ -145,7 +208,7 @@ body {
   /* background:rgb(0,0,0) !important; */
 }
 #A {
-  background:rgb(0,255,255) !important;
+  
   /* color: white !important; */
   
 }
@@ -156,7 +219,7 @@ body {
   /* background:rgb(0,0,0) !important; */
 }
 #B {
-  background:rgb(0,0,255) !important;
+  
     
   /* text-shadow: 1px 1px 2px rgb(0, 0, 0); */
   
@@ -259,7 +322,7 @@ a:hover {
 ul#piano {
   display:block;
   width:100%;
-  height:240px;
+  height: 233px; /* 240px; */
   border-top:2px solid #222;
 }
 
