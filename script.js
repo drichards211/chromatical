@@ -63,6 +63,8 @@ function addPianoLinks() {
     }, 2300)
 } */
 
+/* PIANO BUTTONS, COLORS, AND SOUNDS ============================== */
+
 function colorizePianos() {
   /* Called by handleFormInput(). Fade-in the colorized logo, fade-out
 after delay. Render and colorize the piano-menu buttons. */
@@ -110,18 +112,51 @@ function listenPianoTouch(){
 /* When user clicks a COLORED piano button, change color to bright, 
 play sound, and call renderNewContent() with argument.  
 When user clicks a BLACK piano button, play sound. */
-  
+
+const c5 = new Audio("./sounds/c5.mp3");
+c5.preload = "auto"
+const db = new Audio("./sounds/db.mp3");
+db.preload = "auto"
+const d = new Audio("./sounds/d.mp3");
+d.preload = "auto"
+const eb = new Audio("./sounds/eb.mp3");
+eb.preload = "auto"
+const e = new Audio("./sounds/e.mp3");
+e.preload = "auto"
+const f = new Audio("./sounds/f.mp3");
+f.preload = "auto"
+const gb = new Audio("./sounds/gb.mp3");
+gb.preload = "auto"
+const g = new Audio("./sounds/g.mp3");
+g.preload = "auto"
+const ab = new Audio("./sounds/ab.mp3");
+ab.preload = "auto"
+const a = new Audio("./sounds/a.mp3");
+a.preload = "auto"
+const bb = new Audio("./sounds/bb.mp3");
+bb.preload = "auto"
+const b = new Audio("./sounds/b.mp3");
+b.preload = "auto"
+const c6 = new Audio("./sounds/c6.mp3");
+c6.preload = "auto"
+
     /* Piano note C */
     $("#piano").on('click', '#C', function(event) {
       console.log("piano key C pressed")
       resetPianoColors()   
       $('#C').removeClass('c-color').addClass('c-color-bright');
       activePianoKey = "C"
+      c5.play()
+      c5.currentTime=0;
     })
   
     /* Piano note Db */
     $("#piano").on('click', '#Db', function(event) {
       console.log("piano key Db pressed")
+      /* let db = new Audio("./sounds/db.mp3");
+      db.preload = "auto"  */
+      db.play()
+      db.currentTime=0;
     })
   
     /* Piano note D */
@@ -130,12 +165,18 @@ When user clicks a BLACK piano button, play sound. */
       resetPianoColors()   
       $('#D').removeClass('d-color').addClass('d-color-bright');
       activePianoKey = "D"
+      /* let d = new Audio("./sounds/d.mp3");
+      d.preload = "auto"  */
+      d.play()
+      d.currentTime=0;
       renderNewContent("youtube")        
     })
   
     /* Piano note Eb */
     $("#piano").on('click', '#Eb', function(event) {
-      console.log("piano key Eb pressed")    
+      console.log("piano key Eb pressed")
+      eb.play()
+      eb.currentTime=0;    
     })
     
     /* Piano note E */
@@ -144,6 +185,8 @@ When user clicks a BLACK piano button, play sound. */
       resetPianoColors()   
       $('#E').removeClass('e-color').addClass('e-color-bright');
       activePianoKey = "E"
+      e.play()
+      e.currentTime=0;
     })
     
     /* Piano note F */
@@ -152,11 +195,15 @@ When user clicks a BLACK piano button, play sound. */
       resetPianoColors()   
       $('#F').removeClass('f-color').addClass('f-color-bright');   
       activePianoKey = "F"
+      f.play()
+      f.currentTime=0;
     })
   
     /* Piano note Gb */
     $("#piano").on('click', '#Gb', function(event) {
       console.log("piano key Gb pressed")    
+      gb.play()
+      gb.currentTime=0;
     })
   
     /* Piano note G */
@@ -165,11 +212,15 @@ When user clicks a BLACK piano button, play sound. */
       resetPianoColors()   
       $('#G').removeClass('g-color').addClass('g-color-bright');
       activePianoKey = "G"
+      g.play()
+      g.currentTime=0;
     })
   
     /* Piano note Ab */
     $("#piano").on('click', '#Ab', function(event) {
-      console.log("piano key Ab pressed")    
+      console.log("piano key Ab pressed")
+      ab.play()
+      ab.currentTime=0;
     })
   
     /* Piano note A */
@@ -178,11 +229,15 @@ When user clicks a BLACK piano button, play sound. */
       resetPianoColors()   
       $('#A').removeClass('a-color').addClass('a-color-bright');
       activePianoKey = "A"
+      a.play()
+      a.currentTime=0;
     })
     
     /* Piano note Bb */
     $("#piano").on('click', '#Bb', function(event) {
       console.log("piano key Bb pressed")    
+      bb.play()
+      bb.currentTime=0;
     })
   
     /* Piano note B */
@@ -191,9 +246,66 @@ When user clicks a BLACK piano button, play sound. */
       resetPianoColors()      
       $('#B').removeClass('b-color').addClass('b-color-bright');
       activePianoKey = "B"
+      b.play()
+      b.currentTime=0;
     })
   }
-  
+
+function preLoadAudio() {
+  let pianoNotes = ["c5", "db", "d", "eb", "e", "f", "gb", "g", "ab", "a", "bb", "b", "c6",]
+
+  let pianoSounds = [
+    "./sounds/c5.mp3",
+    "./sounds/db.mp3",
+    "./sounds/d.mp3",
+    "./sounds/eb.mp3",
+    "./sounds/e.mp3",
+    "./sounds/f.mp3",
+    "./sounds/gb.mp3",
+    "./sounds/g.mp3",
+    "./sounds/ab.mp3",
+    "./sounds/a.mp3",
+    "./sounds/bb.mp3",
+    "./sounds/b.mp3",
+    "./sounds/c6.mp3",
+  ]
+  /* var c5 = new Audio("./sounds/c5.mp3");
+  c5.preload = "auto"
+  var db = new Audio("./sounds/db.mp3");
+  db.preload = "auto"
+  var d = new Audio("./sounds/d.mp3");
+  d.preload = "auto"
+  var eb = new Audio("./sounds/eb.mp3");
+  eb.preload = "auto"
+  var e = new Audio("./sounds/e.mp3");
+  e.preload = "auto"
+  var f = new Audio("./sounds/f.mp3");
+  f.preload = "auto"
+  var gb = new Audio("./sounds/gb.mp3");
+  gb.preload = "auto"
+  var g = new Audio("./sounds/g.mp3");
+  g.preload = "auto"
+  var ab = new Audio("./sounds/ab.mp3");
+  ab.preload = "auto"
+  var a = new Audio("./sounds/a.mp3");
+  a.preload = "auto"
+  var bb = new Audio("./sounds/bb.mp3");
+  bb.preload = "auto"
+  var b = new Audio("./sounds/b.mp3");
+  b.preload = "auto"
+  var c6 = new Audio("./sounds/c6.mp3");
+  c6.preload = "auto" */
+
+  /* for (var i in pianoNotes) {
+    /* var pianoNotes[i] = new Audio(`./sounds/${pianoNotes[i]}.mp3`) */
+    /* pianoNotes[i].preload = "auto";
+  } */
+
+
+  /* for (let i in pianoSounds) {
+    [i].preload = "auto";
+  } */
+}
 
 /* function resetPianoKeys() {
   console.log("resetPianoKeys ran")
@@ -328,5 +440,6 @@ $( "#p-wrapper" ).toggleClass( "hidden" ) */
 $(function() {
   handleFormInput()
   listenPianoTouch()
+  preLoadAudio()
 })
 
