@@ -112,7 +112,7 @@ body {
   text-orientation: mixed !important;  */
 }
 
-
+/* Piano key default color values */
 .white-color {
   background-color:rgb(255,255,255) !important;
 }
@@ -138,6 +138,7 @@ body {
   background-color:rgb(0,0,255, 0.4) !important;
 }
 
+/* Piano key bright color values */
 .c-color:hover, .c-color-bright {
   background-color:rgb(125,0,255) !important; 
 }

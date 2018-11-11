@@ -1,6 +1,7 @@
 'use strict'
 
 let userFormInput = ""
+let activePianoKey = "none"
 
 function handleFormInput() {
   $('.search-form').submit(event => {
@@ -63,6 +64,8 @@ function addPianoLinks() {
 } */
 
 function colorizePianos() {
+  /* Called by handleFormInput(). Fade-in the colorized logo, fade-out
+after delay. Render and colorize the piano-menu buttons. */
   console.log("colorizePianos ran")
   $(".piano-circle").html(`<img src="piano-circle-color-2.png" alt="circle piano logo" id="piano-bw" class="fade-in-logo" style="display:none">`)
   $(".fade-in-logo").fadeIn(1600).delay(300).fadeOut(2000)
@@ -104,72 +107,93 @@ function pianoKeysUpdate() {
 }
 
 function listenPianoTouch(){
-// when users click piano buttons, call renderNewContent() with appropriate argument.  
-  $("#piano").on('click', '#C', function(event) {
-    console.log("piano key C pressed")
-    resetPianoColors()   
-    $('#C').removeClass('c-color').addClass('c-color-bright');
-  })
-
-  $("#piano").on('click', '#Db', function(event) {
-    console.log("piano key Db pressed")
-  })
-
-  $("#piano").on('click', '#D', function(event) {
-    console.log("piano key D pressed")
-    resetPianoColors()   
-    $('#D').removeClass('d-color').addClass('d-color-bright');
-    renderNewContent("youtube")        
-  })
-
-  $("#piano").on('click', '#Eb', function(event) {
-    console.log("piano key Eb pressed")    
-  })
-
-  $("#piano").on('click', '#E', function(event) {
-    console.log("piano key E pressed")    
-    resetPianoColors()   
-    $('#E').removeClass('e-color').addClass('e-color-bright');
-  })
-
-  $("#piano").on('click', '#F', function(event) {
-    console.log("piano key F pressed")    
-    resetPianoColors()
-    $('#F').removeClass('f-color').addClass('f-color-bright');   
-  })
-
-  $("#piano").on('click', '#Gb', function(event) {
-    console.log("piano key Gb pressed")    
-  })
-
-  $("#piano").on('click', '#G', function(event) {
-    console.log("piano key G pressed") 
-    resetPianoColors() 
-    $('#G').removeClass('g-color').addClass('g-color-bright');     
-  })
-
-  $("#piano").on('click', '#Ab', function(event) {
-    console.log("piano key Ab pressed")    
-  })
-
-  $("#piano").on('click', '#A', function(event) {
-    console.log("piano key A pressed")
-    resetPianoColors()       
-    $('#A').removeClass('a-color').addClass('a-color-bright');
-  })
+/* When user clicks a COLORED piano button, change color to bright, 
+play sound, and call renderNewContent() with argument.  
+When user clicks a BLACK piano button, play sound. */
   
-  $("#piano").on('click', '#Bb', function(event) {
-    console.log("piano key Bb pressed")    
-  })
-
-  $("#piano").on('click', '#B', function(event) {
-    console.log("piano key B pressed") 
-    resetPianoColors()      
-    $('#B').removeClass('b-color').addClass('b-color-bright');
-  })
+    /* Piano note C */
+    $("#piano").on('click', '#C', function(event) {
+      console.log("piano key C pressed")
+      resetPianoColors()   
+      $('#C').removeClass('c-color').addClass('c-color-bright');
+      activePianoKey = "C"
+    })
+  
+    /* Piano note Db */
+    $("#piano").on('click', '#Db', function(event) {
+      console.log("piano key Db pressed")
+    })
+  
+    /* Piano note D */
+    $("#piano").on('click', '#D', function(event) {
+      console.log("piano key D pressed")
+      resetPianoColors()   
+      $('#D').removeClass('d-color').addClass('d-color-bright');
+      activePianoKey = "D"
+      renderNewContent("youtube")        
+    })
+  
+    /* Piano note Eb */
+    $("#piano").on('click', '#Eb', function(event) {
+      console.log("piano key Eb pressed")    
+    })
     
+    /* Piano note E */
+    $("#piano").on('click', '#E', function(event) {
+      console.log("piano key E pressed")    
+      resetPianoColors()   
+      $('#E').removeClass('e-color').addClass('e-color-bright');
+      activePianoKey = "E"
+    })
+    
+    /* Piano note F */
+    $("#piano").on('click', '#F', function(event) {
+      console.log("piano key F pressed")    
+      resetPianoColors()   
+      $('#F').removeClass('f-color').addClass('f-color-bright');   
+      activePianoKey = "F"
+    })
   
-}
+    /* Piano note Gb */
+    $("#piano").on('click', '#Gb', function(event) {
+      console.log("piano key Gb pressed")    
+    })
+  
+    /* Piano note G */
+    $("#piano").on('click', '#G', function(event) {
+      console.log("piano key G pressed") 
+      resetPianoColors()   
+      $('#G').removeClass('g-color').addClass('g-color-bright');
+      activePianoKey = "G"
+    })
+  
+    /* Piano note Ab */
+    $("#piano").on('click', '#Ab', function(event) {
+      console.log("piano key Ab pressed")    
+    })
+  
+    /* Piano note A */
+    $("#piano").on('click', '#A', function(event) {
+      console.log("piano key A pressed")
+      resetPianoColors()   
+      $('#A').removeClass('a-color').addClass('a-color-bright');
+      activePianoKey = "A"
+    })
+    
+    /* Piano note Bb */
+    $("#piano").on('click', '#Bb', function(event) {
+      console.log("piano key Bb pressed")    
+    })
+  
+    /* Piano note B */
+    $("#piano").on('click', '#B', function(event) {
+      console.log("piano key B pressed") 
+      resetPianoColors()      
+      $('#B').removeClass('b-color').addClass('b-color-bright');
+      activePianoKey = "B"
+    })
+  }
+  
 
 /* function resetPianoKeys() {
   console.log("resetPianoKeys ran")
@@ -186,15 +210,13 @@ function listenPianoTouch(){
  */
 
 function resetPianoColors() {
-  console.log("resetPianoColors ran")
-  let cssId = ["#C", "#D", "#E", "#F", "#G", "#A", "#B",]
-  let normalColors = ["c-color", "d-color", "e-color", "f-color", "g-color", "a-color", "b-color",]
-  let brightColors = ["c-color-bright", "d-color-bright", "e-color-bright", "f-color-bright", "g-color-bright", "a-color-bright", "b-color-bright",]
-  for (let i=0; i < normalColors.length; i++) {
-    $(`${cssId[i]}`).removeClass(`${brightColors[i]}`).addClass(`${normalColors[i]}`);
-  }
-  
+  /* Resets a previously-active (bright-colored) piano key to default color value */
+    console.log("resetPianoColors ran")
+    if ((activePianoKey === "none") === false) {
+      $(`#${activePianoKey}`).removeClass(`${activePianoKey.toLowerCase()}-color-bright`).addClass(`${activePianoKey.toLowerCase()}-color`)
+    }
 }
+
 // updates main container with new API data
 function renderNewContent(apiName) {
   console.log(`renderNewContent ran, ${apiName}`)
