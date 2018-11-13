@@ -2,6 +2,8 @@
 
 let userFormInput = ""
 let activePianoKey = "none"
+let menuActive = false
+/* let pianoHorizontal = true */
 
 function handleFormInput() {
   $('.search-form').submit(event => {
@@ -69,6 +71,7 @@ function colorizePianos() {
   /* Called by handleFormInput(). Fade-in the colorized logo, fade-out
 after delay. Render and colorize the piano-menu buttons. */
   console.log("colorizePianos ran")
+  menuActive = true
   $(".piano-circle").html(`<img src="piano-circle-color-2.png" alt="circle piano logo" id="piano-bw" class="fade-in-logo" style="display:none">`)
   $(".fade-in-logo").fadeIn(1600).delay(300).fadeOut(2000)
   setTimeout(function() {
@@ -112,6 +115,7 @@ function listenPianoTouch(){
 /* When user clicks a COLORED piano button, change color to bright, 
 play sound, and call renderNewContent() with argument.  
 When user clicks a BLACK piano button, play sound. */
+console.log("ListenPianoTouch() running")
 
 const c5 = new Audio("./sounds/c5.mp3");
 c5.preload = "auto"
@@ -141,7 +145,7 @@ const c6 = new Audio("./sounds/c6.mp3");
 c6.preload = "auto"
 
     /* Piano note C */
-    $("#piano").on('click', '#C', function(event) {
+    $("#p-wrapper").on('click', '#C', function(event) {
       console.log("piano key C pressed")
       resetPianoColors()   
       $('#C').removeClass('c-color').addClass('c-color-bright');
@@ -151,7 +155,7 @@ c6.preload = "auto"
     })
   
     /* Piano note Db */
-    $("#piano").on('click', '#Db', function(event) {
+    $("#p-wrapper").on('click', '#Db', function(event) {
       console.log("piano key Db pressed")
       /* let db = new Audio("./sounds/db.mp3");
       db.preload = "auto"  */
@@ -160,7 +164,7 @@ c6.preload = "auto"
     })
   
     /* Piano note D */
-    $("#piano").on('click', '#D', function(event) {
+    $("#p-wrapper").on('click', '#D', function(event) {
       console.log("piano key D pressed")
       resetPianoColors()   
       $('#D').removeClass('d-color').addClass('d-color-bright');
@@ -173,14 +177,14 @@ c6.preload = "auto"
     })
   
     /* Piano note Eb */
-    $("#piano").on('click', '#Eb', function(event) {
+    $("#p-wrapper").on('click', '#Eb', function(event) {
       console.log("piano key Eb pressed")
       eb.play()
       eb.currentTime=0;    
     })
     
     /* Piano note E */
-    $("#piano").on('click', '#E', function(event) {
+    $("#p-wrapper").on('click', '#E', function(event) {
       console.log("piano key E pressed")    
       resetPianoColors()   
       $('#E').removeClass('e-color').addClass('e-color-bright');
@@ -190,7 +194,7 @@ c6.preload = "auto"
     })
     
     /* Piano note F */
-    $("#piano").on('click', '#F', function(event) {
+    $("#p-wrapper").on('click', '#F', function(event) {
       console.log("piano key F pressed")    
       resetPianoColors()   
       $('#F').removeClass('f-color').addClass('f-color-bright');   
@@ -200,14 +204,14 @@ c6.preload = "auto"
     })
   
     /* Piano note Gb */
-    $("#piano").on('click', '#Gb', function(event) {
+    $("#p-wrapper").on('click', '#Gb', function(event) {
       console.log("piano key Gb pressed")    
       gb.play()
       gb.currentTime=0;
     })
   
     /* Piano note G */
-    $("#piano").on('click', '#G', function(event) {
+    $("#p-wrapper").on('click', '#G', function(event) {
       console.log("piano key G pressed") 
       resetPianoColors()   
       $('#G').removeClass('g-color').addClass('g-color-bright');
@@ -217,14 +221,14 @@ c6.preload = "auto"
     })
   
     /* Piano note Ab */
-    $("#piano").on('click', '#Ab', function(event) {
+    $("#p-wrapper").on('click', '#Ab', function(event) {
       console.log("piano key Ab pressed")
       ab.play()
       ab.currentTime=0;
     })
   
     /* Piano note A */
-    $("#piano").on('click', '#A', function(event) {
+    $("#p-wrapper").on('click', '#A', function(event) {
       console.log("piano key A pressed")
       resetPianoColors()   
       $('#A').removeClass('a-color').addClass('a-color-bright');
@@ -234,14 +238,14 @@ c6.preload = "auto"
     })
     
     /* Piano note Bb */
-    $("#piano").on('click', '#Bb', function(event) {
+    $("#p-wrapper").on('click', '#Bb', function(event) {
       console.log("piano key Bb pressed")    
       bb.play()
       bb.currentTime=0;
     })
   
     /* Piano note B */
-    $("#piano").on('click', '#B', function(event) {
+    $("#p-wrapper").on('click', '#B', function(event) {
       console.log("piano key B pressed") 
       resetPianoColors()      
       $('#B').removeClass('b-color').addClass('b-color-bright');
@@ -437,9 +441,145 @@ $( "#p-wrapper" ).toggleClass( "hidden" ) */
   }
 });
  */
+function movePiano() {
+  let mediaQuery = window.matchMedia("(max-width: 900px) and (orientation: landscape)")
+  if (mediaQuery.matches) { // If media query matches
+    console.log("Updating html for vertical piano")
+    $('#p-wrapper').html(`<nav id="nav-piano">
+        <ul>
+          <li><span class="tut"></span></li>
+          <li><a href="#">Home</a></li>
+          <li class="black-tut"><a href="#">Alternate Menu 1</a></li>
+          <li><a href="#">About</a></li>
+          <li class="black-tut"><span class="tut"></span></li>
+          <li><a href="#">Archive</a>
+            <ul>
+              <li><a href="#">Submenu 1</a></li>
+              <li><a href="#">Submenu 2</a></li>
+              <li><a href="#">Submenu 3</a></li>
+              <li><a href="#">Submenu 4</a></li>
+              <li><a href="#">Submenu 5</a></li>
+            </ul>
+          </li>
+          <li class="black-tut"><span class="tut"></span></li>
+          <li><a href="#">Contact</a></li>
+          <li><span class="tut"></span></li>
+          <li class="black-tut"><span class="tut"></span></li>
+          <li><span class="tut"></span></li>
+          <li class="black-tut"><span class="tut"></span></li>
+          <li><span class="tut"></span></li>
+          <li><span class="tut"></span></li>
+          <li class="black-tut"><span class="tut"></span></li>
+          <li><span class="tut"></span></li>
+          <li class="black-tut"><span class="tut"></span></li>
+          <li><span class="tut"></span></li>
+        </ul>
+      </nav>`
+    )
+    if (menuActive === true) {
+      console.log("Rendering piano menu buttons")
+    }
+  } else {
+    console.log("Updating html for horizontal piano")
+    $('#p-wrapper').html(`<input type="image" id="hide-piano" class="hidden" src="piano-circle-color-2.png"/>  <!-- "cmyk-triangle-m-up.png" -->
+    <!-- <div id="hide-piano" type="button" img src="prism-triangle-large.png">TEST</div> -->
+    <!-- <input type="image" id="hide-piano" src="prism-triangle-large.png"/>  -->
+      <!-- imgsrc="/prism-triangle-large.png">SHOW ME</div> -->  
+    <div id="nav-piano"> <!-- "centered" --> 
+      <ul id="piano">
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <div class="piano-menu">
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+        </div>                  
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div><span></span></li>
+        <li><div class="anchor"></div></li>
+      </ul>
+      
+    </div>`)
+    if (menuActive === true) {
+      console.log("Rendering piano menu buttons")
+      /* setTimeout(function() { */
+        $(".piano-menu").html(`<form class="select-content fade-in"> 
+          <li><div class="anchor piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></div></li>
+          <li><div class="anchor piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></div><span id="Db"></span></li>
+          <li><div class="anchor piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">PURCHASE</div></div><span id="Eb"></span></li>
+          <li><div class="anchor piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">IMAGES</div></div></li>
+          <li><div class="anchor piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></div><span id="Gb"></span></li>
+          <li><div class="anchor piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></div><span id="Ab"></span></li>
+          <li><div class="anchor piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></div><span id="Bb"></span></li>  <!-- class="piano-button-large" -->
+          </form>`)  /* "fade-text-in" */
+        /* }, 1600) */
+      setTimeout(function() {
+        console.log("setTimeout ran")
+        $(".fade-in-text").fadeIn(2000)
+        $("#C").removeClass('white-color').addClass('c-color')
+        $("#D").removeClass('white-color').addClass('d-color')
+        $("#E").removeClass('white-color').addClass('e-color')
+        $("#F").removeClass('white-color').addClass('f-color')
+        $("#G").removeClass('white-color').addClass('g-color')
+        $("#A").removeClass('white-color').addClass('a-color')
+        $("#B").removeClass('white-color').addClass('b-color')
+      }, 2100)
+    }
+  }
+}
+  
+
+
 $(function() {
   handleFormInput()
   listenPianoTouch()
   preLoadAudio()
+  movePiano()
 })
 
+window.addEventListener("resize", movePiano);
+window.addEventListener('orientationchange', movePiano);

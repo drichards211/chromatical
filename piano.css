@@ -28,10 +28,6 @@
   outline:none !important;
 }
 
-html { /*DR*/
-  height: 100%;
-}
-
 body { 
   background:#666;
   background:-webkit-radial-gradient(bottom left,cover,#999,#666); /* rgb(255,0,125) */
@@ -39,7 +35,7 @@ body {
   background:-ms-radial-gradient(bottom left,cover,#999,#666);
   background:-o-radial-gradient(bottom left,cover,#999,#666);
   background:radial-gradient(bottom left,cover,#999,#666);
-  /* Keeps gradient fixed while scrolling =========== */
+  /* DR Keeps gradient fixed while scrolling =========== */
     height:100%; /* 500px; */
     margin: 0;
     background-repeat: no-repeat;
@@ -47,14 +43,6 @@ body {
   
 }
 
-.strokeme {
-  color: white;
-  text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
-}
 
 /* Piano Wrapper */
 
@@ -255,7 +243,8 @@ a:hover {
   text-align: center;
   margin: 0 auto;
 } */
-#centered {
+
+#nav-piano { /* centered */
   /* outline: 2px solid lightblue; */ /* delete me eventually */
   position: relative;
   display: block;
@@ -268,11 +257,10 @@ a:hover {
   background:-ms-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
   background:-o-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
   background:linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  
-  
+     
 }
 
- #p-wrapper {
+#p-wrapper {
   /* background:#000;
   background:-webkit-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
   background:-moz-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
@@ -301,6 +289,62 @@ a:hover {
   -moz-animation:taufik 2s;
   animation:taufik 2s;
 }
+
+
+/* @media screen and (max-width: 900px) and (orientation: landscape) { */
+  #nav-piano-failure { /* centered */
+    /* outline: 2px solid lightblue; */ /* delete me eventually */
+    position: relative;
+    display: block;
+    width: 211.8rem;/* 3400px; */  /* make this width equal to the number of piano keys needed */
+    text-align: center;
+    margin: 0 auto;
+    background:#000;
+    background:-webkit-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
+    background:-moz-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
+    background:-ms-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
+    background:-o-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
+    background:linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
+    /* DR ROTATE PIANO TEST */
+   /* -ms-transform: rotate(-90deg); */ /* IE 9 */
+   /* -webkit-transform: rotate(-90deg); */ /* Chrome, Safari, Opera */
+   /* transform: rotate(-90deg); */
+  }
+  #p-wrapper-failure {
+    /* DR ROTATE PIANO TEST */
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg) translate(-50%, -380%);
+    /* transform-origin: bottom left;  */
+    /* background:#000;
+    background:-webkit-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
+    background:-moz-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
+    background:-ms-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
+    background:-o-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
+    background:linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
+     */
+    /* DR */
+    /* display: none; */
+    /* width:1000%; */ /*playing with this value... was 1000%*/
+    /* position: fixed; */
+    /* right: 100%; */
+    /* bottom: 50%; */
+    /* transform: translateY(-50%); */
+    /* DR */
+  
+    -webkit-box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
+    -moz-box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
+    box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
+  /*   border-bottom :2px solid #333; /*DR*/
+    /* border:2px solid #333; */
+    -webkit-border-radius:0 0 5px 5px;
+    -moz-border-radius:0 0 5px 5px;
+    border-radius:0 0 5px 5px;
+    -webkit-animation:taufik 2s;
+    -moz-animation:taufik 2s;
+    animation:taufik 2s;
+  }
+/* } */
 
 
 /* Left Piano Wrapper */

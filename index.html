@@ -8,12 +8,22 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Google Font -->
       <!-- add font link(s) here -->
+      
+      <!-- STYLESHEETS ========================================= -->
+      
       <!-- Normalize.css, cross-browser reset -->
       <link rel="stylesheet" type="text/css" href="./normalize.css">
-      <!-- Stylesheet -->
+      <!-- Primary stylesheet -->
       <link rel="stylesheet" type="text/css" href="./style.css">
-      <!-- Piano-tray Stylesheet -->
-      <link rel="stylesheet" type="text/css" href="./piano.css">
+      <!-- TEST -->
+      <!-- <link rel="stylesheet" type="text/css" href="./piano.css"> -->
+      
+      <!-- Piano-tray stylesheet for vertical displays only -->
+      <link rel="stylesheet" type="text/css" media="screen and (orientation: portrait)" href="./piano.css">
+      <!-- Piano-tray stylesheet for landscape on tablets and up -->
+      <link rel="stylesheet" type="text/css" media="screen and (min-width: 901px) and (orientation: landscape)" href="./piano.css">
+      <!-- Piano-tray stylesheet for phone-landscape only -->
+      <link rel="stylesheet" type="text/css" media="screen and (max-width: 900px) and (orientation: landscape)" href="./vertical-piano.css">
     
 
   </head>
@@ -33,12 +43,13 @@
 
   <!-- <div id="footer" class="piano-tray"> -->
     <!-- PIANO TRAY -->
+  <!-- <div id="portrait-wrapper"> -->
     <div id="p-wrapper"> <!-- class="hidden" -->
       <input type="image" id="hide-piano" class="hidden" src="piano-circle-color-2.png"/>  <!-- "cmyk-triangle-m-up.png" -->
       <!-- <div id="hide-piano" type="button" img src="prism-triangle-large.png">TEST</div> -->
       <!-- <input type="image" id="hide-piano" src="prism-triangle-large.png"/>  -->
         <!-- imgsrc="/prism-triangle-large.png">SHOW ME</div> -->  
-      <div id="centered">  <!-- class="do-not-display" --><!-- class="hidden" -->
+      <div id="nav-piano"> <!-- "centered" --> 
         <ul id="piano">
           <li><div class="anchor"></div></li>
           <li><div class="anchor"></div><span></span></li>
@@ -99,7 +110,7 @@
       </div>
       
     </div>
-  </div>
+  <!-- </div> -->
 
   <main role="main">
     <div class="row">
