@@ -10,6 +10,8 @@ html { /*DR*/
 html, body {
   /* font-family: "LCARS"; */
   font-size: 11.5px;
+  /* Prevents site layout from breaking on extremely tiny displays */ 
+  min-width: 320px; 
   /* height: 100%; */
 }
 
@@ -21,6 +23,11 @@ main {
   /* height: 100%; */
 
 }
+
+.left-piano-margin {
+margin-left: 20rem;
+}
+
 .weird {
   font-size: 400%;
 }
