@@ -28,14 +28,21 @@
   outline:none !important;
 }
 
+/* Hide the piano tray ============= */
+.hidden /*DR*/ {
+  display: none !important;
+  /* visibility: hidden; */
+}
+
 body { 
-  background:#666;
-  background:-webkit-radial-gradient(bottom left,cover,#999,#666); /* rgb(255,0,125) */
+  
+  /* background:-webkit-radial-gradient(bottom left,cover,#999,#666);
   background:-moz-radial-gradient(bottom left,cover,#999,#666);
   background:-ms-radial-gradient(bottom left,cover,#999,#666);
   background:-o-radial-gradient(bottom left,cover,#999,#666);
-  background:radial-gradient(bottom left,cover,#999,#666);
-  /* DR Keeps gradient fixed while scrolling =========== */
+  background:radial-gradient(bottom left,cover,#999,#666); */
+
+    /* DR Keeps gradient fixed while scrolling =========== */
     height:100%; /* 500px; */
     margin: 0;
     background-repeat: no-repeat;
@@ -55,7 +62,6 @@ body {
   transform: translateX(-50%);
   
 } */
-
 
 .piano-button-large { /*DR*/
   border: none !important;
@@ -422,7 +428,7 @@ ul#piano li span {
   position:absolute;
   top:0px;
   left:-12px;
-  width:1.8rem; /*DR*/
+  width:2rem; /*DR*/
   /* width:20px; */
   height:11rem; /*DR*/
   /* height:120px; */

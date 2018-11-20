@@ -1,8 +1,3 @@
-/* DO NOT USE THIS... use only where needed */
-/* * {
-  box-sizing: border-box;
-} */
-
 html { /*DR*/
   height: 100%;
 }
@@ -10,8 +5,7 @@ html { /*DR*/
 html, body {
   /* font-family: "LCARS"; */
   font-size: 11.5px;
-  /* Prevents site layout from breaking on extremely tiny displays */ 
-  min-width: 320px; 
+  min-width: 320px; /* Prevents site layout from breaking on extremely tiny displays */ 
   /* height: 100%; */
 }
 
@@ -19,9 +13,108 @@ html, body {
   box-sizing: border-box;
 }
 
+/* DR BACKGROUND COLOR GRADIENTS ================= */
+.bg-grey {
+  background:#666;
+  background:-webkit-radial-gradient(bottom left,cover,#999,#666);
+  background:-moz-radial-gradient(bottom left,cover,#999,#666);
+  background:-ms-radial-gradient(bottom left,cover,#999,#666);
+  background:-o-radial-gradient(bottom left,cover,#999,#666);
+  background:radial-gradient(bottom left,cover,#999,#666);
+  height:100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.bg-violet {
+  background:#666;
+  background:-webkit-linear-gradient(rgb(197, 197, 197),rgb(125,0,255));
+  background:-moz-radial-gradient(rgb(197, 197, 197),rgb(125,0,255));
+  background:-ms-radial-gradient(rgb(197, 197, 197),rgb(125,0,255));
+  background:-o-linear-gradient(rgb(197, 197, 197),rgb(125,0,255));
+  background: linear-gradient(rgb(197, 197, 197),rgb(125,0,255));
+  height:100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.bg-raspberry {
+  /* display: none; */
+  background:#666;
+  background:-webkit-linear-gradient(rgb(197, 197, 197),rgb(255,0,125));
+  background:-moz-radial-gradient(rgb(197, 197, 197),rgb(255,0,125));
+  background:-ms-radial-gradient(rgb(197, 197, 197),rgb(255,0,125));
+  background:-o-linear-gradient(rgb(197, 197, 197),rgb(255,0,125));
+  background: linear-gradient(rgb(197, 197, 197),rgb(255,0,125));
+  height:100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.bg-orange {
+  background:#666;
+  background:-webkit-linear-gradient(rgb(197, 197, 197),rgb(255,125,0));
+  background:-moz-radial-gradient(rgb(197, 197, 197),rgb(255,125,0));
+  background:-ms-radial-gradient(rgb(197, 197, 197),rgb(255,125,0));
+  background:-o-linear-gradient(rgb(197, 197, 197),rgb(255,125,0));
+  background: linear-gradient(rgb(197, 197, 197),rgb(255,125,0));
+  height:100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.bg-yellow {
+  background:#666;
+  background:-webkit-linear-gradient(rgb(197, 197, 197),rgb(255,255,0));
+  background:-moz-radial-gradient(rgb(197, 197, 197),rgb(255,255,0));
+  background:-ms-radial-gradient(rgb(197, 197, 197),rgb(255,255,0));
+  background:-o-linear-gradient(rgb(197, 197, 197),rgb(255,255,0));
+  background: linear-gradient(rgb(197, 197, 197),rgb(255,255,0));
+  height:100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.bg-green {
+  background:#666;
+  background:-webkit-linear-gradient(rgb(197, 197, 197),rgb(0,255,0));
+  background:-moz-radial-gradient(rgb(197, 197, 197),rgb(0,255,0));
+  background:-ms-radial-gradient(rgb(197, 197, 197),rgb(0,255,0));
+  background:-o-linear-gradient(rgb(197, 197, 197),rgb(0,255,0));
+  background: linear-gradient(rgb(197, 197, 197),rgb(0,255,0));
+  height:100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.bg-cyan {
+  background:#666;
+  background:-webkit-linear-gradient(rgb(197, 197, 197),rgb(0,255,255));
+  background:-moz-radial-gradient(rgb(197, 197, 197),rgb(0,255,255));
+  background:-ms-radial-gradient(rgb(197, 197, 197),rgb(0,255,255));
+  background:-o-linear-gradient(rgb(197, 197, 197),rgb(0,255,255));
+  background: linear-gradient(rgb(197, 197, 197),rgb(0,255,255));
+  height:100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.bg-blue {
+  background:#666;
+  background:-webkit-linear-gradient(rgb(197, 197, 197),rgb(0,0,255));
+  background:-moz-radial-gradient(rgb(197, 197, 197),rgb(0,0,255));
+  background:-ms-radial-gradient(rgb(197, 197, 197),rgb(0,0,255));
+  background:-o-linear-gradient(rgb(197, 197, 197),rgb(0,0,255));
+  background: linear-gradient(rgb(197, 197, 197),rgb(0,0,255));
+  height:100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 main {
   /* height: 100%; */
-
+  
 }
 
 .left-piano-margin {
@@ -35,11 +128,7 @@ margin-left: 20rem;
 .show-me {
   display: block;
 }
-/* Hide the piano tray ============= */
-.hidden {
-  display: none !important;
-  /* visibility: hidden; */
-}
+
 
 .display {
   display: block;
@@ -88,19 +177,19 @@ margin-left: 20rem;
   
 }
 
-/* SPIN THE CIRCLE PIANO ================ */
+/* SPIN THE PIANO CIRCLE ================ */
 .spin-me {
-  
   -webkit-animation:spin 6s linear infinite;
-    -moz-animation:spin 6s linear infinite;
-    animation:spin 6s linear infinite;
+  -moz-animation:spin 6s linear infinite;
+  animation:spin 6s linear infinite;
 }
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-/* SPIN THE CIRCLE PIANO ================ */
 
-/* HIDE THE CIRCLE PIANO ================ */
+
+
+/* HIDE THE PIANO CIRCLE ================ */
 .fade-out {
 
 
@@ -119,9 +208,7 @@ margin-left: 20rem;
   transition: display 3s;
 }
 
-
 .piano-menu {
-  
 
 }
 
@@ -131,48 +218,22 @@ margin-left: 20rem;
   display: block;
   text-align: center;
   cursor: pointer;
-  /* height: 1.2rem; */
-  height: 7.8rem; /* 63.5px; */
-    width: auto !important;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0.4rem;
-    width: 50%;
-    background: transparent;
-    opacity: 0.6;
-    /* z-index: 1; */
-    /* background: url(prism-triangle-large.png);
-    background-repeat: no-repeat; */
-  /* border: 1px solid transparent; */
-  /* width: 10rem; */
-  /* padding-top: 0.1rem;
-  background:#000;
-  background:-webkit-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:-moz-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:-ms-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:-o-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:linear-gradient(-60deg,#000,#333,#000,#666,#333 70%); */
+  height: 5rem; /* 3.5rem; */ /* 63.5px; */
+  width: auto !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.4rem;
+  width: 50%;
+  background: transparent;
+  opacity: 0.5;
 }
-
-
 
 .results-container {
   background: rgb(255, 255, 255) !important;
   /* position: relative; */
   height: 100%;
   /* padding-bottom: 2.5rem; */
-  
 }
-
-/* .anchor {
-  display: inline;
-  /* outline: 2px solid pink; */
-/*} */
-
-/* .border {
-  display: inline;
-  
-} */
 
 p {
   text-align: center;
@@ -192,9 +253,8 @@ p {
   clear: both;
   display: table;
 }
-
-/* 12 columns, 12/12 */
  .col-12 {
+  /* 12 columns, 12/12 */
   float: left;
   padding-left: 1.04166666%;
   padding-right: 1.04166666%; 

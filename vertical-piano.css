@@ -14,12 +14,12 @@ Licence: Attribution
 /* body {background-color:#222} */
 
 body { /*DR*/
-background:#666;
-  background:-webkit-radial-gradient(bottom left,cover,#999,#666); /* rgb(255,0,125) */
+/* background:#666;
+  background:-webkit-radial-gradient(bottom left,cover,#999,#666);
   background:-moz-radial-gradient(bottom left,cover,#999,#666);
   background:-ms-radial-gradient(bottom left,cover,#999,#666);
   background:-o-radial-gradient(bottom left,cover,#999,#666);
-  background:radial-gradient(bottom left,cover,#999,#666);
+  background:radial-gradient(bottom left,cover,#999,#666); */
   /* DR Keeps gradient fixed while scrolling =========== */
     height:100%; /* 500px; */
     margin: 0;
@@ -144,7 +144,7 @@ a:hover {
   left: .3%;
   overflow: visible;
   top: 50%;
-  transform: translateY(-48.8%);
+  transform: translateY(-49.05%);/* transform: translateY(-48.8%); */
   /* top: 50%;
   top: -500%;  */
   
@@ -231,7 +231,7 @@ a:hover {
   z-index:2;
   background-color:#111;
   background-image:linear-gradient(-20deg,#333,black,#333);
-  height: 1.8rem;/* height:26px; */
+  height: 2rem;/* 1.8rem; *//* height:26px; */
   /* line-height:24px; */
   /* font-size:11px; */
   text-shadow:0 -1px 0 black;
@@ -276,8 +276,8 @@ a:hover {
   border:none;
   border-radius:0;
   box-shadow:none;
-  height:24px;
-  line-height:24px;
+  height: 4rem;   /* height:24px; */
+  /* line-height:24px; */
   color:#8b8b55;
   text-shadow:none;
   margin-right:0;
