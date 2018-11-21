@@ -92,14 +92,15 @@ function listenPianoTouch(){
       /* $(".bg-violet").fadeIn(2000)  */
       activePianoKey = "C"
       c5.play()
-      c5.currentTime=0;
+      c5.currentTime=0
+      renderNewContent("wikipedia")
     })
   
     /* Piano note Db */
     $("#p-wrapper").on('click', '#Db', function(event) {
       console.log("piano key Db pressed")
       db.play()
-      db.currentTime=0;
+      db.currentTime=0
     })
   
     /* Piano note D */
@@ -112,7 +113,7 @@ function listenPianoTouch(){
       /* $(".bg-raspberry").fadeIn(2000)  */
       activePianoKey = "D"
       d.play()
-      d.currentTime=0;
+      d.currentTime=0
       renderNewContent("youtube")        
     })
   
@@ -120,7 +121,7 @@ function listenPianoTouch(){
     $("#p-wrapper").on('click', '#Eb', function(event) {
       console.log("piano key Eb pressed")
       eb.play()
-      eb.currentTime=0;    
+      eb.currentTime=0   
     })
     
     /* Piano note E */
@@ -132,7 +133,8 @@ function listenPianoTouch(){
       bodyColor = "bg-orange"
       activePianoKey = "E"
       e.play()
-      e.currentTime=0;
+      e.currentTime=0
+      renderNewContent("itunes")
     })
     
     /* Piano note F */
@@ -144,14 +146,15 @@ function listenPianoTouch(){
       bodyColor = "bg-yellow"
       activePianoKey = "F"
       f.play()
-      f.currentTime=0;
+      f.currentTime=0
+      renderNewContent("google")
     })
   
     /* Piano note Gb */
     $("#p-wrapper").on('click', '#Gb', function(event) {
       console.log("piano key Gb pressed")    
       gb.play()
-      gb.currentTime=0;
+      gb.currentTime=0
     })
   
     /* Piano note G */
@@ -163,14 +166,15 @@ function listenPianoTouch(){
       bodyColor = "bg-green"
       activePianoKey = "G"
       g.play()
-      g.currentTime=0;
+      g.currentTime=0
+      renderNewContent("spotify")
     })
   
     /* Piano note Ab */
     $("#p-wrapper").on('click', '#Ab', function(event) {
       console.log("piano key Ab pressed")
       ab.play()
-      ab.currentTime=0;
+      ab.currentTime=0
     })
   
     /* Piano note A */
@@ -182,14 +186,15 @@ function listenPianoTouch(){
       bodyColor = "bg-cyan"
       activePianoKey = "A"
       a.play()
-      a.currentTime=0;
+      a.currentTime=0
+      renderNewContent("tastedive")
     })
     
     /* Piano note Bb */
     $("#p-wrapper").on('click', '#Bb', function(event) {
       console.log("piano key Bb pressed")    
       bb.play()
-      bb.currentTime=0;
+      bb.currentTime=0
     })
   
     /* Piano note B */
@@ -201,7 +206,8 @@ function listenPianoTouch(){
       bodyColor = "bg-blue"
       activePianoKey = "B"
       b.play()
-      b.currentTime=0;
+      b.currentTime=0
+      renderNewContent("ticketmaster")
     })
   }
   
@@ -228,7 +234,7 @@ function listenPianoTouch(){
   function resetPianoColors() {
     /* Resets an active (brightly-colored) piano key to default (faded) color value */
       console.log("resetPianoColors ran")
-      if ((activePianoKey === "none") === false) {
+      if (activePianoKey !== "none") {
         $(`#${activePianoKey}`).removeClass(`${activePianoKey.toLowerCase()}-color-bright`).addClass(`${activePianoKey.toLowerCase()}-color`)
       }
   }
@@ -534,5 +540,5 @@ function movePiano() {
   }
 }
 
-window.addEventListener("resize", movePiano);
-window.addEventListener('orientationchange', movePiano);
+window.addEventListener("resize", movePiano)
+window.addEventListener('orientationchange', movePiano)

@@ -7,6 +7,18 @@ html, body {
   font-size: 11.5px;
   min-width: 320px; /* Prevents site layout from breaking on extremely tiny displays */ 
   /* height: 100%; */
+  /* -webkit-transition-property: background;
+       -moz-transition-property: background;
+         -o-transition-property: background;
+            transition-property: background;
+    -webkit-transition-duration: 1s;
+       -moz-transition-duration: 1s;
+         -o-transition-duration: 1s;
+            transition-duration: 1s;
+    -webkit-transition-timing-function: linear;
+       -moz-transition-timing-function: linear;
+         -o-transition-timing-function: linear;
+            transition-timing-function: linear; */
 }
 
 * {
@@ -33,6 +45,18 @@ html, body {
   background:-ms-radial-gradient(rgb(197, 197, 197),rgb(125,0,255));
   background:-o-linear-gradient(rgb(197, 197, 197),rgb(125,0,255));
   background: linear-gradient(rgb(197, 197, 197),rgb(125,0,255));
+  /* -webkit-transition-property: background;
+       -moz-transition-property: background;
+         -o-transition-property: background;
+            transition-property: background;
+    -webkit-transition-duration: 1s;
+       -moz-transition-duration: 1s;
+         -o-transition-duration: 1s;
+            transition-duration: 1s;
+    -webkit-transition-timing-function: linear;
+       -moz-transition-timing-function: linear;
+         -o-transition-timing-function: linear;
+            transition-timing-function: linear; */
   height:100%;
   margin: 0;
   background-repeat: no-repeat;

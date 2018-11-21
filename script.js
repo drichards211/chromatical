@@ -14,7 +14,7 @@ function handleFormInput() {
     userFormInput = $('#search-term').val()
     updateSearchParams(userFormInput)  
     console.log(userFormInput)
-    const APIList = ["wikipedia", "youtube", /* "itunes", "google",*/]// "spotify",]   "tastedive", "ticketmaster",]
+    const APIList = ["wikipedia", "youtube", "itunes", /* "google",*/]// "spotify",]   "tastedive", "ticketmaster",]
     for (let i = 0; i < APIList.length; i++) {
       fetchAPIData(APIList[i], userFormInput)
     }
@@ -77,15 +77,30 @@ function pianoKeysUpdate() {
 
 // updates main container with new API data
 function renderNewContent(apiName) {
-  console.log(`renderNewContent ran, ${apiName}`)
-  console.log(responseData[apiName])
+  console.log(`renderNewContent("${apiName}") ran`)
+  
   let response = responseData[apiName]
-  console.log(response);
-  $('.results-container').empty();
-  // if (apiName === wikipedia) {
-  // do this thing
-  // }
+  $('.results-container').empty()
+  
+  if (apiName === "wikipedia") {
+    console.log("rendering wikipedia API data")
+    let pageID = response.query.pageids[0]
+    let thumbnail = response.query.pages[pageID].thumbnail.source
+    let original = response.query.pages[pageID].original
+    let pageImage = response.query.pages[pageID].pageimage
+    let extract = response.query.pages[pageID].extract
+    
+    /* let pageID = responseData.wikipedia.query.pageids[0]
+    let thumbnail = responseData.wikipedia.query.pages[pageID].thumbnail.source
+    let original = responseData.wikipedia.query.pages[pageID].original
+    let pageImage = responseData.wikipedia.query.pages[pageID].pageimage
+    let extract = responseData.wikipedia.query.pages[pageID].extract */
+    $('.results-container').append(
+      `${extract}`
+    )
+  }
   if (apiName === "youtube") {
+    console.log("Rendering youtube API data")
   // iterate through the items array
     for (let i = 0; i < response.items.length; i++){
   // for each video object in the items 
@@ -97,9 +112,29 @@ function renderNewContent(apiName) {
         <p>${response.items[i].snippet.description}</p>
         <img src='${response.items[i].snippet.thumbnails.default.url}'>
         </li>`
-      )};
+      )}
     //display the results section  
-    $('#results').removeClass('hidden');
+    /* $('#results').removeClass('hidden') */
+  }
+  if (apiName === "itunes") {
+    console.log("Rendering itunes API data")
+    // do something
+  }
+  if (apiName === "google") {
+    console.log("Rendering google API data")
+    // do something
+  }
+  if (apiName === "spotify") {
+    console.log("Rendering spotify API data")
+    // do something
+  }
+  if (apiName === "tastedive") {
+    console.log("Rendering tastedive API data")
+    // do something
+  }
+  if (apiName === "ticketmaster") {
+    console.log("Rendering ticketmaster API data")
+    // do something
   }
 }
 
