@@ -42,7 +42,9 @@ let APIInfo = {
       cx: '000457940223891916115:vv6akwfhiiy',
       q: "This value is replaced by handleFormInput()",
       searchType: "image",
-      maxResults: '20',
+      num: "10",
+      startIndex: "11",
+      /* maxResults: '20', */
       },
   },
   spotify: {

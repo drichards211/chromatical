@@ -14,7 +14,7 @@ function handleFormInput() {
     userFormInput = $('#search-term').val()
     updateSearchParams(userFormInput)  
     console.log(userFormInput)
-    const APIList = [/*"wikipedia",*/ "youtube", "itunes", /* "google",*/]// "spotify",]   "tastedive", "ticketmaster",]
+    const APIList = ["wikipedia", "youtube", "itunes", "google", ]// "spotify",]   "tastedive", "ticketmaster",]
     for (let i = 0; i < APIList.length; i++) {
       fetchAPIData(APIList[i], userFormInput)
     }
@@ -122,17 +122,38 @@ function renderNewContent(apiName) {
     let numResults = responseData.itunes.results.length
     for (let i = 0; i < numResults; i++) {
       $('.results-container').append(
-        `<img src="${responseData.itunes.results[i].artworkUrl100}" alt="album thumbnail" class="itunesImg">
-        <a href=${responseData.itunes.results[i].trackViewUrl} target="_blank">${responseData.itunes.results[i].trackName}</a>
-        <a href=${responseData.itunes.results[i].artistViewUrl} target="_blank">${responseData.itunes.results[i].artistName}</a> 
-        <a href=${responseData.itunes.results[i].collectionViewUrl} target="_blank">${responseData.itunes.results[i].collectionName}</a>
-        `  
+        `<img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunesImg">
+        <a href=${response.results[i].trackViewUrl} target="_blank">${response.results[i].trackName}</a>
+        <a href=${response.results[i].artistViewUrl} target="_blank">${response.results[i].artistName}</a> 
+        <a href=${response.results[i].collectionViewUrl} target="_blank">${response.results[i].collectionName}</a>`  
       )
     }
   }
   if (apiName === "google") {
     console.log("Rendering google API data")
-    // do something
+    let resultsHtml = ""
+    for (let i = 0; i < response.items.length; i++) {
+      resultsHtml += `<a href=${response.items[i].link} target="_blank"><img src="${response.items[i].image.thumbnailLink}" alt="Google image thumbnail ${i}" class="googleImg"></a>`
+    }
+    $('.results-container').append(
+      `<div class="googleResults">
+      ${resultsHtml}
+      </div>`
+    )
+  
+/* TESTING GOOGLE SCRIPT 
+  <script>
+    (function() {
+      var cx = '000457940223891916115:vv6akwfhiiy';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  <gcse:search></gcse:search> */
   }
   if (apiName === "spotify") {
     console.log("Rendering spotify API data")
