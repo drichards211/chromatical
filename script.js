@@ -14,7 +14,7 @@ function handleFormInput() {
     userFormInput = $('#search-term').val()
     updateSearchParams(userFormInput)  
     console.log(userFormInput)
-    const APIList = ["wikipedia", "youtube", "itunes", /* "google",*/]// "spotify",]   "tastedive", "ticketmaster",]
+    const APIList = [/*"wikipedia",*/ "youtube", "itunes", /* "google",*/]// "spotify",]   "tastedive", "ticketmaster",]
     for (let i = 0; i < APIList.length; i++) {
       fetchAPIData(APIList[i], userFormInput)
     }
@@ -112,13 +112,23 @@ function renderNewContent(apiName) {
         <p>${response.items[i].snippet.description}</p>
         <img src='${response.items[i].snippet.thumbnails.default.url}'>
         </li>`
-      )}
+      )
+    }
     //display the results section  
     /* $('#results').removeClass('hidden') */
   }
   if (apiName === "itunes") {
     console.log("Rendering itunes API data")
-    // do something
+    let numResults = responseData.itunes.results.length
+    for (let i = 0; i < numResults; i++) {
+      $('.results-container').append(
+        `<img src="${responseData.itunes.results[i].artworkUrl100}" alt="album thumbnail" class="itunesImg">
+        <a href=${responseData.itunes.results[i].trackViewUrl} target="_blank">${responseData.itunes.results[i].trackName}</a>
+        <a href=${responseData.itunes.results[i].artistViewUrl} target="_blank">${responseData.itunes.results[i].artistName}</a> 
+        <a href=${responseData.itunes.results[i].collectionViewUrl} target="_blank">${responseData.itunes.results[i].collectionName}</a>
+        `  
+      )
+    }
   }
   if (apiName === "google") {
     console.log("Rendering google API data")

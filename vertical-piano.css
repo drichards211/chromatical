@@ -145,6 +145,7 @@ a:hover {
   overflow: visible;
   top: 50%;
   transform: translateY(-49.05%);/* transform: translateY(-48.8%); */
+  z-index: +5;
   /* top: 50%;
   top: -500%;  */
   

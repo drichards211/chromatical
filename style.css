@@ -263,6 +263,14 @@ p {
   text-align: center;
 }
 
+.itunesImg {
+  position: relative;
+  float: left;
+  content: "";
+  clear: both;
+  display: table;
+
+}
 /* CSS GRID ==================== */
 .row {
   max-width: 1000px;
