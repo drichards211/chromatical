@@ -42,7 +42,7 @@ let APIInfo = {
       cx: '000457940223891916115:vv6akwfhiiy',
       q: "This value is replaced by handleFormInput()",
       searchType: "image",
-      num: "10",
+      count: "10",
       startIndex: "11",
       /* maxResults: '20', */
       },
