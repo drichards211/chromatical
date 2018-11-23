@@ -26,10 +26,27 @@ html, body {
 }
 
 button {
+  
+}
+
+/* button div {
   writing-mode: vertical-rl !important;
   text-orientation: mixed !important; /* upright; */
-  text-align: right !important;
+  /* text-align: right !important;
+} */
+
+.fade-in-text {
+
 }
+
+.rotate-text {
+  -webkit-transform: rotate(90deg);   
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
 /* DR BACKGROUND COLOR GRADIENTS ================= */
 .bg-grey {
   background:#666;

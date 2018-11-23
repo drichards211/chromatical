@@ -11,8 +11,8 @@ after delay. Render and colorize the piano-menu buttons. */
     /* Update .html() for HORIZONTAL piano MENU BUTTONS */
     setTimeout(function() {
     $(".piano-menu").html(`<nav class="select-content fade-in"> 
-      <li><button class="anchor piano-button-large white-color" id="C">ABOUT</button></li>
-      <li><button class="anchor piano-button-large white-color" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></button><span id="Db"></span></li>
+      <li><button class="anchor piano-button-large white color" id="C"><div class="fade-in-text rotate-text" style="display:none">ABOUT</div></button></li>
+      <li><button class="anchor piano-button-large white-color" id="D"><div class="fade-in-text rotate-text" style="display:none">VIDEOS</div></button><span id="Db"></span></li>
       <li><div class="anchor piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></div><span id="Eb"></span></li>
       <li><div class="anchor piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></div></li>
       <li><div class="anchor piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></div><span id="Gb"></span></li>
