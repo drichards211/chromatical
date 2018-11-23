@@ -14,7 +14,7 @@ function handleFormInput() {
     userFormInput = $('#search-term').val()
     updateSearchParams(userFormInput)  
     console.log(userFormInput)
-    const APIList = ["wikipedia", "youtube", "itunes", "google", ]// "spotify",]   "tastedive", "ticketmaster",]
+    const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
     for (let i = 0; i < APIList.length; i++) {
       fetchAPIData(APIList[i], userFormInput)
     }
@@ -117,6 +117,18 @@ function renderNewContent(apiName) {
     //display the results section  
     /* $('#results').removeClass('hidden') */
   }
+  if (apiName === "google") {
+    console.log("Rendering google API data")
+    let resultsHtml = ""
+    for (let i = 0; i < response.items.length; i++) {
+      resultsHtml += `<a href=${response.items[i].link} target="_blank"><img src="${response.items[i].image.thumbnailLink}" alt="Google image thumbnail ${i}" class="googleImg"></a>`
+    }
+    $('.results-container').append(
+      `<div class="googleResults">
+      ${resultsHtml}
+      </div>`
+    )
+  }
   if (apiName === "itunes") {
     console.log("Rendering itunes API data")
     let numResults = responseData.itunes.results.length
@@ -129,43 +141,23 @@ function renderNewContent(apiName) {
       )
     }
   }
-  if (apiName === "google") {
-    console.log("Rendering google API data")
-    let resultsHtml = ""
-    for (let i = 0; i < response.items.length; i++) {
-      resultsHtml += `<a href=${response.items[i].link} target="_blank"><img src="${response.items[i].image.thumbnailLink}" alt="Google image thumbnail ${i}" class="googleImg"></a>`
-    }
-    $('.results-container').append(
-      `<div class="googleResults">
-      ${resultsHtml}
-      </div>`
-    )
-  
-/* TESTING GOOGLE SCRIPT 
-  <script>
-    (function() {
-      var cx = '000457940223891916115:vv6akwfhiiy';
-      var gcse = document.createElement('script');
-      gcse.type = 'text/javascript';
-      gcse.async = true;
-      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(gcse, s);
-    })();
-  </script>
-  <gcse:search></gcse:search> */
-  }
   if (apiName === "spotify") {
     console.log("Rendering spotify API data")
-    // do something
+    $('.results-container').append(
+      `<p>This feature is currently under development.</p>`
+    )
   }
   if (apiName === "tastedive") {
     console.log("Rendering tastedive API data")
-    // do something
+    $('.results-container').append(
+      `<p>This feature is currently under development.</p>`
+    )
   }
   if (apiName === "ticketmaster") {
     console.log("Rendering ticketmaster API data")
-    // do something
+    $('.results-container').append(
+      `<p>This feature is currently under development.</p>`
+    )
   }
 }
 

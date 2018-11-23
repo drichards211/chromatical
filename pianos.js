@@ -13,8 +13,8 @@ after delay. Render and colorize the piano-menu buttons. */
     $(".piano-menu").html(`<form class="select-content fade-in"> 
       <li><div class="anchor piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></div></li>
       <li><div class="anchor piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></div><span id="Db"></span></li>
-      <li><div class="anchor piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">PURCHASE</div></div><span id="Eb"></span></li>
-      <li><div class="anchor piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">IMAGES</div></div></li>
+      <li><div class="anchor piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></div><span id="Eb"></span></li>
+      <li><div class="anchor piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></div></li>
       <li><div class="anchor piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></div><span id="Gb"></span></li>
       <li><div class="anchor piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></div><span id="Ab"></span></li>
       <li><div class="anchor piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></div><span id="Bb"></span></li>
@@ -33,8 +33,8 @@ after delay. Render and colorize the piano-menu buttons. */
           <li class="black-tut"><a href="#" id="Ab"></a></li>
           <li><a href="#" class="tut piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></a></li>
           <li class="black-tut"><a href="#" id="Gb"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">IMAGES</div></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">PURCHASE</div></a></li>
+          <li><a href="#" class="tut piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></a></li>
+          <li><a href="#" class="tut piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></a></li>
           <li class="black-tut"><a href="#" id="Eb"></a></li>
           <li><a href="#" class="tut piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></a></li>
           <li class="black-tut"><a href="#" id="Db"></a></li>
@@ -134,7 +134,7 @@ function listenPianoTouch(){
       activePianoKey = "E"
       e.play()
       e.currentTime=0
-      renderNewContent("itunes")
+      renderNewContent("google")
     })
     
     /* Piano note F */
@@ -147,7 +147,7 @@ function listenPianoTouch(){
       activePianoKey = "F"
       f.play()
       f.currentTime=0
-      renderNewContent("google")
+      renderNewContent("itunes")
     })
   
     /* Piano note Gb */
@@ -442,8 +442,8 @@ function movePiano() {
         <li class="black-tut"><a href="#" id="Ab"></a></li>
         <li><a href="#" class="tut piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></a></li>
         <li class="black-tut"><a href="#" id="Gb"></a></li>
-        <li><a href="#" class="tut piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">IMAGES</div></a></li>
-        <li><a href="#" class="tut piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">PURCHASE</div></a></li>
+        <li><a href="#" class="tut piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></a></li>
+        <li><a href="#" class="tut piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></a></li>
         <li class="black-tut"><a href="#" id="Eb"></a></li>
         <li><a href="#" class="tut piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></a></li>
         <li class="black-tut"><a href="#" id="Db"></a></li>
@@ -527,8 +527,8 @@ function movePiano() {
         $(".piano-menu").html(`<form class="select-content fade-in"> 
           <li><div class="anchor piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></div></li>
           <li><div class="anchor piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></div><span id="Db"></span></li>
-          <li><div class="anchor piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">PURCHASE</div></div><span id="Eb"></span></li>
-          <li><div class="anchor piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">IMAGES</div></div></li>
+          <li><div class="anchor piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></div><span id="Eb"></span></li>
+          <li><div class="anchor piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></div></li>
           <li><div class="anchor piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></div><span id="Gb"></span></li>
           <li><div class="anchor piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></div><span id="Ab"></span></li>
           <li><div class="anchor piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></div><span id="Bb"></span></li>
