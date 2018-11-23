@@ -10,36 +10,50 @@ after delay. Render and colorize the piano-menu buttons. */
 
     /* Update .html() for HORIZONTAL piano MENU BUTTONS */
     setTimeout(function() {
-    $(".piano-menu").html(`<form class="select-content fade-in"> 
-      <li><div class="anchor piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></div></li>
-      <li><div class="anchor piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></div><span id="Db"></span></li>
+    $(".piano-menu").html(`<nav class="select-content fade-in"> 
+      <li><button class="anchor piano-button-large white-color" id="C">ABOUT</button></li>
+      <li><button class="anchor piano-button-large white-color" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></button><span id="Db"></span></li>
       <li><div class="anchor piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></div><span id="Eb"></span></li>
       <li><div class="anchor piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></div></li>
       <li><div class="anchor piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></div><span id="Gb"></span></li>
       <li><div class="anchor piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></div><span id="Ab"></span></li>
       <li><div class="anchor piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></div><span id="Bb"></span></li>
-      </form>`)
+      </nav>`)
     }, 1600)
-  
+    /* $(".piano-menu").html(`<nav class="select-content fade-in"> 
+    <li><div class="anchor piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></div></li>
+    <li><div class="anchor piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></div><span id="Db"></span></li>
+    <li><div class="anchor piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></div><span id="Eb"></span></li>
+    <li><div class="anchor piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></div></li>
+    <li><div class="anchor piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></div><span id="Gb"></span></li>
+    <li><div class="anchor piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></div><span id="Ab"></span></li>
+    <li><div class="anchor piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></div><span id="Bb"></span></li>
+    </nav>`)
+  }, 1600) */
+
+
+
   } else {
     
     /* Update .html() for VERTICAL piano MENU BUTTONS */
     setTimeout(function() {
       console.log("Rendering VERTICAL piano menu buttons")
-        $(".piano-menu").html(`<form class="select-content fade-in"> 
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></a></li>
-          <li class="black-tut"><a href="#" id="Bb"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></a></li>
-          <li class="black-tut"><a href="#" id="Ab"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></a></li>
-          <li class="black-tut"><a href="#" id="Gb"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></a></li>
-          <li class="black-tut"><a href="#" id="Eb"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></a></li>
-          <li class="black-tut"><a href="#" id="Db"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></a></li>
-        </form>`)
+        $(".piano-menu").html(`<nav class="select-content fade-in">
+          <ul> 
+            <li><a href="#" class="tut piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></a></li>
+            <li class="black-tut"><a href="#" id="Bb"></a></li>
+            <li><a href="#" class="tut piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></a></li>
+            <li class="black-tut"><a href="#" id="Ab"></a></li>
+            <li><a href="#" class="tut piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></a></li>
+            <li class="black-tut"><a href="#" id="Gb"></a></li>
+            <li><a href="#" class="tut piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></a></li>
+            <li><a href="#" class="tut piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></a></li>
+            <li class="black-tut"><a href="#" id="Eb"></a></li>
+            <li><a href="#" class="tut piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></a></li>
+            <li class="black-tut"><a href="#" id="Db"></a></li>
+            <li><a href="#" class="tut piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></a></li>
+          </ul>
+        </nav>`)
       }, 1600)
   }
   
@@ -415,20 +429,22 @@ function movePiano() {
     if (menuActive === true) {
       /* Update .html() for VERTICAL piano MENU BUTTONS */
       console.log("Rendering VERTICAL piano menu buttons")
-      $(".piano-menu").html(`<form class="select-content fade-in"> 
-        <li><a href="#" class="tut piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></a></li>
-        <li class="black-tut"><a href="#" id="Bb"></a></li>
-        <li><a href="#" class="tut piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></a></li>
-        <li class="black-tut"><a href="#" id="Ab"></a></li>
-        <li><a href="#" class="tut piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></a></li>
-        <li class="black-tut"><a href="#" id="Gb"></a></li>
-        <li><a href="#" class="tut piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></a></li>
-        <li><a href="#" class="tut piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></a></li>
-        <li class="black-tut"><a href="#" id="Eb"></a></li>
-        <li><a href="#" class="tut piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></a></li>
-        <li class="black-tut"><a href="#" id="Db"></a></li>
-        <li><a href="#" class="tut piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></a></li>
-      </form>`)
+      $(".piano-menu").html(`<nav class="select-content fade-in"> 
+        <ul>
+          <li><a href="#" class="tut piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></a></li>
+          <li class="black-tut"><a href="#" id="Bb"></a></li>
+          <li><a href="#" class="tut piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></a></li>
+          <li class="black-tut"><a href="#" id="Ab"></a></li>
+          <li><a href="#" class="tut piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></a></li>
+          <li class="black-tut"><a href="#" id="Gb"></a></li>
+          <li><a href="#" class="tut piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></a></li>
+          <li><a href="#" class="tut piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></a></li>
+          <li class="black-tut"><a href="#" id="Eb"></a></li>
+          <li><a href="#" class="tut piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></a></li>
+          <li class="black-tut"><a href="#" id="Db"></a></li>
+          <li><a href="#" class="tut piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></a></li>
+        </ul>
+      </nav>`)
 
       /* FadeIn() colors and text for piano menu keys */
       fadeIn(0, 0)
@@ -504,7 +520,7 @@ function movePiano() {
     if (menuActive === true) {
       /* Update .html() for HORIZONTAL piano MENU BUTTONS */
       console.log("Rendering piano menu buttons")
-        $(".piano-menu").html(`<form class="select-content fade-in"> 
+        $(".piano-menu").html(`<nav class="select-content fade-in"> 
           <li><div class="anchor piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></div></li>
           <li><div class="anchor piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></div><span id="Db"></span></li>
           <li><div class="anchor piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></div><span id="Eb"></span></li>
@@ -512,7 +528,7 @@ function movePiano() {
           <li><div class="anchor piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></div><span id="Gb"></span></li>
           <li><div class="anchor piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></div><span id="Ab"></span></li>
           <li><div class="anchor piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></div><span id="Bb"></span></li>
-          </form>`)
+          </nav>`)
       
       /* FadeIn() colors and text for piano menu keys */
       fadeIn(0, 0)
