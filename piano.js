@@ -3,7 +3,7 @@ function colorizePianos() {
 after delay. Render and colorize the piano-menu buttons. */
   console.log("colorizePianos ran")
   menuActive = true
-  $(".piano-circle").html(`<img src="piano-circle-color-2.png" alt="circle piano logo" id="piano-bw" class="fade-in-logo" style="display:none">`)
+  $(".piano-circle").html(`<img src="./assets/images/piano-circle-color-2.png" alt="circle piano logo" id="piano-bw" class="fade-in-logo" style="display:none">`)
   $(".fade-in-logo").fadeIn(1600).delay(300).fadeOut(2000)
 
   if (pianoHorizontal === true) {
@@ -55,31 +55,31 @@ function listenPianoTouch(){
   
   console.log("ListenPianoTouch() running")
   
-  const c5 = new Audio("./sounds/c5.mp3")
+  const c5 = new Audio("assets/sounds/c5.mp3")
   c5.preload = "auto"
-  const db = new Audio("./sounds/db.mp3")
+  const db = new Audio("assets/sounds/db.mp3")
   db.preload = "auto"
-  const d = new Audio("./sounds/d.mp3")
+  const d = new Audio("assets/sounds/d.mp3")
   d.preload = "auto"
-  const eb = new Audio("./sounds/eb.mp3")
+  const eb = new Audio("assets/sounds/eb.mp3")
   eb.preload = "auto"
-  const e = new Audio("./sounds/e.mp3")
+  const e = new Audio("assets/sounds/e.mp3")
   e.preload = "auto"
-  const f = new Audio("./sounds/f.mp3")
+  const f = new Audio("assets/sounds/f.mp3")
   f.preload = "auto"
-  const gb = new Audio("./sounds/gb.mp3")
+  const gb = new Audio("assets/sounds/gb.mp3")
   gb.preload = "auto"
-  const g = new Audio("./sounds/g.mp3")
+  const g = new Audio("assets/sounds/g.mp3")
   g.preload = "auto"
-  const ab = new Audio("./sounds/ab.mp3")
+  const ab = new Audio("assets/sounds/ab.mp3")
   ab.preload = "auto"
-  const a = new Audio("./sounds/a.mp3")
+  const a = new Audio("assets/sounds/a.mp3")
   a.preload = "auto"
-  const bb = new Audio("./sounds/bb.mp3")
+  const bb = new Audio("assets/sounds/bb.mp3")
   bb.preload = "auto"
-  const b = new Audio("./sounds/b.mp3")
+  const b = new Audio("assets/sounds/b.mp3")
   b.preload = "auto"
-  const c6 = new Audio("./sounds/c6.mp3")
+  const c6 = new Audio("assets/sounds/c6.mp3")
   c6.preload = "auto"
   
     /* Piano note C */
@@ -210,27 +210,7 @@ function listenPianoTouch(){
       renderNewContent("ticketmaster")
     })
   }
-  
-  function preLoadAudio() {
-    /* Load all sound files when page loads */
-    let pianoNotes = ["c5", "db", "d", "eb", "e", "f", "gb", "g", "ab", "a", "bb", "b", "c6",]
-    let pianoSounds = [
-      "./sounds/c5.mp3",
-      "./sounds/db.mp3",
-      "./sounds/d.mp3",
-      "./sounds/eb.mp3",
-      "./sounds/e.mp3",
-      "./sounds/f.mp3",
-      "./sounds/gb.mp3",
-      "./sounds/g.mp3",
-      "./sounds/ab.mp3",
-      "./sounds/a.mp3",
-      "./sounds/bb.mp3",
-      "./sounds/b.mp3",
-      "./sounds/c6.mp3",
-    ]
-  }
-  
+    
   function resetPianoColors() {
     /* Resets an active (brightly-colored) piano key to default (faded) color value */
       console.log("resetPianoColors ran")
@@ -459,7 +439,7 @@ function movePiano() {
     console.log("Updating html for horizontal piano")
     pianoHorizontal = true
     $("main").removeClass("left-piano-margin")
-    $('#p-wrapper').html(`<input type="image" id="hide-piano" class="hidden" src="mini-piano-menu.png"/>  
+    $('#p-wrapper').html(`<input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu.png"/>  
     <div id="nav-piano">
       <ul id="piano">
         <li><div class="anchor"></div></li>

@@ -166,7 +166,6 @@ function renderNewContent(apiName) {
 $(function() {
   handleFormInput()
   listenPianoTouch()
-  preLoadAudio()
   movePiano()
 })
 
