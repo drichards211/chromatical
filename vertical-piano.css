@@ -139,27 +139,15 @@ a:hover {
 
 /* #p-wrapper */
 #p-wrapper { 
-  /* height:200%; */
   position: fixed;
-  /* left: .29%; */
   overflow: visible;
   top: 50%;
-  transform: translateY(-49.05%);/* transform: translateY(-48.8%); */
+  transform: translateY(-49.05%);
   z-index: +5;
-  /* top: 50%;
-  top: -500%;  */
-  
-  /* transform: translateY(-50%); */
- 
-  /* left: 50%;
-  transform: translateX(-50%); */
-
-
   -webkit-box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
   -moz-box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
   box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
-  
-  
+   
   /*   border-bottom :2px solid #333; /*DR*/
   border:2px solid #333;
   -webkit-border-radius:0 0 5px 5px;
@@ -173,9 +161,8 @@ a:hover {
 #nav-piano {
   position: relative; /* DR */
   display:block;
-  background-color: rgb(185, 185, 185); /* 
-   DR background-color bleeds through into colored keys */
-  /* background-color:#222; */
+  background-color: rgb(185, 185, 185); /*DR*/
+   /* DR NOTE: background-color bleeds through into colored keys */
   /* background-image:linear-gradient(60deg,#111,#333,#111,#3c3c3c,#333 70%); */
   width: 20rem; /* width:300px; */
   /* height: 211.8rem; */ /* DR */
@@ -205,10 +192,11 @@ a:hover {
 #nav-piano a,
 #nav-piano .tut {
   display:block;
+  width: 100%; /*DR */
   height: 4rem;/* height:40px; */
-  padding:0 18px 0 0;  /* ??? */
+  padding: 0% 4% 0 0%; /* padding:0 18px 0 0; */  /* ??? */
   background-color:#fafafa;
-  background-image:linear-gradient(-30deg,#f5f5f5,white);
+  /* background-image:linear-gradient(-30deg,#f5f5f5,white); */
   border:1px solid #ccc;
   box-shadow:inset 1px 0 0 white,inset -1px 0 0 white,inset 0 0 0 1px white,4px 0 3px rgba(0,0,0,.4);
   border-radius:0 3px 3px 0;
@@ -283,7 +271,18 @@ a:hover {
   text-shadow:none;
   margin-right:0;
 }
-
+#nav-piano li ul button,
+#nav-piano li ul button:active {
+  background:none;
+  border:none;
+  border-radius:0;
+  box-shadow:none;
+  height: 4rem;   /* height:24px; */
+  /* line-height:24px; */
+  color:#8b8b55;
+  text-shadow:none;
+  margin-right:0;
+}
 /* Depth Shadow */
 #nav-piano > ul > li > a:active:before,
 #nav-piano > ul > li > a:active:after {
@@ -296,8 +295,25 @@ a:hover {
   background-color:rgba(0,0,0,.1);
   transform:rotate(1deg) translateY(-15px);
 }
+#nav-piano > ul > li > button:active:before,
+#nav-piano > ul > li > button:active:after {
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  height:15px;
+  background-color:rgba(0,0,0,.1);
+  transform:rotate(1deg) translateY(-15px);
+}
+
 
 #nav-piano > ul > li > a:active:after {
+  top:auto;
+  bottom:0;
+  transform:rotate(-1deg) translateY(14px);
+}
+#nav-piano > ul > li > button:active:after {
   top:auto;
   bottom:0;
   transform:rotate(-1deg) translateY(14px);

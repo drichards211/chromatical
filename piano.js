@@ -54,7 +54,7 @@ function colorizePiano(wait, time, delay) {
           <li class="black-tut"><a href="#" id="Eb"></a></li>
           <li><a href="#" class="tut piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></a></li>
           <li class="black-tut"><a href="#" id="Db"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></a></li>
+          <li><button class="tut piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></button></li>
         </ul>
       </nav>`)
     }, wait)
