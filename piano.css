@@ -19,7 +19,7 @@
 
  * {
   margin:0px;
-  padding:0px;
+  /* padding:0px; */
   list-style:none;
 }
 
@@ -220,7 +220,7 @@ a:hover {
   position: relative;
   display: block;
   width: 211.8rem;/* 3400px; */  /* make this width equal to the number of piano keys needed */
-  text-align: center;
+  /* text-align: center; */
   margin: 0 auto;
   background:#000;
   background:-webkit-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
@@ -330,9 +330,9 @@ ul#piano li a,ul#piano li div.anchor {
   padding-bottom: 13%;
   padding-right: 22%;
   cursor: pointer;
-  writing-mode: vertical-rl;
-  text-orientation: mixed; /* upright; */
-  text-align: right;
+  /* writing-mode: vertical-rl; */
+  /* text-orientation: mixed; */ /* upright; */
+  /* text-align: right; */
   display:block;
   height: 20rem;  /* 220px; */
   width: 100%;
@@ -360,8 +360,12 @@ ul#piano li a,ul#piano li button.anchor {
   /* font-size: 2rem; */
   /* font-weight: 600; */
   box-sizing: border-box;
-  padding-bottom: 13%;
-  padding-right: 22%;
+  /* padding-top: 99% !important; */
+  padding-left: 0%;
+  padding-right: 0%;
+  padding-bottom: 0%;
+  /* padding-bottom: 13%; */
+  /* padding-right: 22%; */
   cursor: pointer;
   /* writing-mode: vertical-rl;
   text-orientation: mixed; /* upright; */
@@ -703,6 +707,10 @@ ul#piano li ul,#search,#contact {
   -ms-transform:rotate(-42deg);
   -o-transform:rotate(-42deg);
   transform:rotate(-42deg);
+}
+
+#piano {
+  padding-left: 0px; /* overrides user agent stylesheet" */
 }
 
 ul#piano li li {

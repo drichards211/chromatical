@@ -26,8 +26,34 @@ html, body {
 }
 
 button {
+  text-align: right;
+  /* padding-left: .02rem; */
   
 }
+
+/* Button text for HORIZONTAL piano */
+.text-c {
+  margin-top: 260%;
+}
+.text-d {
+  margin-top: 240%;
+}
+.text-e {
+  margin-top: 230%;
+}
+.text-f {
+  margin-top: 100%;
+}
+.text-g {
+  margin-top: 260%;
+}
+.text-a {
+  margin-top: 200%;
+}
+.text-b {
+  margin-top: 110%;
+}
+
 
 /* button div {
   writing-mode: vertical-rl !important;
@@ -36,15 +62,22 @@ button {
 } */
 
 .fade-in-text {
-
+  /* text-align: right; */
 }
 
 .rotate-text {
+  /* writing-mode: vertical-rl; */
+  /* text-orientation: mixed; */ /* upright; */
+  /* text-align: left; */
   -webkit-transform: rotate(90deg);   
   -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   -o-transform: rotate(90deg);
   transform: rotate(90deg);
+  bottom: 0px;
+  /* -ms-transform: translate(0px, 10px); /* IE 9 */
+  /* -webkit-transform: translate(0px, 10px); */ /* Safari */
+  /* transform: translate(0px, 10px); */
 }
 
 /* DR BACKGROUND COLOR GRADIENTS ================= */
@@ -262,7 +295,7 @@ margin-left: 20rem;
 #hide-piano {
   position: relative;
   display: block;
-  text-align: center;
+  /* text-align: center; */
   cursor: pointer;
   height: 5rem; /* 3.5rem; */ /* 63.5px; */
   width: auto !important;
