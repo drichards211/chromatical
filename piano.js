@@ -9,7 +9,7 @@ function colorizePiano(wait, time, delay) {
 /* Render and colorize the piano-menu buttons. */
   console.log("colorizePiano() ran")
   menuActive = true
-  if (pianoHorizontal === true) {
+  /* if (pianoHorizontal === true) { */
     console.log('Rendering HORIZONTAL piano menu buttons')
     /* Update .html() for HORIZONTAL piano MENU BUTTONS */
     setTimeout(function() {
@@ -35,10 +35,10 @@ function colorizePiano(wait, time, delay) {
     </nav>`)
   }, 1600) */
 
-  } else {
+  /* } else {
     
     /* Update .html() for VERTICAL piano MENU BUTTONS */
-    setTimeout(function() {
+    /* setTimeout(function() {
       console.log("Rendering VERTICAL piano menu buttons")
       $(".piano-menu").html(
         `<nav class="select-content fade-in">
@@ -54,11 +54,11 @@ function colorizePiano(wait, time, delay) {
           <li class="black-tut"><a href="#" id="Eb"></a></li>
           <li><a href="#" class="tut piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></a></li>
           <li class="black-tut"><a href="#" id="Db"></a></li>
-          <li><button class="tut piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></button></li>
+          <li><button class="tut piano-button-large white-color" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></button></li>
         </ul>
       </nav>`)
-    }, wait)
-  }
+    }, wait) */
+  
   /* Fade-in colors and text for piano menu keys */
   fadeIn(time, delay)
 }
@@ -265,26 +265,29 @@ function updatePianoKeys() {
   } */
 }
 
-/* Hide Piano Tray when scrolling */
+/* Hide HORIZONTAL Piano Tray when scrolling */
 function hidePiano() {
   console.log("hidePiano() running")
-  $(window).scroll(function(){
-    if ($(window).scrollTop() > 50){
-      console.log("hiding piano")
-      $('#nav-piano').addClass("hidden")
-      $('#hide-piano').removeClass("hidden")
-    } else {
-      console.log("showing piano")
+    $(window).scroll(function(){
+      if (pianoHorizontal === true) {  
+        if ($(window).scrollTop() > 50){
+            console.log("hiding piano")
+            $('#nav-piano').addClass('hidden')
+            $('#hide-piano').removeClass('hidden')
+        } else {
+           console.log("showing piano")
+            $('#nav-piano').removeClass("hidden")
+            $('#hide-piano').addClass("hidden")
+        }
+      }
+    })
+    $("#p-wrapper").on('click', '#hide-piano', function(event) {
+      console.log("manually revealed piano tray")
       $('#nav-piano').removeClass("hidden")
-      $('#hide-piano').addClass("hidden")
-    }
-  })
-  $("#p-wrapper").on('click', '#hide-piano', function(event) {
-    console.log("manually revealed piano tray")
-    $('#nav-piano').removeClass("hidden")
-    $('#hide-piano').addClass("hidden")  
-  })  
-}  
+      $('#hide-piano').addClass("hidden")  
+    })  
+}
+  
 
 /* 
 $(document).ready(function(){
@@ -350,8 +353,12 @@ function renderPiano() {
     console.log("Updating html for vertical piano")
     pianoHorizontal = false
     $("main").addClass("left-piano-margin")
-    $('#p-wrapper').html(
-      `<nav id="nav-piano">
+    $("#p-wrapper").removeClass("wrapper-horizontal")
+    $("#nav-piano").addClass("nav-vertical")
+    $("#p-wrapper").addClass("wrapper-vertical")
+    $("#nav-piano").removeClass("nav-horizontal")
+    /* $('#p-wrapper').html(
+      `<nav id="nav-piano" class="nav-vertical">
         <ul>
           <li><span class="tut"></span></li>
           <li><span class="tut"></span></li>
@@ -448,7 +455,7 @@ function renderPiano() {
           
         </ul>
       </nav>`)
-
+ */
     if (menuActive === true) {
       colorizePiano(0, 0, 0)
     }
@@ -459,8 +466,13 @@ function renderPiano() {
     console.log("Updating html for horizontal piano")
     pianoHorizontal = true
     $("main").removeClass("left-piano-margin")
-    $('#p-wrapper').html(`<input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu.png"/>  
-    <div id="nav-piano">
+    $("#p-wrapper").removeClass("wrapper-vertical")
+    $("#nav-piano").removeClass("nav-vertical")
+    $("#p-wrapper").addClass("wrapper-horizontal")
+    $("#nav-piano").addClass("nav-horizontal")
+
+    /* $('#p-wrapper').html(`<input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu.png"/>  
+    <div id="nav-piano" class="nav-horizontal">
       <ul id="piano">
         <li><div class="anchor"></div></li>
         <li><div class="anchor"></div><span></span></li>
@@ -519,7 +531,7 @@ function renderPiano() {
         <li><div class="anchor"></div><span></span></li>
         <li><div class="anchor"></div></li>
       </ul>
-    </div>`)
+    </div>`) */
     
     if (menuActive === true) {
       colorizePiano(0, 0, 0)

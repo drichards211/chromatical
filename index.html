@@ -15,13 +15,9 @@
       <link rel="stylesheet" type="text/css" href="./normalize.css">
       <!-- Primary stylesheet -->
       <link rel="stylesheet" type="text/css" href="./style.css">
-      <!-- Piano-tray stylesheet for vertical displays only -->
-      <link rel="stylesheet" type="text/css" media="screen and (orientation: portrait)" href="./piano.css">
-      <!-- Piano-tray stylesheet for landscape tablets and up -->
-      <link rel="stylesheet" type="text/css" media="screen and (min-width: 901px) and (orientation: landscape)" href="./piano.css">
-      <!-- Piano-tray stylesheet for phone-landscape only -->
-      <link rel="stylesheet" type="text/css" media="screen and (max-width: 900px) and (orientation: landscape)" href="./vertical-piano.css">
-    
+      <!-- Piano-tray stylesheet -->
+      <link rel="stylesheet" type="text/css" href="./piano.css">
+          
       <!-- SCRIPTS ============================================= -->
 
       <!-- Import jQuery -->
@@ -54,8 +50,68 @@
   <!-- <div id="footer" class="piano-tray"> -->
     <!-- PIANO TRAY -->
   <!-- <div id="portrait-wrapper"> -->
-    <div id="p-wrapper">
-    <!-- PIANO MENU html is rendered here by movePiano() in pianos.js -->
+    <div id="p-wrapper" class="wrapper-horizontal">
+      <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu.png"/>  
+      <div id="nav-piano" class="nav-horizontal">
+        <ul id="piano">
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          
+          <div class="piano-menu">
+            <li><div class="anchor"></div></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div><span></span></li>
+            <li><div class="anchor"></div><span></span></li>
+          </div>                  
+          
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div><span></span></li>
+          <li><div class="anchor"></div></li>
+        </ul>
+      </div>
     </div>
   
   <!-- MAIN CONTENT ============================================ -->
