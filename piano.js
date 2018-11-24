@@ -1,10 +1,14 @@
-function colorizePiano() {
-/* Fade-in the colorized logo, fade-out. Render and colorize the piano-menu buttons. */
-  console.log("colorizePiano ran")
-  menuActive = true
-  $(".piano-circle").html(`<img src="./assets/images/piano-circle-color-2.png" alt="circle piano logo" id="piano-bw" class="fade-in-logo" style="display:none">`)
-  $(".fade-in-logo").fadeIn(1600).delay(300).fadeOut(2000)
+'use strict'
 
+let menuActive = false
+let activePianoKey = "none"
+let pianoHorizontal = true
+let bodyColor = "bg-grey"
+
+function colorizePiano(wait, time, delay) {
+/* Render and colorize the piano-menu buttons. */
+  console.log("colorizePiano() ran")
+  menuActive = true
   if (pianoHorizontal === true) {
     console.log('Rendering HORIZONTAL piano menu buttons')
     /* Update .html() for HORIZONTAL piano MENU BUTTONS */
@@ -19,7 +23,7 @@ function colorizePiano() {
         <li><div class="anchor piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></div><span id="Ab"></span></li>
         <li><div class="anchor piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></div><span id="Bb"></span></li>
         </nav>`)
-    }, 1600)
+    }, wait)
     /* $(".piano-menu").html(`<nav class="select-content fade-in"> 
     <li><div class="anchor piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></div></li>
     <li><div class="anchor piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></div><span id="Db"></span></li>
@@ -30,8 +34,6 @@ function colorizePiano() {
     <li><div class="anchor piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></div><span id="Bb"></span></li>
     </nav>`)
   }, 1600) */
-
-
 
   } else {
     
@@ -55,21 +57,35 @@ function colorizePiano() {
           <li><a href="#" class="tut piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></a></li>
         </ul>
       </nav>`)
-    }, 1600)
+    }, wait)
   }
-  
-  /* FadeIn() colors and text for piano menu keys */
-  fadeIn(2000, 2100)
+  /* Fade-in colors and text for piano menu keys */
+  fadeIn(time, delay)
+}
+
+function fadeIn(time, delay) {
+  /* Fade-in colors and text for piano menu keys */
+  console.log("Rendering piano menu COLORS AND TEXT")
+  setTimeout(function() {
+    $(".fade-in-text").fadeIn(time)
+    $("#C").removeClass('white-color').addClass('c-color')
+    $("#D").removeClass('white-color').addClass('d-color')
+    $("#E").removeClass('white-color').addClass('e-color')
+    $("#F").removeClass('white-color').addClass('f-color')
+    $("#G").removeClass('white-color').addClass('g-color')
+    $("#A").removeClass('white-color').addClass('a-color')
+    $("#B").removeClass('white-color').addClass('b-color')
+  }, delay)
 }
 
 function listenPianoTouch(){
   /* When user clicks a COLORED piano button, change color to bright, 
-  play sound, change <body> background color to match, and call renderNewContent() with argument.  
-  
+  play sound, change <body> background color, and call renderNewContent() with argument.  
   When user clicks a BLACK piano button, just play sound. */
   
   console.log("ListenPianoTouch() running")
   
+  /* Preload all audio for faster performance */
   const c5 = new Audio("assets/sounds/c5.mp3")
   c5.preload = "auto"
   const db = new Audio("assets/sounds/db.mp3")
@@ -322,34 +338,20 @@ $( "#p-wrapper" ).toggleClass( "hidden" ) */
   }
 });
  */
-function fadeIn(time, delay) {
-  /* FadeIn() colors and text for piano menu keys */
-  console.log("Rendering piano menu COLORS AND TEXT")
-  setTimeout(function() {
-    $(".fade-in-text").fadeIn(time)
-    $("#C").removeClass('white-color').addClass('c-color')
-    $("#D").removeClass('white-color').addClass('d-color')
-    $("#E").removeClass('white-color').addClass('e-color')
-    $("#F").removeClass('white-color').addClass('f-color')
-    $("#G").removeClass('white-color').addClass('g-color')
-    $("#A").removeClass('white-color').addClass('a-color')
-    $("#B").removeClass('white-color').addClass('b-color')
-  }, delay)
-}
 
 function renderPiano() {
-  /* Renders html() for piano menus. Switches between vertical or horizontal mode depending upon user viewport */
+  /* Renders html for piano menus. Switches between vertical or horizontal modes depending upon user viewport */
   console.log("renderPiano() running")
   
   let mediaQuery = window.matchMedia("(max-width: 900px) and (orientation: landscape)")
   if (mediaQuery.matches) {
-  /* Move piano menu to vertical postion for mobile landscape viewports */ 
-
+    /* Move piano menu to vertical postion for mobile landscape viewports */ 
     /* Update .html() for VERTICAL piano */
     console.log("Updating html for vertical piano")
     pianoHorizontal = false
     $("main").addClass("left-piano-margin")
-    $('#p-wrapper').html(`<nav id="nav-piano">
+    $('#p-wrapper').html(
+      `<nav id="nav-piano">
         <ul>
           <li><span class="tut"></span></li>
           <li><span class="tut"></span></li>
@@ -445,31 +447,12 @@ function renderPiano() {
           <li><span class="tut"></span></li>
           
         </ul>
-      </nav>`
-    )
-    if (menuActive === true) {
-      /* Update .html() for VERTICAL piano MENU BUTTONS */
-      console.log("Rendering VERTICAL piano menu buttons")
-      $(".piano-menu").html(`<nav class="select-content fade-in"> 
-        <ul>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></a></li>
-          <li class="black-tut"><a href="#" id="Bb"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></a></li>
-          <li class="black-tut"><a href="#" id="Ab"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></a></li>
-          <li class="black-tut"><a href="#" id="Gb"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></a></li>
-          <li class="black-tut"><a href="#" id="Eb"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></a></li>
-          <li class="black-tut"><a href="#" id="Db"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></a></li>
-        </ul>
       </nav>`)
 
-      /* FadeIn() colors and text for piano menu keys */
-      fadeIn(0, 0)
+    if (menuActive === true) {
+      colorizePiano(0, 0, 0)
     }
+
   } else {
 
     /* Update .html() for HORIZONTAL piano */
@@ -539,23 +522,16 @@ function renderPiano() {
     </div>`)
     
     if (menuActive === true) {
-      /* Update .html() for HORIZONTAL piano MENU BUTTONS */
-      console.log("Rendering piano menu buttons")
-        $(".piano-menu").html(`<nav class="select-content fade-in"> 
-          <li><div class="anchor piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></div></li>
-          <li><div class="anchor piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></div><span id="Db"></span></li>
-          <li><div class="anchor piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></div><span id="Eb"></span></li>
-          <li><div class="anchor piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></div></li>
-          <li><div class="anchor piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></div><span id="Gb"></span></li>
-          <li><div class="anchor piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></div><span id="Ab"></span></li>
-          <li><div class="anchor piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></div><span id="Bb"></span></li>
-          </nav>`)
-      
-      /* FadeIn() colors and text for piano menu keys */
-      fadeIn(0, 0)
+      colorizePiano(0, 0, 0)
     }
   }
 }
 
 window.addEventListener("resize", renderPiano)
 window.addEventListener('orientationchange', renderPiano)
+
+$(function() {
+  listenPianoTouch()
+  renderPiano()
+  hidePiano()
+})

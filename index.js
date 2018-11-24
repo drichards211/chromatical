@@ -1,11 +1,6 @@
 'use strict'
 
 let userFormInput = ""
-let activePianoKey = "none"
-let menuActive = false
-let pianoHorizontal = true
-let bodyColor = "bg-grey"
-
 
 function handleFormInput() {
   /* Listens for user search-form submission, */
@@ -46,12 +41,14 @@ function updateSearchParams(searchInput) {
 }
 
 function logoSpin() {
-  /* Spin the B&W logo for 2 seconds, fade out. Call colorizePianos() */
+  /* Spin the B&W logo for 2 seconds, fade out. Call colorizePiano() */
   console.log("logoSpin() ran")
   $("#piano-bw").addClass("spin-me")
   $('.fade-out-logo').fadeOut(2600)
   setTimeout(function() {
-    colorizePiano() /*(in piano.js)*/
+    $(".piano-circle").html(`<img src="./assets/images/piano-circle-color-2.png" alt="circle piano logo" id="piano-bw" class="fade-in-logo" style="display:none">`)
+    $(".fade-in-logo").fadeIn(1600).delay(300).fadeOut(2000)
+    colorizePiano(1600, 2000, 2100) /*(in piano.js)*/
   }, 2300)
 }
 
@@ -71,9 +68,6 @@ function addPianoLinks() {
     }, 2300)
 } */
 
-
-/* PIANO BUTTONS, COLORS, AND SOUNDS ============================== */
-
 function renderNewContent(apiName) {
 /* updates main container with selected API data */
   console.log(`renderNewContent("${apiName}") ran`)
@@ -88,8 +82,11 @@ function renderNewContent(apiName) {
     } else {
       let pageID = response.query.pageids[0]
       let thumbnail = response.query.pages[pageID].thumbnail.source
+      /* put catch here*/
       let original = response.query.pages[pageID].original
+      /* put catch here */
       let pageImage = response.query.pages[pageID].pageimage
+      /* put catch here */
       let extract = response.query.pages[pageID].extract
       $('.results-container').append(`${extract}`)
     }
@@ -148,7 +145,4 @@ function renderNewContent(apiName) {
 
 $(function() {
   handleFormInput()
-  listenPianoTouch()
-  renderPiano()
-  hidePiano()
 })

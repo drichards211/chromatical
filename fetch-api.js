@@ -1,6 +1,6 @@
 'use strict'
 
-// Stores API keys, URL endpoints, and search parameters:
+/* Stores API keys, URL endpoints, and search parameters: */
 let APIInfo = {
   wikipedia: {
     URL: "https://en.wikipedia.org/w/api.php",
@@ -58,7 +58,7 @@ let APIInfo = {
   },
 }
 
-// Stores API response data in separate keys:
+/* Stores API response data in separate keys: */
 let responseData = {
   wikipedia: {},
   youtube: {},
