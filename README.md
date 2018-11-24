@@ -23,6 +23,7 @@ Styling:
   + .results-container needs a colored border and a drop shadow.
   + .results-container needs to display height=100% even when empty or with very little content.
   + All piano keys on vertical menu need to be animated, not just center-octave.
+  + Piano menu button labels need to be centered.
   + Horizontal piano menu needs to be animated when hiding / revealing.
   + All \<body\> background colors require a fade-in transition.
   + Fonts need to be selected (Google Web Fonts) and implemented.

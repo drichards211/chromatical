@@ -1,26 +1,28 @@
 'use strict'
 
 let userFormInput = ""
-let activePianoKey = "none"
-let menuActive = false
-let pianoHorizontal = true
-let bodyColor = "bg-grey"
-
 
 function handleFormInput() {
+  /* Listens for user search-form submission, */
+  console.log('handleFormInput() running')
   $('.search-form').submit(event => {
     event.preventDefault()
-    logoSpin()
     userFormInput = $('#search-term').val()
-    updateSearchParams(userFormInput)  
-    console.log(userFormInput)
-    const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
-    for (let i = 0; i < APIList.length; i++) {
-      fetchAPIData(APIList[i], userFormInput)
+    if (userFormInput === "") {
+      alert('Please enter a search term')
+    } else {
+      console.log(`User searched for string "${userFormInput}"`)
+      logoSpin()
+      updateSearchParams(userFormInput)  
+      const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+      for (let i = 0; i < APIList.length; i++) {
+        fetchAPIData(APIList[i], userFormInput)
+      }
     }
   })
 
 function updateSearchParams(searchInput) {
+  /* Updates APIInfo object (inside fetch-api.js) with user search string */
   APIInfo.youtube.searchParams.q = searchInput
   APIInfo.wikipedia.searchParams.titles = searchInput  
   APIInfo.itunes.searchParams.term = searchInput
@@ -39,15 +41,14 @@ function updateSearchParams(searchInput) {
 }
 
 function logoSpin() {
-  // spin the B&W logo for 2 seconds, fade to blank, fade-in colorized logo which remains until a user selects a piano key
-  // which will update the DOM with new content.
-  //Fade circle piano
-  console.log("logoSpin ran")
+  /* Spin the B&W logo for 2 seconds, fade out. Call colorizePiano() */
+  console.log("logoSpin() ran")
   $("#piano-bw").addClass("spin-me")
-  $('.fade-out-logo').fadeOut(2600)  /* .delay(2800).promise().done(colorizePianos()); */
+  $('.fade-out-logo').fadeOut(2600)
   setTimeout(function() {
-    console.log("setTimeout ran")
-    colorizePianos()
+    $(".piano-circle").html(`<img src="./assets/images/piano-circle-color-2.png" alt="circle piano logo" id="piano-bw" class="fade-in-logo" style="display:none">`)
+    $(".fade-in-logo").fadeIn(1600).delay(300).fadeOut(2000)
+    colorizePiano(1600, 2000, 2100) /*(in piano.js)*/
   }, 2300)
 }
 
@@ -63,59 +64,42 @@ function addPianoLinks() {
     $('.fade-out-logo').fadeOut(2600)
     setTimeout(function() {
       console.log("setTimeout ran")
-      colorizePianos()
+      colorizePiano()
     }, 2300)
 } */
 
-/* PIANO BUTTONS, COLORS, AND SOUNDS ============================== */
-
-
-function pianoKeysUpdate() {
-  // not sure what this is yet. maybe if it needs new links?
-}
-
-
-// updates main container with new API data
 function renderNewContent(apiName) {
+/* updates main container with selected API data */
   console.log(`renderNewContent("${apiName}") ran`)
-  
   let response = responseData[apiName]
   $('.results-container').empty()
-  
+ 
   if (apiName === "wikipedia") {
-    console.log("rendering wikipedia API data")
-    let pageID = response.query.pageids[0]
-    let thumbnail = response.query.pages[pageID].thumbnail.source
-    let original = response.query.pages[pageID].original
-    let pageImage = response.query.pages[pageID].pageimage
-    let extract = response.query.pages[pageID].extract
-    
-    /* let pageID = responseData.wikipedia.query.pageids[0]
-    let thumbnail = responseData.wikipedia.query.pages[pageID].thumbnail.source
-    let original = responseData.wikipedia.query.pages[pageID].original
-    let pageImage = responseData.wikipedia.query.pages[pageID].pageimage
-    let extract = responseData.wikipedia.query.pages[pageID].extract */
-    $('.results-container').append(
-      `${extract}`
-    )
+    console.log("Rendering wikipedia API data")
+    if (response.query.pageids[0] === "-1") {
+      $('.results-container').append(
+        `<p>No encyclopedia results are available for your search term.</p>`)
+    } else {
+      let pageID = response.query.pageids[0]
+      let thumbnail = response.query.pages[pageID].thumbnail.source
+      /* put catch here*/
+      let original = response.query.pages[pageID].original
+      /* put catch here */
+      let pageImage = response.query.pages[pageID].pageimage
+      /* put catch here */
+      let extract = response.query.pages[pageID].extract
+      $('.results-container').append(`${extract}`)
+    }
   }
   if (apiName === "youtube") {
     console.log("Rendering youtube API data")
-  // iterate through the items array
     for (let i = 0; i < response.items.length; i++){
-  // for each video object in the items 
-  //array, add a list item to the results 
-  //list with the video title, description,
-  //and thumbnail
       $('.results-container').append(
         `<li><h3>${response.items[i].snippet.title}</h3>
         <p>${response.items[i].snippet.description}</p>
         <img src='${response.items[i].snippet.thumbnails.default.url}'>
-        </li>`
-      )
+        </li>`)
     }
-    //display the results section  
-    /* $('#results').removeClass('hidden') */
   }
   if (apiName === "google") {
     console.log("Rendering google API data")
@@ -124,9 +108,7 @@ function renderNewContent(apiName) {
       resultsHtml += `<a href=${response.items[i].link} target="_blank"><img src="${response.items[i].image.thumbnailLink}" alt="Google image thumbnail ${i}" class="googleImg"></a>`
     }
     $('.results-container').append(
-      `<div class="googleResults">
-      ${resultsHtml}
-      </div>`
+      `<div class="googleResults">${resultsHtml}</div>`
     )
   }
   if (apiName === "itunes") {
@@ -161,12 +143,6 @@ function renderNewContent(apiName) {
   }
 }
 
-  
-
 $(function() {
   handleFormInput()
-  listenPianoTouch()
-  movePiano()
 })
-
-

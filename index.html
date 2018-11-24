@@ -22,8 +22,18 @@
       <!-- Piano-tray stylesheet for phone-landscape only -->
       <link rel="stylesheet" type="text/css" media="screen and (max-width: 900px) and (orientation: landscape)" href="./vertical-piano.css">
     
+      <!-- SCRIPTS ============================================= -->
 
+      <!-- Import jQuery -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <!-- JavaScript page script-->
+      <script type="text/javascript" src="index.js"></script>
+      <!-- JavaScript for fetch() commands -->
+      <script type="text/javascript" src="fetch-api.js"></script>
+      <!-- JavaScript for piano menus -->
+      <script type="text/javascript" src="piano.js"></script>    
   </head>
+
 <body class="bg-grey">
   
   <!-- <header role="banner" id="banner" class="left-piano-margin">
@@ -39,7 +49,7 @@
   </header> -->
   
   
-  <!-- PIANO TRAY =========================================== -->
+  <!-- PIANO TRAY ============================================== -->
 
   <!-- <div id="footer" class="piano-tray"> -->
     <!-- PIANO TRAY -->
@@ -48,7 +58,7 @@
     <!-- PIANO MENU html is rendered here by movePiano() in pianos.js -->
     </div>
   
-  <!-- MAIN CONTENT ========================================= -->
+  <!-- MAIN CONTENT ============================================ -->
   
   <main role="main" class="left-piano-margin">
     <div class="row">
@@ -70,21 +80,6 @@
         </div>
       </section>
     </div>
-    
-      <!-- Import jQuery -->
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-      <!-- JavaScript page script-->
-      <script type="text/javascript" src="index.js"></script>
-      <!-- JavaScript for fetch() commands -->
-      <script type="text/javascript" src="fetch-api.js"></script>
-      <!-- JavaScript for piano menus -->
-      <script type="text/javascript" src="piano.js"></script>
-      <!-- JavaScript to hide menus while scrolling -->
-      <!-- <script src="ScrollMagic.min.js"></script>
-      <script src="debug.addIndicators.min.js"></script> -->
-      
-      <!-- <script type="text/javascript" src="Headroom.js"></script>
-      <script type="text/javascript" src="jQuery.headroom.js"></script> -->
   </main>
 </body>
 </html>

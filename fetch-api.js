@@ -1,6 +1,6 @@
 'use strict'
 
-// Stores API keys, URL endpoints, and search parameters:
+/* Stores API keys, URL endpoints, and search parameters: */
 let APIInfo = {
   wikipedia: {
     URL: "https://en.wikipedia.org/w/api.php",
@@ -42,7 +42,7 @@ let APIInfo = {
       cx: '000457940223891916115:vv6akwfhiiy',
       q: "This value is replaced by handleFormInput()",
       searchType: "image",
-      num: "10",
+      count: "10",
       startIndex: "11",
       /* maxResults: '20', */
       },
@@ -58,7 +58,7 @@ let APIInfo = {
   },
 }
 
-// Stores API response data in separate keys:
+/* Stores API response data in separate keys: */
 let responseData = {
   wikipedia: {},
   youtube: {},

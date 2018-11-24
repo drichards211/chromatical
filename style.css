@@ -25,6 +25,28 @@ html, body {
   box-sizing: border-box;
 }
 
+button {
+  
+}
+
+/* button div {
+  writing-mode: vertical-rl !important;
+  text-orientation: mixed !important; /* upright; */
+  /* text-align: right !important;
+} */
+
+.fade-in-text {
+
+}
+
+.rotate-text {
+  -webkit-transform: rotate(90deg);   
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
 /* DR BACKGROUND COLOR GRADIENTS ================= */
 .bg-grey {
   background:#666;
@@ -173,14 +195,14 @@ margin-left: 20rem;
 
 }
 
-.strokeme {
+/* .strokeme {
   color: white;
   text-shadow:
   -1px -1px 0 #000,
   1px -1px 0 #000,
   -1px 1px 0 #000,
   1px 1px 0 #000;  
-}
+} */
 
 .piano-circle {
   position: relative;
@@ -214,28 +236,28 @@ margin-left: 20rem;
 
 
 /* HIDE THE PIANO CIRCLE ================ */
-.fade-out {
+/* .fade-out {
 
 
 }
-
+ */
 /* SHOW COLORED PIANO CIRCLE ===============*/
-.fade-in {
+/* .fade-in {
 
 }
-
-.fade-text-in {
+ */
+/* .fade-text-in {
   -webkit-transition: display 3s;
   -moz-transition: display 3s;
   -o-transition: display 3s;
   -ms-transition: display 3s;
   transition: display 3s;
 }
-
-.piano-menu {
+ */
+/* .piano-menu {
 
 }
-
+ */
 /* HIDE THE PIANO MENU ================= */
 #hide-piano {
   position: relative;
