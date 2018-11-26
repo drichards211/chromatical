@@ -3,252 +3,114 @@
 let menuActive = false
 let activePianoKey = "none"
 let pianoHorizontal = true
-let bodyColor = "bg-grey"
 
 function colorizePiano(wait, time, delay) {
 /* Render and colorize the piano-menu buttons. */
   console.log("colorizePiano() ran")
+  console.log('Rendering piano menu buttons')
   menuActive = true
-  /* if (pianoHorizontal === true) { */
-    console.log('Rendering HORIZONTAL piano menu buttons')
-    /* Update .html() for HORIZONTAL piano MENU BUTTONS */
-    setTimeout(function() {
-      $(".piano-menu").html(
-        `<nav class="select-content fade-in"> 
-        <li><button class="anchor piano-button-large white-color" id="C"><div class="fade-in-text rotate-text text-c" style="display:none">ABOUT</div></button></li>
-        <li><button class="anchor piano-button-large white-color" id="D"><div class="fade-in-text rotate-text text-d" style="display:none">VIDEOS</div></button><span id="Db"></span></li>
-        <li><button class="anchor piano-button-large white-color" id="E"><div class="fade-in-text rotate-text text-e" style="display:none">IMAGES</div></button><span id="Eb"></span></li>
-        <li><button class="anchor piano-button-large white-color" id="F"><div class="fade-in-text rotate-text text-f" style="display:none">PURCHASE</div></button></li>
-        <li><button class="anchor piano-button-large white-color" id="G"><div class="fade-in-text rotate-text text-g" style="display:none">LISTEN</div></button><span id="Gb"></span></li>
-        <li><button class="anchor piano-button-large white-color" id="A"><div class="fade-in-text rotate-text text-a" style="display:none">SIMILAR</div></button><span id="Ab"></span></li>
-        <li><button class="anchor piano-button-large white-color" id="B"><div class="fade-in-text rotate-text text-b" style="display:none">CONCERTS</div></button><span id="Bb"></span></li>
-        </nav>`)
-    }, wait)
-    /* $(".piano-menu").html(`<nav class="select-content fade-in"> 
-    <li><div class="anchor piano-button-large white-color" type="button" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></div></li>
-    <li><div class="anchor piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></div><span id="Db"></span></li>
-    <li><div class="anchor piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></div><span id="Eb"></span></li>
-    <li><div class="anchor piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></div></li>
-    <li><div class="anchor piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></div><span id="Gb"></span></li>
-    <li><div class="anchor piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></div><span id="Ab"></span></li>
-    <li><div class="anchor piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></div><span id="Bb"></span></li>
-    </nav>`)
-  }, 1600) */
-
-  /* } else {
-    
-    /* Update .html() for VERTICAL piano MENU BUTTONS */
-    /* setTimeout(function() {
-      console.log("Rendering VERTICAL piano menu buttons")
-      $(".piano-menu").html(
-        `<nav class="select-content fade-in">
-        <ul> 
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="B"><div class="fade-in-text" style="display:none">CONCERTS</div></a></li>
-          <li class="black-tut"><a href="#" id="Bb"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="A"><div class="fade-in-text" style="display:none">SIMILAR</div></a></li>
-          <li class="black-tut"><a href="#" id="Ab"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="G"><div class="fade-in-text" style="display:none">LISTEN</div></a></li>
-          <li class="black-tut"><a href="#" id="Gb"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="F"><div class="fade-in-text" style="display:none">PURCHASE</div></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="E"><div class="fade-in-text" style="display:none">IMAGES</div></a></li>
-          <li class="black-tut"><a href="#" id="Eb"></a></li>
-          <li><a href="#" class="tut piano-button-large white-color" type="button" id="D"><div class="fade-in-text" style="display:none">VIDEOS</div></a></li>
-          <li class="black-tut"><a href="#" id="Db"></a></li>
-          <li><button class="tut piano-button-large white-color" id="C"><div class="fade-in-text" style="display:none">ABOUT</div></button></li>
-        </ul>
-      </nav>`)
-    }, wait) */
   
-  /* Fade-in colors and text for piano menu keys */
-  fadeIn(time, delay)
-}
-
-function fadeIn(time, delay) {
+  /* Update .html() for HORIZONTAL piano MENU BUTTONS */
+  setTimeout(function() {
+    $(".piano-menu").html(
+      `<nav class="select-content fade-in"> 
+      <li><button class="anchor piano-button-large white-color" id="C"><div class="fade-in-text rotate-text text-c" style="display:none">ABOUT</div></button></li>
+      <li><button class="anchor piano-button-large white-color" id="D"><div class="fade-in-text rotate-text text-d" style="display:none">VIDEOS</div></button><span id="Db"></span></li>
+      <li><button class="anchor piano-button-large white-color" id="E"><div class="fade-in-text rotate-text text-e" style="display:none">IMAGES</div></button><span id="Eb"></span></li>
+      <li><button class="anchor piano-button-large white-color" id="F"><div class="fade-in-text rotate-text text-f" style="display:none">PURCHASE</div></button></li>
+      <li><button class="anchor piano-button-large white-color" id="G"><div class="fade-in-text rotate-text text-g" style="display:none">LISTEN</div></button><span id="Gb"></span></li>
+      <li><button class="anchor piano-button-large white-color" id="A"><div class="fade-in-text rotate-text text-a" style="display:none">SIMILAR</div></button><span id="Ab"></span></li>
+      <li><button class="anchor piano-button-large white-color" id="B"><div class="fade-in-text rotate-text text-b" style="display:none">CONCERTS</div></button><span id="Bb"></span></li>
+      </nav>`)
+    }, wait)
+  
   /* Fade-in colors and text for piano menu keys */
   console.log("Rendering piano menu COLORS AND TEXT")
   setTimeout(function() {
     $(".fade-in-text").fadeIn(time)
-    $("#C").removeClass('white-color').addClass('c-color')
-    $("#D").removeClass('white-color').addClass('d-color')
-    $("#E").removeClass('white-color').addClass('e-color')
-    $("#F").removeClass('white-color').addClass('f-color')
-    $("#G").removeClass('white-color').addClass('g-color')
-    $("#A").removeClass('white-color').addClass('a-color')
-    $("#B").removeClass('white-color').addClass('b-color')
+    $("#C").removeClass('white-color').addClass('C-color')
+    $("#D").removeClass('white-color').addClass('D-color')
+    $("#E").removeClass('white-color').addClass('E-color')
+    $("#F").removeClass('white-color').addClass('F-color')
+    $("#G").removeClass('white-color').addClass('G-color')
+    $("#A").removeClass('white-color').addClass('A-color')
+    $("#B").removeClass('white-color').addClass('B-color')
   }, delay)
 }
 
-function listenPianoTouch(){
-  /* When user clicks a COLORED piano button, change color to bright, 
-  play sound, change <body> background color, and call renderNewContent() with argument.  
-  When user clicks a BLACK piano button, just play sound. */
-  
+function listenPianoTouch(){ /*
+When user clicks a COLORED piano <button>:
+    (1) Reset any previously clicked button to normal color.
+    (2) Change <body> background color to match new button. 
+    (3) Change new button color to bright. 
+    (4) Update activePianoKey global variable.
+    (5) Play piano sound.
+    (6) Call renderNewContent() with argument from APINames{}.  
+When user clicks a BLACK piano <span>, just play sound (7). 
+*/
   console.log("ListenPianoTouch() running")
-  
-  /* Preload all audio for faster performance */
-  const c5 = new Audio("assets/sounds/c5.mp3")
-  c5.preload = "auto"
-  const db = new Audio("assets/sounds/db.mp3")
-  db.preload = "auto"
-  const d = new Audio("assets/sounds/d.mp3")
-  d.preload = "auto"
-  const eb = new Audio("assets/sounds/eb.mp3")
-  eb.preload = "auto"
-  const e = new Audio("assets/sounds/e.mp3")
-  e.preload = "auto"
-  const f = new Audio("assets/sounds/f.mp3")
-  f.preload = "auto"
-  const gb = new Audio("assets/sounds/gb.mp3")
-  gb.preload = "auto"
-  const g = new Audio("assets/sounds/g.mp3")
-  g.preload = "auto"
-  const ab = new Audio("assets/sounds/ab.mp3")
-  ab.preload = "auto"
-  const a = new Audio("assets/sounds/a.mp3")
-  a.preload = "auto"
-  const bb = new Audio("assets/sounds/bb.mp3")
-  bb.preload = "auto"
-  const b = new Audio("assets/sounds/b.mp3")
-  b.preload = "auto"
-  const c6 = new Audio("assets/sounds/c6.mp3")
-  c6.preload = "auto"
-  
-    /* Piano note C */
-    $("#p-wrapper").on('click', '#C', function(event) {
-      console.log("piano key C pressed")
-      resetPianoColors()   
-      $('#C').removeClass('c-color').addClass('c-color-bright')
-      $('body').removeClass(`${bodyColor}`).addClass('bg-violet')
-      bodyColor = "bg-violet"
-      /* $(".bg-violet").fadeIn(2000)  */
-      activePianoKey = "C"
-      c5.play()
-      c5.currentTime=0
-      renderNewContent("wikipedia")
-    })
-  
-    /* Piano note Db */
-    $("#p-wrapper").on('click', '#Db', function(event) {
-      console.log("piano key Db pressed")
-      db.play()
-      db.currentTime=0
-    })
-  
-    /* Piano note D */
-    $("#p-wrapper").on('click', '#D', function(event) {
-      console.log("piano key D pressed")
-      resetPianoColors()   
-      $('#D').removeClass('d-color').addClass('d-color-bright')
-      $('body').removeClass(`${bodyColor}`).addClass('bg-raspberry')
-      bodyColor = "bg-raspberry"
-      /* $(".bg-raspberry").fadeIn(2000)  */
-      activePianoKey = "D"
-      d.play()
-      d.currentTime=0
-      renderNewContent("youtube")        
-    })
-  
-    /* Piano note Eb */
-    $("#p-wrapper").on('click', '#Eb', function(event) {
-      console.log("piano key Eb pressed")
-      eb.play()
-      eb.currentTime=0   
-    })
-    
-    /* Piano note E */
-    $("#p-wrapper").on('click', '#E', function(event) {
-      console.log("piano key E pressed")    
-      resetPianoColors()   
-      $('#E').removeClass('e-color').addClass('e-color-bright')
-      $('body').removeClass(`${bodyColor}`).addClass('bg-orange')
-      bodyColor = "bg-orange"
-      activePianoKey = "E"
-      e.play()
-      e.currentTime=0
-      renderNewContent("google")
-    })
-    
-    /* Piano note F */
-    $("#p-wrapper").on('click', '#F', function(event) {
-      console.log("piano key F pressed")    
-      resetPianoColors()   
-      $('#F').removeClass('f-color').addClass('f-color-bright')   
-      $('body').removeClass(`${bodyColor}`).addClass('bg-yellow')
-      bodyColor = "bg-yellow"
-      activePianoKey = "F"
-      f.play()
-      f.currentTime=0
-      renderNewContent("itunes")
-    })
-  
-    /* Piano note Gb */
-    $("#p-wrapper").on('click', '#Gb', function(event) {
-      console.log("piano key Gb pressed")    
-      gb.play()
-      gb.currentTime=0
-    })
-  
-    /* Piano note G */
-    $("#p-wrapper").on('click', '#G', function(event) {
-      console.log("piano key G pressed") 
-      resetPianoColors()   
-      $('#G').removeClass('g-color').addClass('g-color-bright')
-      $('body').removeClass(`${bodyColor}`).addClass('bg-green')
-      bodyColor = "bg-green"
-      activePianoKey = "G"
-      g.play()
-      g.currentTime=0
-      renderNewContent("spotify")
-    })
-  
-    /* Piano note Ab */
-    $("#p-wrapper").on('click', '#Ab', function(event) {
-      console.log("piano key Ab pressed")
-      ab.play()
-      ab.currentTime=0
-    })
-  
-    /* Piano note A */
-    $("#p-wrapper").on('click', '#A', function(event) {
-      console.log("piano key A pressed")
-      resetPianoColors()   
-      $('#A').removeClass('a-color').addClass('a-color-bright')
-      $('body').removeClass(`${bodyColor}`).addClass('bg-cyan')
-      bodyColor = "bg-cyan"
-      activePianoKey = "A"
-      a.play()
-      a.currentTime=0
-      renderNewContent("tastedive")
-    })
-    
-    /* Piano note Bb */
-    $("#p-wrapper").on('click', '#Bb', function(event) {
-      console.log("piano key Bb pressed")    
-      bb.play()
-      bb.currentTime=0
-    })
-  
-    /* Piano note B */
-    $("#p-wrapper").on('click', '#B', function(event) {
-      console.log("piano key B pressed") 
-      resetPianoColors()      
-      $('#B').removeClass('b-color').addClass('b-color-bright')
-      $('body').removeClass(`${bodyColor}`).addClass('bg-blue')
-      bodyColor = "bg-blue"
-      activePianoKey = "B"
-      b.play()
-      b.currentTime=0
-      renderNewContent("ticketmaster")
-    })
+     
+  const pianoSounds = {
+    C: new Audio("assets/sounds/c5.mp3"), 
+    Db: new Audio("assets/sounds/db.mp3"),
+    D: new Audio("assets/sounds/d.mp3"),
+    Eb: new Audio("assets/sounds/eb.mp3"),
+    E: new Audio("assets/sounds/e.mp3"),
+    F: new Audio("assets/sounds/f.mp3"),
+    Gb: new Audio("assets/sounds/gb.mp3"),
+    G: new Audio("assets/sounds/g.mp3"),
+    Ab: new Audio("assets/sounds/ab.mp3"),
+    A: new Audio("assets/sounds/a.mp3"),
+    Bb: new Audio("assets/sounds/bb.mp3"),
+    B: new Audio("assets/sounds/b.mp3"),
+    C6: new Audio("assets/sounds/c6.mp3"),
   }
-    
-  function resetPianoColors() {
-    /* Resets an active (brightly-colored) piano key to default (faded) color value */
-      console.log("resetPianoColors() ran")
-      if (activePianoKey !== "none") {
-        $(`#${activePianoKey}`).removeClass(`${activePianoKey.toLowerCase()}-color-bright`).addClass(`${activePianoKey.toLowerCase()}-color`)
+
+  const APINames = {
+    C: "wikipedia",
+    D: "youtube",
+    E: "google",
+    F: "itunes",
+    G: "spotify",
+    A: "tastedive",
+    B: "ticketmaster",
+  }
+
+    $(".piano-menu").on('click', 'button, span', function(event) {
+      let noteID = `${$(this).prop('id')}`
+      console.log(`piano key ${noteID} pressed`)
+      if (noteID.length < 2) { 
+      /* WHITE KEYS ONLY */
+        /* (1) */
+        resetPianoColors()
+        /* (2) */
+        $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-${noteID}`)
+        /* (3) */
+        $(`#${noteID}`).removeClass(`${noteID}-color`).addClass(`${noteID}-color-bright`)
+        /* (4) */
+        activePianoKey = noteID
+        /* (5) */
+        pianoSounds[noteID].play()
+        pianoSounds[noteID].currentTime = 0
+        /* (6) */
+        renderNewContent(`${APINames[noteID]}`) /*(in index.js)*/
+      } else {
+      /* BLACK KEYS ONLY */
+        /* (7) */
+        pianoSounds[noteID].play()
+        pianoSounds[noteID].currentTime = 0
       }
-  }
+    })
+}
+    
+function resetPianoColors() {
+/* Resets an active (brightly-colored) piano key to default (faded) color value */
+    console.log("resetPianoColors() ran")
+    if (activePianoKey !== "none") {
+      $(`#${activePianoKey}`).removeClass(`${activePianoKey}-color-bright`).addClass(`${activePianoKey}-color`)
+    }
+}
+
 
   
 function resetPianoKeys() {
@@ -265,8 +127,9 @@ function updatePianoKeys() {
   } */
 }
 
-/* Hide HORIZONTAL Piano Tray when scrolling */
+
 function hidePiano() {
+/* Hide HORIZONTAL Piano Tray when scrolling */
   console.log("hidePiano() running")
     $(window).scroll(function(){
       if (pianoHorizontal === true) {  
@@ -288,262 +151,32 @@ function hidePiano() {
     })  
 }
   
-
-/* 
-$(document).ready(function(){
-  console.log("hide piano running")
-  $(window).scroll(function(){
-    if ($(window).scrollTop() > 50){
-      console.log("hiding piano")
-      $('#nav-piano').addClass("hidden")
-      $('#hide-piano').removeClass("hidden")
-    } else {
-      console.log("showing piano")
-      $('#nav-piano').removeClass("hidden")
-      $('#hide-piano').addClass("hidden")
-    }
-  })
-  $("#p-wrapper").on('click', '#hide-piano', function(event) {
-    console.log("manually revealed piano tray")
-    $('#nav-piano').removeClass("hidden")
-    $('#hide-piano').addClass("hidden")  
-  })  
-  
-})  
-
- */
-/* $(document).scroll(function() {
-    $('#p-wrapper').toggle($(this).scrollTop() > 1);
-}); */
-
-/* $(document).scroll(function() {
-  $('p').toggleClass($("hidden").scrollTop() > 1);
-});
- */
-
-/* This Works */
-/* $(document).ready(function(){
-  $(document).scroll(function(){
-      $("p").toggleClass("hidden").scrollTop() > 10
-  });
-});
- */
-/* $('#p-wrapper').css('display','none');
-$( "#p-wrapper" ).toggleClass( "hidden" ) */
-
-/* $("header").headroom({
-  "offset": 205,
-  "tolerance": 5,
-  "classes": {
-    "initial": "animated",
-    "pinned": "slideDown",
-    "unpinned": "slideUp"
-  }
-});
- */
-
-function renderPiano() {
-  /* Renders html for piano menus. Switches between vertical or horizontal modes depending upon user viewport */
-  console.log("renderPiano() running")
-  
+function rotatePiano() {
+/* Switch between vertical or horizontal menu depending upon viewport */
+  console.log("rotatePiano() running")
   let mediaQuery = window.matchMedia("(max-width: 900px) and (orientation: landscape)")
   if (mediaQuery.matches) {
-    /* Move piano menu to vertical postion for mobile landscape viewports */ 
-    /* Update .html() for VERTICAL piano */
+  /* Update .html for VERTICAL piano for mobile landscape viewports */ 
     console.log("Updating html for vertical piano")
     pianoHorizontal = false
     $("main").addClass("left-piano-margin")
-    $("#p-wrapper").removeClass("wrapper-horizontal")
-    $("#nav-piano").addClass("nav-vertical")
-    $("#p-wrapper").addClass("wrapper-vertical")
-    $("#nav-piano").removeClass("nav-horizontal")
-    /* $('#p-wrapper').html(
-      `<nav id="nav-piano" class="nav-vertical">
-        <ul>
-          <li><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          
-          <div class="piano-menu">
-          <li><span class="tut"></span></li>
-            <li class="black-tut"><span class="tut"></span></li>
-            <li><span class="tut"></span></li>
-            <li class="black-tut"><span class="tut"></span></li>
-            <li><span class="tut"></span></li>
-            <li class="black-tut"><span class="tut"></span></li>
-            <li><span class="tut"></span></li>
-            <li><span class="tut"></span></li>
-            <li class="black-tut"><span class="tut"></span></li>
-            <li><span class="tut"></span></li>
-            <li class="black-tut"><span class="tut"></span></li>
-            <li><span class="tut"></span></li>
-          </div>
-          
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          <li class="black-tut"><span class="tut"></span></li>
-          <li><span class="tut"></span></li>
-          
-        </ul>
-      </nav>`)
- */
-    if (menuActive === true) {
-      colorizePiano(0, 0, 0)
-    }
-
+    $("#p-wrapper").removeClass("wrapper-horizontal").addClass("wrapper-vertical")
+    $("#nav-piano").removeClass("nav-horizontal").addClass("nav-vertical")
   } else {
-
-    /* Update .html() for HORIZONTAL piano */
+  /* Update .html() for HORIZONTAL piano */
     console.log("Updating html for horizontal piano")
     pianoHorizontal = true
     $("main").removeClass("left-piano-margin")
-    $("#p-wrapper").removeClass("wrapper-vertical")
-    $("#nav-piano").removeClass("nav-vertical")
-    $("#p-wrapper").addClass("wrapper-horizontal")
-    $("#nav-piano").addClass("nav-horizontal")
-
-    /* $('#p-wrapper').html(`<input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu.png"/>  
-    <div id="nav-piano" class="nav-horizontal">
-      <ul id="piano">
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        
-        <div class="piano-menu">
-          <li><div class="anchor"></div></li>
-          <li><div class="anchor"></div><span></span></li>
-          <li><div class="anchor"></div><span></span></li>
-          <li><div class="anchor"></div></li>
-          <li><div class="anchor"></div><span></span></li>
-          <li><div class="anchor"></div><span></span></li>
-          <li><div class="anchor"></div><span></span></li>
-        </div>                  
-        
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div><span></span></li>
-        <li><div class="anchor"></div></li>
-      </ul>
-    </div>`) */
-    
-    if (menuActive === true) {
-      colorizePiano(0, 0, 0)
-    }
+    $("#p-wrapper").removeClass("wrapper-vertical").addClass("wrapper-horizontal")
+    $("#nav-piano").removeClass("nav-vertical").addClass("nav-horizontal")
   }
 }
 
-window.addEventListener("resize", renderPiano)
-window.addEventListener('orientationchange', renderPiano)
+window.addEventListener("resize", rotatePiano)
+window.addEventListener('orientationchange', rotatePiano)
 
 $(function() {
   listenPianoTouch()
-  renderPiano()
+  rotatePiano()
   hidePiano()
 })

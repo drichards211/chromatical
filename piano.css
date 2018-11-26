@@ -110,48 +110,48 @@ body {
 .white-color {
   background-color:rgb(255,255,255) !important;
 }
-.c-color {
+.C-color {
   background-color:rgba(125, 0, 255, 0.4) !important; 
 }
-.d-color {
+.D-color {
   background-color:rgb(255,0,125, 0.4) !important;
 }
-.e-color {
+.E-color {
   background-color:rgb(255,125,0, 0.4) !important;
 }
-.f-color {
+.F-color {
   background-color:rgb(255,255,0, 0.4) !important;
 }
-.g-color {
+.G-color {
   background-color:rgb(0,255,0, 0.4) !important;
 }
-.a-color {
+.A-color {
   background-color:rgb(0,255,255, 0.4) !important;
 }
-.b-color {
+.B-color {
   background-color:rgb(0,0,255, 0.4) !important;
 }
 
 /* Piano key bright color values */
-.c-color:hover, .c-color:focus, .c-color-bright {
+.C-color:hover, .C-color:focus, .C-color-bright {
   background-color:rgb(125,0,255) !important; 
 }
-.d-color:hover, .d-color:focus, .d-color-bright {
+.D-color:hover, .D-color:focus, .D-color-bright {
   background-color:rgb(255,0,125) !important;
 }
-.e-color:hover, .e-color:focus, .e-color-bright {
+.E-color:hover, .E-color:focus, .E-color-bright {
   background-color:rgb(255,125,0) !important;
 }
-.f-color:hover, .f-color:focus, .f-color-bright {
+.F-color:hover, .F-color:focus, .F-color-bright {
   background-color:rgb(255,255,0) !important;
 }
-.g-color:hover, .g-color:focus, .g-color-bright {
+.G-color:hover, .G-color:focus, .G-color-bright {
   background-color:rgb(0,255,0) !important;
 }
-.a-color:hover, .a-color:focus, .a-color-bright {
+.A-color:hover, .A-color:focus, .A-color-bright {
   background-color:rgb(0,255,255) !important;
 }
-.b-color:hover, .b-color:focus, .b-color-bright {
+.B-color:hover, .B-color:focus, .B-color-bright {
   background-color:rgb(0,0,255) !important;
 }
 
@@ -199,7 +199,7 @@ a:hover {
   /* transform: translateY(-49.05%); */
   /* position: fixed;
   bottom: 0%; */
-  left: 118px;
+  left: 117px;
   /* left: 5.2%; */
   transform: translateX(-50%); 
   z-index: +5;
