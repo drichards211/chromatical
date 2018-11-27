@@ -1,22 +1,13 @@
 /**
  * Piano.css is a heavily-modified adaptation of the
- * following CSS designs:
+ * following CSS design:
  *
  * Pure CSS3 Piano by Taufik Nurrohman
  * On: 1 December 2011
  * Licence: Attribution
  * URL: http://cssdeck.com/labs/pure-css3-piano
- *
- * Pure CSS3 Vertical Piano Menu by Taufik Nurrohman
- * Licence: Attribution
- * URL: http://cssdeck.com/labs/pure-css3-vertical-piano
  */
-
-/* TO DO: convert all elements to % or rem as opposed to pixels
-          delete unnecessary CSS code
-*/
-
-
+ 
  * {
   margin:0px;
   /* padding:0px; */
