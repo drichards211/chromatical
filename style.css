@@ -3,13 +3,14 @@
 }
 
 html { /*DR*/
-  height: 100%;
+  /* height: 100vh; */
 }
 
 html, body {
   /* font-family: "LCARS"; */
   font-size: 11.5px;
   min-width: 320px; /* Prevents site layout from breaking on extremely tiny displays */ 
+  /* height: 100vh; */
 }
 body:before {
   /* Full-screen background gradient */
@@ -38,6 +39,7 @@ body:after {
   box-shadow: 0px 0px 6px rgba(0,0,0,.8); 
   z-index: 100;
 }
+
 
 button {
   text-align: right;
@@ -123,7 +125,9 @@ button {
 
 
 main {
+  /* height: 100vh; */
   /* height: 100%; */
+  
   
 }
 
@@ -169,6 +173,8 @@ margin-left: 20.36rem;
 } */
 
 .piano-circle {
+  flex-grow : 1;
+  /* height: 100vh; THIS WORKS, BUT IS SLIGHTLY TOO TALL*/
   position: relative;
   display: block;
   /* margin-left: auto;
@@ -240,11 +246,10 @@ margin-left: 20.36rem;
 
 .results-container {
   background: rgb(255, 255, 255) !important;
-  /* position: relative; */
-  height: 100%;
-  /* padding-bottom: 2.5rem; */
   box-shadow: 5px 5px 10px rgb(54, 54, 54);
+  min-height: 100vh;
 }
+
 
 p {
   text-align: center;
@@ -280,7 +285,6 @@ p {
 .row {
   max-width: 1000px;
   min-width: 320px;
-  height: 100%; /*DR*/
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
@@ -297,4 +301,3 @@ p {
   padding-right: 1.04166666%; 
   width: 100%;
 }
-
