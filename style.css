@@ -248,6 +248,20 @@ margin-left: 20.36rem;
   background: rgb(255, 255, 255) !important;
   box-shadow: 5px 5px 10px rgb(54, 54, 54);
   min-height: 100vh;
+  overflow: hidden;
+  
+  
+  /* Wrap long URL's and text =============== */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+
+  
 }
 
 
