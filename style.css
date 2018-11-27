@@ -40,6 +40,22 @@ body:after {
   z-index: 100;
 }
 
+/*Removes all default browser styling for legends and fieldsets:*/
+legend {
+  padding: 0;
+  display: table;
+  -webkit-padding-start: 0px;
+  -webkit-padding-end: 0px;
+}
+fieldset {
+  border: 0;
+  padding: 0.01em 0 0 0;
+  margin: 0;
+  min-width: 0;
+}
+body:not(:-moz-handler-blocked) fieldset {
+  display: table-cell;
+}
 
 button {
   text-align: right;
@@ -70,7 +86,9 @@ button {
   margin-top: 110%;
 }
 
-
+#banner {
+  text-align: center;
+}
 /* button div {
   writing-mode: vertical-rl !important;
   text-orientation: mixed !important; /* upright; */
@@ -123,12 +141,21 @@ button {
   background:rgb(0,0,255);
 }
 
+h1 {
+  font-size: 250%;
+  margin-bottom: .4em;
+}
 
 main {
   /* height: 100vh; */
   /* height: 100%; */
   
   
+}
+.instruction {
+  font-size: 1.4rem;
+  margin-top: 0.1rem;
+  margin-bottom: .5rem;
 }
 
 .left-piano-margin {
@@ -183,10 +210,11 @@ margin-left: 20.36rem;
 
 }
 #piano-bw {
-  height: 18.9rem; /* 18.8rem; */ /* 15rem; */
+  height: 14rem; /* 13rem; */ /* 18.9rem; */ /* 18.8rem; */ /* 15rem; */
   width: auto;
   /* width: 20rem; */
   display: block;
+  margin-top: 2.25rem;
   margin-left: auto;
     margin-right: auto;
     /* width: 50%; */
