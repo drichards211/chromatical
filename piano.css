@@ -56,8 +56,10 @@ body {
 
 .piano-button-large { /*DR*/
   border: none !important;
-  font-size: 1.8rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.6rem; /* 1.8rem; */
   color: white !important;
+
   /* background-color: #edde9c; */
   /* color: #ffffff; */
   -webkit-transition: background-color 1s;
@@ -147,12 +149,12 @@ body {
 }
 
 a {
-  color:indigo;
   text-decoration:none;
+  color: black;
 }
 
 a:hover {
-  text-decoration:underline;
+  /* text-decoration:underline; */
 }
 
 #footer {

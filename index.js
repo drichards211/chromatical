@@ -2,6 +2,42 @@
 
 let userFormInput = ""
 
+function handleUserNav() {
+/* Handles navigation buttons outside the piano menu */
+  console.log("handleUserNav() runnning")
+  /* $('.results-container').on('.click', '#banner a', function(event) { */
+  $('#chromatical').click(function(event) {
+    event.preventDefault();
+    let buttonID = `${$(this).prop('id')}`
+    if (buttonID === "chromatical") {
+      console.log("Chromatical title clicked")
+    $('.results-container').empty()
+    $('.results-container').append(`
+    <div class="whatis">
+    <h2>What is Chromatical?</h2>
+    <br>
+    <p><b>chroma</b>:</p>
+    <p>-- from the Greek chrôma (color) --</p>
+    <p>A quality of color combining hue and saturation.</p>
+    <br>
+    <p><b>chromatic</b>:</p>
+    <p>A musical structure derived from the twelve-note chromatic scale.</p>
+    <br>
+    <p><b>-al</b>: (suffix)</p>
+    <p>Having the form or character of.</p>
+    <br>
+    <p><b>automatic</b>:</p>
+    <p>Done or produced as if by machine.</p>
+
+    </div>
+    `
+    
+    )
+    }
+    
+  })
+}
+
 function handleFormInput() {
   /* Listens for user search-form submission, */
   console.log('handleFormInput() running')
@@ -88,7 +124,13 @@ function renderNewContent(apiName) {
       let pageImage = response.query.pages[pageID].pageimage
       /* put catch here */
       let extract = response.query.pages[pageID].extract
-      $('.results-container').append(`${extract}`)
+      $('.results-container').append(`
+        <div class="wikipedia">
+          <div class="wiki-thumbnail">
+          <img src="${thumbnail}" alt="" id="" class="">
+          </div>
+          ${extract}
+          </div>`)
     }
   }
   if (apiName === "youtube") {
@@ -144,5 +186,6 @@ function renderNewContent(apiName) {
 }
 
 $(function() {
+  handleUserNav()
   handleFormInput()
 })
