@@ -8,7 +8,7 @@ html { /*DR*/
 
 html, body {
   font-size: 11.5px;
-  min-width: 320px; /* Prevents site layout from breaking on extremely tiny displays */ 
+  /* min-width: 320px; */ /* Prevents site layout from breaking on extremely tiny displays */ 
   
 }
 body:before {
@@ -427,7 +427,7 @@ p {
   padding-top: 2%;
   padding-left: 2%;/* 1.04166666%; */
   padding-right: 2%; /* 1.04166666%;  */
-  /* padding-bottom: 100px; */
+  /* padding-bottom: 300px; */
   width: 100%;
-  margin-bottom: 30%;
+  margin-bottom: 40%;
 }

@@ -244,6 +244,7 @@ a:hover {
   /* display: none; */
   width:1000%; /*playing with this value... was 1000%*/
   position: fixed;
+  /* pointer-events:none; */
   bottom: 0%;
   left: 50%;
   transform: translateX(-50%);
