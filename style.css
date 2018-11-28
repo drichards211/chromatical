@@ -329,7 +329,7 @@ margin-left: 20.36rem;
   font-family: 'EB Garamond', serif;
   background: rgb(255, 255, 255) !important;
   box-shadow: 5px 5px 10px rgb(54, 54, 54);
-  min-height: calc(100vh - 30px);
+  min-height: calc(100vh - 30px); /* calc(100vh - 2.5%); */
   /* min-height: 100vh; */
   margin-top: 2.5%;
   /* margin-bottom: 1%; */
@@ -427,5 +427,7 @@ p {
   padding-top: 2%;
   padding-left: 2%;/* 1.04166666%; */
   padding-right: 2%; /* 1.04166666%;  */
+  /* padding-bottom: 100px; */
   width: 100%;
+  margin-bottom: 30%;
 }
