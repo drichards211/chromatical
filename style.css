@@ -3,14 +3,14 @@
 }
 
 html { /*DR*/
-  /* height: 100vh; */
+  
 }
 
 html, body {
   /* font-family: "LCARS"; */
   font-size: 11.5px;
   min-width: 320px; /* Prevents site layout from breaking on extremely tiny displays */ 
-  /* height: 100vh; */
+  
 }
 body:before {
   /* Full-screen background gradient */
@@ -155,9 +155,38 @@ main {
 .instruction {
   font-size: 1.4rem;
   margin-top: 0.1rem;
-  margin-bottom: .5rem;
+  margin-bottom: .6rem;
 }
 
+.search-form {
+  
+  /*  */
+  /* width: 20%; */
+}
+input {
+  border: 1px solid rgba(0, 0, 0, 0.226);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.06);
+  -webkit-border-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+  border-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+  width: 64%;
+  height: 2.2em;
+  font-size: 1.4em;
+  max-width: 500px;
+  
+}
+
+.find-button {
+  height: 1.8em;
+  font-size: 1.5em;
+}
 .left-piano-margin {
 margin-left: 20.36rem;
 }
