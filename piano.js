@@ -10,7 +10,7 @@ function colorizePiano(wait, time, delay) {
   console.log('Rendering piano menu buttons')
   menuActive = true
   
-  /* Update .html() for HORIZONTAL piano MENU BUTTONS */
+  /* Update .html() for piano MENU BUTTONS */
   setTimeout(function() {
     $(".piano-menu").html(
       `<nav class="select-content fade-in"> 
@@ -36,6 +36,11 @@ function colorizePiano(wait, time, delay) {
     $("#A").removeClass('white-color').addClass('A-color')
     $("#B").removeClass('white-color').addClass('B-color')
   }, delay)
+
+  /* Replace black & white mini-piano-button with colored version */
+  $('#mini-piano-button').html(`
+    <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu.png"/>`
+  )
 }
 
 function listenPianoTouch(){ /*
