@@ -39,10 +39,12 @@ function handleUserNav() {
 }
 
 function handleFormInput() {
-  /* Listens for user search-form submission, */
+  /* Listens for .search-form submission, */
   console.log('handleFormInput() running')
-  $('.search-form').submit(event => {
+  $('.col-12 .search-form').submit(event => {    /* $('.search-form').submit(event => { */
     event.preventDefault()
+    /* let menuID = `${$(this).prop('id')}`
+    console.log(`${menuID} menu input detected`) */
     userFormInput = $('#search-term').val()
     if (userFormInput === "") {
       alert('Please enter a search term')
@@ -56,6 +58,44 @@ function handleFormInput() {
       }
     }
   })
+  /* Listens for .search-form-mini submission, */
+  $('.col-12 .search-form-mini').submit(event => {    /* $('.search-form').submit(event => { */
+      event.preventDefault()
+      userFormInput = $('#search-term').val()
+      if (userFormInput === "") {
+        alert('Please enter a search term')
+      } else {
+        console.log(`User searched for string "${userFormInput}"`)
+        $('.results-container').empty()
+        $('.results-container').append(
+          `<header role="banner" id="banner">
+            <fieldset> 
+              <form action="#" class="search-form-mini">
+                <label for="query"></label>
+                <label><input type="text" id="search-term" class="js-query" value="${userFormInput}"></label>
+                <button type="submit" class="find-button"><span class="fas fa-search"></span></button>
+              </form>
+            </fieldset>
+            <br>
+            <br>
+            <br>
+          </header>
+          <div class="piano-circle">
+          <img src="./assets/images/piano-circle-bw.png" alt="circle piano logo" id="piano-bw" class="fade-out-logo">
+        </div>`
+        )
+        resetPianoKeys() /* in piano.js */
+        handleFormInput()
+        logoSpin()
+        updateSearchParams(userFormInput)  
+        const APIList = ["wikipedia", "youtube", /*"google",*/ "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+        for (let i = 0; i < APIList.length; i++) {
+          fetchAPIData(APIList[i], userFormInput)
+        }
+      }
+    })
+
+  }
 
 function updateSearchParams(searchInput) {
   /* Updates APIInfo object (inside fetch-api.js) with user search string */
@@ -74,7 +114,6 @@ function updateSearchParams(searchInput) {
 
   // call function logoSpin()
   // call function addPianoLinks() and colorizePiano()
-}
 
 function logoSpin() {
   /* Spin the B&W logo for 2 seconds, fade out. Call colorizePiano() */
@@ -109,6 +148,21 @@ function renderNewContent(apiName) {
   console.log(`renderNewContent("${apiName}") ran`)
   let response = responseData[apiName]
   $('.results-container').empty()
+  $('.results-container').append(
+    `<header role="banner" id="banner">
+      <fieldset> 
+        <form action="#" class="search-form-mini">
+          <label for="query"></label>
+          <label><input type="text" id="search-term" class="js-query" value="${userFormInput}"></label>
+          <button type="submit" class="find-button"><span class="fas fa-search"></span></button>
+        </form>
+      </fieldset>
+      <br>
+      <br>
+      <br>
+    </header>`
+  )
+  handleFormInput()
  
   if (apiName === "wikipedia") {
     console.log("Rendering wikipedia API data")

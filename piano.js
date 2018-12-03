@@ -119,7 +119,16 @@ function resetPianoColors() {
 
   
 function resetPianoKeys() {
-  // remove all links
+/* Removes buttons and resets piano menu keys to white */
+  $('.piano-menu').html(`
+    <li><div class="anchor"></div></li>
+    <li><div class="anchor"></div><span></span></li>
+    <li><div class="anchor"></div><span></span></li>
+    <li><div class="anchor"></div></li>
+    <li><div class="anchor"></div><span></span></li>
+    <li><div class="anchor"></div><span></span></li>
+    <li><div class="anchor"></div><span></span></li>
+  `)
 }
 
 function updatePianoKeys() {

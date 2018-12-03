@@ -382,6 +382,10 @@ p {
   text-align: center;
 }
 
+.js-query {
+  padding-left: 0.65em;
+}
+
 .itunesImg {
   position: relative;
   float: left;
@@ -424,9 +428,9 @@ p {
  .col-12 {
   /* 12 columns, 12/12 */
   float: left;
-  padding-top: 2%;
-  padding-left: 2%;/* 1.04166666%; */
-  padding-right: 2%; /* 1.04166666%;  */
+  padding-top: 3%;
+  padding-left: 3%;/* 1.04166666%; */
+  padding-right: 3%; /* 1.04166666%;  */
   /* padding-bottom: 300px; */
   width: 100%;
   margin-bottom: 40%;
