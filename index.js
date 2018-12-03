@@ -61,6 +61,7 @@ function handleFormInput() {
   /* Listens for .search-form-mini submission, */
   $('.col-12 .search-form-mini').submit(event => {    /* $('.search-form').submit(event => { */
       event.preventDefault()
+      console.log('mini-form submission detected')
       userFormInput = $('#search-term').val()
       if (userFormInput === "") {
         alert('Please enter a search term')
@@ -83,6 +84,9 @@ function handleFormInput() {
           <div class="piano-circle">
           <img src="./assets/images/piano-circle-bw.png" alt="circle piano logo" id="piano-bw" class="fade-out-logo">
         </div>`
+        )
+        $('#mini-piano-button').html(`
+          <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu-bw.png"/>`
         )
         resetPianoKeys() /* in piano.js */
         handleFormInput()

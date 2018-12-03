@@ -33,7 +33,7 @@ body {
   background:-o-radial-gradient(bottom left,cover,#999,#666);
   background:radial-gradient(bottom left,cover,#999,#666); */
 
-    /* DR Keeps gradient fixed while scrolling =========== */
+    /* Keeps gradient fixed while scrolling - DR ======= */
     height:100%; /* 500px; */
     margin: 0;
     background-repeat: no-repeat;
@@ -58,48 +58,24 @@ body {
   border: none !important;
   font-family: 'Nunito', sans-serif;
   font-size: 1.6rem; /* 1.8rem; */
+  font-weight: 600;
+  letter-spacing: .9px;
   color: white !important;
 
-  /* background-color: #edde9c; */
-  /* color: #ffffff; */
-  -webkit-transition: background-color 1s;
+  /* -webkit-transition: background-color 1s;
   -moz-transition: background-color 1s;
   -o-transition: background-color 1s;
   -ms-transition: background-color 1s;
-  transition: background-color 1s;
-  /* different color combos */
-  /* 0 1px 0px #526e77,
-    1px 0 0px #709aaa, */
+  transition: background-color 1s; */
+  
   text-shadow:
-    0 1px 0px #3b3b3b,
-    1px 0 0px #808080,
-    1px 2px 1px #3b3b3b,
-    2px 1px 1px #808080,
-    2px 3px 2px #3b3b3b,
-    3px 2px 2px #808080;
-    /* 3px 4px 2px #5d737e,
-    4px 3px 3px #5dabcd; */
-    /* 4px 5px 3px #378ab4,
-    5px 4px 2px #5dabcd,
-    5px 6px 2px #378ab4; */
-    /* 6px 5px 2px #5dabcd,
-    6px 7px 1px #378ab4,
-    7px 6px 1px #5dabcd,
-    7px 8px 0px #378ab4,
-    8px 7px 0px #5dabcd; */
-  /* text-shadow: .1rem .1rem 0px #000000; */
-
-  /*   cursor: pointer;
-  display: inline-block;
-  transform: rotate(-90deg);
-  color: white !important;
- */  
-  /* position: relative; */
-  /* writing-mode: vertical-rl !important;
-  text-orientation: mixed !important;  */
+    0 1px 0px #000000,
+    1px 0 0px #383838,
+    1px 2px 1px #000000,
+    2px 3px 1px #545454;
 }
 
-/* Piano key default color values */
+/* Piano key default color values - DR */
 .white-color {
   background-color:rgb(255,255,255) !important;
 }
@@ -125,7 +101,7 @@ body {
   background-color:rgb(0,0,255, 0.4) !important;
 }
 
-/* Piano key bright color values */
+/* Piano key bright color values DR */
 .C-color:hover, .C-color:focus, .C-color-bright {
   background-color:rgb(125,0,255) !important; 
 }
@@ -176,7 +152,41 @@ a:hover {
   text-align: center;
   margin: 0 auto;
 } */
-.wrapper-vertical {
+
+/* Button text for piano menu - DR*/
+.text-c {
+  margin-top: 265%;
+}
+.text-d {
+  margin-top: 250%;
+}
+.text-e {
+  margin-top: 240%;
+}
+.text-f {
+  margin-top: 100%;
+}
+.text-g {
+  margin-top: 270%;
+}
+.text-a {
+  margin-top: 220%;
+}
+.text-b {
+  margin-top: 110%;
+}
+
+#banner {
+  text-align: center;
+}
+/* button div {
+  writing-mode: vertical-rl !important;
+  text-orientation: mixed !important; /* upright; */
+  /* text-align: right !important;
+} */
+
+
+.wrapper-vertical { /*DR*/
     /* background:#000;
   background:-webkit-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
   background:-moz-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);

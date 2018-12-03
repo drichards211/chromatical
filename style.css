@@ -63,37 +63,6 @@ button {
   
 }
 
-/* Button text for piano menu */
-.text-c {
-  margin-top: 260%;
-}
-.text-d {
-  margin-top: 240%;
-}
-.text-e {
-  margin-top: 230%;
-}
-.text-f {
-  margin-top: 100%;
-}
-.text-g {
-  margin-top: 260%;
-}
-.text-a {
-  margin-top: 200%;
-}
-.text-b {
-  margin-top: 110%;
-}
-
-#banner {
-  text-align: center;
-}
-/* button div {
-  writing-mode: vertical-rl !important;
-  text-orientation: mixed !important; /* upright; */
-  /* text-align: right !important;
-} */
 
 #chromatical {
   

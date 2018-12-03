@@ -1,6 +1,6 @@
 'use strict'
 
-let menuActive = false
+/* let menuActive = false */
 let activePianoKey = "none"
 let pianoHorizontal = true
 
@@ -8,7 +8,7 @@ function colorizePiano(wait, time, delay) {
 /* Render and colorize the piano-menu buttons. */
   console.log("colorizePiano() ran")
   console.log('Rendering piano menu buttons')
-  menuActive = true
+  /* menuActive = true */
   
   /* Update .html() for piano MENU BUTTONS */
   setTimeout(function() {
@@ -119,7 +119,10 @@ function resetPianoColors() {
 
   
 function resetPianoKeys() {
-/* Removes buttons and resets piano menu keys to white */
+/* Resets piano menu keys to white, and background to grey */
+  $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-none`)
+  activePianoKey = "none"
+  
   $('.piano-menu').html(`
     <li><div class="anchor"></div></li>
     <li><div class="anchor"></div><span></span></li>
