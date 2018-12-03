@@ -52,7 +52,7 @@ function handleFormInput() {
       console.log(`User searched for string "${userFormInput}"`)
       logoSpin()
       updateSearchParams(userFormInput)  
-      const APIList = ["wikipedia", "youtube", /*"google",*/ "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+      const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
       for (let i = 0; i < APIList.length; i++) {
         fetchAPIData(APIList[i], userFormInput)
       }
