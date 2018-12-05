@@ -34,6 +34,7 @@ function colorizePiano(wait, time, delay) {
     $("#G").removeClass('white-color').addClass('G-color')
     $("#A").removeClass('white-color').addClass('A-color')
     $("#B").removeClass('white-color').addClass('B-color')
+    listenPianoTouch()
   }, delay)
 
   /* Replace black & white mini-piano-button with colored version */
@@ -45,7 +46,7 @@ function colorizePiano(wait, time, delay) {
 function listenPianoTouch(){ /*
 When user clicks a COLORED piano <button>:
     (1) Reset any previously clicked button to normal color.
-    (2) Change <body> background color to match new button. 
+    (2) Change <body> background-color and border-top to match new button. 
     (3) Change new button color to bright. 
     (4) Update activePianoKey global variable.
     (5) Play piano sound.
@@ -89,6 +90,7 @@ When user clicks a BLACK piano <span>, just play sound (7).
         resetPianoColors()
         /* (2) */
         $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-${noteID}`)
+        $('.results-container').removeClass(`border-${activePianoKey}`).addClass(`border-${noteID}`)
         /* (3) */
         $(`#${noteID}`).removeClass(`${noteID}-color`).addClass(`${noteID}-color-bright`)
         /* (4) */
@@ -189,7 +191,7 @@ window.addEventListener("resize", rotatePiano)
 window.addEventListener('orientationchange', rotatePiano)
 
 $(function() {
-  listenPianoTouch()
+  /* listenPianoTouch() */
   rotatePiano()
   hidePiano()
 })

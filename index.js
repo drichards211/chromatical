@@ -39,6 +39,7 @@ function handleFormInput() {
       } else {
         renderMiniBanner()
         showPianoLogo()
+        $('.results-container').removeClass(`border-${activePianoKey}`).addClass('border-none')
         resetPianoKeys() /*in piano.js*/
         /* handleFormInput() */
         performSearch(userFormInput)
