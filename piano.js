@@ -25,7 +25,6 @@ function colorizePiano(wait, time, delay) {
     }, wait)
   
   /* Fade-in colors and text for piano menu keys */
-  console.log("Rendering piano menu COLORS AND TEXT")
   setTimeout(function() {
     $(".fade-in-text").fadeIn(time)
     $("#C").removeClass('white-color').addClass('C-color')
@@ -115,14 +114,11 @@ function resetPianoColors() {
       $(`#${activePianoKey}`).removeClass(`${activePianoKey}-color-bright`).addClass(`${activePianoKey}-color`)
     }
 }
-
-
   
 function resetPianoKeys() {
 /* Resets piano menu keys to white, and background to grey */
   $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-none`)
   activePianoKey = "none"
-  
   $('.piano-menu').html(`
     <li><div class="anchor"></div></li>
     <li><div class="anchor"></div><span></span></li>
@@ -130,8 +126,8 @@ function resetPianoKeys() {
     <li><div class="anchor"></div></li>
     <li><div class="anchor"></div><span></span></li>
     <li><div class="anchor"></div><span></span></li>
-    <li><div class="anchor"></div><span></span></li>
-  `)
+    <li><div class="anchor"></div><span></span></li>`
+  )
 }
 
 function updatePianoKeys() {
