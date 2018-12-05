@@ -4,11 +4,10 @@ An API music mashup. The interface combines musical elements with colorful, pris
 NOTE: This is a work-in-progress. Features to be added are listed below, along with required bugfixes and styling notes.
 
 Features Under Development:
-  + "What is Chromatical?" page needs to be added, along with link on main page.
-  + Search bar needs to be fixed to top of screen and auto-hide when scrolling.
-  + API result pages need 'more' buttons to load additonal content.
+  + Add "What is Chromatical?" link on main page.
   + API result pages need 'view more on x' buttons to link directly to youtube, itunes, wikipedia, etc.
   + Need to add catches to fetch operations.
+  + Need to add mini circle piano logo to left side of search bar on results pages.
   + This README needs an 'about' section.
 
 Upcoming Features:
@@ -20,17 +19,17 @@ Accessibility (a11y):
   + Needs to be tested with screenreader (NVDA) and optimized as necessary.
  
 Styling:
-  + All API data renders require extensive styling, "more" button for additional results, and links for more info: "youtube, itunes, spotify, etc."
-  + Chromatical search bar needs basic instructions. Needs to be centered. Requires styling.
-  + .results-container needs to display height=100% even when empty or with very little content.
+  + All API data renders require extensive styling and links for more info: "youtube, itunes, spotify, etc."
+  + Chromatical search bar button needs to be sized to match search bar and abutted so as to look embedded within. 
   + Horizontal piano menu needs to be animated when hiding / revealing.
-  + Fonts need to be selected (Google Web Fonts) and implemented.
+  + .results-container border-top needs to change color depending upon section, with transition.
   
 Housekeeping:
   + Excess .CSS entries to be deleted.
   + Old comments to be deleted.
    
 Troubleshooting:
+  + Black key press on home page causes background to change color.
   + Google custom search: How do I request the next page of results?
   + Android soft-keyboard pushes fixed design elements upwards.
   + Browser title-bar on mobile layouts eats-up screen real estate. Design for smaller viewport?
