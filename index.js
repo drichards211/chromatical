@@ -52,7 +52,7 @@ function handleFormInput() {
       console.log(`User searched for string "${userFormInput}"`)
       logoSpin()
       updateSearchParams(userFormInput)  
-      const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+      const APIList = ["wikipedia", "youtube", /* "google", */ "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
       for (let i = 0; i < APIList.length; i++) {
         fetchAPIData(APIList[i], userFormInput)
       }
@@ -92,7 +92,7 @@ function handleFormInput() {
         handleFormInput()
         logoSpin()
         updateSearchParams(userFormInput)  
-        const APIList = ["wikipedia", "youtube", /*"google",*/ "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+        const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
         for (let i = 0; i < APIList.length; i++) {
           fetchAPIData(APIList[i], userFormInput)
         }
@@ -198,16 +198,21 @@ function renderNewContent(apiName) {
         `<li><h3>${response.items[i].snippet.title}</h3>
         <p>${response.items[i].snippet.description}</p>
         <img src='${response.items[i].snippet.thumbnails.default.url}'>
-        </li>`)
+        </li>
+        `)
     }
   }
   if (apiName === "google") {
     console.log("Rendering google API data")
     let resultsHtml = ""
+    $('.results-container').append(
+      `<div class="img-container">
+      </div>`
+    )
     for (let i = 0; i < response.items.length; i++) {
       resultsHtml += `<a href=${response.items[i].link} target="_blank"><img src="${response.items[i].image.thumbnailLink}" alt="Google image thumbnail ${i}" class="googleImg"></a>`
     }
-    $('.results-container').append(
+    $('.img-container').append(
       `<div class="googleResults">${resultsHtml}</div>`
     )
   }
