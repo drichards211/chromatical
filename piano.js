@@ -43,7 +43,7 @@ function colorizePiano(wait, time, delay) {
   )
 }
 
-function listenPianoTouch(){ /*
+function listenPianoTouch(stopListening){ /*
 When user clicks a COLORED piano <button>:
     (1) Reset any previously clicked button to normal color.
     (2) Change <body> background-color and border-top to match new button. 
@@ -80,7 +80,7 @@ When user clicks a BLACK piano <span>, just play sound (7).
     A: "tastedive",
     B: "ticketmaster",
   }
-
+  if (stopListening === undefined) {
     $(".piano-menu").on('click', 'button, span', function(event) {
       let noteID = `${$(this).prop('id')}`
       console.log(`piano key ${noteID} pressed`)
@@ -107,6 +107,9 @@ When user clicks a BLACK piano <span>, just play sound (7).
         pianoSounds[noteID].currentTime = 0
       }
     })
+  } else {
+    console.log("listenPianoTouch() stopped")
+  }
 }
     
 function resetPianoColors() {
@@ -119,8 +122,11 @@ function resetPianoColors() {
   
 function resetPianoKeys() {
 /* Resets piano menu keys to white, and background to grey */
+  console.log("resetPianoKeys() ran")
   $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-none`)
+  $('.results-container').removeClass(`border-${activePianoKey}`).addClass(`border-none`)
   activePianoKey = "none"
+  listenPianoTouch(stop)
   $('.piano-menu').html(`
     <li><div class="anchor"></div></li>
     <li><div class="anchor"></div><span></span></li>
@@ -129,6 +135,9 @@ function resetPianoKeys() {
     <li><div class="anchor"></div><span></span></li>
     <li><div class="anchor"></div><span></span></li>
     <li><div class="anchor"></div><span></span></li>`
+  )
+  $('#mini-piano-button').html(`
+    <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu-bw.png"/>`
   )
 }
 

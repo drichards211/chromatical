@@ -7,12 +7,17 @@ function handleUserNav() {
   console.log("handleUserNav() runnning")
   /* $('.results-container').on('.click', '#banner a', function(event) { */
   $('#chromatical').click(function(event) {
-    event.preventDefault();
+    event.preventDefault()
     let buttonID = `${$(this).prop('id')}`
     if (buttonID === "chromatical") {
       console.log("Chromatical title clicked")
       renderNewContent("chromatical")
     }
+  })
+  $('#home-button').click(function(event) {
+    event.preventDefault()
+    console.log("Home button clicked")
+    renderHomePage()
   })
 }
 
@@ -39,9 +44,7 @@ function handleFormInput() {
       } else {
         renderMiniBanner()
         showPianoLogo()
-        $('.results-container').removeClass(`border-${activePianoKey}`).addClass('border-none')
         resetPianoKeys() /*in piano.js*/
-        /* handleFormInput() */
         performSearch(userFormInput)
       }
     })
@@ -93,34 +96,49 @@ function showPianoLogo() {
 
 function renderMiniBanner() {
 /* Adds html for mini-search banner */
+  console.log("renderMiniBanner() ran")
   $('#banner').html(`
-    <fieldset> 
-      <form action="#" class="search-form-mini">
-        <label for="query"></label>
-        <label><input type="text" id="search-term" class="js-query" value="${userFormInput}"></label>
-        <button type="submit" class="find-button"><span class="fas fa-search"></span></button>
-      </form>
-    </fieldset>
-    <br>
-    <br>`)
+    <div class="mini-banner">
+      <div class="mini-logo">
+        <a href="#" id="home-button">
+          <img src="./assets/images/piano-circle-bw.png" alt="mini circle piano logo" id="piano-bw-mini">
+        </a>
+      </div>
+      <fieldset> 
+        <form action="#" class="search-form-mini">
+          <label for="query"></label>
+          <label><input type="text" id="search-term" class="js-query" value="${userFormInput}"></label>
+          <button type="submit" class="find-button"><span class="fas fa-search"></span></button>
+        </form>
+      </fieldset>
+      <br>
+      <br>
+    </div>`)
+  handleFormInput()
+  handleUserNav()
+}
+
+function renderHomePage() {
+  console.log("renderHomePage() ran")
+  userFormInput = ""
+  $('#banner').html(`
+    <a href="#" id="chromatical"><h1>Chromatical</h1></a>
+      <fieldset> 
+        <legend class="instruction">Search for an artist, album, or song title</legend>
+          <form action="#" class="search-form">
+            <label for="query"></label>
+            <label><input type="text" id="search-term" class="js-query"></label>
+            <button type="submit" class="find-button"><span class="fas fa-search"></span></button>
+          </form>
+      </fieldset>`)
+  $('.results-container').html(`
+    <div class="piano-circle">
+      <img src="./assets/images/piano-circle-bw.png" alt="circle piano logo" id="piano-bw" class="fade-out-logo">
+    </div>`)
+  resetPianoKeys() /*in piano.js*/
+  handleUserNav()
   handleFormInput()
 }
-
-function addPianoLinks() {
-  // add new <div> with code for buttons and labels. include class to style the text white with black stroke and shadow.
-  // is it possible to fade these labels in the same way as the colors in colorizePiano()?
-
-}
-
-/* function fadeOut() {
-  //Fade circle piano
-    $("#piano-bw").addClass("spin-me")
-    $('.fade-out-logo').fadeOut(2600)
-    setTimeout(function() {
-      console.log("setTimeout ran")
-      colorizePiano()
-    }, 2300)
-} */
 
 function renderNewContent(apiName) {
 /* updates .results-container with selected API data */
@@ -130,7 +148,6 @@ function renderNewContent(apiName) {
   renderMiniBanner()
   
   if (apiName === "chromatical") {
-    /*CHANGE COLOR CLASS ON RESULTS-CONTAINER BORDER TOP??? */
     $('.results-container').html(`
       <div class="whatis">
         <h2>What is Chromatical?</h2>

@@ -39,6 +39,26 @@ body:after {
   z-index: 100;
 }
 
+#banner {
+  text-align: center;
+  position: relative; /*NEW*/
+  margin-top: 1rem; /*NEW*/
+  
+  /* margin: 0 0; */
+}
+/* button div {
+  writing-mode: vertical-rl !important;
+  text-orientation: mixed !important; /* upright; */
+  /* text-align: right !important;
+} */
+.mini-banner {
+  margin-left: 0;
+  margin-right: 0;
+  /* display: inline !important; */
+}
+
+
+
 /*Removes all default browser styling for legends and fieldsets:*/
 legend {
   padding: 0;
@@ -192,6 +212,14 @@ main {
   /*  */
   /* width: 20%; */
 }
+.search-form-mini {
+  position: relative;
+  display: block;
+  padding-left: 2.7rem;
+  /* padding-right: 2.7rem; */
+  /* top: -1px; */
+}
+
 input {
   border: 1px solid rgba(0, 0, 0, 0.226);
   box-shadow: 0 2px 3px rgba(0,0,0,0.06);
@@ -209,6 +237,7 @@ input {
   height: 2.2em;
   font-size: 1.4em;
   max-width: 500px;
+  /* min-width: 165px; MESSES UP PIANO TRAY BUTTON*/
   
 }
 
@@ -279,7 +308,21 @@ margin-left: 20.36rem;
     /* width: 50%; */
   
 }
+.mini-logo {
+  display: block;
+  /* width: 94px; */
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  z-index: 2;
+}
 
+#piano-bw-mini {
+  height: 4.2rem;
+  margin-top: -3px;
+  cursor: pointer;
+  
+}
 /* SPIN THE PIANO CIRCLE ================ */
 .spin-me {
   -webkit-animation:spin 6s linear infinite;
@@ -383,7 +426,12 @@ p {
 }
 
 .js-query {
-  padding-left: 0.65em;
+  
+  /* float: left; */
+  height: 3.5rem;
+  padding-left: 0.7rem;/* 0.65em; */
+  font-size: 1.7rem;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .itunesImg {
@@ -435,13 +483,13 @@ p {
  .col-12 {
   /* 12 columns, 12/12 */
   float: left;
-  padding-top: 3%;
+  padding-top: 1%;
   padding-left: 4%;/* 1.04166666%; */
   padding-right: 4%; /* 1.04166666%;  */
   /* padding-bottom: 300px; */
   width: 100%;
   margin-bottom: 40%;
-
+  
   font-family: 'EB Garamond', serif;
   background: rgb(255, 255, 255) !important;
   box-shadow: 5px 5px 10px rgb(54, 54, 54);
