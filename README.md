@@ -32,4 +32,5 @@ Troubleshooting:
   + Android soft-keyboard pushes fixed design elements upwards.
   + Browser title-bar on mobile layouts eats-up screen real estate. Design for smaller viewport?
   + If mobile screen is rotated while piano menu is hidden, it rotates to new position as hidden, (needs to be visible).
+  + Legend text left-aligns in Firefox browser... known bug. Either determine a workaround or discontinue using legend.
 
