@@ -34,7 +34,6 @@ function colorizePiano(wait, time, delay) {
     $("#G").removeClass('white-color').addClass('G-color')
     $("#A").removeClass('white-color').addClass('A-color')
     $("#B").removeClass('white-color').addClass('B-color')
-    listenPianoTouch()
   }, delay)
 
   /* Replace black & white mini-piano-button with colored version */
@@ -43,7 +42,7 @@ function colorizePiano(wait, time, delay) {
   )
 }
 
-function listenPianoTouch(stopListening){ /*
+function listenPianoTouch(){ /*
 When user clicks a COLORED piano <button>:
     (1) Reset any previously clicked button to normal color.
     (2) Change <body> background-color and border-top to match new button. 
@@ -80,8 +79,9 @@ When user clicks a BLACK piano <span>, just play sound (7).
     A: "tastedive",
     B: "ticketmaster",
   }
-  if (stopListening === undefined) {
-    $(".piano-menu").on('click', 'button, span', function(event) {
+  
+  $(".piano-menu").on('click', 'button, span', function(event) {
+    if (`${$(this).prop('id')}` !== "silent") {
       let noteID = `${$(this).prop('id')}`
       console.log(`piano key ${noteID} pressed`)
       if (noteID.length < 2) { 
@@ -106,10 +106,10 @@ When user clicks a BLACK piano <span>, just play sound (7).
         pianoSounds[noteID].play()
         pianoSounds[noteID].currentTime = 0
       }
-    })
-  } else {
-    console.log("listenPianoTouch() stopped")
-  }
+    } else {
+      console.log("Silent piano key pressed")
+    }
+  })
 }
     
 function resetPianoColors() {
@@ -126,15 +126,14 @@ function resetPianoKeys() {
   $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-none`)
   $('.results-container').removeClass(`border-${activePianoKey}`).addClass(`border-none`)
   activePianoKey = "none"
-  listenPianoTouch(stop)
   $('.piano-menu').html(`
-    <li><div class="anchor"></div></li>
-    <li><div class="anchor"></div><span></span></li>
-    <li><div class="anchor"></div><span></span></li>
-    <li><div class="anchor"></div></li>
-    <li><div class="anchor"></div><span></span></li>
-    <li><div class="anchor"></div><span></span></li>
-    <li><div class="anchor"></div><span></span></li>`
+  <li><div class="anchor"></div></li>
+  <li><div class="anchor"></div><span id="silent"></span></li>
+  <li><div class="anchor"></div><span id="silent"></span></li>
+  <li><div class="anchor"></div></li>
+  <li><div class="anchor"></div><span id="silent"></span></li>
+  <li><div class="anchor"></div><span id="silent"></span></li>
+  <li><div class="anchor"></div><span id="silent"></span></li>`
   )
   $('#mini-piano-button').html(`
     <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu-bw.png"/>`
@@ -200,7 +199,7 @@ window.addEventListener("resize", rotatePiano)
 window.addEventListener('orientationchange', rotatePiano)
 
 $(function() {
-  /* listenPianoTouch() */
+  listenPianoTouch()
   rotatePiano()
   hidePiano()
 })
