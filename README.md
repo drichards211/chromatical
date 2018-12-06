@@ -22,6 +22,7 @@ Styling:
   + Finish page styling for youtube, wikipedia, google, and itunes.
   + Chromatical search bar button needs to be sized to match search bar and abutted so as to look embedded within. 
   + Horizontal piano menu needs to be animated when hiding / revealing.
+  + Tweak font sizes and layout for smaller screens.
     
 Housekeeping:
   + Excess .CSS entries to be deleted.
