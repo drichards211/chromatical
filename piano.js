@@ -25,7 +25,6 @@ function colorizePiano(wait, time, delay) {
     }, wait)
   
   /* Fade-in colors and text for piano menu keys */
-  console.log("Rendering piano menu COLORS AND TEXT")
   setTimeout(function() {
     $(".fade-in-text").fadeIn(time)
     $("#C").removeClass('white-color').addClass('C-color')
@@ -46,7 +45,7 @@ function colorizePiano(wait, time, delay) {
 function listenPianoTouch(){ /*
 When user clicks a COLORED piano <button>:
     (1) Reset any previously clicked button to normal color.
-    (2) Change <body> background color to match new button. 
+    (2) Change <body> background-color and border-top to match new button. 
     (3) Change new button color to bright. 
     (4) Update activePianoKey global variable.
     (5) Play piano sound.
@@ -80,8 +79,9 @@ When user clicks a BLACK piano <span>, just play sound (7).
     A: "tastedive",
     B: "ticketmaster",
   }
-
-    $(".piano-menu").on('click', 'button, span', function(event) {
+  
+  $(".piano-menu").on('click', 'button, span', function(event) {
+    if (`${$(this).prop('id')}` !== "silent") {
       let noteID = `${$(this).prop('id')}`
       console.log(`piano key ${noteID} pressed`)
       if (noteID.length < 2) { 
@@ -90,6 +90,7 @@ When user clicks a BLACK piano <span>, just play sound (7).
         resetPianoColors()
         /* (2) */
         $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-${noteID}`)
+        $('.results-container').removeClass(`border-${activePianoKey}`).addClass(`border-${noteID}`)
         /* (3) */
         $(`#${noteID}`).removeClass(`${noteID}-color`).addClass(`${noteID}-color-bright`)
         /* (4) */
@@ -105,7 +106,10 @@ When user clicks a BLACK piano <span>, just play sound (7).
         pianoSounds[noteID].play()
         pianoSounds[noteID].currentTime = 0
       }
-    })
+    } else {
+      console.log("Silent piano key pressed")
+    }
+  })
 }
     
 function resetPianoColors() {
@@ -115,23 +119,25 @@ function resetPianoColors() {
       $(`#${activePianoKey}`).removeClass(`${activePianoKey}-color-bright`).addClass(`${activePianoKey}-color`)
     }
 }
-
-
   
 function resetPianoKeys() {
 /* Resets piano menu keys to white, and background to grey */
+  console.log("resetPianoKeys() ran")
   $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-none`)
+  $('.results-container').removeClass(`border-${activePianoKey}`).addClass(`border-none`)
   activePianoKey = "none"
-  
   $('.piano-menu').html(`
-    <li><div class="anchor"></div></li>
-    <li><div class="anchor"></div><span></span></li>
-    <li><div class="anchor"></div><span></span></li>
-    <li><div class="anchor"></div></li>
-    <li><div class="anchor"></div><span></span></li>
-    <li><div class="anchor"></div><span></span></li>
-    <li><div class="anchor"></div><span></span></li>
-  `)
+  <li><div class="anchor"></div></li>
+  <li><div class="anchor"></div><span id="silent"></span></li>
+  <li><div class="anchor"></div><span id="silent"></span></li>
+  <li><div class="anchor"></div></li>
+  <li><div class="anchor"></div><span id="silent"></span></li>
+  <li><div class="anchor"></div><span id="silent"></span></li>
+  <li><div class="anchor"></div><span id="silent"></span></li>`
+  )
+  $('#mini-piano-button').html(`
+    <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu-bw.png"/>`
+  )
 }
 
 function updatePianoKeys() {

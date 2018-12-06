@@ -39,6 +39,26 @@ body:after {
   z-index: 100;
 }
 
+#banner {
+  text-align: center;
+  position: relative; /*NEW*/
+  margin-top: 1rem; /*NEW*/
+  
+  /* margin: 0 0; */
+}
+/* button div {
+  writing-mode: vertical-rl !important;
+  text-orientation: mixed !important; /* upright; */
+  /* text-align: right !important;
+} */
+.mini-banner {
+  margin-left: 0;
+  margin-right: 0;
+  /* display: inline !important; */
+}
+
+
+
 /*Removes all default browser styling for legends and fieldsets:*/
 legend {
   padding: 0;
@@ -82,14 +102,14 @@ button {
   bottom: 0px;
 }
 
-/* BACKGROUND COLOR GRADIENTS ================= */
-.bg-none, .bg-C, .bg-D, .bg-E, .bg-F, .bg-G, .bg-A, .bg-B {
+/* BACKGROUND COLORS =========================== */
+.bg-none, .bg-whatis, .bg-C, .bg-D, .bg-E, .bg-F, .bg-G, .bg-A, .bg-B {
   -webkit-transition: background-color 1.8s ease-out;
   -moz-transition: background-color 1.8s ease-out;
   -o-transition: background-color 1.8s ease-out;
   transition: background-color 1.8s ease-out;
 }
-.bg-none {
+.bg-none, .bg-whatis{
   background:#333;
 }
 .bg-C {
@@ -112,6 +132,43 @@ button {
 }
 .bg-B {
   background:rgb(0,0,255);
+}
+/* BORDER COLORS =========================== */
+.border-none, .border-C, .border-D, .border-E, .border-F, .border-G, .border-A, .border-B {
+  -webkit-transition: border 1.5s ease-out;
+  -moz-transition: border 1.5s ease-out;
+  -o-transition: border 1.5s ease-out;
+  transition: border 1.5s ease-out;
+}
+/* .border-none {
+  border-top: 3px solid rgb(255, 255, 255);
+} */
+/* .border-none {
+  border-top: 3px solid rgb(125, 125, 125);
+} */
+.border-none {
+  border-top: 3px solid rgb(255, 255, 255);
+}
+.border-C {
+  border-top: 3px solid rgb(125,0,255);
+}
+.border-D {
+  border-top: 3px solid rgb(255,0,125);
+}
+.border-E {
+  border-top: 3px solid rgb(255,125,0);
+}
+.border-F {
+  border-top: 3px solid rgb(255,255,0);
+}
+.border-G {
+  border-top: 3px solid rgb(0,255,0);
+}
+.border-A {
+  border-top: 3px solid rgb(0,255,255);
+}
+.border-B {
+  border-top: 3px solid rgb(0,0,255);
 }
 
 h1 {
@@ -155,6 +212,14 @@ main {
   /*  */
   /* width: 20%; */
 }
+.search-form-mini {
+  position: relative;
+  display: block;
+  padding-left: 2.7rem;
+  /* padding-right: 2.7rem; */
+  /* top: -1px; */
+}
+
 input {
   border: 1px solid rgba(0, 0, 0, 0.226);
   box-shadow: 0 2px 3px rgba(0,0,0,0.06);
@@ -172,6 +237,7 @@ input {
   height: 2.2em;
   font-size: 1.4em;
   max-width: 500px;
+  /* min-width: 165px; MESSES UP PIANO TRAY BUTTON*/
   
 }
 
@@ -242,7 +308,21 @@ margin-left: 20.36rem;
     /* width: 50%; */
   
 }
+.mini-logo {
+  display: block;
+  /* width: 94px; */
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  z-index: 2;
+}
 
+#piano-bw-mini {
+  height: 4.2rem;
+  margin-top: -3px;
+  cursor: pointer;
+  
+}
 /* SPIN THE PIANO CIRCLE ================ */
 .spin-me {
   -webkit-animation:spin 6s linear infinite;
@@ -295,28 +375,22 @@ margin-left: 20.36rem;
 }
 
 .results-container {
-  font-family: 'EB Garamond', serif;
-  background: rgb(255, 255, 255) !important;
-  box-shadow: 5px 5px 10px rgb(54, 54, 54);
-  min-height: calc(100vh - 30px); /* calc(100vh - 2.5%); */
-  /* min-height: 100vh; */
-  margin-top: 2.5%;
-  /* margin-bottom: 1%; */
-  /* margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 30px; */
-  overflow: hidden;
-
-  /* Wrap long URL's and text =============== */
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  -ms-word-break: break-all;
-  word-break: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
- 
+  width: 100%;
+  height: 100%;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* align-items: center; */
+  text-align: center;
+  /* border-top: 3px solid orange; */
+}
+.img-container-IGNORE {
+  width: 100%;
+  height: 100%;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* align-items: center; */
+  text-align: center;
+  border-top: 3px solid orange;
 }
 
 .wikipedia {
@@ -352,7 +426,12 @@ p {
 }
 
 .js-query {
-  padding-left: 0.65em;
+  
+  /* float: left; */
+  height: 3.5rem;
+  padding-left: 0.7rem;/* 0.65em; */
+  font-size: 1.7rem;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .itunesImg {
@@ -364,29 +443,36 @@ p {
 }
 
 .googleResults {
-  position: relative;
+  /* position: relative; */
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
   /* width: 100%;
   height: 100%; */
   margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  border-top: 3px solid orange;
+  margin: auto;
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  /* border-top: 3px solid orange; */
   padding: 20px;
 }
 
 .googleImg {
-  position: relative;
-  float: left;
+  /* position: relative; */
+  /* float: left;
   content: "";
-  display: table;
+  display: table; */
 }
 
 /* CSS GRID ==================== */
 .row {
   max-width: 1000px;
   min-width: 320px;
-  padding-left: 2.5%;
-  padding-right: 2.5%;
+  padding-left: 2.8%; /* 2.5%; */
+  padding-right: 2.8%; /* 2.5%; */
   margin: 0 auto;
 }
 .clearfix::after {
@@ -397,10 +483,32 @@ p {
  .col-12 {
   /* 12 columns, 12/12 */
   float: left;
-  padding-top: 3%;
-  padding-left: 3%;/* 1.04166666%; */
-  padding-right: 3%; /* 1.04166666%;  */
+  padding-top: 1%;
+  padding-left: 4%;/* 1.04166666%; */
+  padding-right: 4%; /* 1.04166666%;  */
   /* padding-bottom: 300px; */
   width: 100%;
   margin-bottom: 40%;
+  
+  font-family: 'EB Garamond', serif;
+  background: rgb(255, 255, 255) !important;
+  box-shadow: 5px 5px 10px rgb(54, 54, 54);
+  min-height: calc(100vh - 30px); /* calc(100vh - 2.5%); */
+  /* min-height: 100vh; */
+  margin-top: 2.5%;
+  /* margin-bottom: 1%; */
+  /* margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 30px; */
+  overflow: hidden;
+
+  /* Wrap long URL's and text =============== */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
