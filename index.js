@@ -5,7 +5,6 @@ let userFormInput = ""
 function handleUserNav() {
 /* Handles navigation buttons outside the piano menu */
   console.log("handleUserNav() runnning")
-  /* $('.results-container').on('.click', '#banner a', function(event) { */
   $('#chromatical').click(function(event) {
     event.preventDefault()
     let buttonID = `${$(this).prop('id')}`
@@ -15,9 +14,16 @@ function handleUserNav() {
     }
   })
   $('#home-button').click(function(event) {
+  /* Reset app appearance and behavior to initial state */  
     event.preventDefault()
     console.log("Home button clicked")
     renderHomePage()
+  })
+  $('#search-term').focus(function(event){
+  /* Hide searchbox marquee */
+    event.preventDefault()
+    console.log('Hiding marquee')
+    $('#marquee-text').addClass('hidden')
   })
 }
 
