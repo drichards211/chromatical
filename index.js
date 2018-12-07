@@ -5,7 +5,6 @@ let userFormInput = ""
 function handleUserNav() {
 /* Handles navigation buttons outside the piano menu */
   console.log("handleUserNav() runnning")
-  /* $('.results-container').on('.click', '#banner a', function(event) { */
   $('#chromatical').click(function(event) {
     event.preventDefault()
     let buttonID = `${$(this).prop('id')}`
@@ -15,9 +14,16 @@ function handleUserNav() {
     }
   })
   $('#home-button').click(function(event) {
+  /* Reset app appearance and behavior to initial state */  
     event.preventDefault()
     console.log("Home button clicked")
     renderHomePage()
+  })
+  $('#search-term').focus(function(event){
+  /* Hide searchbox marquee */
+    event.preventDefault()
+    console.log('Hiding marquee')
+    $('#marquee-text').addClass('hidden')
   })
 }
 
@@ -102,16 +108,15 @@ function renderMiniBanner() {
   console.log("renderMiniBanner() ran")
   $('#banner').html(`
     <div class="mini-banner">
-      <div class="mini-logo">
-        <a href="#" id="home-button">
-          <img src="./assets/images/piano-circle-bw.png" alt="mini circle piano logo" id="piano-bw-mini">
-        </a>
-      </div>
       <fieldset> 
+        <div class="mini-logo">
+          <a href="#" id="home-button">
+            <img src="./assets/images/piano-circle-bw.png" alt="mini circle piano logo" id="piano-bw-mini">
+          </a>
+        </div>
         <form action="#" class="search-form-mini">
           <label for="query"></label>
           <label><input type="text" id="search-term" class="js-query" value="${userFormInput}"></label>
-          <button type="submit" class="find-button"><span class="fas fa-search"></span></button>
         </form>
       </fieldset>
       <br>
@@ -126,14 +131,17 @@ function renderHomePage() {
   userFormInput = ""
   $('#banner').html(`
     <a href="#" id="chromatical"><h1>Chromatical</h1></a>
-      <fieldset> 
-        <legend class="instruction">Search for an artist, album, or song title</legend>
-          <form action="#" class="search-form">
-            <label for="query"></label>
-            <label><input type="text" id="search-term" class="js-query"></label>
-            <button type="submit" class="find-button"><span class="fas fa-search"></span></button>
-          </form>
-      </fieldset>`)
+    <fieldset> 
+      <form action="#" class="search-form">
+          <label for="query"></label>
+          <label>
+            <div class="floating-marquee">
+            <marquee behavior="scroll" direction="left"><span id="marquee-text">Search for an artist,&nbsp album or song title.</span></marquee>
+            </div>
+            <input type="text" id="search-term" class="js-query">
+          </label>
+      </form>
+    </fieldset>`)
   $('.results-container').html(`
     <div class="piano-circle">
       <img src="./assets/images/piano-circle-bw.png" alt="circle piano logo" id="piano-bw" class="fade-out-logo">
@@ -189,8 +197,10 @@ function renderNewContent(apiName) {
           <div class="wiki-thumbnail">
           <img src="${thumbnail}" alt="" id="" class="">
           </div>
+          <div class="wiki-text">
           ${extract}
-          </div>`)
+          </div>
+        </div>`)
     }
   }
   if (apiName === "youtube") {
@@ -219,10 +229,12 @@ function renderNewContent(apiName) {
     let numResults = responseData.itunes.results.length
     for (let i = 0; i < numResults; i++) {
       $('.results-container').append(
-        `<img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunesImg">
+        `<div class="itunes-results">
+        <img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunesImg">
         <a href=${response.results[i].trackViewUrl} target="_blank">${response.results[i].trackName}</a>
         <a href=${response.results[i].artistViewUrl} target="_blank">${response.results[i].artistName}</a> 
-        <a href=${response.results[i].collectionViewUrl} target="_blank">${response.results[i].collectionName}</a>`  
+        <a href=${response.results[i].collectionViewUrl} target="_blank">${response.results[i].collectionName}</a>  
+        </div>`
       )
     }
   }
