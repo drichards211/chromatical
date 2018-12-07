@@ -126,14 +126,18 @@ function renderHomePage() {
   userFormInput = ""
   $('#banner').html(`
     <a href="#" id="chromatical"><h1>Chromatical</h1></a>
-      <fieldset> 
-        <legend class="instruction">Search for an artist, album, or song title</legend>
-          <form action="#" class="search-form">
-            <label for="query"></label>
-            <label><input type="text" id="search-term" class="js-query"></label>
+    <fieldset> 
+      <form action="#" class="search-form">
+          <label for="query"></label>
+          <label>
+            <div class="floating-marquee">
+              <marquee behavior="scroll" direction="left"><span id="marquee-text">Search for an artist, album, or song title.</span></marquee>
+            </div>
+            <input type="text" id="search-term" class="js-query">
             <button type="submit" class="find-button"><span class="fas fa-search"></span></button>
-          </form>
-      </fieldset>`)
+          </label>
+      </form>
+    </fieldset>`)
   $('.results-container').html(`
     <div class="piano-circle">
       <img src="./assets/images/piano-circle-bw.png" alt="circle piano logo" id="piano-bw" class="fade-out-logo">
