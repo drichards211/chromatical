@@ -108,16 +108,15 @@ function renderMiniBanner() {
   console.log("renderMiniBanner() ran")
   $('#banner').html(`
     <div class="mini-banner">
-      <div class="mini-logo">
-        <a href="#" id="home-button">
-          <img src="./assets/images/piano-circle-bw.png" alt="mini circle piano logo" id="piano-bw-mini">
-        </a>
-      </div>
       <fieldset> 
+        <div class="mini-logo">
+          <a href="#" id="home-button">
+            <img src="./assets/images/piano-circle-bw.png" alt="mini circle piano logo" id="piano-bw-mini">
+          </a>
+        </div>
         <form action="#" class="search-form-mini">
           <label for="query"></label>
           <label><input type="text" id="search-term" class="js-query" value="${userFormInput}"></label>
-          <button type="submit" class="find-button"><span class="fas fa-search"></span></button>
         </form>
       </fieldset>
       <br>
@@ -137,10 +136,9 @@ function renderHomePage() {
           <label for="query"></label>
           <label>
             <div class="floating-marquee">
-              <marquee behavior="scroll" direction="left"><span id="marquee-text">Search for an artist, album, or song title.</span></marquee>
+            <marquee behavior="scroll" direction="left"><span id="marquee-text">Search for an artist,&nbsp album or song title.</span></marquee>
             </div>
             <input type="text" id="search-term" class="js-query">
-            <button type="submit" class="find-button"><span class="fas fa-search"></span></button>
           </label>
       </form>
     </fieldset>`)
