@@ -242,9 +242,12 @@ input {
 }
 
 .find-button {
-  height: 1.8em;
-  font-size: 1.5em;
+  height: 3.5rem;
+  width: 3.5rem;
+  right: 20.9%;
+  font-size: 1.7rem;
   cursor: pointer;
+  position: absolute;
 }
 .left-piano-margin {
 margin-left: 20.36rem;
@@ -400,10 +403,14 @@ margin-left: 20.36rem;
   font-size: 1.5rem;
   line-height: 25px;
 }
-
 .wiki-thumbnail {
-  float: right;
+  float: right; /* remove this for small viewport */
+  clear: left; 
   margin-left: 20px;  
+}
+.wiki-text {
+  position: relative;
+
 }
 
 .whatis {
@@ -430,10 +437,32 @@ p {
   /* float: left; */
   height: 3.5rem;
   padding-left: 0.7rem;/* 0.65em; */
+  padding-right: 3.5rem;
   font-size: 1.7rem;
   /* font-family: 'Lato', sans-serif; */
 }
+::placeholder {
+  color: blue;
+  /* -webkit-marquee: auto medium infinite scroll normal;
+  overflow-x: -webkit-marquee; */
+  text-overflow: ellipsis;
+}
+.floating-marquee {
+  width: 64%;
+  max-width: 500px;
+}
+marquee {
+  width: 56%;
+  margin-top: 6px;
+  left: 22%;
+  /* right: 0px; */
+  position: absolute;
+  
+}
 
+#marquee-text {
+ font-size: 1.7rem !important;
+}
 .itunesImg {
   position: relative;
   float: left;

@@ -189,8 +189,10 @@ function renderNewContent(apiName) {
           <div class="wiki-thumbnail">
           <img src="${thumbnail}" alt="" id="" class="">
           </div>
+          <div class="wiki-text">
           ${extract}
-          </div>`)
+          </div>
+        </div>`)
     }
   }
   if (apiName === "youtube") {
@@ -219,10 +221,12 @@ function renderNewContent(apiName) {
     let numResults = responseData.itunes.results.length
     for (let i = 0; i < numResults; i++) {
       $('.results-container').append(
-        `<img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunesImg">
+        `<div class="itunes-results">
+        <img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunesImg">
         <a href=${response.results[i].trackViewUrl} target="_blank">${response.results[i].trackName}</a>
         <a href=${response.results[i].artistViewUrl} target="_blank">${response.results[i].artistName}</a> 
-        <a href=${response.results[i].collectionViewUrl} target="_blank">${response.results[i].collectionName}</a>`  
+        <a href=${response.results[i].collectionViewUrl} target="_blank">${response.results[i].collectionName}</a>  
+        </div>`
       )
     }
   }
