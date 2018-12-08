@@ -522,14 +522,14 @@ marquee {
 }
 
 .google-results {
-  /* position: relative; */
-  width: 80%;
+  position: relative;
+  width: 90%;
   height: 100%;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between; */
   /* width: 100%;
   height: 100%; */
   margin-top: 20px;
@@ -541,13 +541,18 @@ marquee {
 }
 
 .googleImg {
-  /* position: relative; */
-  /* float: left;
+  position: relative;
+  display: inline-block;
+  float: left;
+  height: 100px;
+  width: auto;
+  margin: 5px;
   content: "";
-  display: table; */
+  display: table;
 }
 
 .google-thumb {
+  float: left;
   height: 160px;
   width: auto;
   margin: 5px;
