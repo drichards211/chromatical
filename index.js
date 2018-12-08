@@ -221,7 +221,7 @@ function renderNewContent(apiName) {
       resultsHtml += `<a href=${response.items[i].link} target="_blank"><img src="${response.items[i].image.thumbnailLink}" alt="Google image thumbnail ${i}" class="googleImg"></a>`
     }
     $('.results-container').append(
-      `<div class="googleResults">${resultsHtml}</div>`
+      `<div class="google-results">${resultsHtml}</div>`
     )
   }
   if (apiName === "itunes") {
