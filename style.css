@@ -56,7 +56,11 @@ body:after {
   margin-right: 0;
   /* display: inline !important; */
 }
-
+.center-me {
+  
+  
+  /* transform: translateY(-50%); */
+}
 
 
 /*Removes all default browser styling for legends and fieldsets:*/
@@ -174,6 +178,41 @@ button {
 .border-B {
   border-top: 3px solid rgb(0,0,255);
 }
+/* TEXT COLORS ============================ */
+.chrm-c {
+  color: rgb(125,0,255) !important;
+}
+.chrm-h {
+  color: rgb(255,0,255);
+}
+.chrm-r {
+  color: rgb(255,0,125);
+}
+.chrm-o {
+  color: rgb(255,0,0);
+}
+.chrm-m {
+  color: rgb(255,125,0);
+}
+.chrm-a {
+  color: rgb(255,255,0);
+}
+.chrm-t {
+  color: rgb(125,255,0);
+}
+.chrm-i {
+  color: rgb(0,255,0);
+}
+.chrm-c2 {
+  color: rgb(0,255,255);
+}
+.chrm-a2 {
+  color: rgb(0,125,255);
+}
+.chrm-l {
+  color: rgb(0,0,255);
+}
+
 
 h1 {
   font-family: 'Lora', serif;
@@ -184,8 +223,8 @@ h1 {
   /* font-family: 'Roboto Slab', serif; */
   font-size: 450%;
   /* letter-spacing: .005em; */
-  margin-top: .2em;
-  margin-bottom: .4em;
+  margin-top: 2rem; /* .2em; */
+  margin-bottom: 2rem;/* .4em; */
 }
 h1::first-letter {
   font-size: 105%;
@@ -529,7 +568,13 @@ marquee {
   /* padding-bottom: 300px; */
   width: 100%;
   margin-bottom: 40%;
-  
+
+  /* FLEXBOX TEST */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  /* ------------------ */
+
   font-family: 'EB Garamond', serif;
   background: rgb(255, 255, 255) !important;
   box-shadow: 5px 5px 10px rgb(54, 54, 54);
