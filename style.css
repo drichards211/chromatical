@@ -529,6 +529,7 @@ marquee {
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: space-between;
   /* width: 100%;
   height: 100%; */
   margin-top: 20px;
@@ -546,6 +547,11 @@ marquee {
   display: table; */
 }
 
+.google-thumb {
+  height: 160px;
+  width: auto;
+  margin: 5px;
+}
 /* CSS GRID ==================== */
 .row {
   max-width: 1000px;

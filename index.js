@@ -218,7 +218,10 @@ function renderNewContent(apiName) {
     console.log("Rendering google API data")
     let resultsHtml = ""
     for (let i = 0; i < response.items.length; i++) {
-      resultsHtml += `<a href=${response.items[i].link} target="_blank"><img src="${response.items[i].image.thumbnailLink}" alt="Google image thumbnail ${i}" class="googleImg"></a>`
+      resultsHtml += `
+        <div>
+        <a href=${response.items[i].link} target="_blank"><img class="google-thumb" src="${response.items[i].image.thumbnailLink}" alt="Google image thumbnail ${i}" class="googleImg"></a>
+        </div>`
     }
     $('.results-container').append(
       `<div class="google-results">${resultsHtml}</div>`
