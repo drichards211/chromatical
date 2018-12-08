@@ -42,7 +42,7 @@ body:after {
 #banner {
   text-align: center;
   position: relative; /*NEW*/
-  margin-top: 1rem; /*NEW*/
+  margin-top: 2rem;/* 1rem; */ /*NEW*/
   
   /* margin: 0 0; */
 }
@@ -182,7 +182,7 @@ h1 {
   /* font-family: 'Raleway', Helvetica, Arial, sans-serif; */
   /* font-family: 'Playfair Display', serif; */
   /* font-family: 'Roboto Slab', serif; */
-  font-size: 400%;
+  font-size: 450%;
   /* letter-spacing: .005em; */
   margin-top: .2em;
   margin-bottom: .4em;
@@ -298,7 +298,7 @@ margin-left: 20.36rem;
 
 }
 #piano-bw {
-  height: 14rem; /* 13rem; */ /* 18.9rem; */ /* 18.8rem; */ /* 15rem; */
+  height: 15rem; /* 14rem; */ /* 13rem; */ /* 18.9rem; */ /* 18.8rem; */ /* 15rem; */
   width: auto;
   /* width: 20rem; */
   display: block;
@@ -319,8 +319,8 @@ margin-left: 20.36rem;
 }
 
 #piano-bw-mini {
-  height: 4rem;
-  margin-top: 0;
+  height: 3.5rem; /* 4rem; */
+  margin-top: -1px;
   cursor: pointer;
   
 }
@@ -431,15 +431,18 @@ p {
 }
 
 .js-query {
-  height: 4rem;
+  height: 3.4rem; /* 4rem; */
   padding-left: 16px;
   padding-right: 16px;
-  border: 1px solid #dfe1e5;
+  border: 1px solid rgb(200,200,200);
+  /* border: 1px solid #dfe1e5; */
   box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
   -webkit-border-radius: 24px;
   border-radius: 24px;
-  font-size: 1.7rem;
-  font-family: garamond, serif;
+  font-size: 1.4rem;
+  font-family: lora, serif;
+  /* font-size: 1.7rem;
+  font-family: garamond, serif; */
   
   /* font-size: 1.4rem;
   font-family: nunito, sans-serif; */
@@ -451,23 +454,24 @@ p {
   text-overflow: ellipsis;
 }
 .floating-marquee {
-  
+  font-size: 1.4rem; /* NEW */
   /* width: 64%;
   max-width: 500px; */
 }
 marquee {
   width: calc(100% - 32px);
-  margin-top: 12px;
+  margin-top: 7px;/* 12px; */
   margin-left: 16px;
   margin-right: 16px;
   left: 0px;
   position: absolute;
-  font-family: garamond, serif;
+  font-size: 1.7rem;
+  font-family: lora, serif; /* garamond, serif; */
   cursor: text;
 }
 
 #marquee-text {
- font-size: 1.7rem !important;
+ font-size: 1.4rem !important;
 }
 .itunesImg {
   position: relative;
@@ -518,7 +522,7 @@ marquee {
  .col-12 {
   /* 12 columns, 12/12 */
   float: left;
-  padding-top: 1%;
+  /* padding-top: 1%; */
   padding-left: 4%;/* 1.04166666%; */
   padding-right: 4%; /* 1.04166666%;  */
   /* padding-bottom: 300px; */
