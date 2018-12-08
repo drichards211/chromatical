@@ -80,6 +80,7 @@ function formatQuery(params) {
 
 function fetchAPIData(apiName, query) {
   console.log(`fetchAPIData ran: ${apiName} "${query}"`)
+  responseData = {}
   const searchURL = APIInfo[apiName].URL
   const params = APIInfo[apiName].searchParams
   const queryString = formatQuery(params)
