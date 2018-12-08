@@ -10,6 +10,7 @@ function handleUserNav() {
     let buttonID = `${$(this).prop('id')}`
     if (buttonID === "chromatical") {
       console.log("Chromatical title clicked")
+      renderMiniBanner()
       renderNewContent("chromatical")
     }
   })
@@ -156,7 +157,7 @@ function renderNewContent(apiName) {
   console.log(`renderNewContent("${apiName}") ran`)
   let response = responseData[apiName]
   $('.results-container').empty()
-  renderMiniBanner()
+  /* renderMiniBanner() */
   
   if (apiName === "chromatical") {
     $('.results-container').html(`
@@ -222,8 +223,7 @@ function renderNewContent(apiName) {
         <a href=${response.items[i].link} target="_blank"><img src="${response.items[i].link}" alt="Google image ${i}"></a>`
     }
     $('.results-container').append(
-      `<div class="google-results"><div class="flexbin flexbin-margin">${resultsHtml}</div></div>`
-    )
+      `<div class="google-results"><div class="flexbin flexbin-margin">${resultsHtml}</div></div>`)
   }
   if (apiName === "itunes") {
     console.log("Rendering itunes API data")

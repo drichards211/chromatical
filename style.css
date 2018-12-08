@@ -212,7 +212,37 @@ button {
 .chrm-l {
   color: rgb(0,0,255);
 }
-
+/* DROP-SHADOW COLORS ====================== */
+.shadow-none, .shadow-C, .shadow-D, .shadow-E, .shadow-F, .shadow-G, .shadow-A, .shadow-B {
+  -webkit-transition: box-shadow 1.5s ease-out;
+  -moz-transition: box-shadow 1.5s ease-out;
+  -o-transition: box-shadow 1.5s ease-out;
+  transition: box-shadow 1.5s ease-out;
+}
+.shadow-none {
+  box-shadow: 5px 3px 20px rgb(255,255,255);
+}
+.shadow-C {
+  box-shadow: 5px 3px 20px rgb(125,0,255);
+}
+.shadow-D {
+  box-shadow: 5px 3px 20px rgb(255,0,125);
+}
+.shadow-E {
+  box-shadow: 5px 3px 20px rgb(255,125,0);
+}
+.shadow-F {
+  box-shadow: 5px 3px 20px rgb(255,255,0);
+}
+.shadow-G {
+  box-shadow: 5px 3px 20px rgb(0,255,0);
+}
+.shadow-A {
+  box-shadow: 5px 3px 20px rgb(0,255,255);
+}
+.shadow-B {
+  box-shadow: 5px 3px 20px rgb(0,0,255);
+}
 
 h1 {
   font-family: 'Lora', serif;
@@ -351,15 +381,16 @@ margin-left: 20.36rem;
   display: block;
   /* width: 94px; */
   position: absolute;
-  top: 0;
-  left: -30px;
+  top: -2px; /* 0; */
+  left: -32px; /* -30px; */
   cursor: pointer;
   z-index: 2;
 }
 
 #piano-bw-mini {
   height: 3.5rem; /* 4rem; */
-  margin-top: -1px;
+  /* margin-top: -1px; */
+  border-radius: 24px;
   cursor: pointer;
   
 }
@@ -524,7 +555,7 @@ marquee {
 .google-results {
   width: 90%;
   height: 100%;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   margin-left: 5%;
   margin-right: 5%;
   padding-bottom: 2rem;

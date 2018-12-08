@@ -88,9 +88,11 @@ When user clicks a BLACK piano <span>, just play sound (7).
       /* WHITE KEYS ONLY */
         /* (1) */
         resetPianoColors()
+        renderMiniBanner()
         /* (2) */
         $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-${noteID}`)
-        $('.results-container').removeClass(`border-${activePianoKey}`).addClass(`border-${noteID}`)
+        $('#piano-bw-mini').removeClass(`shadow-${activePianoKey}`).addClass(`shadow-${noteID}`)
+        /* $('.results-container').removeClass(`border-${activePianoKey}`).addClass(`border-${noteID}`) */
         /* (3) */
         $(`#${noteID}`).removeClass(`${noteID}-color`).addClass(`${noteID}-color-bright`)
         /* (4) */
