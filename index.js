@@ -219,10 +219,10 @@ function renderNewContent(apiName) {
     let resultsHtml = ""
     for (let i = 0; i < response.items.length; i++) {
       resultsHtml += `
-        <a href=${response.items[i].link} target="_blank"><img src="${response.items[i].link}" alt="Google image thumbnail ${i}"></a>`
+        <a href=${response.items[i].link} target="_blank"><img src="${response.items[i].link}" alt="Google image ${i}"></a>`
     }
     $('.results-container').append(
-      `<div class="google-results"><div class="flexbin">${resultsHtml}</div></div>`
+      `<div class="google-results"><div class="flexbin flexbin-margin">${resultsHtml}</div></div>`
     )
   }
   if (apiName === "itunes") {

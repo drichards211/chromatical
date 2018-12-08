@@ -524,7 +524,7 @@ marquee {
 .google-results {
   width: 90%;
   height: 100%;
-  margin-top: 20px;
+  margin-top: 2rem;
   margin-left: 5%;
   margin-right: 5%;
   padding-bottom: 2rem;
@@ -536,7 +536,7 @@ marquee {
   float: left;
   height: 100px;
   width: auto;
-  margin: 5px;
+  /* margin: 5px; */
   content: "";
   display: table;
 }
