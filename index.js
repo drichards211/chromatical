@@ -62,6 +62,7 @@ function handleFormInput() {
 function performSearch(searchInput) {
   console.log("performSearch() running")
   console.log(`User searched for string "${searchInput}"`)
+  console.log("Resetting API responseData")
   responseData = {}
   logoSpin()
   updateSearchParams(searchInput)  
@@ -163,18 +164,14 @@ function renderNewContent(apiName, noteID) {
   if (apiName === "chromatical") {
     $('.results-container').html(`
       <div class="whatis">
-        <h2>What is Chromatical?</h2>
-        <br>
+        <h2>What is Chromatical?</h2><br>
         <p><b>chroma</b>:</p>
         <p>-- from the Greek chrôma (color) --</p>
-        <p>A quality of color combining hue and saturation.</p>
-        <br>
+        <p>A quality of color combining hue and saturation.</p><br>
         <p><b>chromatic</b>:</p>
-        <p>A musical structure derived from the twelve-note chromatic scale.</p>
-        <br>
+        <p>A musical structure derived from the twelve-note chromatic scale.</p><br>
         <p><b>-al</b>: (suffix)</p>
-        <p>Having the form or character of.</p>
-        <br>
+        <p>Having the form or character of.</p><br>
         <p><b>automatic</b>:</p>
         <p>Done or produced as if by machine.</p>
       </div>`
@@ -182,66 +179,94 @@ function renderNewContent(apiName, noteID) {
   }
   if (apiName === "wikipedia") {
     console.log("Rendering wikipedia API data")
-    if (response.query.pageids[0] === "-1") {
+    if (responseData[apiName] !== undefined ) {
+      if (response.query.pageids[0] === "-1")  {
+        $('.results-container').append(
+          ` <div class="no-results">
+              <h2>No encyclopedia results are available for that query.</h2>
+              <p>Please try a different search term, or press another piano key.</p>
+            </div> `)
+      } else {
+        let pageID = response.query.pageids[0]
+        let thumbnail = response.query.pages[pageID].thumbnail.source
+        let original = response.query.pages[pageID].original
+        let pageImage = response.query.pages[pageID].pageimage
+        let sourceImg = responseData.wikipedia.query.pages[pageID].original.source
+        let extract = response.query.pages[pageID].extract
+        $('.results-container').append(`
+          <div class="wikipedia">
+            <div class="wiki-text">
+            <div class="wiki-thumbnail">
+            <a href=${sourceImg} target="_blank"><img src="${thumbnail}" alt="Wikipedia image"></a>
+            </div>
+            ${extract}
+            </div>
+          </div>`)
+      }
+    } else {
       $('.results-container').append(
         ` <div class="no-results">
             <h2>No encyclopedia results are available for that query.</h2>
             <p>Please try a different search term, or press another piano key.</p>
           </div> `)
-    } else {
-      let pageID = response.query.pageids[0]
-      let thumbnail = response.query.pages[pageID].thumbnail.source
-      /* put catch here*/
-      let original = response.query.pages[pageID].original
-      /* put catch here */
-      let pageImage = response.query.pages[pageID].pageimage
-      /* put catch here */
-      let sourceImg = responseData.wikipedia.query.pages[pageID].original.source
-      let extract = response.query.pages[pageID].extract
-      $('.results-container').append(`
-        <div class="wikipedia">
-          <div class="wiki-text">
-          <div class="wiki-thumbnail">
-          <a href=${sourceImg} target="_blank"><img src="${thumbnail}" alt="Wikipedia image"></a>
-          </div>
-          ${extract}
-          </div>
-        </div>`)
     }
   }
   if (apiName === "youtube") {
     console.log("Rendering youtube API data")
-    for (let i = 0; i < response.items.length; i++){
+    if (responseData[apiName] !== undefined ) {
+      for (let i = 0; i < response.items.length; i++){
+        $('.results-container').append(
+          `<li><h3>${response.items[i].snippet.title}</h3>
+          <p>${response.items[i].snippet.description}</p>
+          <img src='${response.items[i].snippet.thumbnails.default.url}'>
+          </li>
+          `)
+      }
+    } else {
       $('.results-container').append(
-        `<li><h3>${response.items[i].snippet.title}</h3>
-        <p>${response.items[i].snippet.description}</p>
-        <img src='${response.items[i].snippet.thumbnails.default.url}'>
-        </li>
-        `)
+        ` <div class="no-results">
+            <h2>No videos are available for that query.</h2>
+            <p>Please try a different search term, or press another piano key.</p>
+          </div> `)
     }
   }
   if (apiName === "google") {
     console.log("Rendering google API data")
     let resultsHtml = ""
-    for (let i = 0; i < response.items.length; i++) {
-      resultsHtml += `
-        <a href=${response.items[i].link} target="_blank"><img src="${response.items[i].link}" alt="Google image ${i}"></a>`
+    if (responseData[apiName] !== undefined ) {
+      for (let i = 0; i < response.items.length; i++) {
+        resultsHtml += `
+          <a href=${response.items[i].link} target="_blank"><img src="${response.items[i].link}" alt="Google image ${i}"></a>`
+      }
+      $('.results-container').append(
+        `<div class="google-results"><div class="flexbin flexbin-margin">${resultsHtml}</div></div>`)
+    } else {
+      $('.results-container').append(
+        ` <div class="no-results">
+            <h2>No images are available for that query.</h2>
+            <p>Please try a different search term, or press another piano key.</p>
+          </div> `)
     }
-    $('.results-container').append(
-      `<div class="google-results"><div class="flexbin flexbin-margin">${resultsHtml}</div></div>`)
   }
   if (apiName === "itunes") {
     console.log("Rendering itunes API data")
-    let numResults = responseData.itunes.results.length
-    for (let i = 0; i < numResults; i++) {
+    if (responseData[apiName] !== undefined ) {
+      let numResults = responseData.itunes.results.length
+      for (let i = 0; i < numResults; i++) {
+        $('.results-container').append(
+          `<div class="itunes-results">
+          <img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunesImg">
+          <a href=${response.results[i].trackViewUrl} target="_blank">${response.results[i].trackName}</a>
+          <a href=${response.results[i].artistViewUrl} target="_blank">${response.results[i].artistName}</a> 
+          <a href=${response.results[i].collectionViewUrl} target="_blank">${response.results[i].collectionName}</a>  
+          </div>`)
+      }
+    } else {
       $('.results-container').append(
-        `<div class="itunes-results">
-        <img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunesImg">
-        <a href=${response.results[i].trackViewUrl} target="_blank">${response.results[i].trackName}</a>
-        <a href=${response.results[i].artistViewUrl} target="_blank">${response.results[i].artistName}</a> 
-        <a href=${response.results[i].collectionViewUrl} target="_blank">${response.results[i].collectionName}</a>  
-        </div>`
-      )
+        ` <div class="no-results">
+            <h2>No iTunes results are available for that query.</h2>
+            <p>Please try a different search term, or press another piano key.</p>
+          </div> `)
     }
   }
   if (apiName === "spotify") {

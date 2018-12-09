@@ -80,7 +80,6 @@ function formatQuery(params) {
 
 function fetchAPIData(apiName, query) {
   console.log(`fetchAPIData ran: ${apiName} "${query}"`)
-  responseData = {}
   const searchURL = APIInfo[apiName].URL
   const params = APIInfo[apiName].searchParams
   const queryString = formatQuery(params)
@@ -93,15 +92,27 @@ function fetchAPIData(apiName, query) {
       if (response.ok) {
         return response.json()
         console.log(responseJson)
-      }
+      } else {
       throw new Error(response.statusText)
+      }
+    })
+    .then(responseJson => responseData[apiName] = responseJson)
+    /*   
+      if (responseJson !== undefined) {
+        responseData[apiName] = responseJson
+      } else {
+        throw new Error(`responseJson ${apiName} is empty`)
+      }
+    }) */
+    
     /* .catch(err => {
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     }); */
-    })
+    
     // OLD METHOD FOR DISPLAYING RESULTS WHEN THERE'S ONLY ONE API... NOW, WE NEED TO POPULATE responseData {}
     /*.then(responseJson => displayResults(responseJson)) */
-    .then(responseJson => responseData[apiName] = responseJson)
+    
+    
     
     // Store YouTube's response data in the allResponses object.
     //.then(responseJson => storeResponseData.youtubeAPI = responseJson)
