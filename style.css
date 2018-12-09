@@ -261,7 +261,7 @@ h1::first-letter {
   letter-spacing: .001em;
 }
 h2 {
-  text-align: center;
+  /* text-align: center; */
 }
 
 main {
@@ -476,21 +476,27 @@ margin-left: 20.36rem;
 
 .wikipedia {
   font-family: 'Lato', sans-serif;
-  /* font-family: 'EB Garamond', serif; */
   font-size: 1.4rem;
   line-height: 25px;
-  /* text-align: left; */
+}
+.wikipedia * {
+  text-align: left;
 }
 .wikipedia b {
   text-transform: uppercase;
   color: rgba(125, 0, 225);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  font-family: Raleway, sans-serif;
   margin-top: 3px;  
   /* -webkit-text-stroke: 0.5px; */
 }
-.wikipedia p {
-  text-align: left;
-}
+.wikipedia h2 {
+  text-transform: uppercase;
+  color: rgba(125, 0, 225);
+  font-size: 1.5rem;
+  font-family: nunito, sans-serif;
+  margin-top: 1.5rem;
+} 
 .wiki-thumbnail {
   float: right;
   clear: left; 
@@ -498,7 +504,7 @@ margin-left: 20.36rem;
   margin-left: 20px;
 }
 .wiki-thumbnail img {
-  /* min-width: 200px; */
+  box-shadow: 3px 3px 15px rgb(28, 0, 57);
 }
 .wiki-text {
   position: relative;
@@ -511,6 +517,7 @@ margin-left: 20.36rem;
   .wiki-thumbnail {
     float: none;
     clear: left; 
+    text-align: center;
     margin-top: 0px;
     margin-left: 0px;
     margin-bottom: 15px;
@@ -521,6 +528,7 @@ margin-left: 20.36rem;
   .wiki-thumbnail {
     float: none;
     clear: left; 
+    text-align: center;
     margin-top: 0px;
     margin-left: 0px;
     margin-bottom: 15px;
