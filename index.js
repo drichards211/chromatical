@@ -185,7 +185,10 @@ function renderNewContent(apiName, noteID) {
     console.log("Rendering wikipedia API data")
     if (response.query.pageids[0] === "-1") {
       $('.results-container').append(
-        `<p>No encyclopedia results are available for your search term.</p>`)
+        ` <div class="no-results">
+            <h2>No encyclopedia results are available for that query.</h2>
+            <p>Please try a different search term, or press another piano key.</p>
+          </div> `)
     } else {
       let pageID = response.query.pageids[0]
       let thumbnail = response.query.pages[pageID].thumbnail.source

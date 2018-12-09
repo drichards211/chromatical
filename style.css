@@ -454,6 +454,16 @@ margin-left: 20.36rem;
   text-align: center;
   /* border-top: 3px solid orange; */
 }
+.no-results {
+  margin-top: 20px;
+  font-size: 1.4rem;
+  font-family: lora, serif;
+}
+.no-results h2 {
+  font-size: 2rem;
+  font-family: lora, serif;
+  margin-bottom: .7rem;
+}
 .img-container-IGNORE {
   width: 100%;
   height: 100%;
