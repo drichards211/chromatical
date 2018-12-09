@@ -45,7 +45,7 @@ function colorizePiano(wait, time, delay) {
 function listenPianoTouch(){ /*
 When user clicks a COLORED piano <button>:
     (1) Reset any previously clicked button to normal color.
-    (2) Change <body> background-color and border-top to match new button. 
+    (2) Change <body> background-color and mini-logo color to match new button. 
     (3) Change new button color to bright. 
     (4) Update activePianoKey global variable.
     (5) Play piano sound.
@@ -86,9 +86,11 @@ When user clicks a BLACK piano <span>, just play sound (7).
       console.log(`piano key ${noteID} pressed`)
       if (noteID.length < 2) { 
       /* WHITE KEYS ONLY */
+        if(activePianoKey === "none") {
+          renderMiniBanner() /*in index.js*/
+        }
         /* (1) */
         resetPianoColors()
-        renderMiniBanner()
         /* (2) */
         $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-${noteID}`)
         $('#piano-bw-mini').removeClass(`shadow-${activePianoKey}`).addClass(`shadow-${noteID}`)
@@ -101,7 +103,7 @@ When user clicks a BLACK piano <span>, just play sound (7).
         pianoSounds[noteID].play()
         pianoSounds[noteID].currentTime = 0
         /* (6) */
-        renderNewContent(`${APINames[noteID]}`) /*(in index.js)*/
+        renderNewContent(`${APINames[noteID]}`, `${noteID}`) /*in index.js*/
       } else {
       /* BLACK KEYS ONLY */
         /* (7) */

@@ -38,6 +38,7 @@ function handleFormInput() {
     if (userFormInput === "") {
       alert('Please enter a search term')
     } else {
+      /* renderMiniBanner() */
       performSearch(userFormInput)
     }
   })
@@ -65,7 +66,7 @@ function performSearch(searchInput) {
   }
   logoSpin()
   updateSearchParams(searchInput)  
-  const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+  const APIList = ["wikipedia", "youtube", /*"google",*/ "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
   for (let i = 0; i < APIList.length; i++) {
     fetchAPIData(APIList[i], searchInput) /*in fetch-api.js*/
   }
@@ -88,7 +89,7 @@ function logoSpin() {
   setTimeout(function() {
     $(".piano-circle").html(`<img src="./assets/images/piano-circle-color-2.png" alt="circle piano logo" id="piano-bw" class="fade-in-logo" style="display:none">`)
     $(".fade-in-logo").fadeIn(1600).delay(300).fadeOut(2000)
-    colorizePiano(1600, 2000, 2100) /*(in piano.js)*/
+    colorizePiano(1600, 2000, 2100) /*in piano.js*/
   }, 2300)
 }
 
@@ -112,7 +113,7 @@ function renderMiniBanner() {
       <fieldset> 
         <div class="mini-logo">
           <a href="#" id="home-button">
-            <img src="./assets/images/piano-circle-bw.png" alt="mini circle piano logo" id="piano-bw-mini">
+            <img src="./assets/images/piano-circle-bw.png" alt="mini circle piano logo" id="piano-bw-mini" class="shadow-${activePianoKey}">
           </a>
         </div>
         <form action="#" class="search-form-mini">
@@ -152,13 +153,14 @@ function renderHomePage() {
   handleFormInput()
 }
 
-function renderNewContent(apiName) {
+function renderNewContent(apiName, noteID) {
 /* updates .results-container with selected API data */
   console.log(`renderNewContent("${apiName}") ran`)
   let response = responseData[apiName]
   $('.results-container').empty()
   /* renderMiniBanner() */
-  
+  /* $('#piano-bw-mini').removeClass(`shadow-${activePianoKey}`).addClass(`shadow-${noteID}`) */
+    
   if (apiName === "chromatical") {
     $('.results-container').html(`
       <div class="whatis">
@@ -192,13 +194,14 @@ function renderNewContent(apiName) {
       /* put catch here */
       let pageImage = response.query.pages[pageID].pageimage
       /* put catch here */
+      let sourceImg = responseData.wikipedia.query.pages[pageID].original.source
       let extract = response.query.pages[pageID].extract
       $('.results-container').append(`
         <div class="wikipedia">
-          <div class="wiki-thumbnail">
-          <img src="${thumbnail}" alt="" id="" class="">
-          </div>
           <div class="wiki-text">
+          <div class="wiki-thumbnail">
+          <a href=${sourceImg} target="_blank"><img src="${thumbnail}" alt="Wikipedia image"></a>
+          </div>
           ${extract}
           </div>
         </div>`)

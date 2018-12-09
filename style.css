@@ -466,20 +466,57 @@ margin-left: 20.36rem;
 
 .wikipedia {
   font-family: 'Lato', sans-serif;
-  
   /* font-family: 'EB Garamond', serif; */
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 25px;
+  /* text-align: left; */
+}
+.wikipedia b {
+  text-transform: uppercase;
+  color: rgba(125, 0, 225);
+  font-size: 1.5rem;
+  margin-top: 3px;  
+  /* -webkit-text-stroke: 0.5px; */
+}
+.wikipedia p {
+  text-align: left;
 }
 .wiki-thumbnail {
-  float: right; /* remove this for small viewport */
+  float: right;
   clear: left; 
-  margin-left: 20px;  
+  margin-top: 5px;
+  margin-left: 20px;
+}
+.wiki-thumbnail img {
+  /* min-width: 200px; */
 }
 .wiki-text {
   position: relative;
+}
+.wiki-text p {
 
 }
+@media only screen and (max-width: 900px) and (orientation: landscape) {   
+/*for-phone-landscape*/
+  .wiki-thumbnail {
+    float: none;
+    clear: left; 
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+  }
+}
+@media only screen and (max-width: 600px) and (orientation: portrait) {   
+/*for-phone-portrait*/
+  .wiki-thumbnail {
+    float: none;
+    clear: left; 
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+  }
+}
+
 
 .whatis {
   width: 100%;
@@ -489,12 +526,7 @@ margin-left: 20.36rem;
   line-height: 25px;
   /* padding: 20px; */
 }
-b {
-  /* text-transform: uppercase; */
-  /* color: rgba(152, 102, 204); */
-  font-size: 1.6rem;
-  /* -webkit-text-stroke: 0.5px; */
-}
+
 
 
 p {
