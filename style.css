@@ -142,7 +142,7 @@ button {
   background:rgb(0,0,255);
 }
 /* BORDER COLORS =========================== */
-.border-none, .border-no-results, .border-C, .border-D, .border-E, .border-F, .border-G, .border-A, .border-B {
+.border-none, .border-gray, .border-C, .border-D, .border-E, .border-F, .border-G, .border-A, .border-B {
   -webkit-transition: border 1.5s ease-out;
   -moz-transition: border 1.5s ease-out;
   -o-transition: border 1.5s ease-out;
@@ -157,7 +157,7 @@ button {
 .border-none {
   border-top: 3px solid rgb(255, 255, 255);
 }
-.border-no-results {
+.border-gray {
   border-top: 3px solid rgb(211, 211, 211);
 }
 .border-C {

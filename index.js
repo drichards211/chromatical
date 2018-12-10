@@ -38,7 +38,6 @@ function handleFormInput() {
     if (userFormInput === "") {
       alert('Please enter a search term')
     } else {
-      /* renderMiniBanner() */
       performSearch(userFormInput)
     }
   })
@@ -50,7 +49,6 @@ function handleFormInput() {
       if (userFormInput === "") {
         alert('Please enter a search term')
       } else {
-        /* renderMiniBanner() */
         showPianoLogo()
         resetPianoKeys() /*in piano.js*/
         performSearch(userFormInput)
@@ -158,9 +156,6 @@ function renderNewContent(apiName, noteID) {
   console.log(`renderNewContent("${apiName}") ran`)
   let response = responseData[apiName]
   $('.results-container').empty()
-  /* renderMiniBanner() */
-  /* $('#piano-bw-mini').removeClass(`shadow-${activePianoKey}`).addClass(`shadow-${noteID}`) */
-    
   if (apiName === "chromatical") {
     renderBorder("hide")
     $('.results-container').html(`
@@ -293,10 +288,10 @@ function featureUnavailable() {
 function renderBorder(display) {
   if (display === "hide") {
     console.log('renderBorder("hide") ran')
-    $('.results-container').removeClass('border-no-results').addClass('border-none')
+    $('.results-container').removeClass('border-gray').addClass('border-none')
   } else {
     console.log('renderBorder() ran')
-    $('.results-container').removeClass('border-none').addClass('border-no-results')
+    $('.results-container').removeClass('border-none').addClass('border-gray')
   }
 }
 
