@@ -34,6 +34,7 @@ function colorizePiano(wait, time, delay) {
     $("#G").removeClass('white-color').addClass('G-color')
     $("#A").removeClass('white-color').addClass('A-color')
     $("#B").removeClass('white-color').addClass('B-color')
+    renderBorder("hide") /*in index.js*/
   }, delay)
 
   /* Replace black & white mini-piano-button with colored version */
@@ -83,7 +84,7 @@ When user clicks a BLACK piano <span>, just play sound (7).
   $(".piano-menu").on('click', 'button, span', function(event) {
     if (`${$(this).prop('id')}` !== "silent") {
       let noteID = `${$(this).prop('id')}`
-      console.log(`piano key ${noteID} pressed`)
+      console.log(`[Piano key ${noteID} pressed]`)
       if (noteID.length < 2) { 
       /* WHITE KEYS ONLY */
         if(activePianoKey === "none") {
@@ -94,7 +95,6 @@ When user clicks a BLACK piano <span>, just play sound (7).
         /* (2) */
         $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-${noteID}`)
         $('#piano-bw-mini').removeClass(`shadow-${activePianoKey}`).addClass(`shadow-${noteID}`)
-        /* $('.results-container').removeClass(`border-${activePianoKey}`).addClass(`border-${noteID}`) */
         /* (3) */
         $(`#${noteID}`).removeClass(`${noteID}-color`).addClass(`${noteID}-color-bright`)
         /* (4) */
@@ -110,8 +110,8 @@ When user clicks a BLACK piano <span>, just play sound (7).
         pianoSounds[noteID].play()
         pianoSounds[noteID].currentTime = 0
       }
-    } else {
-      console.log("Silent piano key pressed")
+    /* } else {
+      console.log("Silent piano key pressed") */
     }
   })
 }
@@ -128,7 +128,6 @@ function resetPianoKeys() {
 /* Resets piano menu keys to white, and background to grey */
   console.log("resetPianoKeys() ran")
   $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-none`)
-  $('.results-container').removeClass(`border-${activePianoKey}`).addClass(`border-none`)
   $('#piano-bw-mini').removeClass(`shadow-${activePianoKey}`).addClass(`shadow-none`)
   activePianoKey = "none"
   $('.piano-menu').html(`
