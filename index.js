@@ -50,8 +50,7 @@ function handleFormInput() {
       if (userFormInput === "") {
         alert('Please enter a search term')
       } else {
-        activePianoKey = "none"
-        renderMiniBanner()
+        /* renderMiniBanner() */
         showPianoLogo()
         resetPianoKeys() /*in piano.js*/
         performSearch(userFormInput)
@@ -66,7 +65,7 @@ function performSearch(searchInput) {
   responseData = {}
   logoSpin()
   updateSearchParams(searchInput)  
-  const APIList = ["wikipedia", "youtube", /*"google",*/ "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+  const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
   for (let i = 0; i < APIList.length; i++) {
     fetchAPIData(APIList[i], searchInput) /*in fetch-api.js*/
   }
@@ -147,7 +146,7 @@ function renderHomePage() {
   $('.results-container').html(`
     <div class="piano-circle">
       <img src="./assets/images/piano-circle-bw.png" alt="circle piano logo" id="piano-bw" class="fade-out-logo">
-    </div>`)
+    </div>`).removeClass('border-no-results').addClass('border-none')
   resetPianoKeys() /*in piano.js*/
   handleUserNav()
   handleFormInput()
@@ -174,8 +173,7 @@ function renderNewContent(apiName, noteID) {
         <p>Having the form or character of.</p><br>
         <p><b>automatic</b>:</p>
         <p>Done or produced as if by machine.</p>
-      </div>`
-    )
+      </div>`).removeClass('border-no-results').addClass('border-none')
   }
   if (apiName === "wikipedia") {
     console.log("Rendering wikipedia API data")
@@ -183,9 +181,9 @@ function renderNewContent(apiName, noteID) {
       if (response.query.pageids[0] === "-1")  {
         $('.results-container').append(
           ` <div class="no-results">
-              <h2>No encyclopedia results are available for that query.</h2>
-              <p>Please try a different search term, or press another piano key.</p>
-            </div> `)
+              <h2>No encyclopedia results are available for that query</h2>
+              <p>Please try a different search term, or press another piano key</p>
+            </div> `).removeClass('border-none').addClass('border-no-results')
       } else {
         let pageID = response.query.pageids[0]
         let thumbnail = response.query.pages[pageID].thumbnail.source
@@ -201,14 +199,14 @@ function renderNewContent(apiName, noteID) {
             </div>
             ${extract}
             </div>
-          </div>`)
+          </div>`).removeClass('border-no-results').addClass('border-none')
       }
     } else {
       $('.results-container').append(
         ` <div class="no-results">
-            <h2>No encyclopedia results are available for that query.</h2>
-            <p>Please try a different search term, or press another piano key.</p>
-          </div> `)
+            <h2>No encyclopedia results are available for that query</h2>
+            <p>Please try a different search term, or press another piano key</p>
+          </div> `).removeClass('border-none').addClass('border-no-results')
     }
   }
   if (apiName === "youtube") {
@@ -220,14 +218,14 @@ function renderNewContent(apiName, noteID) {
           <p>${response.items[i].snippet.description}</p>
           <img src='${response.items[i].snippet.thumbnails.default.url}'>
           </li>
-          `)
+          `).removeClass('border-no-results').addClass('border-none')
       }
     } else {
       $('.results-container').append(
         ` <div class="no-results">
-            <h2>No videos are available for that query.</h2>
-            <p>Please try a different search term, or press another piano key.</p>
-          </div> `)
+            <h2>No videos are available for that query</h2>
+            <p>Please try a different search term, or press another piano key</p>
+          </div> `).removeClass('border-none').addClass('border-no-results')
     }
   }
   if (apiName === "google") {
@@ -239,13 +237,14 @@ function renderNewContent(apiName, noteID) {
           <a href=${response.items[i].link} target="_blank"><img src="${response.items[i].link}" alt="Google image ${i}"></a>`
       }
       $('.results-container').append(
-        `<div class="google-results"><div class="flexbin flexbin-margin">${resultsHtml}</div></div>`)
+        `<div class="google-results"><div class="flexbin flexbin-margin">${resultsHtml}</div></div>`
+      ).removeClass('border-no-results').addClass('border-none')
     } else {
       $('.results-container').append(
         ` <div class="no-results">
-            <h2>No images are available for that query.</h2>
-            <p>Please try a different search term, or press another piano key.</p>
-          </div> `)
+            <h2>No images are available for that query</h2>
+            <p>Please try a different search term, or press another piano key</p>
+          </div> `).removeClass('border-none').addClass('border-no-results')
     }
   }
   if (apiName === "itunes") {
@@ -259,39 +258,39 @@ function renderNewContent(apiName, noteID) {
           <a href=${response.results[i].trackViewUrl} target="_blank">${response.results[i].trackName}</a>
           <a href=${response.results[i].artistViewUrl} target="_blank">${response.results[i].artistName}</a> 
           <a href=${response.results[i].collectionViewUrl} target="_blank">${response.results[i].collectionName}</a>  
-          </div>`)
+          </div>`).removeClass('border-no-results').addClass('border-none')
       }
     } else {
       $('.results-container').append(
         ` <div class="no-results">
-            <h2>No iTunes results are available for that query.</h2>
-            <p>Please try a different search term, or press another piano key.</p>
-          </div> `)
+            <h2>No iTunes results are available for that query</h2>
+            <p>Please try a different search term, or press another piano key</p>
+          </div> `).removeClass('border-none').addClass('border-no-results')
     }
   }
   if (apiName === "spotify") {
     console.log("Rendering spotify API data")
     $('.results-container').append(
       `<div class="no-results">
-      <h2>This feature is still being developed.</h2>
-      <p>Please press another piano key.</p>
-      </div>`)
+      <h2>This feature is still being developed</h2>
+      <p>Please press another piano key</p>
+      </div>`).removeClass('border-none').addClass('border-no-results')
   }
   if (apiName === "tastedive") {
     console.log("Rendering tastedive API data")
     $('.results-container').append(
       `<div class="no-results">
-      <h2>This feature is still being developed.</h2>
-      <p>Please press another piano key.</p>
-      </div>`)
+      <h2>This feature is still being developed</h2>
+      <p>Please press another piano key</p>
+      </div>`).removeClass('border-none').addClass('border-no-results')
   }
   if (apiName === "ticketmaster") {
     console.log("Rendering ticketmaster API data")
     $('.results-container').append(
       `<div class="no-results">
-      <h2>This feature is still being developed.</h2>
-      <p>Please press another piano key.</p>
-      </div>`)
+      <h2>This feature is still being developed</h2>
+      <p>Please press another piano key</p>
+      </div>`).removeClass('border-none').addClass('border-no-results')
   }
 }
 

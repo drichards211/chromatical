@@ -75,50 +75,24 @@ function formatQuery(params) {
   return queryItems.join('&')
 }
 
-//https://www.googleapis.com/youtube/v3/search?key={your_key_here}&channelId={channel_id_here}&part=snippet,id&order=date&maxResults=20
-
-
 function fetchAPIData(apiName, query) {
   console.log(`fetchAPIData ran: ${apiName} "${query}"`)
   const searchURL = APIInfo[apiName].URL
   const params = APIInfo[apiName].searchParams
   const queryString = formatQuery(params)
   const url = searchURL + '?' + queryString
-  
   console.log(url)
-
   fetch(url)
     .then(response => {
       if (response.ok) {
         return response.json()
         console.log(responseJson)
       } else {
-      throw new Error(response.statusText)
+        throw new Error(response.statusText)
       }
     })
     .then(responseJson => responseData[apiName] = responseJson)
-    /*   
-      if (responseJson !== undefined) {
-        responseData[apiName] = responseJson
-      } else {
-        throw new Error(`responseJson ${apiName} is empty`)
-      }
-    }) */
-    
-    /* .catch(err => {
-      $('#js-error-message').text(`Something went wrong: ${err.message}`);
-    }); */
-    
-    // OLD METHOD FOR DISPLAYING RESULTS WHEN THERE'S ONLY ONE API... NOW, WE NEED TO POPULATE responseData {}
-    /*.then(responseJson => displayResults(responseJson)) */
-    
-    
-    
-    // Store YouTube's response data in the allResponses object.
-    //.then(responseJson => storeResponseData.youtubeAPI = responseJson)
-    
-    // MIGHT NOT NEED THIS SECTION
-    /* .catch(err => {
-      $('#js-error-message').text(`Something went wrong: ${err.message}`);
-    }); */
+    .catch(err => {
+      console.log(`${apiName} API failed to fetch`)
+    })
 }

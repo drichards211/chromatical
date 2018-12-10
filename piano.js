@@ -129,6 +129,7 @@ function resetPianoKeys() {
   console.log("resetPianoKeys() ran")
   $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-none`)
   $('.results-container').removeClass(`border-${activePianoKey}`).addClass(`border-none`)
+  $('#piano-bw-mini').removeClass(`shadow-${activePianoKey}`).addClass(`shadow-none`)
   activePianoKey = "none"
   $('.piano-menu').html(`
   <li><div class="anchor"></div></li>

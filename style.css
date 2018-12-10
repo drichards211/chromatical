@@ -142,7 +142,7 @@ button {
   background:rgb(0,0,255);
 }
 /* BORDER COLORS =========================== */
-.border-none, .border-C, .border-D, .border-E, .border-F, .border-G, .border-A, .border-B {
+.border-none, .border-no-results, .border-C, .border-D, .border-E, .border-F, .border-G, .border-A, .border-B {
   -webkit-transition: border 1.5s ease-out;
   -moz-transition: border 1.5s ease-out;
   -o-transition: border 1.5s ease-out;
@@ -156,6 +156,9 @@ button {
 } */
 .border-none {
   border-top: 3px solid rgb(255, 255, 255);
+}
+.border-no-results {
+  border-top: 3px solid rgb(211, 211, 211);
 }
 .border-C {
   border-top: 3px solid rgb(125,0,255);
@@ -475,6 +478,9 @@ margin-left: 20.36rem;
 }
 
 .wikipedia {
+  /* font-family: Merriweather, serif;
+  font-size: 1.5rem;
+  line-height: 1.8em; */
   font-family: 'Lato', sans-serif;
   font-size: 1.4rem;
   line-height: 25px;
@@ -496,7 +502,15 @@ margin-left: 20.36rem;
   font-size: 1.5rem;
   font-family: nunito, sans-serif;
   margin-top: 1.5rem;
+  margin-bottom: .5rem;
 } 
+.wikipedia h3, .wkipedia h4 {
+  /* color: rgba(125, 0, 225); */
+  font-size: 1.5rem;
+  /* font-family: nunito, sans-serif; */
+  margin-top: 1.4rem;
+  /* margin-bottom: .5rem; */
+}
 .wiki-thumbnail {
   float: right;
   clear: left; 
@@ -520,7 +534,7 @@ margin-left: 20.36rem;
     text-align: center;
     margin-top: 0px;
     margin-left: 0px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 }
 @media only screen and (max-width: 600px) and (orientation: portrait) {   
@@ -531,7 +545,7 @@ margin-left: 20.36rem;
     text-align: center;
     margin-top: 0px;
     margin-left: 0px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 }
 
