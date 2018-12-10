@@ -13,10 +13,10 @@ let APIInfo = {
       indexpageids: 1,
       redirects: 1, 
       exchars: 1200,
-      // explaintext: 1,
+      /* exlimit: 1, */
       exsectionformat: 'plain',
       piprop: 'name|thumbnail|original',
-      pithumbsize: 250  
+      pithumbsize: 260,  
     }
   },
   youtube: {
@@ -70,44 +70,105 @@ let responseData = {
 }
 
 function formatQuery(params) {
+  console.log("formatQuery() ran")
   const queryItems = Object.keys(params)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
   return queryItems.join('&')
 }
 
-//https://www.googleapis.com/youtube/v3/search?key={your_key_here}&channelId={channel_id_here}&part=snippet,id&order=date&maxResults=20
-
-
 function fetchAPIData(apiName, query) {
   console.log(`fetchAPIData ran: ${apiName} "${query}"`)
-  responseData = {}
-  const searchURL = APIInfo[apiName].URL
-  const params = APIInfo[apiName].searchParams
-  const queryString = formatQuery(params)
-  const url = searchURL + '?' + queryString
-  
+  let searchURL = APIInfo[apiName].URL
+  let params = APIInfo[apiName].searchParams
+  let queryString = formatQuery(params)
+  let url = searchURL + '?' + queryString
   console.log(url)
 
-  fetch(url)
-    .then(response => {
-      if (response.ok) {
-        return response.json()
-        console.log(responseJson)
-      }
-      throw new Error(response.statusText)
-    /* .catch(err => {
-      $('#js-error-message').text(`Something went wrong: ${err.message}`);
-    }); */
-    })
-    // OLD METHOD FOR DISPLAYING RESULTS WHEN THERE'S ONLY ONE API... NOW, WE NEED TO POPULATE responseData {}
-    /*.then(responseJson => displayResults(responseJson)) */
-    .then(responseJson => responseData[apiName] = responseJson)
-    
-    // Store YouTube's response data in the allResponses object.
-    //.then(responseJson => storeResponseData.youtubeAPI = responseJson)
-    
-    // MIGHT NOT NEED THIS SECTION
-    /* .catch(err => {
-      $('#js-error-message').text(`Something went wrong: ${err.message}`);
-    }); */
+  /* fetch call to wikipedia API*/
+  if (apiName === "wikipedia") {
+    fetch(url)
+      .then(response => {
+        if (response.ok) {
+          return response.json()
+        }
+      })
+      .then(responseJson => {
+        if (responseJson.query.pageids[0] !== "-1") {
+          console.log("First wikipedia query was successful")
+          responseData[apiName] = responseJson
+        } else if (responseJson.query.pageids[0] === "-1") {
+          APIInfo.wikipedia.searchParams.titles = userFormInput.replace(/\b\w/g, function(l) { return l.toUpperCase() })
+          console.log(`Attempting revised wikipedia search: "${APIInfo.wikipedia.searchParams.titles}"`)
+          /* Refresh queryString and searchURL */
+          queryString = formatQuery(params)
+          url = searchURL + '?' + queryString
+          console.log(url)
+          fetch(url)
+            .then(response => {
+              if (response.ok) {
+                return response.json()
+              }
+            })
+            .then(responseJson => {
+              responseData[apiName] = responseJson
+              if (responseJson.query.pageids[0] !== "-1") {
+                console.log("Revised wikipedia search was successful")
+                responseData[apiName] = responseJson
+              } else if (responseJson.query.pageids[0] === "-1") {
+                APIInfo.wikipedia.searchParams.titles = userFormInput.toUpperCase()
+                console.log(`Attempting revised wikipedia search: "${APIInfo.wikipedia.searchParams.titles}"`)
+                /* Refresh queryString and searchURL */
+                queryString = formatQuery(params)
+                url = searchURL + '?' + queryString
+                console.log(url)
+                fetch(url)
+                  .then(response => {
+                    if (response.ok) {
+                      return response.json()
+                    }
+                  })
+                  .then(responseJson => {
+                    if (responseJson.query.pageids[0] !== "-1") {
+                      console.log("2nd revised wikipedia search was successful")
+                      responseData[apiName] = responseJson
+                    }
+                  })
+                }
+            })
+        }
+      })
+  /* fetch call to other APIs */    
+  } else {
+    fetch(url)
+      .then(response => {
+        if (response.ok) {
+          return response.json()
+          console.log(responseJson)
+        } else {
+          throw new Error(response.statusText)
+        }
+      })
+      .then(responseJson => responseData[apiName] = responseJson)
+      .catch(err => {
+        console.log(`${apiName} API failed to fetch`)
+      })
+  }
+}
+
+function searchWiki(searchWord) {
+  wikiParams.titles = searchWord;
+  url = 'https://en.wikipedia.org/w/api.php';
+  $.getJSON(url, wikiParams, function(data) {
+    if (data.query.pageids[0] === "-1") {
+      wikiParams.titles = searchWord.replace(/\b\w/g, function(l) { return l.toUpperCase() });
+      $.getJSON(url, wikiParams, function(data) {
+        if (data.query.pageids[0] === "-1") {
+          wikiParams.titles = searchWord.toUpperCase();
+          $.getJSON(url, wikiParams, function(data) {
+            showWiki(data.query);
+          });
+        } else { showWiki(data.query); }
+      });
+    } else { showWiki(data.query); }
+  });
 }
