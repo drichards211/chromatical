@@ -34,6 +34,11 @@ function handleFormInput() {
   $('.col-12 .search-form').submit(event => {
     event.preventDefault()
     console.log('.search-form submission detected')
+    if (userFormInput !== "") {
+    /* Reset appearance if user performs sequential searches on the home page */
+      showPianoLogo()
+      resetPianoKeys() 
+    }
     userFormInput = $('#search-term').val()
     if (userFormInput === "") {
       alert('Please enter a search term')
