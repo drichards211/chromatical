@@ -7,16 +7,7 @@
       <!-- Responsive viewport tag -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Google Fonts -->
-      <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet"> 
-      <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> 
-      <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"> 
-      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet"> 
-      <link href="https://fonts.googleapis.com/css?family=Fauna+One" rel="stylesheet"> 
-      <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> 
-      <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Lato" rel="stylesheet"> 
+      <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Lato|Lora|Nunito|Raleway" rel="stylesheet"> 
       <!-- Font Awesome -->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
       
@@ -46,24 +37,9 @@
   </head>
 
 <body class="bg-none">
-  <!-- <header role="banner" id="banner" class="left-piano-margin">
-    <h1>Chromatical</h1>
-    <fieldset> 
-      <legend>Input artist, album, or song title</legend>
-      <form action="#" class="search-form">
-          <label for="query"></label>
-          <label><input type="text" id="search-term" class="js-query"></label>
-          <button type="submit">Find</button>
-        </form>
-    </fieldset>
-  </header> -->
-  
-  
+   
   <!-- PIANO TRAY ============================================== -->
 
-  <!-- <div id="footer" class="piano-tray"> -->
-    <!-- PIANO TRAY -->
-  <!-- <div id="portrait-wrapper"> -->
     <div id="p-wrapper" class="wrapper-horizontal">
       <div id="mini-piano-button">
         <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu-bw.png"/>  
@@ -135,28 +111,26 @@
   <main role="main" class="left-piano-margin">
     <div class="row">
       <section role="region" class="col-12" aria-live="assertive">
+        <header role="banner" id="banner">
+          <a href="#" id="chromatical"><h1>Chromatical</h1></a>
+          <fieldset> 
+            <form action="#" class="search-form">
+              <label for="query"></label>
+              <label>
+                <div class="floating-marquee">
+                  <marquee behavior="scroll" direction="left"><span id="marquee-text">Search for an artist,&nbsp album or song title.</span></marquee>
+                </div>
+                <input type="text" id="search-term" class="js-query">
+              </label>
+            </form>
+          </fieldset>
+        </header>
         <!-- Search results are rendered here -->
-          <header role="banner" id="banner">
-            <a href="#" id="chromatical"><h1>Chromatical</h1></a>
-            <!-- <a href="#" id="chromatical"><h1><span class="chrm-c">C</span><span class="chrm-h">h</span><span class="chrm-r">r</span><span class="chrm-o">o</span><span class="chrm-m">m</span><span class="chrm-a">a</span><span class="chrm-t">t</span><span class="chrm-i">i</span><span class="chrm-c2">c</span><span class="chrm-a2">a</span><span class="chrm-l">l</span></h1></a> -->
-            <fieldset> 
-              <form action="#" class="search-form">
-                  <label for="query"></label>
-                  <label>
-                    <div class="floating-marquee">
-                      <marquee behavior="scroll" direction="left"><span id="marquee-text">Search for an artist,&nbsp album or song title.</span></marquee>
-                    </div>
-                    <input type="text" id="search-term" class="js-query">
-                    <!-- <button type="submit" class="find-button"><span class="fas fa-search"></span></button> -->
-                  </label>
-              </form>
-            </fieldset>
-          </header>
-          <div class="results-container border-none">
-            <div class="piano-circle">
-              <img src="./assets/images/piano-circle-bw.png" alt="circle piano logo" id="piano-bw" class="fade-out-logo">
-            </div>
+        <div class="results-container border-none">
+          <div class="piano-circle">
+            <img src="./assets/images/piano-circle-bw.png" alt="circle piano logo" id="piano-bw" class="fade-out-logo">
           </div>
+        </div>
       </section>  
     </div>
   </main>

@@ -15,13 +15,13 @@ function handleUserNav() {
     }
   })
   $('#home-button').click(function(event) {
-  /* Reset app appearance and behavior to initial state */  
+  /* Resets app appearance and behavior to initial state */  
     event.preventDefault()
     console.log("Home button clicked")
     renderHomePage()
   })
   $('#search-term').focus(function(event){
-  /* Hide searchbox marquee */
+  /* Hides searchbox marquee */
     event.preventDefault()
     console.log('Hiding marquee')
     $('#marquee-text').addClass('hidden')
@@ -63,7 +63,7 @@ function performSearch(searchInput) {
   responseData = {}
   logoSpin()
   updateSearchParams(searchInput)  
-  const APIList = ["wikipedia", "youtube", /* "google", */ "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+  const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
   for (let i = 0; i < APIList.length; i++) {
     fetchAPIData(APIList[i], searchInput) /*in fetch-api.js*/
   }
@@ -126,6 +126,7 @@ function renderMiniBanner() {
 }
 
 function renderHomePage() {
+/* Resets app appearance and behavior to initial state */
   console.log("renderHomePage() ran")
   userFormInput = ""
   $('#banner').html(`
@@ -156,6 +157,8 @@ function renderNewContent(apiName, noteID) {
   console.log(`renderNewContent("${apiName}") ran`)
   let response = responseData[apiName]
   $('.results-container').empty()
+  renderBorder()
+  
   if (apiName === "chromatical") {
     renderBorder("hide")
     $('.results-container').html(`
@@ -179,7 +182,7 @@ function renderNewContent(apiName, noteID) {
         let thumbnail = response.query.pages[pageID].thumbnail
         let sourceImg = response.query.pages[pageID].original
         let extract = response.query.pages[pageID].extract
-        renderBorder("hide")
+        /* renderBorder("hide") */
         if (thumbnail === undefined || thumbnail === null) {
           $('.results-container').append(`
           <div class="wikipedia">
@@ -205,7 +208,7 @@ function renderNewContent(apiName, noteID) {
   if (apiName === "youtube") {
     console.log("Rendering youtube API data")
     if (responseData[apiName] !== undefined ) {
-      renderBorder("hide")
+      /* renderBorder("hide") */
       for (let i = 0; i < response.items.length; i++){
         $('.results-container').append(
           `<li><h3>${response.items[i].snippet.title}</h3>
@@ -246,7 +249,7 @@ function renderNewContent(apiName, noteID) {
           <a href=${response.results[i].collectionViewUrl} target="_blank">${response.results[i].collectionName}</a>  
           </div>`)
       }
-      renderBorder("hide")
+      /* renderBorder("hide") */
     } else {
       renderZeroResults("iTunes results")
     }
@@ -266,6 +269,7 @@ function renderNewContent(apiName, noteID) {
 }
 
 function renderZeroResults(message) {
+/* updates .results-container with error message */
   console.log("renderZeroResults() ran")
   $('.results-container').append(
     ` <div class="no-results">
@@ -276,6 +280,7 @@ function renderZeroResults(message) {
 }
 
 function featureUnavailable() {
+/* updates .results-container with "unavailable" message */
   console.log("featureUnavailable() ran")
   $('.results-container').append(
     `<div class="no-results">
@@ -286,6 +291,7 @@ function featureUnavailable() {
 }
 
 function renderBorder(display) {
+/* Displays or hides 1px border-top */
   if (display === "hide") {
     console.log('renderBorder("hide") ran')
     $('.results-container').removeClass('border-gray').addClass('border-none')

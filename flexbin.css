@@ -31,7 +31,7 @@ version 3 or later. */
       min-width: 100%;
       vertical-align: bottom; }
   .flexbin.flexbin-margin {
-    margin: 2.5px; }
+    /* margin: 2.5px; */ }
   @media (max-width: 980px) {
     .flexbin {
       display: flex;

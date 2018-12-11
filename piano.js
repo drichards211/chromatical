@@ -1,6 +1,5 @@
 'use strict'
 
-/* let menuActive = false */
 let activePianoKey = "none"
 let pianoHorizontal = true
 
@@ -8,8 +7,7 @@ function colorizePiano(wait, time, delay) {
 /* Render and colorize the piano-menu buttons. */
   console.log("colorizePiano() ran")
   console.log('Rendering piano menu buttons')
-  /* menuActive = true */
-  
+    
   /* Update .html() for piano MENU BUTTONS */
   setTimeout(function() {
     $(".piano-menu").html(
@@ -47,7 +45,7 @@ function listenPianoTouch(){ /*
 When user clicks a COLORED piano <button>:
     (1) Reset any previously clicked button to normal color.
     (2) Change <body> background-color and mini-logo color to match new button. 
-    (3) Change new button color to bright. 
+    (3) Change new piano button color to bright. 
     (4) Update activePianoKey global variable.
     (5) Play piano sound.
     (6) Call renderNewContent() with argument from APINames{}.  
@@ -110,8 +108,6 @@ When user clicks a BLACK piano <span>, just play sound (7).
         pianoSounds[noteID].play()
         pianoSounds[noteID].currentTime = 0
       }
-    /* } else {
-      console.log("Silent piano key pressed") */
     }
   })
 }
@@ -125,7 +121,7 @@ function resetPianoColors() {
 }
   
 function resetPianoKeys() {
-/* Resets piano menu keys to white, and background to grey */
+/* Resets piano menu keys to white, and <body> background to grey */
   console.log("resetPianoKeys() ran")
   $('body').removeClass(`bg-${activePianoKey}`).addClass(`bg-none`)
   $('#piano-bw-mini').removeClass(`shadow-${activePianoKey}`).addClass(`shadow-none`)
@@ -143,17 +139,6 @@ function resetPianoKeys() {
     <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu-bw.png"/>`
   )
 }
-
-function updatePianoKeys() {
-  // push new clickable button html data to piano keys corresponding with received arguments.
-  // example:
-  /* function foo() {
-    for (var i = 0; i < arguments.length; i++) {
-      $("p").append(`Some appended html ${i} plus some more html`);
-    }
-  } */
-}
-
 
 function hidePiano() {
 /* Hide HORIZONTAL Piano Tray when scrolling */
