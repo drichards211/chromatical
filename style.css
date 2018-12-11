@@ -155,10 +155,10 @@ button {
   border-top: 3px solid rgb(125, 125, 125);
 } */
 .border-none {
-  border-top: 3px solid rgb(255, 255, 255);
+  border-top: 1px solid rgb(255, 255, 255);
 }
 .border-gray {
-  border-top: 3px solid rgb(211, 211, 211);
+  border-top: 1px solid rgb(211, 211, 211);
 }
 .border-C {
   border-top: 3px solid rgb(125,0,255);
@@ -484,6 +484,7 @@ margin-left: 20.36rem;
   font-family: 'Lato', sans-serif;
   font-size: 1.4rem;
   line-height: 25px;
+  margin-top: 2rem;
 }
 .wikipedia * {
   text-align: left;

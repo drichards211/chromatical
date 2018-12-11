@@ -16,7 +16,7 @@ let APIInfo = {
       /* exlimit: 1, */
       exsectionformat: 'plain',
       piprop: 'name|thumbnail|original',
-      pithumbsize: 260,  
+      pithumbsize: 270,  
     }
   },
   youtube: {
@@ -153,22 +153,4 @@ function fetchAPIData(apiName, query) {
         console.log(`${apiName} API failed to fetch`)
       })
   }
-}
-
-function searchWiki(searchWord) {
-  wikiParams.titles = searchWord;
-  url = 'https://en.wikipedia.org/w/api.php';
-  $.getJSON(url, wikiParams, function(data) {
-    if (data.query.pageids[0] === "-1") {
-      wikiParams.titles = searchWord.replace(/\b\w/g, function(l) { return l.toUpperCase() });
-      $.getJSON(url, wikiParams, function(data) {
-        if (data.query.pageids[0] === "-1") {
-          wikiParams.titles = searchWord.toUpperCase();
-          $.getJSON(url, wikiParams, function(data) {
-            showWiki(data.query);
-          });
-        } else { showWiki(data.query); }
-      });
-    } else { showWiki(data.query); }
-  });
 }
