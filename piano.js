@@ -162,6 +162,13 @@ function hidePiano() {
       $('#hide-piano').addClass("hidden")  
     })  
 }
+
+function showPiano() {
+/* Reveal piano tray */
+console.log("showPiano() ran")
+  $('#nav-piano').removeClass("hidden")
+  $('#hide-piano').addClass("hidden")
+}
   
 function rotatePiano() {
 /* Switch between vertical or horizontal menu depending upon viewport */
@@ -170,6 +177,11 @@ function rotatePiano() {
   if (mediaQuery.matches) {
   /* Update .html for VERTICAL piano for mobile landscape viewports */ 
     console.log("Updating html for vertical piano")
+    if ($('#nav-piano').attr('class') === "nav-horizontal hidden") {
+    /* If piano tray is hidden, make visible before rotating */
+      $('#nav-piano').removeClass("hidden")
+      $('#hide-piano').addClass("hidden")  
+    }
     pianoHorizontal = false
     $("main").addClass("left-piano-margin")
     $("#p-wrapper").removeClass("wrapper-horizontal").addClass("wrapper-vertical")
