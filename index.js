@@ -51,6 +51,7 @@ function handleFormInput() {
       } else {
         showPianoLogo()
         resetPianoKeys() /*in piano.js*/
+        renderBorder("hide")
         performSearch(userFormInput)
       }
     })
@@ -158,7 +159,7 @@ function renderNewContent(apiName, noteID) {
   let response = responseData[apiName]
   $('.results-container').empty()
   renderBorder()
-  
+
   if (apiName === "chromatical") {
     renderBorder("hide")
     $('.results-container').html(`
