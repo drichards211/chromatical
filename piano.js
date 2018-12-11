@@ -163,13 +163,6 @@ function hidePiano() {
     })  
 }
 
-function showPiano() {
-/* Reveal piano tray */
-console.log("showPiano() ran")
-  $('#nav-piano').removeClass("hidden")
-  $('#hide-piano').addClass("hidden")
-}
-  
 function rotatePiano() {
 /* Switch between vertical or horizontal menu depending upon viewport */
   console.log("rotatePiano() running")
