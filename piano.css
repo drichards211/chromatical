@@ -181,8 +181,8 @@ a:hover {
 .wrapper-vertical { /*DR*/
     position: fixed;
     top: 50%;
-    transform: translateY(-50%);
-    left: 117px;
+    /* transform: translateY(-50%); */
+    /* left: 117px; */
     -webkit-border-radius: 0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;
     border-radius: 0 0 5px 5px;
@@ -375,7 +375,7 @@ a:hover {
 ul#piano {
   display:block;
   width:100%;
-  /*why is this in pixels? */ height: 233px; /* 240px; */
+  /* height: 233px; */
   border-top:1.5px solid #222;
 }
 
