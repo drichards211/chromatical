@@ -238,9 +238,13 @@ function renderNewContent(apiName, noteID) {
     console.log("Rendering google API data")
     let resultsHtml = ""
     if (responseData[apiName] !== undefined ) {
-      for (let i = 0; i < response.items.length; i++) {
+      for (let i = 0; i < response.page0.items.length; i++) {
         resultsHtml += `
-          <a href=${response.items[i].link} target="_blank"><img src="${response.items[i].link}" alt="Google image ${i}"></a>`
+          <a href=${response.page0.items[i].link} target="_blank"><img src="${response.page0.items[i].link}" alt="Google image ${i}"></a>`
+      }
+      for (let i = 0; i < response.page1.items.length; i++) {
+        resultsHtml += `
+          <a href=${response.page1.items[i].link} target="_blank"><img src="${response.page1.items[i].link}" alt="Google image ${i}"></a>`
       }
       /* renderBorder("hide") */
       $('.results-container').append(
