@@ -480,17 +480,14 @@ margin-left: 20.36rem;
   border-top: 3px solid orange;
 }
 
-/* Wikipedia API styling ============================== */
+/* WIKIPEDIA API STYLING ============================== */
 .wikipedia {
-  /* font-family: Merriweather, serif;
-  font-size: 1.5rem;
-  line-height: 1.8em; */
   font-family: 'Lato', sans-serif;
   font-size: 1.4rem;
   line-height: 25px;
   margin-top: 2rem;
-  padding-left: 4%;
-  padding-right: 4%;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 .wikipedia * {
   text-align: left;
@@ -501,7 +498,6 @@ margin-left: 20.36rem;
   font-size: 1.6rem;
   font-family: Raleway, sans-serif;
   margin-top: 3px;  
-  /* -webkit-text-stroke: 0.5px; */
 }
 .wikipedia h2 {
   text-transform: uppercase;
@@ -512,11 +508,8 @@ margin-left: 20.36rem;
   margin-bottom: .5rem;
 } 
 .wikipedia h3, .wkipedia h4 {
-  /* color: rgba(125, 0, 225); */
   font-size: 1.5rem;
-  /* font-family: nunito, sans-serif; */
   margin-top: 1.4rem;
-  /* margin-bottom: .5rem; */
 }
 .wiki-thumbnail {
   float: right;
@@ -536,14 +529,11 @@ margin-left: 20.36rem;
 @media only screen and (max-width: 900px) and (orientation: landscape) {   
 /*for-phone-landscape*/
   .wikipedia {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.4rem;
-    line-height: 25px;
-    margin-top: 2rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
   }
   .wiki-thumbnail {
     float: none;
-    clear: left; 
     text-align: center;
     margin-top: 0px;
     margin-left: 0px;
@@ -552,9 +542,12 @@ margin-left: 20.36rem;
 }
 @media only screen and (max-width: 600px) and (orientation: portrait) {   
 /*for-phone-portrait*/
+  .wikipedia {
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
   .wiki-thumbnail {
     float: none;
-    clear: left; 
     text-align: center;
     margin-top: 0px;
     margin-left: 0px;
@@ -562,109 +555,84 @@ margin-left: 20.36rem;
   }
 }
 
-/* YouTube API styling ============================== */
+/* YOUTUBE API STYLING ============================== */
 .youtube * {
   text-align: left;
 }
 .youtube {
   text-align: left;
-  font-family: 'Nunito', sans-serif; /* 'Slabo 27px', serif; */ /* 'Nunito', sans-serif; */
+  font-family: 'Nunito', sans-serif;
   font-size: 1.4rem;
   line-height: 25px;
   margin-top: 2rem;
-  /* padding-left: 8%;
-  padding-right: 8%; */
-  
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 .youtube h3 {
   font-family: 'Lora', serif;
 }
 .youtube img {
   box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.7);
-    /* max-width: 300px; */
-    /* min-width: 190px; */
-    width: 100%;
-    position: relative;
-    text-align: center;
-
-  /* box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.7);
-  max-width: 225px; */
-  
+  width: 100%;
+  position: relative;
+  text-align: center;
 }
-.youtube-row {
+.yt-row {
   margin: 0 auto;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  margin-bottom: 2rem;
 }
-.youtube-row::before,
-.youtube-row::after {
+.yt-row::before,
+.yt-row::after {
   display: table;
   content: '';
 }
-.youtube-row::after {
+.yt-row::after {
   clear: both;
 }
-.youtube-thumbnail {
+.yt-thumbnail {
   position: relative;
-    float: left;
-    /* clear: both; */
-    margin-right: 1.5rem;
-    margin-bottom: 1.5rem;
-    width: 32%;
-    /* max-width: 225px;
-    min-width: 225px; */
-    text-align: center;
-}
-.youtube-info {
-  position: relative;
-    float: left;
-    width: 60%;
-  /* position: relative;
   float: left;
-  width: 70%; */
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 32%;
+  text-align: center;
+}
+.yt-info {
+  position: relative;
+  float: left;
+  width: 60%;
+  margin-bottom: 1.5rem;
 }
 @media only screen and (max-width: 900px) and (orientation: landscape) {   
   /*for-phone-landscape*/
-  .youtube-thumbnail {
-    position: relative;
-      float: left;
-      /* clear: both; */
-      margin-right: 1.5rem;
-      margin-bottom: 1.5rem;
-      width: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      /* max-width: 225px;
-      min-width: 225px; */
-      text-align: center;
+  .youtube {
+    margin-left: 0rem;
+    margin-right: 0rem;
   }
-  .youtube-info {
-    position: relative;
-      float: left;
-      width: 100%;
+  .yt-thumbnail {
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
   }
-  
-
+  .yt-info {
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 600px) and (orientation: portrait) {   
   /*for-phone-portrait*/
-  .youtube-thumbnail {
-    position: relative;
-      float: left;
-      /* clear: both; */
-      margin-right: 1.5rem;
-      margin-bottom: 1.5rem;
+  .youtube {
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+  .yt-thumbnail {
       width: 100%;
       left: 50%;
       transform: translateX(-50%);
-      /* max-width: 225px;
-      min-width: 225px; */
-      text-align: center;
   }
-  .youtube-info {
-    position: relative;
-      float: left;
-      width: 100%;
+  .yt-info {
+    width: 100%;
   }
-  
 }
 
 
