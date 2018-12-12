@@ -69,7 +69,7 @@ function performSearch(searchInput) {
   responseData = {}
   logoSpin()
   updateSearchParams(searchInput)  
-  const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+  const APIList = ["wikipedia", "youtube", /* "google", */ "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
   for (let i = 0; i < APIList.length; i++) {
     fetchAPIData(APIList[i], searchInput) /*in fetch-api.js*/
   }
@@ -238,15 +238,23 @@ function renderNewContent(apiName, noteID) {
     console.log("Rendering google API data")
     let resultsHtml = ""
     if (responseData[apiName] !== undefined ) {
-      for (let i = 0; i < response.page0.items.length; i++) {
+      for (let i = 0; i < response.items.length; i++) {
         resultsHtml += `
-          <a href=${response.page0.items[i].link} target="_blank"><img src="${response.page0.items[i].link}" alt="Google image ${i}"></a>`
+          <a href=${response.items[i].link} target="_blank"><img src="${response.page1.items[i].link}" alt="Google image ${i}"></a>`
       }
-      for (let i = 0; i < response.page1.items.length; i++) {
-        resultsHtml += `
-          <a href=${response.page1.items[i].link} target="_blank"><img src="${response.page1.items[i].link}" alt="Google image ${i}"></a>`
-      }
-      /* renderBorder("hide") */
+           
+      /* TEST CODE FOR RENDERING MULTIPLE PAGES */
+      /* for (let i = 0; i < 3; i++) {
+        let num = 0
+        let imgCount = 0
+        for (let j = 0; j < response['page' + num.toString()].items.length; j++) {
+          resultsHtml += `
+            <a href=${response['page' + num.toString()].items[j].link} target="_blank"><img src="${response['page' + num.toString()].items[j].link}" alt="Google image ${j + imgCount}"></a>`
+        }
+        num++
+        imgCount += 10
+      } */
+       
       $('.results-container').append(
         `<div class="google-results"><div class="flexbin flexbin-margin">${resultsHtml}</div></div>`)
     } else {

@@ -44,7 +44,7 @@ let APIInfo = {
       searchType: "image",
       num: "10",
       /* count: "10", */
-      start: 1,
+      start: -9,
       /* queries: "nextPage" */
       /* startIndex: "11", */
       /* maxResults: '20', */
@@ -85,11 +85,11 @@ function formatQuery(params) {
 
 function fetchAPIData(apiName, query) {
   console.log(`fetchAPIData ran: ${apiName} "${query}"`)
+  APIInfo.google.searchParams.start = -9
   let searchURL = APIInfo[apiName].URL
   let params = APIInfo[apiName].searchParams
   let queryString = formatQuery(params)
   let url = searchURL + '?' + queryString
-  APIInfo.google.searchParams.start = 1
   console.log(url)
 
   /* fetch call to wikipedia API*/
@@ -98,6 +98,8 @@ function fetchAPIData(apiName, query) {
       .then(response => {
         if (response.ok) {
           return response.json()
+        } else {
+          throw new Error(response.statusText)
         }
       })
       .then(responseJson => {
@@ -115,6 +117,8 @@ function fetchAPIData(apiName, query) {
             .then(response => {
               if (response.ok) {
                 return response.json()
+              } else {
+                throw new Error(response.statusText)
               }
             })
             .then(responseJson => {
@@ -133,6 +137,8 @@ function fetchAPIData(apiName, query) {
                   .then(response => {
                     if (response.ok) {
                       return response.json()
+                    } else {
+                      throw new Error(response.statusText)
                     }
                   })
                   .then(responseJson => {
@@ -147,15 +153,22 @@ function fetchAPIData(apiName, query) {
       })
   } 
   /* fetch call to google API */
-  if (apiName === "google") {
-    let pageNum = 0
+  if (apiName === "googleTest") {
     responseData.google = {}
     responseData.google.page0 = {}
     responseData.google.page1 = {}
     responseData.google.page2 = {}
-    /* while (pageNum < 2) { */
+    for (let pageNum = 0; pageNum < 3; pageNum++) {
+      
+      APIInfo.google.searchParams.start += 10
+      console.log("increasing start value by 10")
+      /* Refresh queryString and searchURL */
+      params = APIInfo[apiName].searchParams
+      queryString = formatQuery(params)
+      url = searchURL + '?' + queryString
+
       fetch(url)
-      .then(response => {
+        .then(response => {
         if (response.ok) {
           return response.json()
         } else {
@@ -164,36 +177,12 @@ function fetchAPIData(apiName, query) {
       })
       .then(responseJson => { 
         responseData[apiName]['page' + pageNum] = responseJson
-        APIInfo.google.searchParams.start += 10
-        /* Refresh queryString and searchURL */
-        queryString = formatQuery(params)
-        url = searchURL + '?' + queryString
-        pageNum++
-        fetch(url)
-          .then(response => {
-            if (response.ok) {
-              return response.json()
-            } else {
-              throw new Error(response.statusText)
-            }
-          })
-          .then(responseJson => { 
-            responseData[apiName]['page' + pageNum] = responseJson
-            APIInfo.google.searchParams.start += 10
-            /* Refresh queryString and searchURL */
-            queryString = formatQuery(params)
-            url = searchURL + '?' + queryString
-            /* pageNum++ */
-          })
-      })
-      
-
-      
-    /* } */
-    /* APIInfo.google.searchParams.start = 1 */
+        console.log(`Google API fetch #${pageNum+1} of 3 completed successfully`)
+      }) 
+    }
   }
   /* fetch call to other APIs */    
-  if (apiName !== "wikipedia" && apiName !== "google") {
+  if (apiName !== "wikipedia" /* && apiName !== "google" */) {
     fetch(url)
         .then(response => {
           if (response.ok) {
