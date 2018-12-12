@@ -214,13 +214,20 @@ function renderNewContent(apiName, noteID) {
   if (apiName === "youtube") {
     console.log("Rendering youtube API data")
     if (responseData[apiName] !== undefined ) {
-      /* renderBorder("hide") */
+      $('.results-container').append(`
+        <div class="youtube">
+        </div>`)
+
       for (let i = 0; i < response.items.length; i++){
-        $('.results-container').append(
-          `<li><h3>${response.items[i].snippet.title}</h3>
-          <p>${response.items[i].snippet.description}</p>
-          <img src='${response.items[i].snippet.thumbnails.default.url}'>
-          </li>
+        $('.youtube').append(`
+          <div class="youtube-row">
+            <div class="youtube-thumbnail"><img src='${response.items[i].snippet.thumbnails.medium.url}'></div>
+            <div class ="youtube-info">
+            <h3>${response.items[i].snippet.title}</h3>
+            <p>${response.items[i].snippet.description}</p>
+            </div>
+          
+          </div>
           `)
       }
     } else {
