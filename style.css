@@ -581,7 +581,7 @@ margin-left: 20.36rem;
 }
 .youtube img {
   box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.7);
-    max-width: 225px;
+    /* max-width: 300px; */
     /* min-width: 190px; */
     width: 100%;
     position: relative;
@@ -608,28 +608,64 @@ margin-left: 20.36rem;
     /* clear: both; */
     margin-right: 1.5rem;
     margin-bottom: 1.5rem;
-    width: 26%;
-    max-width: 225px;
-    min-width: 225px;
+    width: 32%;
+    /* max-width: 225px;
+    min-width: 225px; */
     text-align: center;
-/* 
-  position: relative;
-  float: left;
-  /* clear: both; */
-  /* margin-right: 1.5rem;
-  margin-bottom: 1.5rem;
-  width: 28%; */
 }
 .youtube-info {
   position: relative;
     float: left;
-    width: calc(100% - 40%);
+    width: 60%;
   /* position: relative;
   float: left;
   width: 70%; */
 }
+@media only screen and (max-width: 900px) and (orientation: landscape) {   
+  /*for-phone-landscape*/
+  .youtube-thumbnail {
+    position: relative;
+      float: left;
+      /* clear: both; */
+      margin-right: 1.5rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      /* max-width: 225px;
+      min-width: 225px; */
+      text-align: center;
+  }
+  .youtube-info {
+    position: relative;
+      float: left;
+      width: 100%;
+  }
+  
 
-
+}
+@media only screen and (max-width: 600px) and (orientation: portrait) {   
+  /*for-phone-portrait*/
+  .youtube-thumbnail {
+    position: relative;
+      float: left;
+      /* clear: both; */
+      margin-right: 1.5rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      /* max-width: 225px;
+      min-width: 225px; */
+      text-align: center;
+  }
+  .youtube-info {
+    position: relative;
+      float: left;
+      width: 100%;
+  }
+  
+}
 
 
 .whatis {
