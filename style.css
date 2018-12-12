@@ -635,6 +635,40 @@ margin-left: 20.36rem;
   }
 }
 
+/* GOOGLE IMAGE API STYLING ============================ */
+.google-results {
+  width: 90%;
+  height: 100%;
+  margin-top: 2rem;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-bottom: 2rem;
+}
+.googleImg {
+  position: relative;
+  display: inline-block;
+  float: left;
+  height: 100px;
+  width: auto;
+  /* margin: 5px; */
+  content: "";
+  display: table;
+}
+.google-thumb {
+  float: left;
+  height: 160px;
+  width: auto;
+  margin: 5px;
+}
+
+/* ITUNES API STYLING ============================ */
+.itunesImg {
+  position: relative;
+  float: left;
+  content: "";
+  clear: both;
+  display: table;
+}
 
 .whatis {
   width: 100%;
@@ -694,40 +728,7 @@ marquee {
 #marquee-text {
  font-size: 1.4rem !important;
 }
-.itunesImg {
-  position: relative;
-  float: left;
-  content: "";
-  clear: both;
-  display: table;
-}
 
-.google-results {
-  width: 90%;
-  height: 100%;
-  /* margin-top: 2rem; */
-  margin-left: 5%;
-  margin-right: 5%;
-  padding-bottom: 2rem;
-}
-
-.googleImg {
-  position: relative;
-  display: inline-block;
-  float: left;
-  height: 100px;
-  width: auto;
-  /* margin: 5px; */
-  content: "";
-  display: table;
-}
-
-.google-thumb {
-  float: left;
-  height: 160px;
-  width: auto;
-  margin: 5px;
-}
 /* CSS GRID ==================== */
 .row {
   max-width: 1000px;

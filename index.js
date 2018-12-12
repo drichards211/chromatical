@@ -69,7 +69,7 @@ function performSearch(searchInput) {
   responseData = {}
   logoSpin()
   updateSearchParams(searchInput)  
-  const APIList = ["wikipedia", "youtube", /* "google", */ "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+  const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
   for (let i = 0; i < APIList.length; i++) {
     fetchAPIData(APIList[i], searchInput) /*in fetch-api.js*/
   }
@@ -242,7 +242,7 @@ function renderNewContent(apiName, noteID) {
         resultsHtml += `
           <a href=${response.items[i].link} target="_blank"><img src="${response.items[i].link}" alt="Google image ${i}"></a>`
       }
-      renderBorder("hide")
+      /* renderBorder("hide") */
       $('.results-container').append(
         `<div class="google-results"><div class="flexbin flexbin-margin">${resultsHtml}</div></div>`)
     } else {

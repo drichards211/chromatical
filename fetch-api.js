@@ -43,7 +43,8 @@ let APIInfo = {
       q: "This value is replaced by handleFormInput()",
       searchType: "image",
       count: "10",
-      startIndex: "11",
+      start: "1",
+      /* startIndex: "11", */
       /* maxResults: '20', */
       },
   },
