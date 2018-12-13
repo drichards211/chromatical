@@ -179,6 +179,7 @@ function renderNewContent(apiName, noteID) {
         <p>Having the form or character of.</p><br>
         <p><b>automatic</b>:</p>
         <p>Done or produced as if by machine.</p>
+        <br>
       </div>`)
   }
   if (apiName === "wikipedia") {

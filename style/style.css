@@ -369,6 +369,7 @@ margin-left: 20.36rem;
 .wiki-text {
   position: relative;
 }
+/* Wikipedia viewport adjustments ============================ */
 @media only screen and (max-width: 900px) and (orientation: landscape) {   
 /*for-phone-landscape*/
   .wikipedia {
@@ -457,6 +458,7 @@ margin-left: 20.36rem;
   color: #ffffff;
   text-shadow: 0 1px 0px #000000, 1px 0 0px #010101, 4px 4px 2px rgb(31, 31, 31);
 }
+/* Youtube grid viewport adjustments ======================= */
 @media only screen and (max-width: 900px) and (orientation: landscape) {   
 /*for-phone-landscape*/
   .youtube {
@@ -567,7 +569,7 @@ marquee {
  font-size: 1.4rem !important;
 }
 
-/* CSS GRID ==================== */
+/* CSS GRID =============================== */
 .row {
   max-width: 1000px;
   min-width: 320px;
@@ -607,7 +609,7 @@ marquee {
 
 /* SITE-WIDE VIEWPORT RESPONSE ========================== */
 @media only screen and (max-width: 400px) and (orientation: portrait) {
-  /*for-tiny-phone-portrait-only*/
+  /*for-small-phone-portrait-only*/
     html, body {
       font-size: 10px;
     }
@@ -617,10 +619,17 @@ marquee {
     }
     #piano-bw {
       height: 11rem;
+    }
+    .col-12{
+      padding-left: 4.4%;
+      padding-right: 4.4%;
+    }
+    .whatis {
+      line-height: 22px;
     }
   }
   @media only screen and (max-height: 400px) and (orientation: landscape) {
-  /*for-tiny-phone-landscape-only*/
+  /*for-small-phone-landscape-only*/
     html, body {
       font-size: 10px;
     }
@@ -630,6 +639,13 @@ marquee {
     }
     #piano-bw {
       height: 11rem;
+    }
+    .col-12{
+      padding-left: 4.4%;
+      padding-right: 4.4%;
+    }
+    .whatis {
+      line-height: 22px;
     }
   }
 
