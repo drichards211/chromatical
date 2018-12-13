@@ -201,7 +201,7 @@ function renderNewContent(apiName, noteID) {
             <div class="wikipedia">
               <div class="wiki-text">
               <div class="wiki-thumbnail">
-              <a href=${sourceImg.source} target="_blank"><img src="${thumbnail.source}" alt="Wikipedia image"></a>
+              <a href=${sourceImg.source} data-lity><img src="${thumbnail.source}" alt="Wikipedia image"></a>
               </div>
               ${extract}
               </div>
@@ -223,10 +223,10 @@ function renderNewContent(apiName, noteID) {
           <div class="yt-row">
             <div class="yt-thumbnail"><img src='${response.items[i].snippet.thumbnails.medium.url}'></div>
             <div class ="yt-info">
-            <h3>${response.items[i].snippet.title}</h3>
+            <a href=https://www.youtube.com/watch?v=${response.items[i].id.videoId}?vq=hd1080 data-lity><h3>${response.items[i].snippet.title}</h3></a>
             <p>${response.items[i].snippet.description}</p>
             </div>
-          
+                     
           </div>
           `)
       }
@@ -240,7 +240,7 @@ function renderNewContent(apiName, noteID) {
     if (responseData[apiName] !== undefined ) {
       for (let i = 0; i < response.items.length; i++) {
         resultsHtml += `
-          <a href=${response.items[i].link} target="_blank"><img src="${response.page1.items[i].link}" alt="Google image ${i}"></a>`
+          <a href=${response.items[i].link} data-lity><img src="${response.items[i].link}" alt="Google image ${i}"></a>`
       }
            
       /* TEST CODE FOR RENDERING MULTIPLE PAGES */
@@ -263,16 +263,20 @@ function renderNewContent(apiName, noteID) {
   }
   if (apiName === "itunes") {
     console.log("Rendering itunes API data")
-    if (responseData[apiName] !== undefined ) {
-      let numResults = responseData.itunes.results.length
-      for (let i = 0; i < numResults; i++) {
-        $('.results-container').append(
-          `<div class="itunes-results">
-          <img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunesImg">
-          <a href=${response.results[i].trackViewUrl} target="_blank">${response.results[i].trackName}</a>
-          <a href=${response.results[i].artistViewUrl} target="_blank">${response.results[i].artistName}</a> 
-          <a href=${response.results[i].collectionViewUrl} target="_blank">${response.results[i].collectionName}</a>  
-          </div>`)
+    if (responseData[apiName] !== undefined) {
+      if (responseData[apiName].resultCount === 0) {
+        renderZeroResults("iTunes results")
+      } else {
+        let numResults = responseData.itunes.results.length
+        for (let i = 0; i < numResults; i++) {
+          $('.results-container').append(
+            `<div class="itunes-results">
+            <img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunesImg">
+            <a href=${response.results[i].trackViewUrl} target="_blank">${response.results[i].trackName}</a>
+            <a href=${response.results[i].artistViewUrl} target="_blank">${response.results[i].artistName}</a> 
+            <a href=${response.results[i].collectionViewUrl} target="_blank">${response.results[i].collectionName}</a>  
+            </div>`)
+      }
       }
       /* renderBorder("hide") */
     } else {
