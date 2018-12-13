@@ -221,9 +221,12 @@ function renderNewContent(apiName, noteID) {
       for (let i = 0; i < response.items.length; i++){
         $('.youtube').append(`
           <div class="yt-row">
-            <div class="yt-thumbnail"><img src='${response.items[i].snippet.thumbnails.medium.url}'></div>
+            <div class="yt-thumbnail">
+              <a href=https://www.youtube.com/watch?v=${response.items[i].id.videoId}?vq=hd1080 data-lity><img src='${response.items[i].snippet.thumbnails.medium.url}'></a>
+              
+              </div>
             <div class ="yt-info">
-            <a href=https://www.youtube.com/watch?v=${response.items[i].id.videoId}?vq=hd1080 data-lity><h3>${response.items[i].snippet.title}</h3></a>
+            <a href=https://www.youtube.com/watch?v=${response.items[i].id.videoId} target="_blank"><h3>${response.items[i].snippet.title}</h3></a>
             <p>${response.items[i].snippet.description}</p>
             </div>
                      
