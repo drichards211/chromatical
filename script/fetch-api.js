@@ -27,7 +27,10 @@ let APIInfo = {
       part: 'snippet',
       maxResults: '20',
       safeSearch: 'strict',
-      type: 'video', },
+      type: 'video',
+      videoEmbeddable: 'true',
+      videoSyndicated: 'true', /* Restrict search to only videos that can be played outside youtube.com */
+     },
   },
   itunes: {
     URL: "https://itunes.apple.com/search",
