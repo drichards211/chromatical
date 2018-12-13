@@ -1,6 +1,5 @@
 /**
- * Piano.css is a heavily-modified adaptation of the
- * following CSS design:
+ * Piano.css is a heavily-modified adaptation of:
  *
  * Pure CSS3 Piano by Taufik Nurrohman
  * On: 1 December 2011
@@ -10,10 +9,8 @@
  
  * {
   margin:0px;
-  /* padding:0px; */
   list-style:none;
 }
-
 
 :focus { /*DR*/
   outline:none !important;
@@ -22,52 +19,28 @@
 /* Hide the piano tray ============= */
 .hidden /*DR*/ {
   display: none !important;
-  /* visibility: hidden; */
 }
 
 body { 
-  
-  /* background:-webkit-radial-gradient(bottom left,cover,#999,#666);
-  background:-moz-radial-gradient(bottom left,cover,#999,#666);
-  background:-ms-radial-gradient(bottom left,cover,#999,#666);
-  background:-o-radial-gradient(bottom left,cover,#999,#666);
-  background:radial-gradient(bottom left,cover,#999,#666); */
-
-    /* Keeps gradient fixed while scrolling - DR ======= */
-    height:100%; /* 500px; */
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  
+/* Keeps gradient fixed while scrolling - DR ======= */
+  height:100%; /* 500px; */
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-
-
-/* Piano Wrapper */
-
-/* #p-wrapper {  DRDRDR
-  outline: 5px solid black;
-  position: fixed;
-  bottom: 0%;
-  width: 1000%;
-  left: 50%;
-  transform: translateX(-50%);
-  
-} */
 
 .piano-button-large { /*DR*/
   border: none !important;
   font-family: 'Nunito', sans-serif;
-  font-size: 1.6rem; /* 1.8rem; */
+  font-size: 1.6rem; 
   font-weight: 600;
   letter-spacing: .9px;
   color: white !important;
-
   -webkit-transition: background-color 1s;
   -moz-transition: background-color 1s;
   -o-transition: background-color 1s;
   -ms-transition: background-color 1s;
   transition: background-color 1s;
-  
   text-shadow:
     0 1px 0px #000000,
     1px 0 0px #383838,
@@ -129,30 +102,6 @@ a {
   color: black;
 }
 
-a:hover {
-  /* text-decoration:underline; */
-}
-
-#footer {
-  /* overflow: hidden;
-  width: 100%; */
-  /* min-width: 200px; */
-  /* position: fixed; */
-  /* margin: 0 auto;*/
-  /* bottom: 0px; */
-  /*overflow: visible; */
-  /* margin: 0 auto; */
-  /* left: 50%; */
-}
-
-/* #centered {
-  position: relative;
-  display: block;
-  width: 1200px;
-  text-align: center;
-  margin: 0 auto;
-} */
-
 /* Button text for piano menu - DR*/
 .text-c {
   margin-top: 265%;
@@ -176,50 +125,17 @@ a:hover {
   margin-top: 110%;
 }
 
-
-
 .wrapper-vertical { /*DR*/
-    position: fixed;
-    top: 50%;
-    /* transform: translateY(-50%); */
-    /* left: 117px; */
-    -webkit-border-radius: 0 0 5px 5px;
-    -moz-border-radius: 0 0 5px 5px;
-    border-radius: 0 0 5px 5px;
-    -webkit-animation: taufik 2s;
-    -moz-animation: taufik 2s;
-    animation: taufik 2s;
+  position: fixed;
+  top: 50%;
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+  -webkit-animation: taufik 2s;
+  -moz-animation: taufik 2s;
+  animation: taufik 2s;
 }
   
-
-/* OLD SETTINGS */
- /* width:1000%; */ /*playing with this value... was 1000%*/
-
-  /* position: fixed;
-  top: 14%;
-  left: 117px;
-  transform: translateX(-50%);  */
-  
-  /* transform: translateY(-49.05%); */
-  /* position: fixed;
-  bottom: 0%; */
-  
-  /* left: 5.2%; */
-    /* z-index: +5; */
-  
-  /* DR */
-
-  
-  
-  /* -webkit-border-radius:0 0 5px 5px;
-  -moz-border-radius:0 0 5px 5px;
-  border-radius:0 0 5px 5px;
-  -webkit-animation:taufik 2s;
-  -moz-animation:taufik 2s;
-  animation:taufik 2s; */
-
-
-
 .nav-vertical { /* centered */
   position: relative;
   left: 0px;
@@ -229,52 +145,15 @@ a:hover {
   transform: translateX(-50%) rotate(-90deg);
   -ms-transform: translateX(-50%) rotate(-90deg);
   -webkit-transform: translateX(-50%) rotate(-90deg);
-    
-}
-
-.ignore-me {
-  /* outline: 2px solid lightblue; */ /* delete me eventually */
-  position: relative;
-  display: block;
-  width: 211.8rem;/* 3400px; */  /* make this width equal to the number of piano keys needed */
-  /* text-align: center; */
-  margin: 0 auto;
-  /* background:#000;
-  background:-webkit-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:-moz-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:-ms-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:-o-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:linear-gradient(-60deg,#000,#333,#000,#666,#333 70%); */
-  /* DR ROTATE PIANO TEST */
-  -ms-transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
 }
 
 .wrapper-horizontal {
-  /* background:#000;
-  background:-webkit-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:-moz-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:-ms-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:-o-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-   */
-  /* DR */
-  /* display: none; */
-  /* width:1000%; */ /*playing with this value... was 1000%*/
   position: fixed;
-  /* pointer-events:none; */
   bottom: 0%;
   left: 50%;
   transform: translateX(-50%);
   z-index: +5;
-  /* DR */
-
-  /* -webkit-box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
-  -moz-box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
-  box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000; */
-  border-bottom :2px solid #333; /*DR
-  /* border:1px solid #333; */
+  border-bottom :2px solid #333; /*DR*/
   -webkit-border-radius:0 0 5px 5px;
   -moz-border-radius:0 0 5px 5px;
   border-radius:0 0 5px 5px;
@@ -283,92 +162,11 @@ a:hover {
   animation:taufik 2s;
 }
 
-.nav-horizontal { /* centered */
-  /* centered */
-  /* outline: 2px solid lightblue; */ /* delete me eventually */
+.nav-horizontal { 
   position: relative;
   display: block;
-  width: 211.8rem;/* 3400px; */  /* make this width equal to the number of piano keys needed */
-  /* text-align: center; */
+  width: 211.8rem; /* make this width equal to the number of piano keys needed */
   margin: 0 auto;
-  /* background:#000;
-  background:-webkit-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:-moz-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:-ms-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:-o-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-  background:linear-gradient(-60deg,#000,#333,#000,#666,#333 70%); */
-}
-
-/* @media screen and (max-width: 900px) and (orientation: landscape) { */
-  #nav-piano-failure { /* centered */
-    /* outline: 2px solid lightblue; */ /* delete me eventually */
-    position: relative;
-    display: block;
-    width: 211.8rem;/* 3400px; */  /* make this width equal to the number of piano keys needed */
-    text-align: center;
-    margin: 0 auto;
-    background:#000;
-    background:-webkit-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-    background:-moz-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-    background:-ms-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-    background:-o-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-    background:linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-    /* DR ROTATE PIANO TEST */
-   /* -ms-transform: rotate(-90deg); */ /* IE 9 */
-   /* -webkit-transform: rotate(-90deg); */ /* Chrome, Safari, Opera */
-   /* transform: rotate(-90deg); */
-  }
-  #p-wrapper-failure {
-    /* DR ROTATE PIANO TEST */
-    -ms-transform: rotate(-90deg); /* IE 9 */
-    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
-    transform: rotate(-90deg) translate(-50%, -380%);
-    /* transform-origin: bottom left;  */
-    /* background:#000;
-    background:-webkit-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-    background:-moz-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-    background:-ms-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-    background:-o-linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-    background:linear-gradient(-60deg,#000,#333,#000,#666,#333 70%);
-     */
-    /* DR */
-    /* display: none; */
-    /* width:1000%; */ /*playing with this value... was 1000%*/
-    /* position: fixed; */
-    /* right: 100%; */
-    /* bottom: 50%; */
-    /* transform: translateY(-50%); */
-    /* DR */
-  
-    -webkit-box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
-    -moz-box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
-    box-shadow:0 2px 0px #666,0 3px 0px #555,0 4px 0px #444,0 6px 6px #000,inset 0 -1px 1px rgba(255,255,255,0.5),inset 0 -4px 5px #000;
-  /*   border-bottom :2px solid #333; /*DR*/
-    /* border:2px solid #333; */
-    -webkit-border-radius:0 0 5px 5px;
-    -moz-border-radius:0 0 5px 5px;
-    border-radius:0 0 5px 5px;
-    -webkit-animation:taufik 2s;
-    -moz-animation:taufik 2s;
-    animation:taufik 2s;
-  }
-/* } */
-
-
-/* Left Piano Wrapper */
-#l-wrapper {
- 
-}
-
-/* Center-octave wrapper */
-#c-wrapper {
-  
-}
-
-
-/* Right Piano Wrapper */
-#r-wrapper {
-  
 }
 
 /* Tuts */
@@ -382,31 +180,23 @@ ul#piano {
 ul#piano li {
   list-style:none;
   float:left;
-  display:inline-block;
+  /* display:inline-block; */
   background:#aaa;
   width: 4rem; /*DR*/
-  /* width:40px; */
   position:relative;
 }
 
 /*WHITE KEYS*/
 ul#piano li a,ul#piano li div.anchor {
 /* DR SETTINGS */
-  /* font-size: 2rem; */
-  /* font-weight: 600; */
   box-sizing: border-box;
   padding-bottom: 13%;
   padding-right: 22%;
   cursor: pointer;
-  /* writing-mode: vertical-rl; */
-  /* text-orientation: mixed; */ /* upright; */
-  /* text-align: right; */
   display:block;
-  height: 20rem;  /* 220px; */
+  height: 20rem;
   width: 100%;
    /* END DR SETTINGS */
-  
-  /* display:block; */
   background:#fff; 
   background:-webkit-linear-gradient(-30deg,#f5f5f5,#fff);
   background:-moz-linear-gradient(-30deg,#f5f5f5,#fff);
@@ -423,33 +213,16 @@ ul#piano li a,ul#piano li div.anchor {
 }
 
 ul#piano li a,ul#piano li button.anchor {  
-
   /* DR SETTINGS */
-  /* font-size: 2rem; */
-  /* font-weight: 600; */
   box-sizing: border-box;
-  /* padding-top: 99% !important; */
   padding-left: 0%;
   padding-right: 0%;
   padding-bottom: 0%;
-  /* padding-bottom: 13%; */
-  /* padding-right: 22%; */
   cursor: pointer;
-  /* writing-mode: vertical-rl;
-  text-orientation: mixed; /* upright; */
-  /* text-align: right; */
   display:block;
-  height: 20rem;  /* 220px; */
+  height: 20rem;
   width: 100%;
    /* END DR SETTINGS */
-  
-  /* display:block; */
-  /* background:#fff; */ 
-  /* background:-webkit-linear-gradient(-30deg,#f5f5f5,#fff);
-  background:-moz-linear-gradient(-30deg,#f5f5f5,#fff);
-  background:-ms-linear-gradient(-30deg,#f5f5f5,#fff);
-  background:-o-linear-gradient(-30deg,#f5f5f5,#fff);
-  background:linear-gradient(-30deg,#f5f5f5,#fff); */
   border:1px solid #ccc;
   -webkit-box-shadow:inset 0 1px 0px #fff,inset 0 -1px 0px #fff,inset 1px 0px 0px #fff,inset -1px 0px 0px #fff,0 4px 3px rgba(0,0,0,0.7);
   -moz-box-shadow:inset 0 1px 0px #fff,inset 0 -1px 0px #fff,inset 1px 0px 0px #fff,inset -1px 0px 0px #fff,0 4px 3px rgba(0,0,0,0.7);
@@ -459,36 +232,6 @@ ul#piano li a,ul#piano li button.anchor {
   border-radius:0 0 3px 3px;
 }
 
-/* White Keys */
- /* ul#piano li a,ul#piano li div.anchor {
- /* font-size: 1.3rem; /* DR */
-/* box-sizing: border-box; /* DR */
-/*  padding-bottom: 20%; /* DR */
-/*  padding-right: 18%; /* DR */
-/*  /* padding-left: 22%; */ /* DR */
-/*  cursor: pointer; /* DR */
-/*  writing-mode: vertical-rl; /* DR */
-/*  text-orientation: mixed; /* upright; */ /* DR */
-/*  text-align: right; /* DR */
-/*  display:block;
-/*  height: 20rem;  /* 220px; */
-/*  width: 100%; /* DR */
-/*  /* background:#fff; */
-/*  background:-webkit-linear-gradient(-30deg,#f5f5f5,#fff);
-/*  background:-moz-linear-gradient(-30deg,#f5f5f5,#fff);
-/*  background:-ms-linear-gradient(-30deg,#f5f5f5,#fff);
-/*  background:-o-linear-gradient(-30deg,#f5f5f5,#fff);
-/*  background:linear-gradient(-30deg,#f5f5f5,#fff);
-/*  border:1px solid #ccc;
-/*  -webkit-box-shadow:inset 0 1px 0px #fff,inset 0 -1px 0px #fff,inset 1px 0px 0px #fff,inset -1px 0px 0px #fff,0 4px 3px rgba(0,0,0,0.7);
-/*  -moz-box-shadow:inset 0 1px 0px #fff,inset 0 -1px 0px #fff,inset 1px 0px 0px #fff,inset -1px 0px 0px #fff,0 4px 3px rgba(0,0,0,0.7);
-/*  box-shadow:inset 0 1px 0px #fff,inset 0 -1px 0px #fff,inset 1px 0px 0px #fff,inset -1px 0px 0px #fff,0 4px 3px rgba(0,0,0,0.7);
-/*  -webkit-border-radius:0 0 3px 3px;
-/*  -moz-border-radius:0 0 3px 3px;
-/*  border-radius:0 0 3px 3px;
-/* } /*
- 
-
 /* When keys clicked */
 ul#piano li a:active,ul#piano li button.anchor:active { 
   -webkit-box-shadow:0 2px 2px rgba(0,0,0,0.4);
@@ -497,7 +240,6 @@ ul#piano li a:active,ul#piano li button.anchor:active {
   position:relative;
   top:2px;
   height: 19.7rem; /* DR */
-  /* height:216px; */
 }
 ul#piano li a:active,ul#piano li div.anchor:active {
   -webkit-box-shadow:0 2px 2px rgba(0,0,0,0.4);
@@ -506,7 +248,6 @@ ul#piano li a:active,ul#piano li div.anchor:active {
   position:relative;
   top:2px;
   height: 19.7rem; /* DR */
-  /* height:216px; */
 }
 
 /* Left hand shadow when piano key clicked */
@@ -534,7 +275,6 @@ ul#piano li a:active:before,ul#piano li div.anchor:active:before {
   left:0px;
   top:0px;
 }
-
 
 /* Right hand shadow when piano key clicked */
 ul#piano li a:active:after,ul#piano li button.anchor:active:after {  
@@ -569,9 +309,7 @@ ul#piano li span {
   top:0px;
   left:-12px;
   width:2rem; /*DR*/
-  /* width:20px; */
   height:11rem; /*DR*/
-  /* height:120px; */
   background:#333;
   background:-webkit-linear-gradient(-20deg,#333,#000,#333);
   background:-moz-linear-gradient(-20deg,#333,#000,#333);
@@ -594,7 +332,6 @@ ul#piano li span {
 ul#piano li span:active {
   border-bottom-width:2px;
   height:11rem; /*DR*/
-  /* height:123px; */
   -webkit-box-shadow:inset 0px -1px 1px rgba(255,255,255,0.4),0 1px 0px rgba(0,0,0,0.8),0 2px 2px rgba(0,0,0,0.4),0 -1px 0px #000;
   -moz-box-shadow:inset 0px -1px 1px rgba(255,255,255,0.4),0 1px 0px rgba(0,0,0,0.8),0 2px 2px rgba(0,0,0,0.4),0 -1px 0px #000;
   box-shadow:inset 0px -1px 1px rgba(255,255,255,0.4),0 1px 0px rgba(0,0,0,0.8),0 2px 2px rgba(0,0,0,0.4),0 -1px 0px #000;
