@@ -37,6 +37,8 @@ let APIInfo = {
     searchParams: {
       term: "This value is replaced by handleFormInput()",
       limit: "25",
+      media: "music",
+      
     },
   },
   google: {

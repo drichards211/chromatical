@@ -498,6 +498,7 @@ margin-left: 20.36rem;
   margin-left: 5%;
   margin-right: 5%;
   padding-bottom: 2rem;
+  font-size: 1.4rem;
 }
 .googleImg {
   position: relative;
@@ -516,13 +517,94 @@ margin-left: 20.36rem;
 }
 
 /* ITUNES API STYLING ============================ */
-.itunesImg {
+.itunes * {
+  text-align: left;
+}
+.itunes {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.4rem;
+  line-height: 25px;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.itunes-row {
+  margin: 0 auto;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  margin-bottom: 2rem;
+}
+.itunes-row::before,
+.itunes-row::after {
+  display: table;
+  content: '';
+}
+.itunes-row::after {
+  clear: both;
+}
+
+.itunes-thumbnail-old {
   position: relative;
   float: left;
   content: "";
   clear: both;
   display: table;
 }
+.itunes-thumbnail {
+  position: relative;
+  float: left;
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  min-width: 120px;
+  max-width: 120px;
+  text-align: center;
+}
+.itunes-info {
+  position: relative;
+  float: left;
+  width: 60%;
+  margin-bottom: 1.5rem;
+}
+.itunes h3 {
+  font-family: 'Lora', serif;
+}
+.itunes audio, .itunes canvas, .itunes progress, .itunes video {
+  /* display: inline-block;
+  vertical-align: baseline; */
+  float: left;
+  max-width: 100%; /* 275px; */
+}
+/* iTunes grid viewport adjustments ======================= */
+@media only screen and (max-width: 900px) and (orientation: landscape) {   
+  /*for-phone-landscape*/
+    .itunes {
+      margin-left: 0rem;
+      margin-right: 0rem;
+    }
+    .itunes-thumbnail {
+      width: 100%;
+      /* left: 50%;
+      transform: translateX(-50%); */
+    }
+    .itunes-info {
+      width: 100%;
+    }
+}
+@media only screen and (max-width: 600px) and (orientation: portrait) {   
+  /*for-phone-portrait*/
+    .itunes {
+      margin-left: 0rem;
+      margin-right: 0rem;
+    }
+    .itunes-thumbnail {
+        width: 100%;
+        /* left: 50%;
+        transform: translateX(-50%); */
+    }
+    .itunes-info {
+      width: 100%;
+    }
+  }
+
 
 .whatis {
   width: 100%;

@@ -69,7 +69,7 @@ function performSearch(searchInput) {
   responseData = {}
   logoSpin()
   updateSearchParams(searchInput)  
-  const APIList = ["wikipedia", "youtube", /* "google", */ "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+  const APIList = ["wikipedia", "youtube", /* "google", */  "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
   for (let i = 0; i < APIList.length; i++) {
     fetchAPIData(APIList[i], searchInput) /*in fetch-api.js*/
   }
@@ -244,7 +244,7 @@ function renderNewContent(apiName, noteID) {
     if (responseData[apiName] !== undefined ) {
       for (let i = 0; i < response.items.length; i++) {
         resultsHtml += `
-          <a href=${response.items[i].link} data-lity><img src="${response.items[i].link}" alt="Google image ${i}"></a>`
+          <a href=${response.items[i].link} data-lity><img src="${response.items[i].link}" alt="${response.items[i].snippet}"></a>`
       }
            
       /* TEST CODE FOR RENDERING MULTIPLE PAGES */
@@ -272,13 +272,20 @@ function renderNewContent(apiName, noteID) {
         renderZeroResults("iTunes results")
       } else {
         let numResults = responseData.itunes.results.length
+        $('.results-container').append(`
+        <div class="itunes">
+        </div>`)
+                
         for (let i = 0; i < numResults; i++) {
-          $('.results-container').append(
-            `<div class="itunes-results">
-            <img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunesImg">
-            <a href=${response.results[i].trackViewUrl} target="_blank">${response.results[i].trackName}</a>
-            <a href=${response.results[i].artistViewUrl} target="_blank">${response.results[i].artistName}</a> 
-            <a href=${response.results[i].collectionViewUrl} target="_blank">${response.results[i].collectionName}</a>  
+          $('.itunes').append(
+            `<div class="itunes-row">
+              <img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunes-thumbnail">
+              <a href=${response.results[i].trackViewUrl} target="_blank"><h3>${response.results[i].trackName}</h3></a>
+              <a href=${response.results[i].artistViewUrl} target="_blank"><p>${response.results[i].artistName}</p></a> 
+              <a href=${response.results[i].collectionViewUrl} target="_blank"><p>${response.results[i].collectionName}</p></a>
+              <audio controls="">
+                <source src="${response.results[i].previewUrl}">
+              </audio>
             </div>`)
       }
       }
