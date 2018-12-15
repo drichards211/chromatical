@@ -177,7 +177,7 @@ function renderNewContent(apiName, noteID) {
   renderBorder()
 
   if (apiName === "chromatical") {
-    renderBorder("hide")
+    /* renderBorder("hide") */
     $('.results-container').html(`
       <div class="whatis">
         <h2>What is Chromatical?</h2><br>
