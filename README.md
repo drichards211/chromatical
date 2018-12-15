@@ -5,6 +5,8 @@ NOTE: This is a work-in-progress. Features to be added are listed below, along w
 
 Features Under Development:
   + API result pages need 'view more on x' buttons to link directly to youtube, itunes, wikipedia, etc.
+  + Individual API results pages need a 'more' button to load additional results.
+  + Add transparent button to return to top of page.
   + This README needs an 'about' section.
 
 Upcoming Features:
@@ -17,8 +19,6 @@ Accessibility (a11y):
   + Needs to be tested with screenreader (NVDA) and optimized if necessary.
  
 Styling:
-  + Finish page styling for iTunes, add any required branding.
-  + Add ability to play iTunes song samples within Chromatical (if possible).
   + Horizontal piano menu needs to be animated when hiding / revealing.
   + Test moving horizontal piano menu to right side of screen instead of left.
       
@@ -32,8 +32,8 @@ Troubleshooting:
     Possible work-around: Detect when soft-keyboard is displayed and hide piano menu to re-gain screen real-estate.
   + Android soft-keyboard should be auto-hidden when the search-form is submitted.
   + Google customsearch API is limited to 100 requests / day. 
-    Replace with a different API for music and band images that has fewer restrictions.
+    Replace with Bing API for images.
   + There seems to be agressive word-wrapping on Firefox but not on Chrome. Investigate.
-  + Search terms persist inside search-form in Firefox even after F5 hard refresh.
+  + Entered search terms persist inside search-form in Firefox even after F5 hard refresh.
   + Wikipedia occassionally returns a re-direct page. 
     Need to enable linking so user can select the exact page they want.
