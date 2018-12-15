@@ -6,7 +6,7 @@ function handleUserNav() {
 /* Handles navigation buttons outside the piano menu */
   console.log("handleUserNav() runnning")
   $('#chromatical').click(function(event) {
-  /* Makes banner text clickable */
+  /* Loads 'what-is' page when banner clicked */
     event.preventDefault()
     let buttonID = `${$(this).prop('id')}`
     if (buttonID === "chromatical") {
@@ -16,7 +16,7 @@ function handleUserNav() {
     }
   })
   $('#piano-bw').click(function(event) {
-  /* Makes piano logo clickable */
+  /* Loads 'what-is' page when piano logo clicked */
       event.preventDefault()
       let buttonID = `${$(this).prop('id')}`
       if (buttonID === "piano-bw") {
@@ -40,7 +40,7 @@ function handleUserNav() {
 }
 
 function handleFormInput() {
-  /* Listens for .search-form submission, */
+/* Listens for .search-form submission, */
   console.log('handleFormInput() running')
   $('.col-12 .search-form').submit(event => {
     event.preventDefault()
@@ -80,7 +80,7 @@ function performSearch(searchInput) {
   responseData = {}
   logoSpin()
   updateSearchParams(searchInput)  
-  const APIList = ["wikipedia", "youtube", /* "google", */  "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+  const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
   for (let i = 0; i < APIList.length; i++) {
     fetchAPIData(APIList[i], searchInput) /*in fetch-api.js*/
   }
