@@ -6,6 +6,7 @@ function handleUserNav() {
 /* Handles navigation buttons outside the piano menu */
   console.log("handleUserNav() runnning")
   $('#chromatical').click(function(event) {
+  /* Makes banner text clickable */
     event.preventDefault()
     let buttonID = `${$(this).prop('id')}`
     if (buttonID === "chromatical") {
@@ -14,6 +15,16 @@ function handleUserNav() {
       renderNewContent("chromatical")
     }
   })
+  $('#piano-bw').click(function(event) {
+  /* Makes piano logo clickable */
+      event.preventDefault()
+      let buttonID = `${$(this).prop('id')}`
+      if (buttonID === "piano-bw") {
+        console.log("Circle piano logo clicked")
+        renderMiniBanner()
+        renderNewContent("chromatical")
+      }
+    })
   $('#home-button').click(function(event) {
   /* Resets app appearance and behavior to initial state */  
     event.preventDefault()
