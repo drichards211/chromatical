@@ -280,7 +280,9 @@ function renderNewContent(apiName, noteID) {
           $('.itunes').append(
             `<div class="itunes-row">
               <div class="itunes-thumbnail">
-                <img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunes-thumbnail">
+                <a href=${response.results[i].trackViewUrl} target="_blank">  
+                  <img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunes-thumbnail">
+                </a>
               </div>
               <div class="itunes-info">
                 <a href=${response.results[i].trackViewUrl} target="_blank"><h3>${response.results[i].trackName}</h3></a>

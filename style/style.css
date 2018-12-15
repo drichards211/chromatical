@@ -3,6 +3,7 @@
 }
 html, body {
   font-size: 11.5px;
+  min-width: 320px; /* prevents layout from breaking on tiny screens */
 }
 body:before {
 /* Full-screen background gradient */
@@ -589,7 +590,6 @@ margin-left: 20.36rem;
       width: 100%;
       left: 50%;
       transform: translateX(-50%);
-      margin-bottom: 1.4rem;
     }
     .itunes-info {
       width: 100%;
@@ -610,7 +610,6 @@ margin-left: 20.36rem;
         width: 100%;
         left: 50%;
         transform: translateX(-50%);
-        margin-bottom: 1.4rem;
     }
     .itunes-info {
       width: 100%;
@@ -720,8 +719,8 @@ marquee {
       height: 11rem;
     }
     .col-12{
-      padding-left: 4.4%;
-      padding-right: 4.4%;
+      padding-left: 6%;
+      padding-right: 6%;
     }
     .whatis {
       line-height: 22px;
@@ -740,8 +739,8 @@ marquee {
       height: 11rem;
     }
     .col-12{
-      padding-left: 4.4%;
-      padding-right: 4.4%;
+      padding-left: 6%;
+      padding-right: 6%;
     }
     .whatis {
       line-height: 22px;
