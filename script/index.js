@@ -279,13 +279,17 @@ function renderNewContent(apiName, noteID) {
         for (let i = 0; i < numResults; i++) {
           $('.itunes').append(
             `<div class="itunes-row">
-              <img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunes-thumbnail">
-              <a href=${response.results[i].trackViewUrl} target="_blank"><h3>${response.results[i].trackName}</h3></a>
-              <a href=${response.results[i].artistViewUrl} target="_blank"><p>${response.results[i].artistName}</p></a> 
-              <a href=${response.results[i].collectionViewUrl} target="_blank"><p>${response.results[i].collectionName}</p></a>
-              <audio controls="">
-                <source src="${response.results[i].previewUrl}">
-              </audio>
+              <div class="itunes-thumbnail">
+                <img src="${response.results[i].artworkUrl100}" alt="album thumbnail" class="itunes-thumbnail">
+              </div>
+              <div class="itunes-info">
+                <a href=${response.results[i].trackViewUrl} target="_blank"><h3>${response.results[i].trackName}</h3></a>
+                <a href=${response.results[i].artistViewUrl} target="_blank"><p class="itunes-artist">${response.results[i].artistName}</p></a> 
+                <a href=${response.results[i].collectionViewUrl} target="_blank"><p>${response.results[i].collectionName}</p></a>
+                <audio controls="">
+                  <source src="${response.results[i].previewUrl}">
+                </audio>
+              </div>
             </div>`)
       }
       }
