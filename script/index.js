@@ -121,7 +121,7 @@ function renderMiniBanner() {
         </div>
         <form action="#" class="search-form-mini">
           <label for="query"></label>
-          <label><input type="text" id="search-term" class="js-query" value="${userFormInput}"></label>
+          <label><input type="text" id="search-term" autocomplete="off" class="js-query" value="${userFormInput}"></label>
         </form>
       </fieldset>
       <br>
@@ -144,7 +144,7 @@ function renderHomePage() {
             <div class="floating-marquee">
             <marquee behavior="scroll" direction="left"><span id="marquee-text">Search for an artist,&nbsp album or song title.</span></marquee>
             </div>
-            <input type="text" id="search-term" class="js-query">
+            <input type="text" id="search-term" autocomplete="off" class="js-query">
           </label>
       </form>
     </fieldset>`)
