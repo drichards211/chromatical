@@ -5,30 +5,35 @@ NOTE: This is a work-in-progress. Features to be added are listed below, along w
 
 Features Under Development:
   + API result pages need 'view more on x' buttons to link directly to youtube, itunes, wikipedia, etc.
-  + Re-work fetch operations as AJAX instead.
   + This README needs an 'about' section.
 
 Upcoming Features:
-  + Add AJAX calls for Spotify, Tastedive, and Ticketmaster.
+  + Add fetch calls for Spotify, Tastedive, and Ticketmaster.
   + Render content to the screen for the aforementioned APIs.
   + Use transitions for all content pages, no sudden renders.
 
 Accessibility (a11y):
-  + Entire page needs to be optimized for a11y, (ARIA tags, full keyboard control, etc.).
-  + Needs to be tested with screenreader (NVDA) and optimized as necessary.
+  + Entire page needs to be checked for a11y, (ARIA tags, full keyboard control, etc.).
+  + Needs to be tested with screenreader (NVDA) and optimized if necessary.
  
 Styling:
-  + Finish page styling for youtube, wikipedia, and itunes.
+  + Finish page styling for iTunes, add any required branding.
+  + Add ability to play iTunes song samples within Chromatical (if possible).
   + Horizontal piano menu needs to be animated when hiding / revealing.
   + Test moving horizontal piano menu to right side of screen instead of left.
-  + Tweak font sizes and layout for smaller screens.
-    
+      
 Housekeeping:
-  + Excess .CSS entries to be deleted.
-  + Old comments to be deleted.
+  + Some of the JavaScript code can be drier. 
+  + JavaScript commenting should be reviewed for clarity.
    
 Troubleshooting:
-  + Google custom search: How do I request the next page of results?
-  + Android soft-keyboard pushes fixed design elements upwards.
-  + Browser title-bar on mobile layouts eats-up screen real estate. Design for smaller viewport?
-  + If mobile screen is rotated while piano menu is hidden, it rotates to new position as hidden, (needs to be visible).  
+  + Android soft-keyboard pushes fixed design elements upwards. 
+    Update: Unavoidable. Android soft-keyboard resizes browser window by design.
+    Possible work-around: Detect when soft-keyboard is displayed and hide piano menu to re-gain screen real-estate.
+  + Android soft-keyboard should be auto-hidden when the search-form is submitted.
+  + Google customsearch API is limited to 100 requests / day. 
+    Replace with a different API for music and band images that has fewer restrictions.
+  + There seems to be agressive word-wrapping on Firefox but not on Chrome. Investigate.
+  + Search terms persist inside search-form in Firefox even after F5 hard refresh.
+  + Wikipedia occassionally returns a re-direct page. 
+    Need to enable linking so user can select the exact page they want.
