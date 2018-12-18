@@ -14,9 +14,10 @@ Upcoming Features:
   * [ ] Add fetch calls for Spotify, Tastedive, and Ticketmaster.
   * [ ] Render content to the screen for the aforementioned APIs.
   * [ ] Use transitions for all content pages, no sudden renders.
+  * [ ] Make entire piano playable.
 
 Accessibility (a11y):
-  * [ ] Entire page needs to be re-checked for a11y, (ARIA tags, full keyboard control, etc.).
+  * [X] Entire page needs to be re-checked for a11y, (ARIA tags, full keyboard control, etc.).
   * [x] Needs to be tested with screenreader (NVDA) and optimized if necessary.
  
 Styling:
