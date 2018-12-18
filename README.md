@@ -22,7 +22,7 @@ Accessibility (a11y):
  
 Styling:
   * [ ] Horizontal piano menu needs to be animated when hiding / revealing.
-  * [ ] Test moving horizontal piano menu to right side of screen instead of left.
+  * [x] Test moving horizontal piano menu to right side of screen instead of left.
       
 Housekeeping:
   * [ ] Some of the JavaScript code can be drier. 
