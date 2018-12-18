@@ -3,7 +3,7 @@
 let activePianoKey = "none"
 let pianoHorizontal = true
 
-function colorizePiano(wait, time, delay) {
+function colorizePiano() {
 /* Render and colorize the piano-menu buttons. */
   console.log("colorizePiano() ran")
   console.log('Rendering piano menu buttons')
@@ -11,20 +11,20 @@ function colorizePiano(wait, time, delay) {
   /* Update .html() for piano MENU BUTTONS */
   setTimeout(function() {
     $(".piano-menu").html(
-      `<nav class="select-content fade-in"> 
-      <li><button class="anchor piano-button-large white-color" id="C"><div class="fade-in-text rotate-text text-c" style="display:none">ABOUT</div></button></li>
-      <li><button class="anchor piano-button-large white-color" id="D"><div class="fade-in-text rotate-text text-d" style="display:none">VIDEOS</div></button><span id="Db"></span></li>
-      <li><button class="anchor piano-button-large white-color" id="E"><div class="fade-in-text rotate-text text-e" style="display:none">IMAGES</div></button><span id="Eb"></span></li>
-      <li><button class="anchor piano-button-large white-color" id="F"><div class="fade-in-text rotate-text text-f" style="display:none">PURCHASE</div></button></li>
-      <li><button class="anchor piano-button-large white-color" id="G"><div class="fade-in-text rotate-text text-g" style="display:none">LISTEN</div></button><span id="Gb"></span></li>
-      <li><button class="anchor piano-button-large white-color" id="A"><div class="fade-in-text rotate-text text-a" style="display:none">SIMILAR</div></button><span id="Ab"></span></li>
-      <li><button class="anchor piano-button-large white-color" id="B"><div class="fade-in-text rotate-text text-b" style="display:none">CONCERTS</div></button><span id="Bb"></span></li>
+      `<nav class="select-content fade-in" role="navigation"> 
+        <li><button class="anchor piano-button-large white-color" id="C"><div class="fade-in-text rotate-text text-c" style="display:none">ABOUT</div></button></li>
+        <li><button class="anchor piano-button-large white-color" id="D"><div class="fade-in-text rotate-text text-d" style="display:none">VIDEOS</div></button><span id="Db"></span></li>
+        <li><button class="anchor piano-button-large white-color" id="E"><div class="fade-in-text rotate-text text-e" style="display:none">IMAGES</div></button><span id="Eb"></span></li>
+        <li><button class="anchor piano-button-large white-color" id="F"><div class="fade-in-text rotate-text text-f" style="display:none">PURCHASE</div></button></li>
+        <li><button class="anchor piano-button-large white-color" id="G"><div class="fade-in-text rotate-text text-g" style="display:none">LISTEN</div></button><span id="Gb"></span></li>
+        <li><button class="anchor piano-button-large white-color" id="A"><div class="fade-in-text rotate-text text-a" style="display:none">SIMILAR</div></button><span id="Ab"></span></li>
+        <li><button class="anchor piano-button-large white-color" id="B"><div class="fade-in-text rotate-text text-b" style="display:none">CONCERTS</div></button><span id="Bb"></span></li>
       </nav>`)
-    }, wait)
+    }, 1600)
   
   /* Fade-in colors and text for piano menu keys */
   setTimeout(function() {
-    $(".fade-in-text").fadeIn(time)
+    $(".fade-in-text").fadeIn(2000)
     $("#C").removeClass('white-color').addClass('C-color')
     $("#D").removeClass('white-color').addClass('D-color')
     $("#E").removeClass('white-color').addClass('E-color')
@@ -33,7 +33,7 @@ function colorizePiano(wait, time, delay) {
     $("#A").removeClass('white-color').addClass('A-color')
     $("#B").removeClass('white-color').addClass('B-color')
     renderBorder("hide") /*in index.js*/
-  }, delay)
+  }, 2100)
 
   /* Replace black & white mini-piano-button with colored version */
   $('#mini-piano-button').html(`
@@ -127,13 +127,13 @@ function resetPianoKeys() {
   $('#piano-bw-mini').removeClass(`shadow-${activePianoKey}`).addClass(`shadow-none`)
   activePianoKey = "none"
   $('.piano-menu').html(`
-  <li><div class="anchor"></div></li>
-  <li><div class="anchor"></div><span id="silent"></span></li>
-  <li><div class="anchor"></div><span id="silent"></span></li>
-  <li><div class="anchor"></div></li>
-  <li><div class="anchor"></div><span id="silent"></span></li>
-  <li><div class="anchor"></div><span id="silent"></span></li>
-  <li><div class="anchor"></div><span id="silent"></span></li>`
+    <li><div class="anchor"></div></li>
+    <li><div class="anchor"></div><span id="silent"></span></li>
+    <li><div class="anchor"></div><span id="silent"></span></li>
+    <li><div class="anchor"></div></li>
+    <li><div class="anchor"></div><span id="silent"></span></li>
+    <li><div class="anchor"></div><span id="silent"></span></li>
+    <li><div class="anchor"></div><span id="silent"></span></li>`
   )
   $('#mini-piano-button').html(`
     <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu-bw.png"/>`

@@ -80,7 +80,7 @@ function performSearch(searchInput) {
   responseData = {}
   logoSpin()
   updateSearchParams(searchInput)  
-  const APIList = ["wikipedia", "youtube", "google", "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
+  const APIList = ["wikipedia", "youtube", /*"google",*/ "itunes",] /* "spotify", "tastedive", "ticketmaster",] */
   for (let i = 0; i < APIList.length; i++) {
     fetchAPIData(APIList[i], searchInput) /*in fetch-api.js*/
   }
@@ -103,7 +103,7 @@ function logoSpin() {
   setTimeout(function() {
     $(".piano-circle").html(`<img src="./assets/images/piano-circle-color-2.png" alt="circle piano logo" id="piano-bw" class="fade-in-logo" style="display:none">`)
     $(".fade-in-logo").fadeIn(1600).delay(300).fadeOut(2000)
-    colorizePiano(1600, 2000, 2100) /*in piano.js*/
+    colorizePiano() /*in piano.js*/
   }, 2300)
 }
 

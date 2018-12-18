@@ -7,6 +7,21 @@
  * URL: http://cssdeck.com/labs/pure-css3-piano
  */
  
+ /* 
+ Edited original CSS to make design responsive. Utilized JavaScript and jQuery for advanced features:
+  Resized most elements.
+  Converted pixels to rem and %.
+  Fixed to bottom of screen.
+  Auto rotates and aligns with left or right side of viewport for responsiveness.
+  Added buttons for menus.
+  Added colors and labels.
+  Made piano playable with sounds.
+  Expanded piano to 88 keys.
+  Created middle octave for menu.
+  Auto-centered the keyboard with equal overflow left and right (or top-bottom if vertically-aligned).
+*/
+
+
  * {
   margin:0px;
   list-style:none;
@@ -19,14 +34,6 @@
 /* Hide the piano tray ============= */
 .hidden /*DR*/ {
   display: none !important;
-}
-
-body { 
-/* Keeps gradient fixed while scrolling DR ======= */
-  height:100%; /* 500px; */
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 .piano-button-large { /*DR*/
@@ -136,7 +143,7 @@ a {
   animation: taufik 2s;
 }
   
-.nav-vertical { /* centered */
+.nav-vertical { /* *DR */
   position: relative;
   left: 0px;
   display: block;
@@ -337,12 +344,11 @@ ul#piano li span:active {
   box-shadow:inset 0px -1px 1px rgba(255,255,255,0.4),0 1px 0px rgba(0,0,0,0.8),0 2px 2px rgba(0,0,0,0.4),0 -1px 0px #000;
 }
 
-/* Drop Down Menus */
 ul#piano li ul,#search,#contact {
   position:absolute;
   border:2px solid #e6e6e6;
   margin-top:-100px;
-  top: 0%; /* 100%; */
+  top: 0%; /* 100%; DR */
   left:0px;
   z-index:1000;
   visibility:hidden;
