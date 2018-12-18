@@ -135,6 +135,7 @@ a {
 .wrapper-vertical { /*DR*/
   position: fixed;
   top: 50%;
+  left: calc(100vw - 20.3rem);
   -webkit-border-radius: 0 0 5px 5px;
   -moz-border-radius: 0 0 5px 5px;
   border-radius: 0 0 5px 5px;
@@ -145,10 +146,12 @@ a {
   
 .nav-vertical { /* *DR */
   position: relative;
-  left: 0px;
+  right: 0px;
+  /* left: 0px; */
   display: block;
   width: 211.8rem;
   margin: 0 auto;
+  transform: translateX(-50%) rotate(-90deg);
   transform: translateX(-50%) rotate(-90deg);
   -ms-transform: translateX(-50%) rotate(-90deg);
   -webkit-transform: translateX(-50%) rotate(-90deg);
