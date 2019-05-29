@@ -1,6 +1,9 @@
 # chromatical
 An API music mashup. The interface combines musical elements with colorful, prismatic light. 
 
+Live version of the app is [here:](https://drichards211.github.io/chromatical/)
+
+
 NOTE: This is a work-in-progress. Features to be added are listed below, along with required bugfixes and styling notes.
 
 Features Under Development:
