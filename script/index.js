@@ -255,7 +255,7 @@ function renderNewContent(apiName, noteID) {
     if (responseData[apiName] !== undefined ) {
       for (let i = 0; i < response.items.length; i++) {
         resultsHtml += `
-          <a href=${response.items[i].link} data-lity><img src="${response.items[i].link}" alt="${response.items[i].snippet}"></a>`
+          <a href=${response.items[i].link} data-lity><img src="${response.items[i].link}" onerror="$(this).hide()" alt="${response.items[i].snippet}"></a>`
       }
            
       /* TEST CODE FOR RENDERING MULTIPLE PAGES */
