@@ -189,6 +189,30 @@ function rotatePiano() {
   }
 }
 
+function handleSoftKeyboard() {
+  /* The Android soft keyboard forces a window resize, (unlike the iPhone's keyboard which is a simple overlay). This 
+  function determines when the keyboard is active and hides the piano to prevent obscuring the input field. */
+  let portrait = window.matchMedia("(orientation: portrait)")
+  let initialOrient = (portrait.matches ? 'portrait' : 'landscape')
+  console.log(`intitial orient = ${initialOrient}`)
+  let duckPiano = function() {
+    console.log('duckPiano() running')
+    let landscape = window.matchMedia("(orientation: landscape)")
+    let newOrient = (landscape.matches ? 'landscape' : 'portrait')
+    console.log(`New orient = ${newOrient}`)
+    if ((newOrient === initialOrient) && (/Mobi|Android/i.test(navigator.userAgent))) {
+    /* If the device is mobile and screen orientation hasn't changed, soft-keyboard is responsible for resize: */
+      console.log('mobile device = true')
+      console.log('toggling the piano')
+      // toggle the condition of the piano
+    } else {
+    // Screen resize was caused by rotation, not soft-keyboard. Update initialOrient variable:
+      initialOrient = newOrient
+    }
+  }
+  window.addEventListener("resize", duckPiano)
+}
+
 window.addEventListener("resize", rotatePiano)
 window.addEventListener('orientationchange', rotatePiano)
 
@@ -196,4 +220,5 @@ $(function() {
   listenPianoTouch()
   rotatePiano()
   hidePiano()
+  handleSoftKeyboard()
 })
