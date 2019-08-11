@@ -162,7 +162,7 @@ function handleScroll() {
     })
     $("#p-wrapper").on('click', '#hide-piano', function(event) {
       console.log("handleScroll() manually revealed piano tray")
-      showPiano(true)
+      showPiano(true, 400, 100)
     })  
 }
 
@@ -207,44 +207,10 @@ function showPiano(bool, duration, wait) {
   }
 }
 
-function handleSoftKeyboard() {
-  /* The Android soft keyboard forces a window resize, (unlike the iPhone keyboard which is an overlay). This 
-  function determines when the Android keyboard is active, and hides the piano in portrait mode to prevent obscuring 
-  the input field. */
-  let portrait = window.matchMedia("(orientation: portrait)")
-  let initialOrient = (portrait.matches ? 'portrait' : 'landscape')
-  let initialHeight = window.innerHeight
-  console.log(`Intitial viewport orientation = ${initialOrient}`)
-  console.log(`Intitial viewport height = ${initialHeight}px`)
-  let duckPiano = function() {
-    console.log('Screen resize detected: duckPiano() running')
-    let landscape = window.matchMedia("(orientation: landscape)")
-    let newOrient = (landscape.matches ? 'landscape' : 'portrait')
-    let newHeight = window.innerHeight
-    console.log(`New viewport orientation = ${newOrient}`)
-    console.log(`New viewport height = ${newHeight}px`)
-    if ((/Mobi|Android/i.test(navigator.userAgent)) && (newOrient === initialOrient) && 
-      (newHeight < (initialHeight * .9)) && !(landscape.matches)) {
-    /* If the device is mobile, and the screen orientation hasn't changed, and the current viewport height is 
-    < 90% of initialHeight, the soft-keyboard is likely responsible for resize. 
-    Hide the piano if the screen orientation is portrait: */
-      console.log('Android soft-keyboard detected: ducking the piano')
-      showPiano(false, 0, 0)
-    } else {
-    /* The device isn't mobile, or else the resize was caused by rotation or scrolling, not the soft-keyboard. 
-    Update initialOrient and initialHeight values: */
-      initialOrient = newOrient
-      initialHeight = newHeight
-    }
-  }
-  window.addEventListener("resize", duckPiano)
-}
-
 window.addEventListener("resize", rotatePiano)
 
 $(function() {
   listenPianoTouch()
   rotatePiano()
   handleScroll()
-  handleSoftKeyboard()
 })

@@ -32,9 +32,11 @@ function handleUserNav() {
     renderHomePage()
   })
   $('#search-term').focus(function(event){
-  /* Hides searchbox marquee */
+  /* Hides searchbox marquee, (so the user can input text), and hides the piano, (so the Android soft-keyboard 
+  doesn't obscure the .search-form). */
     event.preventDefault()
-    console.log('Hiding marquee')
+    console.log('Hiding marquee and piano')
+    showPiano(false, 150, 0)
     $('#marquee-text').addClass('hidden')
   })
 }
