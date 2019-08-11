@@ -7,7 +7,7 @@ function colorizePiano() {
 /* Render and colorize the piano-menu buttons. */
   console.log("colorizePiano() ran")
   console.log('Rendering piano menu buttons')
-
+  
   /* Make sure the piano isn't hidden */
   $('#nav-piano').fadeIn()
   $('#hide-piano').addClass('hidden')
@@ -24,7 +24,7 @@ function colorizePiano() {
         <li><button class="anchor piano-button-large white-color" id="A"><div class="fade-in-text rotate-text text-a" style="display:none">SIMILAR</div></button><span id="Ab"></span></li>
         <li><button class="anchor piano-button-large white-color" id="B"><div class="fade-in-text rotate-text text-b" style="display:none">CONCERTS</div></button><span id="Bb"></span></li>
       </nav>`)
-    }, 1600)
+  }, 1600)
   
   /* Fade-in colors and text for piano menu keys */
   setTimeout(function() {
@@ -38,7 +38,7 @@ function colorizePiano() {
     $("#B").removeClass('white-color').addClass('B-color')
     renderBorder("hide") /*in index.js*/
   }, 2100)
-
+  
   /* Replace black & white mini-piano-button with colored version */
   $('#mini-piano-button').html(`
     <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu.png"/>`
@@ -56,7 +56,7 @@ When user clicks a COLORED piano <button>:
 When user clicks a BLACK piano <span>, just play sound (7). 
 */
   console.log("ListenPianoTouch() running")
-     
+  
   const pianoSounds = {
     C: new Audio("assets/sounds/c5.mp3"), 
     Db: new Audio("assets/sounds/db.mp3"),
@@ -72,7 +72,7 @@ When user clicks a BLACK piano <span>, just play sound (7).
     B: new Audio("assets/sounds/b.mp3"),
     C6: new Audio("assets/sounds/c6.mp3"),
   }
-
+  
   const APINames = {
     C: "wikipedia",
     D: "youtube",
@@ -150,13 +150,13 @@ function hidePiano() {
     $(window).scroll(function(){
       if (pianoHorizontal === true) {  
         if ($(window).scrollTop() > 50){
-            console.log("hiding piano")
-            $('#nav-piano').fadeOut()
-            $('#hide-piano').removeClass('hidden')
+          console.log("hiding piano")
+          $('#nav-piano').fadeOut()
+          $('#hide-piano').removeClass('hidden')
         } else {
-           console.log("showing piano")
-            $('#nav-piano').fadeIn()
-            $('#hide-piano').addClass("hidden")
+          console.log("showing piano")
+          $('#nav-piano').fadeIn()
+          $('#hide-piano').addClass("hidden")
         }
       }
     })
