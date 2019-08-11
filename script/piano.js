@@ -42,6 +42,9 @@ function colorizePiano() {
   $('#mini-piano-button').html(`
     <input type="image" id="hide-piano" src="assets/images/mini-piano-menu.png"/>`
   )
+  if (pianoHorizontal === false) {
+    $('#hide-piano').addClass('hidden')
+  }
 }
 
 function listenPianoTouch(){ /*
