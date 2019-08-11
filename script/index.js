@@ -54,6 +54,8 @@ function handleFormInput() {
     if (userFormInput === "") {
       alert('Please enter a search term')
     } else {
+      $('#search-term').blur()
+      showPiano(true, 100, 100) /*in piano.js*/
       performSearch(userFormInput)
     }
   })
@@ -65,6 +67,8 @@ function handleFormInput() {
       if (userFormInput === "") {
         alert('Please enter a search term')
       } else {
+        $('#search-term').blur()
+        showPiano(true, 100, 100) /*in piano.js*/
         showPianoLogo()
         resetPianoKeys() /*in piano.js*/
         renderBorder("hide")
@@ -115,7 +119,7 @@ function showPianoLogo() {
   </div>`
   )
   $('#mini-piano-button').html(`
-    <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu-bw.png"/>`
+    <input type="image" id="hide-piano" src="assets/images/mini-piano-menu-bw.png"/>`
   )
 }
 

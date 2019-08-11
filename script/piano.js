@@ -10,7 +10,7 @@ function colorizePiano() {
   
   /* Make sure the piano isn't hidden */
   $('#nav-piano').fadeIn()
-  $('#hide-piano').addClass('hidden')
+  /* $('#hide-piano').addClass('hidden') */
     
   /* Update .html() for piano MENU BUTTONS */
   setTimeout(function() {
@@ -41,7 +41,7 @@ function colorizePiano() {
   
   /* Replace black & white mini-piano-button with colored version */
   $('#mini-piano-button').html(`
-    <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu.png"/>`
+    <input type="image" id="hide-piano" src="assets/images/mini-piano-menu.png"/>`
   )
 }
 
@@ -140,7 +140,7 @@ function resetPianoKeys() {
     <li><div class="anchor"></div><span id="silent"></span></li>`
   )
   $('#mini-piano-button').html(`
-    <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu-bw.png"/>`
+    <input type="image" id="hide-piano" src="assets/images/mini-piano-menu-bw.png"/>`
   )
 }
 
@@ -155,12 +155,12 @@ function hidePiano() {
         // User is scrolling down:
           console.log("hiding piano")
           $('#nav-piano').fadeOut()
-          $('#hide-piano').removeClass('hidden')
-        } else {
+          /* $('#hide-piano').removeClass('hidden') */
+        } else if (currentScroll < lastScrollPosition) {
         // User is scrolling up:
           console.log("showing piano")
           $('#nav-piano').fadeIn()
-          $('#hide-piano').addClass("hidden")
+          /* $('#hide-piano').addClass("hidden") */
         }
         lastScrollPosition = currentScroll
       }
@@ -168,7 +168,7 @@ function hidePiano() {
     $("#p-wrapper").on('click', '#hide-piano', function(event) {
       console.log("manually revealed piano tray")
       $('#nav-piano').fadeIn()
-      $('#hide-piano').addClass("hidden")
+      /* $('#hide-piano').addClass("hidden") */
     })  
 }
 
@@ -189,9 +189,31 @@ function rotatePiano() {
   /* Update .html for HORIZONTAL piano */
     console.log("Updating html for horizontal piano")
     pianoHorizontal = true
+    $('#hide-piano').removeClass("hidden")
     $("main").removeClass("left-piano-margin")
     $("#p-wrapper").removeClass("wrapper-vertical").addClass("wrapper-horizontal")
     $("#nav-piano").removeClass("nav-vertical").addClass("nav-horizontal")
+  }
+}
+
+function showPiano(bool, duration, wait) {
+/* Show or hide the piano */
+  console.log('showPiano() running')
+  let preDelay = typeof wait === 'undefined' ? 'none' : `${wait}ms`
+  if (bool === true) {
+  /* show the piano */
+    console.log(`showing piano: fade-in = ${duration}ms, pre-delay = ${preDelay}`)
+    setTimeout(function() {
+      /* $('#hide-piano').addClass("hidden") */
+      $('#nav-piano').fadeIn(duration)
+    }, wait)
+  } else if (bool === false) {
+  /* hide the piano */
+    console.log(`hiding piano: fade-out = ${duration}ms, pre-delay = ${preDelay}`)
+    setTimeout(function() {
+      $('#nav-piano').fadeOut(duration)
+      /* $('#hide-piano').removeClass('hidden') */
+    }, wait)
   }
 }
 
@@ -217,8 +239,7 @@ function handleSoftKeyboard() {
     < 90% of initialHeight, the soft-keyboard is likely responsible for resize. 
     Hide the piano if the screen orientation is portrait: */
       console.log('Android soft-keyboard detected: ducking the piano')
-      $('#nav-piano').fadeOut()
-      $('#hide-piano').removeClass('hidden')
+      showPiano(false, 0, 0)
     } else {
     /* The device isn't mobile, or else the resize was caused by rotation or scrolling, not the soft-keyboard. 
     Update initialOrient and initialHeight values: */
