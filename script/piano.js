@@ -170,7 +170,7 @@ function hidePiano() {
 function rotatePiano() {
 /* Switch between vertical or horizontal menu depending upon viewport */
   console.log("rotatePiano() running")
-  let mediaQuery = window.matchMedia("(max-width: 900px) and (orientation: landscape)")
+  let mediaQuery = window.matchMedia("(max-width: 900px) and (min-width: 568px) and (orientation: landscape)")
   if (mediaQuery.matches) {
   /* Update .html for VERTICAL piano for mobile landscape viewports */ 
     console.log("Updating html for vertical piano")
