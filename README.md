@@ -28,6 +28,7 @@ Styling:
   * [X] Test moving horizontal piano menu to right side of screen instead of left.
       
 Housekeeping:
+  * [ ] listenPianoTouch() should not re-load API content if the same piano key is played twice in a row.
   * [ ] Some of the JavaScript code can be drier. 
   * [ ] JavaScript commenting should be reviewed for clarity.
    
@@ -36,7 +37,7 @@ Troubleshooting:
   * [X] Android soft-keyboard pushes fixed design elements upwards. 
     	Update: Unavoidable. Android soft-keyboard resizes browser window by design.
     	Possible work-around: Detect when soft-keyboard is displayed and hide piano menu to re-gain screen real-estate.
-  * [ ] Android soft-keyboard should be auto-hidden when the search-form is submitted.
+  * [X] Android soft-keyboard should be auto-hidden when the search-form is submitted.
   * [ ] Google customsearch API is limited to 100 requests / day. 
     	Replace with Bing API for images.
   * [ ] There seems to be agressive word-wrapping on Firefox but not on Chrome. Investigate.
