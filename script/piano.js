@@ -9,9 +9,8 @@ function colorizePiano() {
   console.log('Rendering piano menu buttons')
   
   /* Make sure the piano isn't hidden */
-  $('#nav-piano').fadeIn()
-  /* $('#hide-piano').addClass('hidden') */
-    
+  showPiano(true, 400)
+      
   /* Update .html() for piano MENU BUTTONS */
   setTimeout(function() {
     $(".piano-menu").html(
@@ -144,31 +143,26 @@ function resetPianoKeys() {
   )
 }
 
-function hidePiano() {
+function handleScroll() {
 /* Hide HORIZONTAL Piano Tray when scrolling */
-  console.log("hidePiano() running")
+  console.log("handleScroll() running")
   let lastScrollPosition = 0
     $(window).scroll(function(){
       let currentScroll = $(this).scrollTop()
       if (pianoHorizontal === true) {
         if (currentScroll > lastScrollPosition) {
         // User is scrolling down:
-          console.log("hiding piano")
-          $('#nav-piano').fadeOut()
-          /* $('#hide-piano').removeClass('hidden') */
+          showPiano(false)
         } else if (currentScroll < lastScrollPosition) {
         // User is scrolling up:
-          console.log("showing piano")
-          $('#nav-piano').fadeIn()
-          /* $('#hide-piano').addClass("hidden") */
+          showPiano(true)
         }
         lastScrollPosition = currentScroll
       }
     })
     $("#p-wrapper").on('click', '#hide-piano', function(event) {
-      console.log("manually revealed piano tray")
-      $('#nav-piano').fadeIn()
-      /* $('#hide-piano').addClass("hidden") */
+      console.log("handleScroll() manually revealed piano tray")
+      showPiano(true)
     })  
 }
 
@@ -198,21 +192,17 @@ function rotatePiano() {
 
 function showPiano(bool, duration, wait) {
 /* Show or hide the piano */
-  console.log('showPiano() running')
-  let preDelay = typeof wait === 'undefined' ? 'none' : `${wait}ms`
   if (bool === true) {
   /* show the piano */
-    console.log(`showing piano: fade-in = ${duration}ms, pre-delay = ${preDelay}`)
+    console.log('showPiano() showing piano')
     setTimeout(function() {
-      /* $('#hide-piano').addClass("hidden") */
       $('#nav-piano').fadeIn(duration)
     }, wait)
   } else if (bool === false) {
   /* hide the piano */
-    console.log(`hiding piano: fade-out = ${duration}ms, pre-delay = ${preDelay}`)
+    console.log('showPiano() hiding piano')
     setTimeout(function() {
       $('#nav-piano').fadeOut(duration)
-      /* $('#hide-piano').removeClass('hidden') */
     }, wait)
   }
 }
@@ -256,6 +246,6 @@ window.addEventListener("resize", rotatePiano)
 $(function() {
   listenPianoTouch()
   rotatePiano()
-  hidePiano()
+  handleScroll()
   handleSoftKeyboard()
 })
