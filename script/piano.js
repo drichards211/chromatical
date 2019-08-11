@@ -9,7 +9,7 @@ function colorizePiano() {
   console.log('Rendering piano menu buttons')
   
   /* Make sure the piano isn't hidden */
-  showPiano(true, 400)
+  showPiano(true)
       
   /* Update .html() for piano MENU BUTTONS */
   setTimeout(function() {
@@ -38,7 +38,7 @@ function colorizePiano() {
     renderBorder("hide") /*in index.js*/
   }, 2100)
   
-  /* Replace black & white mini-piano-button with colored version */
+  /* Replace black & white mini-piano-button with colorized version */
   $('#mini-piano-button').html(`
     <input type="image" id="hide-piano" src="assets/images/mini-piano-menu.png"/>`
   )
@@ -174,8 +174,8 @@ function rotatePiano() {
   /* Update .html for VERTICAL piano for mobile landscape viewports */ 
     console.log("Updating html for vertical piano")
     pianoHorizontal = false
-    $('#nav-piano').fadeIn() /* Make sure piano tray is visible before rotating */
-    $('#hide-piano').addClass("hidden")
+    showPiano(true) /* Make sure piano tray is visible before rotating */
+    $('#hide-piano').addClass("hidden") /* Hide the mini-piano-button */
     $("main").addClass("left-piano-margin")
     $("#p-wrapper").removeClass("wrapper-horizontal").addClass("wrapper-vertical")
     $("#nav-piano").removeClass("nav-horizontal").addClass("nav-vertical")
@@ -183,7 +183,7 @@ function rotatePiano() {
   /* Update .html for HORIZONTAL piano */
     console.log("Updating html for horizontal piano")
     pianoHorizontal = true
-    $('#hide-piano').removeClass("hidden")
+    $('#hide-piano').removeClass("hidden") /* Reveal mini-piano-button */
     $("main").removeClass("left-piano-margin")
     $("#p-wrapper").removeClass("wrapper-vertical").addClass("wrapper-horizontal")
     $("#nav-piano").removeClass("nav-vertical").addClass("nav-horizontal")
@@ -241,7 +241,6 @@ function handleSoftKeyboard() {
 }
 
 window.addEventListener("resize", rotatePiano)
-/* window.addEventListener('orientationchange', rotatePiano) */
 
 $(function() {
   listenPianoTouch()

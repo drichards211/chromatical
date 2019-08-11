@@ -4,7 +4,7 @@ let userFormInput = ""
 
 function handleUserNav() {
 /* Handles navigation buttons outside the piano menu */
-  console.log("handleUserNav() runnning")
+  console.log("handleUserNav() running")
   $('#chromatical').click(function(event) {
   /* Loads 'what-is' page when banner clicked */
     event.preventDefault()
@@ -26,7 +26,7 @@ function handleUserNav() {
       }
     })
   $('#home-button').click(function(event) {
-  /* Resets app appearance and behavior to initial state */  
+  /* Resets app appearance and behavior to initial state */
     event.preventDefault()
     console.log("Home button clicked")
     renderHomePage()
