@@ -241,7 +241,7 @@ function renderNewContent(apiName, noteID) {
             <a href=https://www.youtube.com/watch?v=${response.items[i].id.videoId} target="_blank"><h3>${response.items[i].snippet.title}</h3></a>
             <p>${response.items[i].snippet.description}</p>
             </div>
-                     
+            
           </div>
           `)
       }
@@ -257,7 +257,7 @@ function renderNewContent(apiName, noteID) {
         resultsHtml += `
           <a href=${response.items[i].link} data-lity><img src="${response.items[i].link}" onerror="$(this).hide()" alt="${response.items[i].snippet}"></a>`
       }
-           
+      
       /* TEST CODE FOR RENDERING MULTIPLE PAGES */
       /* for (let i = 0; i < 3; i++) {
         let num = 0
@@ -269,7 +269,7 @@ function renderNewContent(apiName, noteID) {
         num++
         imgCount += 10
       } */
-       
+      
       $('.results-container').append(
         `<div class="google-results"><div class="flexbin flexbin-margin">${resultsHtml}</div></div>`)
     } else {

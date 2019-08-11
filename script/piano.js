@@ -7,6 +7,10 @@ function colorizePiano() {
 /* Render and colorize the piano-menu buttons. */
   console.log("colorizePiano() ran")
   console.log('Rendering piano menu buttons')
+  
+  /* Make sure the piano isn't hidden */
+  $('#nav-piano').fadeIn()
+  $('#hide-piano').addClass('hidden')
     
   /* Update .html() for piano MENU BUTTONS */
   setTimeout(function() {
@@ -20,7 +24,7 @@ function colorizePiano() {
         <li><button class="anchor piano-button-large white-color" id="A"><div class="fade-in-text rotate-text text-a" style="display:none">SIMILAR</div></button><span id="Ab"></span></li>
         <li><button class="anchor piano-button-large white-color" id="B"><div class="fade-in-text rotate-text text-b" style="display:none">CONCERTS</div></button><span id="Bb"></span></li>
       </nav>`)
-    }, 1600)
+  }, 1600)
   
   /* Fade-in colors and text for piano menu keys */
   setTimeout(function() {
@@ -34,7 +38,7 @@ function colorizePiano() {
     $("#B").removeClass('white-color').addClass('B-color')
     renderBorder("hide") /*in index.js*/
   }, 2100)
-
+  
   /* Replace black & white mini-piano-button with colored version */
   $('#mini-piano-button').html(`
     <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu.png"/>`
@@ -52,7 +56,7 @@ When user clicks a COLORED piano <button>:
 When user clicks a BLACK piano <span>, just play sound (7). 
 */
   console.log("ListenPianoTouch() running")
-     
+  
   const pianoSounds = {
     C: new Audio("assets/sounds/c5.mp3"), 
     Db: new Audio("assets/sounds/db.mp3"),
@@ -68,7 +72,7 @@ When user clicks a BLACK piano <span>, just play sound (7).
     B: new Audio("assets/sounds/b.mp3"),
     C6: new Audio("assets/sounds/c6.mp3"),
   }
-
+  
   const APINames = {
     C: "wikipedia",
     D: "youtube",
@@ -143,44 +147,46 @@ function resetPianoKeys() {
 function hidePiano() {
 /* Hide HORIZONTAL Piano Tray when scrolling */
   console.log("hidePiano() running")
+  let lastScrollPosition = 0
     $(window).scroll(function(){
-      if (pianoHorizontal === true) {  
-        if ($(window).scrollTop() > 50){
-            console.log("hiding piano")
-            $('#nav-piano').addClass('hidden')
-            $('#hide-piano').removeClass('hidden')
+      let currentScroll = $(this).scrollTop()
+      if (pianoHorizontal === true) {
+        if (currentScroll > lastScrollPosition) {
+        // User is scrolling down:
+          console.log("hiding piano")
+          $('#nav-piano').fadeOut()
+          $('#hide-piano').removeClass('hidden')
         } else {
-           console.log("showing piano")
-            $('#nav-piano').removeClass("hidden")
-            $('#hide-piano').addClass("hidden")
+        // User is scrolling up:
+          console.log("showing piano")
+          $('#nav-piano').fadeIn()
+          $('#hide-piano').addClass("hidden")
         }
+        lastScrollPosition = currentScroll
       }
     })
     $("#p-wrapper").on('click', '#hide-piano', function(event) {
       console.log("manually revealed piano tray")
-      $('#nav-piano').removeClass("hidden")
-      $('#hide-piano').addClass("hidden")  
+      $('#nav-piano').fadeIn()
+      $('#hide-piano').addClass("hidden")
     })  
 }
 
 function rotatePiano() {
 /* Switch between vertical or horizontal menu depending upon viewport */
   console.log("rotatePiano() running")
-  let mediaQuery = window.matchMedia("(max-width: 900px) and (orientation: landscape)")
+  let mediaQuery = window.matchMedia("(max-width: 900px) and (min-width: 568px) and (orientation: landscape)")
   if (mediaQuery.matches) {
   /* Update .html for VERTICAL piano for mobile landscape viewports */ 
     console.log("Updating html for vertical piano")
-    if ($('#nav-piano').attr('class') === "nav-horizontal hidden") {
-    /* If piano tray is hidden, make visible before rotating */
-      $('#nav-piano').removeClass("hidden")
-      $('#hide-piano').addClass("hidden")  
-    }
     pianoHorizontal = false
+    $('#nav-piano').fadeIn() /* Make sure piano tray is visible before rotating */
+    $('#hide-piano').addClass("hidden")
     $("main").addClass("left-piano-margin")
     $("#p-wrapper").removeClass("wrapper-horizontal").addClass("wrapper-vertical")
     $("#nav-piano").removeClass("nav-horizontal").addClass("nav-vertical")
   } else {
-  /* Update .html() for HORIZONTAL piano */
+  /* Update .html for HORIZONTAL piano */
     console.log("Updating html for horizontal piano")
     pianoHorizontal = true
     $("main").removeClass("left-piano-margin")
@@ -189,11 +195,46 @@ function rotatePiano() {
   }
 }
 
+function handleSoftKeyboard() {
+  /* The Android soft keyboard forces a window resize, (unlike the iPhone keyboard which is an overlay). This 
+  function determines when the Android keyboard is active, and hides the piano in portrait mode to prevent obscuring 
+  the input field. */
+  let portrait = window.matchMedia("(orientation: portrait)")
+  let initialOrient = (portrait.matches ? 'portrait' : 'landscape')
+  let initialHeight = window.innerHeight
+  console.log(`Intitial viewport orientation = ${initialOrient}`)
+  console.log(`Intitial viewport height = ${initialHeight}px`)
+  let duckPiano = function() {
+    console.log('Screen resize detected: duckPiano() running')
+    let landscape = window.matchMedia("(orientation: landscape)")
+    let newOrient = (landscape.matches ? 'landscape' : 'portrait')
+    let newHeight = window.innerHeight
+    console.log(`New viewport orientation = ${newOrient}`)
+    console.log(`New viewport height = ${newHeight}px`)
+    if ((/Mobi|Android/i.test(navigator.userAgent)) && (newOrient === initialOrient) && 
+      (newHeight < (initialHeight * .9)) && !(landscape.matches)) {
+    /* If the device is mobile, and the screen orientation hasn't changed, and the current viewport height is 
+    < 90% of initialHeight, the soft-keyboard is likely responsible for resize. 
+    Hide the piano if the screen orientation is portrait: */
+      console.log('Android soft-keyboard detected: ducking the piano')
+      $('#nav-piano').fadeOut()
+      $('#hide-piano').removeClass('hidden')
+    } else {
+    /* The device isn't mobile, or else the resize was caused by rotation or scrolling, not the soft-keyboard. 
+    Update initialOrient and initialHeight values: */
+      initialOrient = newOrient
+      initialHeight = newHeight
+    }
+  }
+  window.addEventListener("resize", duckPiano)
+}
+
 window.addEventListener("resize", rotatePiano)
-window.addEventListener('orientationchange', rotatePiano)
+/* window.addEventListener('orientationchange', rotatePiano) */
 
 $(function() {
   listenPianoTouch()
   rotatePiano()
   hidePiano()
+  handleSoftKeyboard()
 })
