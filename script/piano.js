@@ -147,17 +147,22 @@ function resetPianoKeys() {
 function hidePiano() {
 /* Hide HORIZONTAL Piano Tray when scrolling */
   console.log("hidePiano() running")
+  let lastScrollPosition = 0
     $(window).scroll(function(){
-      if (pianoHorizontal === true) {  
-        if ($(window).scrollTop() > 50){
+      let currentScroll = $(this).scrollTop()
+      if (pianoHorizontal === true) {
+        if (currentScroll > lastScrollPosition) {
+        // User is scrolling down:
           console.log("hiding piano")
           $('#nav-piano').fadeOut()
           $('#hide-piano').removeClass('hidden')
         } else {
+        // User is scrolling up:
           console.log("showing piano")
           $('#nav-piano').fadeIn()
           $('#hide-piano').addClass("hidden")
         }
+        lastScrollPosition = currentScroll
       }
     })
     $("#p-wrapper").on('click', '#hide-piano', function(event) {
