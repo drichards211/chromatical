@@ -32,6 +32,7 @@ Housekeeping:
   * [ ] JavaScript commenting should be reviewed for clarity.
    
 Troubleshooting:
+  * [ ] Fix bug: Piano hides twice while scrolling.
   * [X] Android soft-keyboard pushes fixed design elements upwards. 
     	Update: Unavoidable. Android soft-keyboard resizes browser window by design.
     	Possible work-around: Detect when soft-keyboard is displayed and hide piano menu to re-gain screen real-estate.
