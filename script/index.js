@@ -32,11 +32,16 @@ function handleUserNav() {
     renderHomePage()
   })
   $('#search-term').focus(function(event){
-  /* Hides searchbox marquee, (so the user can input text), and hides the piano, (so the Android soft-keyboard 
-  doesn't obscure the .search-form). */
+  /* Hides searchbox marquee, (so the user can input text).
+  Also hides the piano if the device is mobile and in portrait mode,
+  (so the Android soft-keyboard doesn't obscure the .search-form). */
     event.preventDefault()
-    console.log('Hiding marquee and piano')
-    showPiano(false, 150, 0)
+    let viewport = window.matchMedia("(orientation: portrait)")
+    if ((/Mobi|Android/i.test(navigator.userAgent)) && (viewport.matches)) {
+      console.log('Soft-keyboard detected: ducking the piano')
+      showPiano(false, 150, 0)
+    }
+    console.log('hiding marquee')
     $('#marquee-text').addClass('hidden')
   })
 }
