@@ -269,6 +269,10 @@ input {
 margin-right: 20.36rem;
 }
 
+.soft-keyboard {
+  display: none;
+}
+
 .piano-circle {
   position: relative;
   display: block;
@@ -307,7 +311,9 @@ margin-right: 20.36rem;
 
 /* HIDE THE PIANO MENU ================= */
 #hide-piano {
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  transform: translateX(-50%);
   display: block;
   cursor: pointer;
   height: 5rem;

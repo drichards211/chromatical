@@ -7,6 +7,10 @@ function colorizePiano() {
 /* Render and colorize the piano-menu buttons. */
   console.log("colorizePiano() ran")
   console.log('Rendering piano menu buttons')
+
+  /* Make sure the piano isn't hidden */
+  $('#nav-piano').fadeIn()
+  $('#hide-piano').addClass('hidden')
     
   /* Update .html() for piano MENU BUTTONS */
   setTimeout(function() {
@@ -147,19 +151,19 @@ function hidePiano() {
       if (pianoHorizontal === true) {  
         if ($(window).scrollTop() > 50){
             console.log("hiding piano")
-            $('#nav-piano').addClass('hidden')
+            $('#nav-piano').fadeOut()
             $('#hide-piano').removeClass('hidden')
         } else {
            console.log("showing piano")
-            $('#nav-piano').removeClass("hidden")
+            $('#nav-piano').fadeIn()
             $('#hide-piano').addClass("hidden")
         }
       }
     })
     $("#p-wrapper").on('click', '#hide-piano', function(event) {
       console.log("manually revealed piano tray")
-      $('#nav-piano').removeClass("hidden")
-      $('#hide-piano').addClass("hidden")  
+      $('#nav-piano').fadeIn()
+      $('#hide-piano').addClass("hidden")
     })  
 }
 
@@ -170,17 +174,14 @@ function rotatePiano() {
   if (mediaQuery.matches) {
   /* Update .html for VERTICAL piano for mobile landscape viewports */ 
     console.log("Updating html for vertical piano")
-    if ($('#nav-piano').attr('class') === "nav-horizontal hidden") {
-    /* If piano tray is hidden, make visible before rotating */
-      $('#nav-piano').removeClass("hidden")
-      $('#hide-piano').addClass("hidden")  
-    }
     pianoHorizontal = false
+    $('#nav-piano').fadeIn() /* Make sure piano tray is visible before rotating */
+    $('#hide-piano').addClass("hidden")
     $("main").addClass("left-piano-margin")
     $("#p-wrapper").removeClass("wrapper-horizontal").addClass("wrapper-vertical")
     $("#nav-piano").removeClass("nav-horizontal").addClass("nav-vertical")
   } else {
-  /* Update .html() for HORIZONTAL piano */
+  /* Update .html for HORIZONTAL piano */
     console.log("Updating html for horizontal piano")
     pianoHorizontal = true
     $("main").removeClass("left-piano-margin")
@@ -190,31 +191,41 @@ function rotatePiano() {
 }
 
 function handleSoftKeyboard() {
-  /* The Android soft keyboard forces a window resize, (unlike the iPhone's keyboard which is a simple overlay). This 
-  function determines when the keyboard is active and hides the piano to prevent obscuring the input field. */
+  /* The Android soft keyboard forces a window resize, (unlike the iPhone keyboard which is an overlay). This 
+  function determines when the Android keyboard is active, and hides the piano in portrait mode to prevent obscuring 
+  the input field. */
   let portrait = window.matchMedia("(orientation: portrait)")
   let initialOrient = (portrait.matches ? 'portrait' : 'landscape')
-  console.log(`intitial orient = ${initialOrient}`)
+  let initialHeight = window.innerHeight
+  console.log(`Intitial viewport orientation = ${initialOrient}`)
+  console.log(`Intitial viewport height = ${initialHeight}px`)
   let duckPiano = function() {
-    console.log('duckPiano() running')
+    console.log('Screen resize detected: duckPiano() running')
     let landscape = window.matchMedia("(orientation: landscape)")
     let newOrient = (landscape.matches ? 'landscape' : 'portrait')
-    console.log(`New orient = ${newOrient}`)
-    if ((newOrient === initialOrient) && (/Mobi|Android/i.test(navigator.userAgent))) {
-    /* If the device is mobile and screen orientation hasn't changed, soft-keyboard is responsible for resize: */
-      console.log('mobile device = true')
-      console.log('toggling the piano')
-      // toggle the condition of the piano
+    let newHeight = window.innerHeight
+    console.log(`New viewport orientation = ${newOrient}`)
+    console.log(`New viewport height = ${newHeight}px`)
+    if ((/Mobi|Android/i.test(navigator.userAgent)) && (newOrient === initialOrient) && 
+      (newHeight < (initialHeight * .9)) && !(landscape.matches)) {
+    /* If the device is mobile, and the screen orientation hasn't changed, and the current viewport height is 
+    < 90% of initialHeight, the soft-keyboard is likely responsible for resize. 
+    Hide the piano if the screen orientation is portrait: */
+      console.log('Android soft-keyboard detected: ducking the piano')
+      $('#nav-piano').fadeOut()
+      $('#hide-piano').removeClass('hidden')
     } else {
-    // Screen resize was caused by rotation, not soft-keyboard. Update initialOrient variable:
+    /* The device isn't mobile, or else the resize was caused by rotation or scrolling, not the soft-keyboard. 
+    Update initialOrient and initialHeight values: */
       initialOrient = newOrient
+      initialHeight = newHeight
     }
   }
   window.addEventListener("resize", duckPiano)
 }
 
 window.addEventListener("resize", rotatePiano)
-window.addEventListener('orientationchange', rotatePiano)
+/* window.addEventListener('orientationchange', rotatePiano) */
 
 $(function() {
   listenPianoTouch()
