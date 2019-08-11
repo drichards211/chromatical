@@ -9,9 +9,8 @@ function colorizePiano() {
   console.log('Rendering piano menu buttons')
   
   /* Make sure the piano isn't hidden */
-  $('#nav-piano').fadeIn()
-  $('#hide-piano').addClass('hidden')
-    
+  showPiano(true)
+      
   /* Update .html() for piano MENU BUTTONS */
   setTimeout(function() {
     $(".piano-menu").html(
@@ -39,10 +38,13 @@ function colorizePiano() {
     renderBorder("hide") /*in index.js*/
   }, 2100)
   
-  /* Replace black & white mini-piano-button with colored version */
+  /* Replace black & white mini-piano-button with colorized version */
   $('#mini-piano-button').html(`
-    <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu.png"/>`
+    <input type="image" id="hide-piano" src="assets/images/mini-piano-menu.png"/>`
   )
+  if (pianoHorizontal === false) {
+    $('#hide-piano').addClass('hidden')
+  }
 }
 
 function listenPianoTouch(){ /*
@@ -140,35 +142,30 @@ function resetPianoKeys() {
     <li><div class="anchor"></div><span id="silent"></span></li>`
   )
   $('#mini-piano-button').html(`
-    <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu-bw.png"/>`
+    <input type="image" id="hide-piano" src="assets/images/mini-piano-menu-bw.png"/>`
   )
 }
 
-function hidePiano() {
+function handleScroll() {
 /* Hide HORIZONTAL Piano Tray when scrolling */
-  console.log("hidePiano() running")
+  console.log("handleScroll() running")
   let lastScrollPosition = 0
     $(window).scroll(function(){
       let currentScroll = $(this).scrollTop()
       if (pianoHorizontal === true) {
         if (currentScroll > lastScrollPosition) {
         // User is scrolling down:
-          console.log("hiding piano")
-          $('#nav-piano').fadeOut()
-          $('#hide-piano').removeClass('hidden')
-        } else {
+          showPiano(false)
+        } else if (currentScroll < lastScrollPosition) {
         // User is scrolling up:
-          console.log("showing piano")
-          $('#nav-piano').fadeIn()
-          $('#hide-piano').addClass("hidden")
+          showPiano(true)
         }
         lastScrollPosition = currentScroll
       }
     })
     $("#p-wrapper").on('click', '#hide-piano', function(event) {
-      console.log("manually revealed piano tray")
-      $('#nav-piano').fadeIn()
-      $('#hide-piano').addClass("hidden")
+      console.log("handleScroll() manually revealed piano tray")
+      showPiano(true, 400, 100)
     })  
 }
 
@@ -180,8 +177,8 @@ function rotatePiano() {
   /* Update .html for VERTICAL piano for mobile landscape viewports */ 
     console.log("Updating html for vertical piano")
     pianoHorizontal = false
-    $('#nav-piano').fadeIn() /* Make sure piano tray is visible before rotating */
-    $('#hide-piano').addClass("hidden")
+    showPiano(true) /* Make sure piano tray is visible before rotating */
+    $('#hide-piano').addClass("hidden") /* Hide the mini-piano-button */
     $("main").addClass("left-piano-margin")
     $("#p-wrapper").removeClass("wrapper-horizontal").addClass("wrapper-vertical")
     $("#nav-piano").removeClass("nav-horizontal").addClass("nav-vertical")
@@ -189,52 +186,34 @@ function rotatePiano() {
   /* Update .html for HORIZONTAL piano */
     console.log("Updating html for horizontal piano")
     pianoHorizontal = true
+    $('#hide-piano').removeClass("hidden") /* Reveal mini-piano-button */
     $("main").removeClass("left-piano-margin")
     $("#p-wrapper").removeClass("wrapper-vertical").addClass("wrapper-horizontal")
     $("#nav-piano").removeClass("nav-vertical").addClass("nav-horizontal")
   }
 }
 
-function handleSoftKeyboard() {
-  /* The Android soft keyboard forces a window resize, (unlike the iPhone keyboard which is an overlay). This 
-  function determines when the Android keyboard is active, and hides the piano in portrait mode to prevent obscuring 
-  the input field. */
-  let portrait = window.matchMedia("(orientation: portrait)")
-  let initialOrient = (portrait.matches ? 'portrait' : 'landscape')
-  let initialHeight = window.innerHeight
-  console.log(`Intitial viewport orientation = ${initialOrient}`)
-  console.log(`Intitial viewport height = ${initialHeight}px`)
-  let duckPiano = function() {
-    console.log('Screen resize detected: duckPiano() running')
-    let landscape = window.matchMedia("(orientation: landscape)")
-    let newOrient = (landscape.matches ? 'landscape' : 'portrait')
-    let newHeight = window.innerHeight
-    console.log(`New viewport orientation = ${newOrient}`)
-    console.log(`New viewport height = ${newHeight}px`)
-    if ((/Mobi|Android/i.test(navigator.userAgent)) && (newOrient === initialOrient) && 
-      (newHeight < (initialHeight * .9)) && !(landscape.matches)) {
-    /* If the device is mobile, and the screen orientation hasn't changed, and the current viewport height is 
-    < 90% of initialHeight, the soft-keyboard is likely responsible for resize. 
-    Hide the piano if the screen orientation is portrait: */
-      console.log('Android soft-keyboard detected: ducking the piano')
-      $('#nav-piano').fadeOut()
-      $('#hide-piano').removeClass('hidden')
-    } else {
-    /* The device isn't mobile, or else the resize was caused by rotation or scrolling, not the soft-keyboard. 
-    Update initialOrient and initialHeight values: */
-      initialOrient = newOrient
-      initialHeight = newHeight
-    }
+function showPiano(bool, duration, wait) {
+/* Show or hide the piano */
+  if (bool === true) {
+  /* show the piano */
+    console.log('showPiano() showing piano')
+    setTimeout(function() {
+      $('#nav-piano').fadeIn(duration)
+    }, wait)
+  } else if (bool === false) {
+  /* hide the piano */
+    console.log('showPiano() hiding piano')
+    setTimeout(function() {
+      $('#nav-piano').fadeOut(duration)
+    }, wait)
   }
-  window.addEventListener("resize", duckPiano)
 }
 
 window.addEventListener("resize", rotatePiano)
-/* window.addEventListener('orientationchange', rotatePiano) */
 
 $(function() {
   listenPianoTouch()
   rotatePiano()
-  hidePiano()
-  handleSoftKeyboard()
+  handleScroll()
 })

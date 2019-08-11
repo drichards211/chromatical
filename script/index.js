@@ -4,7 +4,7 @@ let userFormInput = ""
 
 function handleUserNav() {
 /* Handles navigation buttons outside the piano menu */
-  console.log("handleUserNav() runnning")
+  console.log("handleUserNav() running")
   $('#chromatical').click(function(event) {
   /* Loads 'what-is' page when banner clicked */
     event.preventDefault()
@@ -26,15 +26,21 @@ function handleUserNav() {
       }
     })
   $('#home-button').click(function(event) {
-  /* Resets app appearance and behavior to initial state */  
+  /* Resets app appearance and behavior to initial state */
     event.preventDefault()
     console.log("Home button clicked")
     renderHomePage()
   })
   $('#search-term').focus(function(event){
-  /* Hides searchbox marquee */
+  /* Hides searchbox marquee, (so the user can input text).
+  Also hides the piano if the device is mobile and piano is HORIZONTAL
+  (so the Android soft-keyboard doesn't obscure the .search-form). */
     event.preventDefault()
-    console.log('Hiding marquee')
+    if ((/Mobi|Android/i.test(navigator.userAgent)) && (pianoHorizontal === true)) {
+      console.log('Soft-keyboard detected: ducking the piano')
+      showPiano(false, 150, 0)
+    }
+    console.log('hiding marquee')
     $('#marquee-text').addClass('hidden')
   })
 }
@@ -54,6 +60,8 @@ function handleFormInput() {
     if (userFormInput === "") {
       alert('Please enter a search term')
     } else {
+      $('#search-term').blur()
+      showPiano(true, 100, 100) /*in piano.js*/
       performSearch(userFormInput)
     }
   })
@@ -65,6 +73,8 @@ function handleFormInput() {
       if (userFormInput === "") {
         alert('Please enter a search term')
       } else {
+        $('#search-term').blur()
+        showPiano(true, 100, 100) /*in piano.js*/
         showPianoLogo()
         resetPianoKeys() /*in piano.js*/
         renderBorder("hide")
@@ -115,7 +125,7 @@ function showPianoLogo() {
   </div>`
   )
   $('#mini-piano-button').html(`
-    <input type="image" id="hide-piano" class="hidden" src="assets/images/mini-piano-menu-bw.png"/>`
+    <input type="image" id="hide-piano" src="assets/images/mini-piano-menu-bw.png"/>`
   )
 }
 
