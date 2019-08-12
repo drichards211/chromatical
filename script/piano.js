@@ -144,6 +144,9 @@ function resetPianoKeys() {
   $('#mini-piano-button').html(`
     <input type="image" id="hide-piano" src="assets/images/mini-piano-menu-bw.png"/>`
   )
+  if (pianoHorizontal === false) {
+    $('#hide-piano').addClass('hidden')
+  }
 }
 
 function handleScroll() {

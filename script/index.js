@@ -24,24 +24,38 @@ function handleUserNav() {
         renderMiniBanner()
         renderNewContent("chromatical")
       }
-    })
+  })
   $('#home-button').click(function(event) {
   /* Resets app appearance and behavior to initial state */
     event.preventDefault()
     console.log("Home button clicked")
     renderHomePage()
   })
-  $('#search-term').focus(function(event){
-  /* Hides searchbox marquee, (so the user can input text).
-  Also hides the piano if the device is mobile and piano is HORIZONTAL
-  (so the Android soft-keyboard doesn't obscure the .search-form). */
+  $('#search-term').focus(function(event) {
+  /* Hides searchbox marquee, (so the user can input text). Also hides the piano if the device is mobile and piano is 
+  HORIZONTAL, (so the Android soft-keyboard doesn't obscure the .search-form): */
     event.preventDefault()
     if ((/Mobi|Android/i.test(navigator.userAgent)) && (pianoHorizontal === true)) {
       console.log('Soft-keyboard detected: ducking the piano')
-      showPiano(false, 150, 0)
+      showPiano(false, 150, 0) /*in piano.js*/
+      $('#hide-piano').addClass('hidden')
+      $('.col-12').css({'margin-bottom': '0%', 'min-height': 'calc(100vh)'}) /* Prevents visible margin between top of
+      soft-keyboard and bottom of window. */
     }
     console.log('hiding marquee')
     $('#marquee-text').addClass('hidden')
+  })
+  $('#search-term').blur(function(event) {
+  /* Restores HORIZONTAL piano in mobile viewport when focus is removed from search box and soft-keyboard disappears: */
+    event.preventDefault()
+    if ((/Mobi|Android/i.test(navigator.userAgent)) && (pianoHorizontal === true)) {
+      console.log('Soft-keyboard retracted: restoring the piano')
+      showPiano(true, 100, 100) /*in piano.js*/
+      $('#hide-piano').removeClass('hidden')
+      $('.col-12').css({'margin-bottom': '40%', 'min-height': 'calc(100vh - 30px)'}) /* Restores default margins to
+      artificially extend the page height and allow scrolling access to content at the very bottom of pages otherwise 
+      hidden by piano. */
+    }
   })
 }
 
@@ -61,7 +75,6 @@ function handleFormInput() {
       alert('Please enter a search term')
     } else {
       $('#search-term').blur()
-      showPiano(true, 100, 100) /*in piano.js*/
       performSearch(userFormInput)
     }
   })
@@ -74,7 +87,6 @@ function handleFormInput() {
         alert('Please enter a search term')
       } else {
         $('#search-term').blur()
-        showPiano(true, 100, 100) /*in piano.js*/
         showPianoLogo()
         resetPianoKeys() /*in piano.js*/
         renderBorder("hide")
