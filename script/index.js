@@ -32,12 +32,13 @@ function handleUserNav() {
     renderHomePage()
   })
   $('#search-term').focus(function(event) {
-  /* Hides searchbox marquee, (so the user can input text). Also hides the piano if the device is mobile and piano is 
-  HORIZONTAL, (so the Android soft-keyboard doesn't obscure the .search-form): */
+    /* Search box has focus; hide piano if soft-keyboard active, hide marquee */
     event.preventDefault()
+    searchBoxActive = true
     if ((/Mobi|Android/i.test(navigator.userAgent)) && (pianoHorizontal === true)) {
-      console.log('Soft-keyboard detected: ducking the piano')
-      showPiano(false, 150, 0) /*in piano.js*/
+    /* Soft-keyboard is active */
+      console.log('Soft-keyboard detected: hiding the piano')
+      showPiano(false, 150, 0)
       $('#hide-piano').addClass('hidden')
       $('.col-12').css({'margin-bottom': '0%', 'min-height': 'calc(100vh)'}) /* Prevents visible margin between top of
       soft-keyboard and bottom of window. */
@@ -46,15 +47,17 @@ function handleUserNav() {
     $('#marquee-text').addClass('hidden')
   })
   $('#search-term').blur(function(event) {
-  /* Restores HORIZONTAL piano in mobile viewport when focus is removed from search box and soft-keyboard disappears: */
+  /* Search box is no longer in focus; restore piano if hidden */
     event.preventDefault()
+    searchBoxActive = false
     if ((/Mobi|Android/i.test(navigator.userAgent)) && (pianoHorizontal === true)) {
+    /* Soft-keyboard is hidden */
       console.log('Soft-keyboard retracted: restoring the piano')
-      showPiano(true, 100, 100) /*in piano.js*/
-      $('#hide-piano').removeClass('hidden')
-      $('.col-12').css({'margin-bottom': '40%', 'min-height': 'calc(100vh - 30px)'}) /* Restores default margins to
-      artificially extend the page height and allow scrolling access to content at the very bottom of pages otherwise 
-      hidden by piano. */
+      showPiano(true, 100, 100)
+      setTimeout(function() {
+        $('#hide-piano').removeClass('hidden')
+      }, 200)
+      $('.col-12').css({'margin-bottom': '40%', 'min-height': 'calc(100vh - 30px)'}) /* Restores default margins */
     }
   })
 }

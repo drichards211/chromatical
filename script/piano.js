@@ -2,6 +2,7 @@
 
 let activePianoKey = "none"
 let pianoHorizontal = true
+let searchBoxActive = false
 
 function colorizePiano() {
 /* Render and colorize the piano-menu buttons. */
@@ -173,27 +174,35 @@ function handleScroll() {
 }
 
 function rotatePiano() {
-/* Switch between vertical or horizontal menu depending upon viewport */
+/* Switch between vertical or horizontal menu depending upon viewport: */
   console.log("rotatePiano() running")
-  let mediaQuery = window.matchMedia("(max-width: 900px) and (min-width: 568px) and (orientation: landscape)")
-  if (mediaQuery.matches) {
-  /* Update .html for VERTICAL piano for mobile landscape viewports */ 
-    console.log("Updating html for vertical piano")
-    pianoHorizontal = false
-    showPiano(true) /* Make sure piano tray is visible before rotating */
-    $('#hide-piano').addClass("hidden") /* Hide the mini-piano-button */
-    $("main").addClass("left-piano-margin")
-    $("#p-wrapper").removeClass("wrapper-horizontal").addClass("wrapper-vertical")
-    $("#nav-piano").removeClass("nav-horizontal").addClass("nav-vertical")
-  } else {
-  /* Update .html for HORIZONTAL piano */
-    console.log("Updating html for horizontal piano")
-    pianoHorizontal = true
-    $('#hide-piano').removeClass("hidden") /* Reveal mini-piano-button */
-    $("main").removeClass("left-piano-margin")
-    $("#p-wrapper").removeClass("wrapper-vertical").addClass("wrapper-horizontal")
-    $("#nav-piano").removeClass("nav-vertical").addClass("nav-horizontal")
+  let rotate = function() {
+    let mediaQuery = window.matchMedia("(max-width: 900px) and (min-width: 568px) and (orientation: landscape)")
+    if (mediaQuery.matches) {
+    /* Update .html for VERTICAL piano for mobile landscape viewports */ 
+      console.log("Updating html for vertical piano")
+      pianoHorizontal = false
+      showPiano(true) /* Make sure piano tray is visible before rotating */
+      $('#hide-piano').addClass("hidden")
+      $("main").addClass("left-piano-margin")
+      $("#p-wrapper").removeClass("wrapper-horizontal").addClass("wrapper-vertical")
+      $("#nav-piano").removeClass("nav-horizontal").addClass("nav-vertical")
+    } else {
+    /* Update .html for HORIZONTAL piano */
+      console.log("Updating html for horizontal piano")
+      pianoHorizontal = true
+      if ((/Mobi|Android/i.test(navigator.userAgent)) && (searchBoxActive === true)) {
+      /* Soft keyboard is active; keep mini-piano-button hidden */
+      } else {
+        $('#hide-piano').removeClass("hidden")
+      }
+      $("main").removeClass("left-piano-margin")
+      $("#p-wrapper").removeClass("wrapper-vertical").addClass("wrapper-horizontal")
+      $("#nav-piano").removeClass("nav-vertical").addClass("nav-horizontal")
+    }
   }
+  rotate()
+  window.addEventListener("resize", rotate)
 }
 
 function showPiano(bool, duration, wait) {
@@ -212,8 +221,6 @@ function showPiano(bool, duration, wait) {
     }, wait)
   }
 }
-
-window.addEventListener("resize", rotatePiano)
 
 $(function() {
   listenPianoTouch()
