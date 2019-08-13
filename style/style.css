@@ -772,9 +772,3 @@ marquee {
     font-size: 10px;
   }
 }
-@media (hover: hover) and (pointer: fine) {
-/* for-desktop-only: using mouse, touch pad detection to identify */
-  .wrapper-vertical {
-    left: calc(100vw - 21.8rem) !important; /* Prevent desktop vertical scrollbar from covering piano menu */
-  }
-}

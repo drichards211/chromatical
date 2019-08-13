@@ -135,7 +135,8 @@ a {
 .wrapper-vertical { /*DR*/
   position: fixed;
   top: 50%;
-  left: calc(100vw - 20.3rem);
+  left: calc(100vw - (100vw - 100%) - 20.3rem); /* DR - Subtract 100% from 100vw to determine the width of 
+  the scrollbar - prevents scrollbar from overlapping piano menu */
   -webkit-border-radius: 0 0 5px 5px;
   -moz-border-radius: 0 0 5px 5px;
   border-radius: 0 0 5px 5px;
