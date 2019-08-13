@@ -760,3 +760,9 @@ marquee {
       line-height: 22px;
     }
   }
+@media (hover: hover) and (pointer: fine) {
+/* mouse, touch pad -- desktop only */
+  .wrapper-vertical {
+    left: calc(100vw - 21.8rem) !important; /* Prevent desktop vertical scrollbar from covering piano menu */
+  }
+}
