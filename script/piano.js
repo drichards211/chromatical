@@ -142,12 +142,14 @@ function resetPianoKeys() {
     <li><div class="anchor"></div><span id="silent"></span></li>
     <li><div class="anchor"></div><span id="silent"></span></li>`
   )
-  $('#mini-piano-button').html(`
+  setTimeout(function() {
+    $('#mini-piano-button').html(`
     <input type="image" id="hide-piano" src="assets/images/mini-piano-menu-bw.png"/>`
-  )
-  if (pianoHorizontal === false) {
-    $('#hide-piano').addClass('hidden')
-  }
+    )
+    if (pianoHorizontal === false) {
+      $('#hide-piano').addClass('hidden')
+    }
+  }, 200)
 }
 
 function handleScroll() {

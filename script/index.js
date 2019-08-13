@@ -71,7 +71,7 @@ function handleFormInput() {
     if (userFormInput !== "") {
     /* Reset appearance if user performs sequential searches on the home page */
       showPianoLogo()
-      resetPianoKeys() 
+      resetPianoKeys() /*in piano.js*/
     }
     userFormInput = $('#search-term').val()
     if (userFormInput === "") {
@@ -139,9 +139,9 @@ function showPianoLogo() {
     <img src="./assets/images/piano-circle-bw.png" alt="circle piano logo" id="piano-bw" class="fade-out-logo">
   </div>`
   )
-  $('#mini-piano-button').html(`
+  /* $('#mini-piano-button').html(`
     <input type="image" id="hide-piano" src="assets/images/mini-piano-menu-bw.png"/>`
-  )
+  ) */
 }
 
 function renderMiniBanner() {
