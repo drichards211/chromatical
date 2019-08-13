@@ -721,47 +721,59 @@ marquee {
 
 /* SITE-WIDE VIEWPORT RESPONSE ========================== */
 @media only screen and (max-width: 400px) and (orientation: portrait) {
-  /*for-small-phone-portrait-only*/
-    html, body {
-      font-size: 10px;
-    }
-    h1 {
-      font-size: 430%;
-      margin-top: 0rem;
-    }
-    #piano-bw {
-      height: 11rem;
-    }
-    .col-12{
-      padding-left: 6%;
-      padding-right: 6%;
-    }
-    .whatis {
-      line-height: 22px;
-    }
+/* for-small-phone-portrait-only */
+  html, body {
+    font-size: 10px;
   }
-  @media only screen and (max-height: 400px) and (orientation: landscape) {
-  /*for-small-phone-landscape-only*/
-    html, body {
-      font-size: 10px;
-    }
-    h1 {
-      font-size: 430%;
-      margin-top: 0rem;
-    }
-    #piano-bw {
-      height: 11rem;
-    }
-    .col-12{
-      padding-left: 6%;
-      padding-right: 6%;
-    }
-    .whatis {
-      line-height: 22px;
-    }
+  h1 {
+    font-size: 430%;
+    margin-top: 0rem;
   }
+  #piano-bw {
+    height: 11rem;
+  }
+  .col-12{
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+  .whatis {
+    line-height: 22px;
+  }
+}
+@media only screen and (max-height: 400px) and (orientation: landscape) {
+/* for-small-phone-landscape-only */
+  html, body {
+    font-size: 10px;
+  }
+  h1 {
+    font-size: 430%;
+    margin-top: 0rem;
+  }
+  #piano-bw {
+    height: 11rem;
+  }
+  .col-12{
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+  .whatis {
+    line-height: 22px;
+  }
+}
+@media only screen and (max-height: 700px) and (orientation: portrait) {
+/* for-awkward-desktop-browser-sizes */
+  html, body {
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 600px) and (orientation: landscape) {
+/* for-awkward-desktop-browser-sizes */
+  html, body {
+    font-size: 10px;
+  }
+}
 @media (hover: hover) and (pointer: fine) {
-/* mouse, touch pad -- desktop only */
+/* for-desktop-only: using mouse, touch pad detection to identify */
   .wrapper-vertical {
     left: calc(100vw - 21.8rem) !important; /* Prevent desktop vertical scrollbar from covering piano menu */
   }
