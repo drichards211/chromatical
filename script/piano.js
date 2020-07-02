@@ -209,18 +209,26 @@ function rotatePiano() {
 
 function showPiano(bool, duration, wait) {
 /* Show or hide the piano */
+  let fadeTime = duration || 400
+  let waitTime = wait || 100
+  let longWait = wait + 300 || 400
+
   if (bool === true) {
   /* show the piano */
     console.log('showPiano() showing piano')
     setTimeout(function() {
-      $('#nav-piano').fadeIn(duration)
-    }, wait)
+      $('#nav-piano').fadeIn(fadeTime)
+    }, waitTime)
+    $('#mini-piano-button').fadeOut(100)
   } else if (bool === false) {
   /* hide the piano */
     console.log('showPiano() hiding piano')
     setTimeout(function() {
-      $('#nav-piano').fadeOut(duration)
-    }, wait)
+      $('#nav-piano').fadeOut(fadeTime)
+    }, waitTime)
+    setTimeout(function() {
+      $('#mini-piano-button').fadeIn(fadeTime)
+    }, longWait)
   }
 }
 
